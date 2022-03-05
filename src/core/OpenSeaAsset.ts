@@ -1,4 +1,4 @@
-import { WyvernAssetData } from './wyvern/WyvernOrder';
+import { WyvernAssetData } from '../protocols/wyvern';
 import { Trait } from './Trait';
 
 export interface OpenSeaAsset {

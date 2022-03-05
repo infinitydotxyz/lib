@@ -1,5 +1,6 @@
-import { InfinityTweet, InfinityTwitterAccount } from './services/twitter/Tweet';
-import { WyvernTraitWithValues } from './wyvern/WyvernOrder';
+import { WyvernTraitWithValues } from '../protocols/wyvern/TraitWithValues';
+import { InfinityTweet, InfinityTwitterAccount } from '../services/twitter/Tweet';
+import { Links } from './Collection';
 
 export enum OrderSide {
   Buy = 0,
@@ -169,20 +170,8 @@ export interface CollectionStats {
   searchCollectionName?: string;
 }
 
-export interface Links {
-  timestamp: number;
-  twitter?: string;
-  discord?: string;
-  external?: string;
-  medium?: string;
-  slug?: string;
-  telegram?: string;
-  instagram?: string;
-  wiki?: string;
-  facebook?: string;
-}
-
-export interface Order {
+// TODO(sleeyax): fix duplicate with Order
+export interface NftInterfaceOrder {
   id: string;
   blueCheck: boolean;
   howToCall: number;
@@ -229,7 +218,7 @@ export interface TraitItem {
 }
 
 export interface Metadata {
-  asset: Asset;
+  asset: NftInterfaceAsset;
   hasBonusReward: boolean;
   schema: string;
   hasBlueCheck: boolean;
@@ -239,7 +228,8 @@ export interface Metadata {
   chainId: string;
 }
 
-export interface Asset {
+// TODO(sleeyax): fix duplicate Asset interfaces! 
+export interface NftInterfaceAsset {
   id: string;
   address: string;
   quantity: string;
@@ -251,12 +241,12 @@ export interface Asset {
   collectionName: string;
   searchCollectionName?: string;
   searchTitle?: string;
-  traits?: TraitItem[];
+  traits?: TraitItem[]; // TODO(sleeyax): fix duplicate of Trait 
 }
 
 export interface Orders {
   count: number;
-  listings: Order[];
+  listings: NftInterfaceOrder[];
 }
 
 export type BaseCardData = {
@@ -269,7 +259,7 @@ export type BaseCardData = {
   imagePreview?: string;
   price?: number;
   inStock?: number;
-  order?: Order;
+  order?: NftInterfaceOrder;
   tokenAddress?: string;
   tokenId?: string;
   collectionName?: string;
