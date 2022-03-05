@@ -103,14 +103,20 @@ interface BaseCollection {
      * total number of trait_types in the collection
      */
     numTraitTypes: number;
+    indexInitiator: string;
     /**
      *
      */
     state: {
+        version: number;
         create: {
             step: CreationFlow;
+            /**
+             * epoch of when the step/error was last updated
+             */
+            updatedAt: number;
             error?: Record<string, any>;
-            updatedAt?: number;
+            progress: number;
         };
         export: {
             done: boolean;
