@@ -1,4 +1,4 @@
 export interface Trait {
   traitType: string;
-  traitValue: string;
+  traitValue: string | number;
 }
