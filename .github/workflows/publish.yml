@@ -7,7 +7,19 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - name:  'bump version'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          major-wording:  'MAJOR,major,Major'
+          minor-wording:  'Add,add,Adds,adds'
+          patch-wording:  'Patch,patch,Patches,patches,Fixes,fixes,Fix,fix'
+          rc-wording:     'ALPHA,Alpha,alpha,BETA,Beta,beta'
+          default:        patch
+          tag-prefix:     'v'
+          commit-message: 'CI: bump version to {{version}}'
       - uses: actions/setup-node@v1
         with:
           node-version: 16
