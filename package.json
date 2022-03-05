@@ -5,19 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf types && tsc",
+    "build": "rimraf dist && tsc",
     "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infinity-xyz/typescript-types.git"
+    "url": "git+https://github.com/mavriklabs/typescript-types.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/infinity-xyz/typescript-types/issues"
+    "url": "https://github.com/mavriklabs/typescript-types/issues"
   },
-  "homepage": "https://github.com/infinity-xyz/typescript-types#readme",
+  "homepage": "https://github.com/mavriklabs/typescript-types#readme",
   "prettier": {
     "tabWidth": 2,
     "printWidth": 120,
