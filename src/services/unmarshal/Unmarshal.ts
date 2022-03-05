@@ -7,8 +7,8 @@ export interface UnmarshalUserAssetResponse {
 }
 
 export interface UnmarshalNFTAsset {
-  asset_contract?: string;
-  token_id?: string;
+  asset_contract: string;
+  token_id: string;
   owner?: string;
   external_link?: string;
   type?: string;
