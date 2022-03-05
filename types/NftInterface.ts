@@ -1,4 +1,4 @@
-import { InfinityTweet, InfinityTwitterAccount } from '@services/twitter/Twitter';
+import { InfinityTweet, InfinityTwitterAccount } from './services/twitter/Tweet';
 import { WyvernTraitWithValues } from './wyvern/WyvernOrder';
 
 export enum OrderSide {
