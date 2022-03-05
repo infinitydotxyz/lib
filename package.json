@@ -1,11 +1,12 @@
 {
-  "name": "typescript-types",
+  "name": "@infinityxyz/typescript-types",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf types && tsc"
+    "build": "rimraf types && tsc",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
