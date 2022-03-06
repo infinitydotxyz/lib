@@ -5,10 +5,10 @@ export interface ListingMetadata {
   schema: string;
   createdAt: number;
   chainId: string;
-  chain: string;
+  chain?: string;
   asset: OpenSeaAsset;
   hasBlueCheck: boolean;
   basePriceInEth: number;
   listingType: string;
-  isListing: boolean;
+  isListing?: boolean;
 }
