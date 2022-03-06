@@ -1,7 +1,8 @@
 import { WyvernAssetData } from '../protocols/wyvern/WyvernOrder';
+import { Asset } from './Asset';
 import { Trait } from './Trait';
 
-export interface OpenSeaAsset {
+export interface OpenSeaAsset extends Asset {
   title: string;
   traits: Trait[];
   searchTitle: string;
