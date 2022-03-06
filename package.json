@@ -1,6 +1,6 @@
 {
   "name": "@infinityxyz/types",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,9 @@
     "build": "rimraf dist && tsc",
     "prepublish": "npm run build && cp package.json dist && cd dist"
   },
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mavriklabs/typescript-types.git"
