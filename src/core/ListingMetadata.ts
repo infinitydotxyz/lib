@@ -8,7 +8,7 @@ export interface ListingMetadata {
   chain: string;
   asset: OpenSeaAsset;
   hasBlueCheck: boolean;
-  basePriceInEth?: number;
+  basePriceInEth: number;
   listingType?: string;
   isListing: boolean;
 }
