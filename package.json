@@ -1,12 +1,12 @@
 {
   "name": "@infinityxyz/types",
-  "version": "1.0.18",
+  "version": "1.0.17",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && cp package.json dist"
   },
   "files": [
     "dist/**/*"
