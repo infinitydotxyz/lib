@@ -2,17 +2,14 @@
   "name": "@infinityxyz/types",
   "version": "1.0.8",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && tsc && cp package.json ./dist",
+    "build": "rimraf dist && tsc",
     "prepack": "npm run build"
   },
   "files": [
-    "dist/*.js",
-    "dist/**/*.js",
-    "dist/*.d.ts",
-    "dist/**/*.d.ts"
+    "dist"
   ],
   "repository": {
     "type": "git",
