@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-      - uses: JS-DevTools/npm-publish@v1
+      - run: npm publish dist
         with:
           token: ${{ secrets.NPM_TOKEN }}
           access: public

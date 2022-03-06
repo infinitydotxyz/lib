@@ -5,12 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && tsc && cp package.json dist",
-    "prepack": "npm run build"
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build && cp package.json dist"
   },
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mavriklabs/typescript-types.git"
