@@ -23,8 +23,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - run: npm install
-      - run: npm publish dist
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: public
+      - name: Publish
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm install
+          npm publish dist --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
