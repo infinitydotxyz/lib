@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const SRC_DIR = 'src';
+const INDEX_FILE = 'index';
 
 function main() {
   getDirs(path.join(__dirname, SRC_DIR));
@@ -13,8 +14,6 @@ function main() {
 function getDirs(dirPath) {
   const dirs = fs.readdirSync(dirPath).filter((file) => fs.statSync(path.join(dirPath, file)).isDirectory());
   const files = fs.readdirSync(dirPath).filter((file) => fs.statSync(path.join(dirPath, file)).isFile());
-  console.log(`dirs: ${dirs}`);
-  console.log(`files: ${files}`);
   // recurse into subdirs
   dirs.forEach((dir) => {
     getDirs(path.join(dirPath, dir));
@@ -28,10 +27,16 @@ function writeIndexTs(dir, files) {
   const indexFile = path.join(dir, 'index.ts');
   let indexFileContent = '';
   files.forEach((file) => {
+    // ignore previously generated index files
     const baseName = path.basename(file, '.ts');
-    indexFileContent = `export * from './${baseName}';\n`;
+    if (baseName !== INDEX_FILE) {
+      indexFileContent += `export * from './${baseName}';\n`;
+    }
   });
-  fs.writeFileSync(indexFile, indexFileContent);
+  // write only if content is not empty
+  if (indexFileContent) {
+    fs.writeFileSync(indexFile, indexFileContent);
+  }
 }
 
 main();
