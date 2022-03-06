@@ -1,4 +1,4 @@
-import { TokenStandard } from '../../core';
+import { TokenStandard } from '../../core/Token';
 
 export interface schema {
   query: RootQuery;

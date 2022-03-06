@@ -1,4 +1,4 @@
-import { WyvernAssetData } from '../protocols/wyvern';
+import { WyvernAssetData } from '../protocols/wyvern/WyvernOrder';
 import { AlchemyUserAssetResponse, AlchemyUserAsset } from '../services/alchemy/AlchemyUserAsset';
 import { CovalentWalletBalanceItem } from '../services/covalent/CovalentNFTMetadata';
 import { UnmarshalUserAssetResponse, UnmarshalNFTAsset } from '../services/unmarshal/Unmarshal';

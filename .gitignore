@@ -2,3 +2,7 @@ node_modules
 dist
 out
 types
+
+// build output
+*.js
+*.d.ts
