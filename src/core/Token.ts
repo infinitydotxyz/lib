@@ -49,7 +49,7 @@ export enum RefreshTokenFlow {
   Complete = 'complete'
 }
 
-interface BaseToken {
+export interface BaseToken {
   chainId: string;
 
   /**

@@ -75,7 +75,7 @@ export enum CreationFlow {
   Unknown = 'unknown'
 }
 
-interface BaseCollection {
+export interface BaseCollection {
   chainId: string;
 
   address: string;
@@ -157,7 +157,7 @@ interface BaseCollection {
   };
 }
 
-interface TraitValueMetadata {
+export interface TraitValueMetadata {
   /**
    * number of tokens with this trait
    */
