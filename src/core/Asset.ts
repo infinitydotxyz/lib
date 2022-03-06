@@ -15,7 +15,7 @@ export interface Asset {
   title?: string;
   traits?: Trait[];
   titleSlug?: string;
-  traitValues?: string[];
+  traitValues?: (string | number)[];
   numTraits?: number;
   description?: string;
   image?: string;
