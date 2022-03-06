@@ -1,3 +1,5 @@
+import { TokenStandard } from '../../core';
+
 export interface schema {
   query: RootQuery;
 }
@@ -202,11 +204,6 @@ export interface ERC721Contract {
 
   // The symbol of the contract
   symbol: string;
-}
-
-export enum TokenStandard {
-  ERC721 = 'ERC721',
-  ERC1155 = 'ERC1155'
 }
 
 // A contract's stats for a given timeframe

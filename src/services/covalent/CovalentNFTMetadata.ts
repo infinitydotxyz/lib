@@ -1,4 +1,4 @@
-import { WyvernTrait } from '../../wyvern/WyvernOrder';
+import { WyvernTrait } from '../../protocols/wyvern/WyvernOrder';
 import { CovalentPagination } from './CovalentPagination';
 
 export interface CovalentNftMetadata {

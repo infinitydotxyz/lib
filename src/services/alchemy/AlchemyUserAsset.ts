@@ -1,4 +1,4 @@
-import { WyvernTrait } from '../../wyvern/WyvernOrder';
+import { WyvernTrait } from '../../protocols/wyvern/WyvernOrder';
 
 export interface AlchemyUserAssetResponse {
   totalCount: number;

@@ -1,6 +1,11 @@
 import { Trait } from './Trait';
 
 export interface Asset {
+  id?: string;
+  address?: string;
+  quantity?: string;
+  searchCollectionName?: string;
+  searchTitle?: string;
   owner: string;
   collectionAddress: string;
   tokenId: string;

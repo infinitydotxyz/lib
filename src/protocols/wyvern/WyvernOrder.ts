@@ -142,14 +142,6 @@ export interface WyvernTrait {
   max_value?: any;
 }
 
-export interface WyvernTraitWithValues {
-  trait_type: string;
-  trait_count: number;
-  display_type?: string;
-  values: string[];
-  max_value?: any;
-}
-
 export interface WyvernCollection {
   instagram_username?: string;
   large_image_url: string;

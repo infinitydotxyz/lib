@@ -1,5 +1,8 @@
-import { InfinityTweet, InfinityTwitterAccount } from './services/twitter/Tweet';
-import { WyvernTraitWithValues } from './wyvern/WyvernOrder';
+import { WyvernTraitWithValues } from '../protocols/wyvern/TraitWithValues';
+import { InfinityTweet, InfinityTwitterAccount } from '../services/twitter/Tweet';
+import { Asset } from './Asset';
+import { Links } from './Collection';
+import { Order } from './Order';
 
 export enum OrderSide {
   Buy = 0,
@@ -169,63 +172,9 @@ export interface CollectionStats {
   searchCollectionName?: string;
 }
 
-export interface Links {
-  timestamp: number;
-  twitter?: string;
-  discord?: string;
-  external?: string;
-  medium?: string;
-  slug?: string;
-  telegram?: string;
-  instagram?: string;
-  wiki?: string;
-  facebook?: string;
-}
-
-export interface Order {
-  id: string;
-  blueCheck: boolean;
-  howToCall: number;
-  salt: string;
-  feeRecipient: string;
-  staticExtradata: string;
-  quantity: string;
-  staticTarget: string;
-  maker: string;
-  side: number;
-  takerProtocolFee: string;
-  saleKind: number;
-  basePrice: number;
-  metadata: Metadata;
-  extra: string;
-  expirationTime: string;
-  hasBonusReward: boolean;
-  calldata: string;
-  hash: string;
-  r: string;
-  replacementPattern: string;
-  taker: string;
-  takerRelayerFee: string;
-  s: string;
-  makerRelayerFee: string;
-  listingTime: string;
-  target: string;
-  v: number;
-  makerProtocolFee: string;
-  paymentToken: string;
-  feeMethod: number;
-  exchange: string;
-  makerReferrerFee: string;
-}
-
 export enum OrderType {
   BUY,
   SELL
-}
-
-export interface TraitItem {
-  traitType: string;
-  traitValue: string;
 }
 
 export interface Metadata {
@@ -237,21 +186,6 @@ export interface Metadata {
   basePriceInEth: number;
   listingType: string;
   chainId: string;
-}
-
-export interface Asset {
-  id: string;
-  address: string;
-  quantity: string;
-  imagePreview: string;
-  title: string;
-  description: string;
-  image: string;
-  owner: string;
-  collectionName: string;
-  searchCollectionName?: string;
-  searchTitle?: string;
-  traits?: TraitItem[];
 }
 
 export interface Orders {
