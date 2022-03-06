@@ -2,14 +2,14 @@ import { Trait } from './Trait';
 
 export interface Asset {
   id?: string;
-  address: string;
+  address?: string;
   quantity?: string;
   searchCollectionName?: string;
   searchTitle?: string;
-  owner?: string;
-  collectionAddress?: string;
-  tokenId?: string;
-  chainId?: string;
+  owner: string;
+  collectionAddress: string;
+  tokenId: string;
+  chainId: string;
   collectionName?: string;
   collectionNameSlug?: string;
   title?: string;
