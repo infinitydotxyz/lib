@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
-    "prepublish": "npm run build && cp package.json dist"
+    "prepublish": "npm run build && cp package.json dist && cd dist"
   },
   "repository": {
     "type": "git",
