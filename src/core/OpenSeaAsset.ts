@@ -5,7 +5,7 @@ export interface OpenSeaAsset {
   title: string;
   traits: Trait[];
   searchTitle: string;
-  traitValues: string[] | number[];
+  traitValues: (string | number)[];
   numTraits: number;
   rawData: WyvernAssetData;
   collectionName: string;
