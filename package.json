@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && tsc",
-    "prepublish": "npm run build && cp package.json dist"
+    "build": "npm run prepare && rimraf dist && tsc",
+    "prepublish": "npm run build && cp package.json dist",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "semi": true
   },
   "devDependencies": {
+    "husky": "^7.0.4",
     "rimraf": "^3.0.2",
     "typescript": "^4.6.2"
   },

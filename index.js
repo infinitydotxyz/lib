@@ -8,6 +8,7 @@ const SRC_DIR = 'src';
 const INDEX_FILE = 'index';
 
 function main() {
+  console.log('Generating index.ts files...');
   getDirs(path.join(__dirname, SRC_DIR));
 }
 
