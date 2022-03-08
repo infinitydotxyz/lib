@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@infinityxyz/lib",
   "version": "1.6.1",
   "description": "",
