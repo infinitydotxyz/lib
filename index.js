@@ -28,8 +28,8 @@ function writeIndexTs(dir, files) {
   const indexFile = path.join(dir, 'index.ts');
   let indexFileContent = '';
   files.forEach((file) => {
-    // ignore previously generated index files
     const baseName = path.basename(file, '.ts');
+    // ignore index files
     if (baseName !== INDEX_FILE) {
       indexFileContent += `export * from './${baseName}';\n`;
     }
