@@ -27,6 +27,6 @@ jobs:
       - name: Publish
         run: |
           npm install
-          npm publish ./dist
+          npm publish ./dist --access private
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
