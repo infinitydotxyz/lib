@@ -1,5 +1,5 @@
 {
-  "name": "@infinityxyz/types",
+  "name": "@infinityxyz/lib",
   "version": "1.3.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mavriklabs/typescript-types.git"
+    "url": "git+https://github.com/mavriklabs/lib.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mavriklabs/typescript-types/issues"
+    "url": "https://github.com/mavriklabs/lib/issues"
   },
-  "homepage": "https://github.com/mavriklabs/typescript-types#readme",
+  "homepage": "https://github.com/mavriklabs/lib#readme",
   "prettier": {
     "tabWidth": 2,
     "printWidth": 120,
