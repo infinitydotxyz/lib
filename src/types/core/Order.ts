@@ -34,4 +34,5 @@ export interface Order {
   makerRelayerFee: string;
   staticExtradata: string;
   paymentToken: string;
+  chainId?: string;
 }

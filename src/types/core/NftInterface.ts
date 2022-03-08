@@ -170,6 +170,8 @@ export interface CollectionStats {
   name?: string;
   profileImage?: string;
   searchCollectionName?: string;
+  chainId?: string;
+  slig?: string;
 }
 
 export enum OrderType {
