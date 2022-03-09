@@ -14,3 +14,8 @@ export interface SellOrder extends MarketOrder {
   collection: string;
   price: number;
 }
+
+export interface BuyOrderMatch {
+  buyOrder: BuyOrder;
+  sellOrders: SellOrder[];
+}
