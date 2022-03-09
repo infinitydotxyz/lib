@@ -2,7 +2,7 @@ export function jsonString(obj?: object) {
   return JSON.stringify(obj, null, 2);
 }
 
-export function getSearchFriendlyString(input: string) {
+export function getSearchFriendlyString(input?: string) {
   if (!input) {
     return '';
   }
@@ -11,7 +11,7 @@ export function getSearchFriendlyString(input: string) {
   return output.toLowerCase();
 }
 
-export function trimLowerCase(str: string) {
+export function trimLowerCase(str?: string) {
   return (str || '').trim().toLowerCase();
 }
 
