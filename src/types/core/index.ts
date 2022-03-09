@@ -7,6 +7,7 @@ export * from './InfinityOrderData';
 export * from './Listing';
 export * from './ListingMetadata';
 export * from './ListingResponse';
+export * from './MarketTypes';
 export * from './Metadata';
 export * from './NftInterface';
 export * from './OpenSeaAsset';
