@@ -10,6 +10,7 @@ export interface BuyOrder extends MarketOrder {
 }
 
 export interface SellOrder extends MarketOrder {
+  user: string;
   nftAddress: string;
   collection: string;
   price: number;
