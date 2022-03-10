@@ -1,18 +1,20 @@
 export interface MarketOrder {
   user: string;
   expiration: number;
+  chainId: string;
 }
 
 export interface BuyOrder extends MarketOrder {
-  collections: string[];
+  collectionAddresses: string[];
   minNFTs: number;
   budget: number;
 }
 
 export interface SellOrder extends MarketOrder {
-  address: string;
-  name: string;
-  collection: string;
+  tokenId: string;
+  tokenName: string;
+  collectionAddress: string;
+  collectionName: string;
   price: number;
 }
 
