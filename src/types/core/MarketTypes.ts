@@ -1,4 +1,6 @@
 export interface MarketOrder {
+  // firebase id
+  id?: string;
   user: string;
   expiration: number;
   chainId: string;
@@ -21,4 +23,20 @@ export interface SellOrder extends MarketOrder {
 export interface BuyOrderMatch {
   buyOrder: BuyOrder;
   sellOrders: SellOrder[];
+}
+
+export type MarketOrderType = 'sellOrders' | 'buyOrders';
+export type MarketActionType = 'list' | 'add' | 'delete' | 'move';
+export type MarketListIdType = 'validActive' | 'validInactive' | 'invalid';
+
+export interface MarketListingsBody {
+  orderType: MarketOrderType;
+  action: MarketActionType;
+  listId?: MarketListIdType;
+  moveListId?: MarketListIdType;
+}
+
+export interface MarketListingsResponse {
+  result: MarketOrder[];
+  error: string;
 }
