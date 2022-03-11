@@ -50,8 +50,14 @@ export const orderHash = (obj: MarketOrder): string => {
 
   // we don't want the id part of the hash
   copy.id = undefined;
+  let data = '';
 
-  const data = JSON.stringify(copy);
+  // JSON.stringify can have different results depending on order of keys
+  // sort keys first
+  const keys = Object.keys(copy).sort();
+  for (const key of keys) {
+    data += `${key}: ${copy[key]}`;
+  }
 
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 };
