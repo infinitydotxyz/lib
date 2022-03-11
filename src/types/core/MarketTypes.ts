@@ -49,7 +49,7 @@ export const orderHash = (obj: MarketOrder): string => {
   const copy = JSON.parse(JSON.stringify(obj));
 
   // we don't want the id part of the hash
-  delete copy.id;
+  copy.id = undefined;
 
   const data = JSON.stringify(copy);
 
