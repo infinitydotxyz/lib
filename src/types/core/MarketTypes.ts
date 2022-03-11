@@ -45,7 +45,7 @@ export interface MarketListingsResponse {
   error: string;
 }
 
-export const hashOrder = (obj: MarketOrder): string => {
+export const orderHash = (obj: MarketOrder): string => {
   const copy = JSON.parse(JSON.stringify(obj));
 
   // we don't want the id part of the hash
@@ -62,7 +62,7 @@ export const isOrderEqual = (a: MarketOrder, b: MarketOrder): boolean => {
     return a.id === b.id;
   }
 
-  return hashOrder(a) === hashOrder(b);
+  return orderHash(a) === orderHash(b);
 };
 
 export const isBuyOrder = (obj: any): obj is BuyOrder => {
