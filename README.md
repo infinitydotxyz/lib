@@ -8,4 +8,6 @@ To add a new type or util, just create a `.ts` file in an approproate location a
 
 Pushing to `main` bumps the patch version number in `package.json` file which triggers a new `npm publish` via a `Github Action`.
 
-Once the new package is available run `npm update` or `npm run update:lib` in other repos to fetch latest changes. `npm run update:lib` also runs as part of `npm run dev` and `npm run build`.
+# Usage
+
+From other repos, wait for the new package is available, run `npm update` or `npm run update:lib` to fetch latest changes. `npm run update:lib` also runs as part of `npm run dev` and `npm run build`.

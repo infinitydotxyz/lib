@@ -1,6 +1,7 @@
 export * from './Asset';
 export * from './AssetResponse';
 export * from './Collection';
+export * from './CollectionResponse';
 export * from './Follows';
 export * from './Historical';
 export * from './InfinityOrderData';
