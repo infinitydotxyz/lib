@@ -28,18 +28,20 @@ export interface BuyOrderMatch {
 }
 
 export type MarketOrderType = 'sellOrders' | 'buyOrders';
-export type MarketActionType = 'list' | 'add' | 'delete' | 'move';
+export type MarketActionType = 'list' | 'delete' | 'move';
 export type MarketListIdType = 'validActive' | 'validInactive' | 'invalid';
 
 export interface MarketListingsBody {
   orderType: MarketOrderType;
   action: MarketActionType;
   listId?: MarketListIdType;
+  orderId?: string; // delete and move
   moveListId?: MarketListIdType;
 }
 
 export interface MarketListingsResponse {
   result: MarketOrder[];
+  success: string;
   error: string;
 }
 
