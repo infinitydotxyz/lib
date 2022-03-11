@@ -43,21 +43,21 @@ export interface MarketListingsResponse {
   error: string;
 }
 
-export const hashOrder = (obj: any): string => {
+export const hashOrder = (obj: MarketOrder): string => {
   const copy = JSON.parse(JSON.stringify(obj));
 
   // we don't want the id part of the hash
-  copy['id'].delete();
+  delete copy.id;
 
   const data = JSON.stringify(copy);
 
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 };
 
-export const isOrderEqual = (a: any, b: any): boolean => {
+export const isOrderEqual = (a: MarketOrder, b: MarketOrder): boolean => {
   // use ids if set
-  if (a['id'] && b['id']) {
-    return a['id'] === b['id'];
+  if (a.id && b.id) {
+    return a.id === b.id;
   }
 
   return hashOrder(a) === hashOrder(b);
