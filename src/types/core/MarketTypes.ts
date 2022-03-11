@@ -64,3 +64,11 @@ export const isOrderEqual = (a: MarketOrder, b: MarketOrder): boolean => {
 
   return hashOrder(a) === hashOrder(b);
 };
+
+export const isBuyOrder = (obj: any): obj is BuyOrder => {
+  return !isSellOrder(obj);
+};
+
+export const isSellOrder = (obj: any): obj is SellOrder => {
+  return obj.price !== undefined;
+};
