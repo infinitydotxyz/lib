@@ -44,10 +44,21 @@ export interface MarketListingsResponse {
 }
 
 export const hashOrder = (obj: any): string => {
-  const data = JSON.stringify(obj);
+  const copy = JSON.parse(JSON.stringify(obj));
+
+  // we don't want the id part of the hash
+  copy['id'].delete();
+
+  const data = JSON.stringify(copy);
+
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 };
 
 export const isOrderEqual = (a: any, b: any): boolean => {
+  // use ids if set
+  if (a['id'] && b['id']) {
+    return a['id'] === b['id'];
+  }
+
   return hashOrder(a) === hashOrder(b);
 };
