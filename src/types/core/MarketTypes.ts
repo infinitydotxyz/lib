@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 export interface MarketOrder {
   // firebase id
   id?: string;
@@ -40,3 +42,12 @@ export interface MarketListingsResponse {
   result: MarketOrder[];
   error: string;
 }
+
+export const hashOrder = (obj: any): string => {
+  const data = JSON.stringify(obj);
+  return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
+};
+
+export const isOrderEqual = (a: any, b: any): boolean => {
+  return hashOrder(a) === hashOrder(b);
+};
