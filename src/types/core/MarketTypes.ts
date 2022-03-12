@@ -31,7 +31,7 @@ export interface BuyOrderMatch {
 // API parameter and response types (/marketListings)
 
 export type MarketOrderType = 'sellOrders' | 'buyOrders';
-export type MarketActionType = 'list' | 'delete' | 'move' | 'match';
+export type MarketActionType = 'list' | 'delete' | 'move' | 'match' | 'buy';
 export type MarketListIdType = 'validActive' | 'validInactive' | 'invalid';
 
 export interface MarketListingsBody {
