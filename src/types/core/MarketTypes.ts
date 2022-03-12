@@ -76,5 +76,9 @@ export const isBuyOrder = (obj: any): obj is BuyOrder => {
 };
 
 export const isSellOrder = (obj: any): obj is SellOrder => {
-  return obj.price !== undefined;
+  if (obj) {
+    return obj.price !== undefined;
+  }
+
+  return false;
 };
