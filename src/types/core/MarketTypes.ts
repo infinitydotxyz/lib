@@ -27,8 +27,11 @@ export interface BuyOrderMatch {
   sellOrders: SellOrder[];
 }
 
+// ===============================================
+// API parameter and response types (/marketListings)
+
 export type MarketOrderType = 'sellOrders' | 'buyOrders';
-export type MarketActionType = 'list' | 'delete' | 'move';
+export type MarketActionType = 'list' | 'delete' | 'move' | 'match';
 export type MarketListIdType = 'validActive' | 'validInactive' | 'invalid';
 
 export interface MarketListingsBody {
@@ -40,10 +43,33 @@ export interface MarketListingsBody {
 }
 
 export interface MarketListingsResponse {
-  result: MarketOrder[];
+  buyOrders: BuyOrder[];
+  sellOrders: SellOrder[];
+  matches: BuyOrderMatch[];
   success: string;
   error: string;
 }
+
+// ===============================================
+// API parameter and response types (/:user/market)
+
+export interface TradeBody {
+  buyOrder?: BuyOrder;
+  sellOrder?: SellOrder;
+}
+
+export interface TradeReq {
+  user?: string;
+}
+
+export interface TradeResponse {
+  matches: BuyOrderMatch[];
+  success: string;
+  error: string;
+}
+
+// ===============================================
+// Utilities
 
 export const orderHash = (obj: MarketOrder): string => {
   const copy = JSON.parse(JSON.stringify(obj));
