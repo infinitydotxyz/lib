@@ -108,3 +108,13 @@ export const isSellOrder = (obj: any): obj is SellOrder => {
 
   return false;
 };
+
+export const isOrderExpired = (order: MarketOrder): boolean => {
+  // special case of never expire
+  if (order.expiration === 0) {
+    return false;
+  }
+
+  const utcSecondsSinceEpoch = Math.round(Date.now() / 1000);
+  return order.expiration <= utcSecondsSinceEpoch;
+};
