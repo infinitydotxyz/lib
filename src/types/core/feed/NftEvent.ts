@@ -62,11 +62,3 @@ export interface NftSaleEvent extends ExchangeEvent {
 export interface BatchNftSaleEvent extends BatchExchangeEvent<NftData> {
   type: FeedEventType.NftBatchSale;
 }
-
-export interface NftListingEvent extends ExchangeEvent {
-  type: FeedEventType.NftListing;
-}
-
-export interface NftOfferEvent extends ExchangeEvent {
-  type: FeedEventType.NftOffer;
-}
