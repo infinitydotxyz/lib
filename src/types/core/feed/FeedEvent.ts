@@ -2,7 +2,9 @@ export enum FeedEventType {
   NftSale = 'NFT_SALE',
   NftListing = 'NFT_LISTING',
   NftOffer = 'NFT_OFFER',
-  NftTransfer = 'NFT_Transfer'
+  NftTransfer = 'NFT_TRANSFER',
+  NftLike = 'NFT_LIKE',
+  NftFavorite = 'NFT_FAVORITE'
 }
 
 export interface BaseFeedEvent {
@@ -25,4 +27,3 @@ export interface BaseFeedEvent {
    */
   timestamp: number;
 }
-

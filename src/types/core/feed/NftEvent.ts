@@ -8,12 +8,9 @@ import { FeedEventType } from './FeedEvent';
  * listing
  * offer
  * transfer
- * --------
- * TODO what about
- * listing expired ?
- * listing about to expire ?
- * offer expired ?
- * offer about to expire ?
+ *
+ * favorite
+ * likes
  */
 
 interface BaseNftEvent extends BaseCollectionEvent {
@@ -67,4 +64,9 @@ export interface NftOfferEvent extends TransactionEvent {
 
 export interface NftTransfer extends ExchangeEvent {
   type: FeedEventType.NftTransfer;
+}
+
+export interface NftLike extends BaseNftEvent {
+    type: FeedEventType.NftLike;
+
 }
