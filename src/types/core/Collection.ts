@@ -184,6 +184,11 @@ export interface CollectionMetadata {
   profileImage: string;
   bannerImage: string;
   links: Links;
+  benefits?: string[];
+  partnerships?: Array<{
+      name: string;
+      link: string;
+  }>;
   displayType?: string;
 }
 
