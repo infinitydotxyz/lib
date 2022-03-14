@@ -1,5 +1,6 @@
 import { TokenStandard } from './Token';
 import { DisplayType } from './Metadata';
+import { CollectionIntegrations } from './NftInterface';
 
 export type Collection = Erc721Collection | Erc1155Collection;
 export interface Erc721Collection extends BaseCollection {
@@ -189,6 +190,7 @@ export interface CollectionMetadata {
       name: string;
       link: string;
   }>;
+  integrations?: CollectionIntegrations;
   displayType?: string;
 }
 
