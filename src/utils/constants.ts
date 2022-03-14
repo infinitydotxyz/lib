@@ -36,7 +36,9 @@ export const firestoreConstants = {
   ADMINS_DOC: 'admins',
 
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
-  USER_FOLLOWS_COLL: 'userFollows'
+  USER_FOLLOWS_COLL: 'userFollows',
+  SELL_ORDERS_COLL: 'sellOrders',
+  BUY_ORDERS_COLL: 'buyOrders'
 };
 
 export const WYVERN_EXCHANGE_ADDRESS = '0x7f268357a8c2552623316e2562d90e642bb538e5';
