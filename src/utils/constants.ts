@@ -8,6 +8,7 @@ const getEnvironmentVariable = (name: string, required = true) => {
 
 export const firestoreConstants = {
   COLLECTIONS_COLL: 'collections',
+  COLLECTION_DATA_COLL: 'data',
   USERS_COLL: 'users',
   LISTINGS_COLL: 'listings',
   OFFERS_COLL: 'offers',
@@ -22,7 +23,8 @@ export const firestoreConstants = {
   MENTIONS_COLL: 'mentions',
   HISTORICAL_COLL: 'historical',
   VOTES_COLL: 'votes',
-  COLLECTION_STATS_COLL: 'stats',
+  COLLECTION_STATS_COLL: 'collectionStats',
+  NFT_STATS_COLL: 'nftStats',
   COLLECTION_LINKS_DOC: 'links',
   COLLECTION_OPENSEA_STATS_DOC: 'opensea',
   COLLECTION_SOCIALS_COLL: 'socials',
