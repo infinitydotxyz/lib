@@ -27,8 +27,11 @@ export interface BuyOrderMatch {
   sellOrders: SellOrder[];
 }
 
+// ===============================================
+// API parameter and response types (/marketListings)
+
 export type MarketOrderType = 'sellOrders' | 'buyOrders';
-export type MarketActionType = 'list' | 'delete' | 'move';
+export type MarketActionType = 'list' | 'delete' | 'move' | 'match' | 'buy';
 export type MarketListIdType = 'validActive' | 'validInactive' | 'invalid';
 
 export interface MarketListingsBody {
@@ -40,10 +43,33 @@ export interface MarketListingsBody {
 }
 
 export interface MarketListingsResponse {
-  result: MarketOrder[];
+  buyOrders: BuyOrder[];
+  sellOrders: SellOrder[];
+  matches: BuyOrderMatch[];
   success: string;
   error: string;
 }
+
+// ===============================================
+// API parameter and response types (/:user/market)
+
+export interface TradeBody {
+  buyOrder?: BuyOrder;
+  sellOrder?: SellOrder;
+}
+
+export interface TradeReq {
+  user?: string;
+}
+
+export interface TradeResponse {
+  matches: BuyOrderMatch[];
+  success: string;
+  error: string;
+}
+
+// ===============================================
+// Utilities
 
 export const orderHash = (obj: MarketOrder): string => {
   const copy = JSON.parse(JSON.stringify(obj));
@@ -76,5 +102,19 @@ export const isBuyOrder = (obj: any): obj is BuyOrder => {
 };
 
 export const isSellOrder = (obj: any): obj is SellOrder => {
-  return obj.price !== undefined;
+  if (obj) {
+    return obj.price !== undefined;
+  }
+
+  return false;
+};
+
+export const isOrderExpired = (order: MarketOrder): boolean => {
+  // special case of never expire
+  if (order.expiration === 0) {
+    return false;
+  }
+
+  const utcSecondsSinceEpoch = Math.round(Date.now() / 1000);
+  return order.expiration <= utcSecondsSinceEpoch;
 };
