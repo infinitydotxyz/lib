@@ -24,6 +24,7 @@ export const firestoreConstants = {
   HISTORICAL_COLL: 'historical',
   VOTES_COLL: 'votes',
   COLLECTION_STATS_COLL: 'collectionStats',
+  COLLECTION_NFTS_COLL: 'nfts',
   NFT_STATS_COLL: 'nftStats',
   COLLECTION_LINKS_DOC: 'links',
   COLLECTION_OPENSEA_STATS_DOC: 'opensea',
