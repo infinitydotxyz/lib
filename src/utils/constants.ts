@@ -35,10 +35,13 @@ export const firestoreConstants = {
   CREATOR_DOC: 'creator',
   ADMINS_DOC: 'admins',
 
+  FEED_COLL: 'feed',
+
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
   USER_FOLLOWS_COLL: 'userFollows',
   SELL_ORDERS_COLL: 'sellOrders',
   BUY_ORDERS_COLL: 'buyOrders'
+
 };
 
 export const WYVERN_EXCHANGE_ADDRESS = '0x7f268357a8c2552623316e2562d90e642bb538e5';
