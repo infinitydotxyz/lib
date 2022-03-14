@@ -181,11 +181,11 @@ export interface CollectionStats {
   /**
    * List of channels to monitor for feed data.
    */
-  channels: string[];
+  channels?: string[];
 }
 
 export interface CollectionIntegrations {
-  discord: DiscordIntegration;
+  discord?: DiscordIntegration;
 }
 
 export enum OrderType {
