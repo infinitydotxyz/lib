@@ -51,7 +51,11 @@ export interface CollectionInfo {
   discordSnippet?: DiscordSnippet;
 }
 
-export type CollectionData = CollectionInfo & { links?: Links; stats?: CollectionStats };
+export type CollectionData = CollectionInfo & {
+  links?: Links;
+  stats?: CollectionStats;
+  integrations?: CollectionIntegrations;
+}
 
 export type EditableCollectionData = Pick<
   CollectionData,
@@ -172,6 +176,20 @@ export interface CollectionStats {
   searchCollectionName?: string;
   chainId?: string;
   slig?: string;
+}
+
+/**
+ * Integration with infinity.xyz discord bot.
+ */
+ export interface DiscordIntegration {
+  /**
+   * List of channels to monitor for feed data.
+   */
+  channels: string[];
+}
+
+export interface CollectionIntegrations {
+  discord: DiscordIntegration;
 }
 
 export enum OrderType {
