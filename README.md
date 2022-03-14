@@ -1,6 +1,6 @@
 # lib
 
-This repo contains the types and common utils used across different infinity repos. These are deployed as an `npm package: @infinityxyz/lib`.
+This repo contains the types and common utils used across different infinity repos. These are deployed as an npm package: `@infinityxyz/lib`.
 
 To add a new type or util, just create a `.ts` file in an approproate location and push to `main` branch (or raise a PR).
 
