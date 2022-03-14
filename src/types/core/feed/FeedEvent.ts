@@ -1,10 +1,11 @@
 export enum FeedEventType {
+  /**
+   * NFT EVENTS
+   */
   NftSale = 'NFT_SALE',
+  NftBatchSale = 'NFT_BATCH_SALE',
   NftListing = 'NFT_LISTING',
   NftOffer = 'NFT_OFFER',
-  NftTransfer = 'NFT_TRANSFER',
-  NftLike = 'NFT_LIKE',
-  NftFavorite = 'NFT_FAVORITE'
 }
 
 export interface BaseFeedEvent {

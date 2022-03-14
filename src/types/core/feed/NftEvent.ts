@@ -1,26 +1,23 @@
-import { BaseCollectionEvent } from './CollectionEvent';
+import { SaleSource } from '../NftSale';
+import { TokenStandard } from '../Token';
+import { BaseBatchCollectionEvent, BaseCollectionEvent, CollectionEvent } from './CollectionEvent';
 import { FeedEventType } from './FeedEvent';
 
 /**
- * nft event types
- *
- * sale
- * listing
- * offer
- * transfer
- *
- * favorite
- * likes
+ * data needed for each nft event
  */
-
-interface BaseNftEvent extends BaseCollectionEvent {
+interface NftData extends CollectionEvent {
   tokenId: string;
+
+  image: string;
 
   /**
    * internal link to the nft
    */
   internalUrl: string;
 }
+
+interface BaseNftEvent extends BaseCollectionEvent, NftData {}
 
 /**
  * represent an exchange of an nft from one wallet/user to another
@@ -34,39 +31,42 @@ interface ExchangeEvent extends BaseNftEvent {
 
   sellerDisplayName?: string;
 
+  price: number;
+
+  /**
+   * payment token address
+   */
+  paymentToken: string;
+
+  source: SaleSource;
+
+  tokenType: TokenStandard;
+
   /**
    * etherscan link
    */
   externalLink: string;
+
+  txHash: string;
 }
 
-interface TransactionEvent extends ExchangeEvent {
-  /**
-   *  TODO price in ETH ? what about other tokens
-   */
-  price: number;
-}
+type BatchExchangeEvent<T extends NftData> = BaseBatchCollectionEvent<T>;
 
 /**
  * -------- NFT Events --------
  */
-export interface NftSaleEvent extends TransactionEvent {
+export interface NftSaleEvent extends ExchangeEvent {
   type: FeedEventType.NftSale;
 }
 
-export interface NftListingEvent extends TransactionEvent {
+export interface BatchNftSaleEvent extends BatchExchangeEvent<NftData> {
+  type: FeedEventType.NftBatchSale;
+}
+
+export interface NftListingEvent extends ExchangeEvent {
   type: FeedEventType.NftListing;
 }
 
-export interface NftOfferEvent extends TransactionEvent {
+export interface NftOfferEvent extends ExchangeEvent {
   type: FeedEventType.NftOffer;
-}
-
-export interface NftTransfer extends ExchangeEvent {
-  type: FeedEventType.NftTransfer;
-}
-
-export interface NftLike extends BaseNftEvent {
-    type: FeedEventType.NftLike;
-
 }
