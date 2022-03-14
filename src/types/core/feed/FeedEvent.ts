@@ -27,4 +27,8 @@ export interface BaseFeedEvent {
    * epoch timestamp in ms
    */
   timestamp: number;
+
+  internalUrl?: string;
+
+  externalUrl?: string;
 }

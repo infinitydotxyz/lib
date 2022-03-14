@@ -4,10 +4,9 @@ export interface CollectionEvent {
   chainId: string;
   collectionAddress: string;
 
-  /**
-   * internal link to the collection
-   */
-  internalUrl: string;
+  name: string;
+
+  slug: string;
 }
 
 export type BaseCollectionEvent = BaseFeedEvent & CollectionEvent;

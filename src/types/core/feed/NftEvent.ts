@@ -10,11 +10,6 @@ interface NftData extends CollectionEvent {
   tokenId: string;
 
   image: string;
-
-  /**
-   * internal link to the nft
-   */
-  internalUrl: string;
 }
 
 interface BaseNftEvent extends BaseCollectionEvent, NftData {}
@@ -42,12 +37,9 @@ interface ExchangeEvent extends BaseNftEvent {
 
   tokenType: TokenStandard;
 
-  /**
-   * etherscan link
-   */
-  externalLink: string;
-
   txHash: string;
+
+  quantity: number;
 }
 
 type BatchExchangeEvent<T extends NftData> = BaseBatchCollectionEvent<T>;
