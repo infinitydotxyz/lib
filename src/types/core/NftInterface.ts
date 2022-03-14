@@ -57,11 +57,6 @@ export type CollectionData = CollectionInfo & {
   integrations?: CollectionIntegrations;
 }
 
-export type EditableCollectionData = Pick<
-  CollectionData,
-  'profileImage' | 'name' | 'description' | 'benefits' | 'partnerships' | 'links'
->;
-
 export interface UpdateCollectionDataRequest {
   profileImage: {
     /**
@@ -84,6 +79,7 @@ export interface UpdateCollectionDataRequest {
   telegram: string;
   benefits: string[];
   partnerships: Array<{ name: string; link: string }>;
+  integrations: CollectionIntegrations;
 }
 
 export interface TwitterSnippet {
