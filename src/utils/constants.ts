@@ -27,7 +27,6 @@ export const firestoreConstants = {
   NFT_STATS_COLL: 'nftStats',
   COLLECTION_LINKS_DOC: 'links',
   COLLECTION_OPENSEA_STATS_DOC: 'opensea',
-  COLLECTION_SOCIALS_COLL: 'socials',
   COLLECTION_TWITTER_DOC: 'twitter',
   COLLECTION_DISCORD_DOC: 'discord',
   AUTH_COLL: 'auth',
