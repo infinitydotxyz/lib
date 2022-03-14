@@ -179,6 +179,11 @@ export interface CollectionStats {
  */
  export interface DiscordIntegration {
   /**
+   * Id of the discord server that is linked to this collection.
+   */
+  guildId?: string;
+
+  /**
    * List of channels to monitor for feed data.
    */
   channels?: string[];
