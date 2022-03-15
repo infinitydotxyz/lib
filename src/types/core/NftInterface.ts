@@ -55,7 +55,12 @@ export type CollectionData = CollectionInfo & {
   links?: Links;
   stats?: CollectionStats;
   integrations?: CollectionIntegrations;
-}
+};
+
+export type EditableCollectionData = Pick<
+  CollectionData,
+  'profileImage' | 'name' | 'description' | 'benefits' | 'partnerships' | 'links'
+>;
 
 export interface UpdateCollectionDataRequest {
   profileImage: {
@@ -177,7 +182,7 @@ export interface CollectionStats {
 /**
  * Integration with infinity.xyz discord bot.
  */
- export interface DiscordIntegration {
+export interface DiscordIntegration {
   /**
    * Id of the discord server that is linked to this collection.
    */
