@@ -11,7 +11,7 @@ export enum FeedEventType {
 export interface BaseFeedEvent {
   type: FeedEventType;
 
-  title: string;
+  title?: string;
 
   /**
    * number of likes of the event
