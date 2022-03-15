@@ -35,7 +35,7 @@ interface ExchangeEvent extends BaseNftEvent {
 
   source: SaleSource;
 
-  tokenType: TokenStandard;
+  tokenStandard: TokenStandard;
 
   txHash: string;
 
