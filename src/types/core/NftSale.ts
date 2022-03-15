@@ -18,5 +18,5 @@ export interface NftSale {
   seller: string;
   quantity: number;
   source: SaleSource;
-  tokenType: TokenStandard;
+  tokenStandard: TokenStandard;
 }
