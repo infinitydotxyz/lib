@@ -1,6 +1,6 @@
 import { SaleSource } from '../NftSale';
 import { TokenStandard } from '../Token';
-import { BaseBatchCollectionEvent, BaseCollectionEvent, CollectionEvent } from './CollectionEvent';
+import { BaseCollectionEvent, CollectionEvent } from './CollectionEvent';
 import { FeedEventType } from './FeedEvent';
 
 /**
@@ -42,15 +42,9 @@ interface ExchangeEvent extends BaseNftEvent {
   quantity: number;
 }
 
-type BatchExchangeEvent<T extends NftData> = BaseBatchCollectionEvent<T>;
-
 /**
  * -------- NFT Events --------
  */
 export interface NftSaleEvent extends ExchangeEvent {
   type: FeedEventType.NftSale;
-}
-
-export interface BatchNftSaleEvent extends BatchExchangeEvent<NftData> {
-  type: FeedEventType.NftBatchSale;
 }
