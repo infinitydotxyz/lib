@@ -5,8 +5,8 @@ export function joinUrl(...parts: string[]): string {
     return new URL(join(...parts)).toString();
 }
 
-export function getInfinityRelativeLink(link: InfinityLink) {
-    const baseUrl = '/';
+export function getInfinityLink(link: InfinityLink) {
+    const baseUrl = 'https://infinity.xyz';
 
     switch (link.type) {
         case InfinityLinkType.Asset:
