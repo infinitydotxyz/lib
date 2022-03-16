@@ -8,7 +8,7 @@ const getEnvironmentVariable = (name: string, required = true) => {
 
 export const firestoreConstants = {
   COLLECTIONS_COLL: 'collections',
-  DATA_SUB_COL: 'data',
+  DATA_SUB_COLL: 'data',
   USERS_COLL: 'users',
   LISTINGS_COLL: 'listings',
   OFFERS_COLL: 'offers',
