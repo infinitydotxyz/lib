@@ -8,8 +8,13 @@ export interface MarketOrder {
   chainId: string;
 }
 
+export interface CollectionAddress {
+  name: string;
+  address: string;
+}
+
 export interface BuyOrder extends MarketOrder {
-  collectionAddresses: string[];
+  collectionAddresses: CollectionAddress[];
   minNFTs: number;
   budget: number;
 }
@@ -17,8 +22,7 @@ export interface BuyOrder extends MarketOrder {
 export interface SellOrder extends MarketOrder {
   tokenId: string;
   tokenName: string;
-  collectionAddress: string;
-  collectionName: string;
+  collectionAddress: CollectionAddress;
   price: number;
 }
 
