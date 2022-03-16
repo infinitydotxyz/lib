@@ -43,7 +43,6 @@ export const firestoreConstants = {
   USER_FOLLOWS_COLL: 'userFollows',
   SELL_ORDERS_COLL: 'sellOrders',
   BUY_ORDERS_COLL: 'buyOrders'
-
 };
 
 export const WYVERN_EXCHANGE_ADDRESS = '0x7f268357a8c2552623316e2562d90e642bb538e5';
@@ -63,4 +62,3 @@ export const TRACE_LOG = getEnvironmentVariable('TRACE_LOG', false) === 'true';
 export const INFO_LOG = getEnvironmentVariable('INFO_LOG', false) === 'true';
 export const ERROR_LOG = getEnvironmentVariable('ERROR_LOG', false) === 'true';
 export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
-

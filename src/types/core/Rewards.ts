@@ -115,4 +115,3 @@ export type TransactionCardEntry = {
   salePriceInEth: number;
   chainId: string;
 };
-

@@ -89,4 +89,9 @@ export interface Attribute {
   trait_type?: string;
 }
 
-export type Erc721Attribute = Attribute | DateAttribute | NumberAttribute | BoostNumberAttribute | BoostPercentageAttribute;
+export type Erc721Attribute =
+  | Attribute
+  | DateAttribute
+  | NumberAttribute
+  | BoostNumberAttribute
+  | BoostPercentageAttribute;

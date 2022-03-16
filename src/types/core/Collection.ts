@@ -187,8 +187,8 @@ export interface CollectionMetadata {
   links: Links;
   benefits?: string[];
   partnerships?: Array<{
-      name: string;
-      link: string;
+    name: string;
+    link: string;
   }>;
   integrations?: CollectionIntegrations;
   displayType?: string;

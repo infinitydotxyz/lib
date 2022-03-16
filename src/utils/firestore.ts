@@ -15,7 +15,7 @@ export function getDocIdHash({
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 }
 
-export function getCollectionDocId(collection: {collectionAddress: string, chainId: string}) {
+export function getCollectionDocId(collection: { collectionAddress: string; chainId: string }) {
   if (!utils.isAddress(collection.collectionAddress)) {
     throw new Error('Invalid collection address');
   }

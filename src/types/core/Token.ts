@@ -7,7 +7,10 @@ export enum TokenStandard {
 
 export type TokenMetadata = Erc721Metadata;
 
-export type MintToken = Pick<Token, 'chainId' | 'mintedAt' | 'minter' | 'tokenId' | 'state' | 'mintTxHash' | 'mintPrice'>;
+export type MintToken = Pick<
+  Token,
+  'chainId' | 'mintedAt' | 'minter' | 'tokenId' | 'state' | 'mintTxHash' | 'mintPrice'
+>;
 
 export type UriData = Pick<Token, 'tokenUri'>;
 export type UriToken = MintToken & UriData;
