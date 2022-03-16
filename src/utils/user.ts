@@ -10,6 +10,7 @@ export async function getUserDisplayName(address: string, chainId: string, provi
     if (ensName) {
       return ensName;
     }
+
     return address;
   } catch (err) {
     return address;
