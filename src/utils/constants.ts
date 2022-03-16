@@ -57,7 +57,11 @@ export const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
 export const POLYGON_WETH_ADDRESS = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619';
 
+export const ERC721InterfaceId = '0x80ac58cd';
+export const ERC1155InterfaceId = '0xd9b67a26';
+
 export const TRACE_LOG = getEnvironmentVariable('TRACE_LOG', false) === 'true';
 export const INFO_LOG = getEnvironmentVariable('INFO_LOG', false) === 'true';
 export const ERROR_LOG = getEnvironmentVariable('ERROR_LOG', false) === 'true';
 export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
+
