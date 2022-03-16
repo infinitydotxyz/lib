@@ -10,6 +10,16 @@ interface NftData extends CollectionEvent {
   tokenId: string;
 
   image: string;
+
+  /**
+   * name of the nft
+   */
+  nftName: string;
+
+  /**
+   * slug for the nft
+   */
+  nftSlug: string;
 }
 
 interface BaseNftEvent extends BaseCollectionEvent, NftData {}

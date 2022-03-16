@@ -5,8 +5,14 @@ export interface CollectionEvent {
 
   collectionAddress: string;
 
+  /**
+   * collection name
+   */
   name: string;
 
+  /**
+   * slug for the collection
+   */
   slug: string;
 }
 
