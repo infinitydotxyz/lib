@@ -2,33 +2,6 @@ import { BaseFeedEvent } from './FeedEvent';
 
 export type TwitterMediaType = 'photo' | 'GIF' | 'video';
 
-export interface TwitterUser {
-  location?: string;
-
-  /**
-   * Display name on twitter.
-   */
-  name: string;
-
-  profileImageUrl?: string;
-
-  /**
-   * Unique twitter handle.
-   */
-  username: string;
-
-  isVerified: boolean;
-}
-
-export interface TwitterMedia {
-  height: number;
-  width: number;
-  previewImageUrl: string;
-  type: TwitterMediaType;
-  url: string;
-  altText: string;
-}
-
 export interface TwitterTweetEvent extends BaseFeedEvent {
   /**
    * Tweet ID.
@@ -65,7 +38,5 @@ export interface TwitterTweetEvent extends BaseFeedEvent {
    */
   isSensitive: boolean;
 
-  user?: TwitterUser;
-
-  media?: TwitterMedia;
+  username: string;
 }
