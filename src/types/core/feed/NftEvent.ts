@@ -20,6 +20,11 @@ interface NftData extends CollectionEvent {
    * slug for the nft
    */
   nftSlug: string;
+
+  /**
+   * link to the nft
+   */
+  internalUrl: string;
 }
 
 interface BaseNftEvent extends BaseCollectionEvent, NftData {}
@@ -50,6 +55,11 @@ export interface ExchangeEvent extends BaseNftEvent {
   txHash: string;
 
   quantity: number;
+
+  /**
+   * etherscan link
+   */
+  externalUrl: string;
 }
 
 /**

@@ -14,6 +14,11 @@ export interface CollectionEvent {
    * slug for the collection
    */
   collectionSlug: string;
+
+  /**
+   * link to the collection
+   */
+  internalUrl: string;
 }
 
 export type BaseCollectionEvent = BaseFeedEvent & CollectionEvent;

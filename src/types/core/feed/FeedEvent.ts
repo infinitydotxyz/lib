@@ -12,8 +12,6 @@ export enum FeedEventType {
 export interface BaseFeedEvent {
   type: FeedEventType;
 
-  title?: string;
-
   /**
    * number of likes of the event
    */
@@ -28,8 +26,6 @@ export interface BaseFeedEvent {
    * epoch timestamp in ms
    */
   timestamp: number;
-
-  internalUrl?: string;
-
-  externalUrl?: string;
 }
+
+export type BaseFeedEventWithTitle = BaseFeedEvent & { title: string };
