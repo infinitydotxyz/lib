@@ -36,7 +36,7 @@ export interface TwitterTweetEvent extends BaseFeedEvent {
   /**
    * Tweet author ID.
    */
-  authorId: string;
+  authorId?: string;
 
   /**
    * Tweet body.
@@ -56,14 +56,14 @@ export interface TwitterTweetEvent extends BaseFeedEvent {
   /**
    * Language the tweet was written in.
    */
-  language: string;
+  language?: string;
 
   /**
    * Whether this tweet contains sensitive content.
    */
   isSensitive: boolean;
 
-  user: TwitterUser;
+  user?: TwitterUser;
 
-  media: TwitterMedia;
+  media?: TwitterMedia;
 }
