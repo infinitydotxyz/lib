@@ -1,4 +1,5 @@
 export type CollectionFollow = {
+  userAddress: string;
   address: string;
   chainId: string;
   name: string;
@@ -6,6 +7,7 @@ export type CollectionFollow = {
 };
 
 export type UserFollow = {
+  userAddress: string;
   address: string;
   name: string;
 };
