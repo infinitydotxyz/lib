@@ -9,11 +9,6 @@ export interface TwitterTweetEvent extends BaseFeedEvent {
   id: string;
 
   /**
-   * The collection address that this tweet belongs to.
-   */
-  collectionAddress: string;
-
-  /**
    * Tweet author ID.
    */
   authorId?: string;
