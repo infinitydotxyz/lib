@@ -1,5 +1,7 @@
 import { BaseFeedEvent } from './FeedEvent';
 
+export type TwitterMediaType = 'photo' | 'GIF' | 'video';
+
 export interface TwitterUser {
   location?: string;
 
@@ -22,7 +24,7 @@ export interface TwitterMedia {
   height: number;
   width: number;
   previewImageUrl: string;
-  type: 'photo' | 'GIF' | 'video';
+  type: TwitterMediaType;
   url: string;
   altText: string;
 }
