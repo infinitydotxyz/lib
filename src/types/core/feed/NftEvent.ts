@@ -27,7 +27,7 @@ interface BaseNftEvent extends BaseCollectionEvent, NftData {}
 /**
  * represent an exchange of an nft from one wallet/user to another
  */
-interface ExchangeEvent extends BaseNftEvent {
+export interface ExchangeEvent extends BaseNftEvent {
   buyer: string;
 
   buyerDisplayName?: string;
