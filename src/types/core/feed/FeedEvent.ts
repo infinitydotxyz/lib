@@ -5,7 +5,8 @@ export enum FeedEventType {
   NftSale = 'NFT_SALE',
   NftBatchSale = 'NFT_BATCH_SALE',
   NftListing = 'NFT_LISTING',
-  NftOffer = 'NFT_OFFER'
+  NftOffer = 'NFT_OFFER',
+  TwitterTweet = 'TWITTER_TWEET'
 }
 
 export interface BaseFeedEvent {
