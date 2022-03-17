@@ -8,12 +8,12 @@ export interface CollectionEvent {
   /**
    * collection name
    */
-  name: string;
+  collectionName: string;
 
   /**
    * slug for the collection
    */
-  slug: string;
+  collectionSlug: string;
 }
 
 export type BaseCollectionEvent = BaseFeedEvent & CollectionEvent;
