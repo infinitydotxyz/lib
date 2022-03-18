@@ -62,3 +62,4 @@ export const TRACE_LOG = getEnvironmentVariable('TRACE_LOG', false) === 'true';
 export const INFO_LOG = getEnvironmentVariable('INFO_LOG', false) === 'true';
 export const ERROR_LOG = getEnvironmentVariable('ERROR_LOG', false) === 'true';
 export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
+
