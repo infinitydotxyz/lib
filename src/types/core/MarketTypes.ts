@@ -4,7 +4,8 @@ export interface MarketOrder {
   // firebase id
   id?: string;
   user: string;
-  expiration: number;
+  startTime: number;
+  endTime: number;
   chainId: string;
 }
 
@@ -23,7 +24,8 @@ export interface SellOrder extends MarketOrder {
   tokenId: string;
   tokenName: string;
   collectionAddress: CollectionAddress;
-  price: number;
+  startPrice: number;
+  endPrice: number;
 }
 
 export interface BuyOrderMatch {
@@ -115,10 +117,29 @@ export const isSellOrder = (obj: any): obj is SellOrder => {
 
 export const isOrderExpired = (order: MarketOrder): boolean => {
   // special case of never expire
-  if (order.expiration === 0) {
+  if (order.endTime === 0) {
     return false;
   }
 
-  const utcSecondsSinceEpoch = Math.round(Date.now() / 1000);
-  return order.expiration <= utcSecondsSinceEpoch;
+  return order.endTime <= nowSeconds();
+};
+
+export const nowSeconds = (): number => {
+  return Math.round(Date.now() / 1000);
+};
+
+export const calculateCurrentPrice = (sellOrder: SellOrder): number => {
+  const duration = sellOrder.endTime - sellOrder.startTime;
+  let priceDiff = sellOrder.startPrice - sellOrder.endPrice;
+
+  if (priceDiff === 0 || duration === 0) {
+    return sellOrder.startPrice;
+  }
+
+  const elapsedTime = nowSeconds() - sellOrder.startTime;
+  const portion = elapsedTime > duration ? 1 : elapsedTime / duration;
+
+  priceDiff = priceDiff * portion;
+
+  return sellOrder.startPrice - priceDiff;
 };

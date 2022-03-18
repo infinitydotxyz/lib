@@ -1,5 +1,6 @@
 export * from './Asset';
 export * from './AssetResponse';
+export * from './ChainId';
 export * from './Collection';
 export * from './CollectionResponse';
 export * from './Etherscan';
