@@ -3,6 +3,7 @@ import { trimLowerCase } from './formatters';
 import { utils } from 'ethers';
 import { StatsPeriod } from '../types/core/StatsPeriod';
 import moment from 'moment';
+import { firestoreConstants } from './constants';
 
 export function getDocIdHash({
   collectionAddress,
@@ -48,3 +49,52 @@ export function getCollectionDocId(collection: { collectionAddress: string; chai
       throw new Error(`Invalid period: ${period}. Accepted values: ${Object.values(StatsPeriod).join(', ')}`)
   }
 };
+
+/**
+ *
+ *
+ * get stats collection name
+ *
+ */
+export enum StatsType {
+  Nft = 'nft',
+  Collection = 'collection'
+}
+
+const statsCollections = {
+  [StatsPeriod.All]: {
+    [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_ALL_TIME_COLL,
+    [StatsType.Nft]: firestoreConstants.NFT_STATS_ALL_TIME_COLL
+  },
+  [StatsPeriod.Daily]: {
+    [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_DAILY_COLL,
+    [StatsType.Nft]: firestoreConstants.NFT_STATS_DAILY_COLL
+
+  },
+  [StatsPeriod.Hourly]: {
+    [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_HOURLY_COLL,
+    [StatsType.Nft]: firestoreConstants.NFT_STATS_HOURLY_COLL
+
+  },
+  [StatsPeriod.Weekly]: {
+    [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_WEEKLY_COLL,
+    [StatsType.Nft]: firestoreConstants.NFT_STATS_WEEKLY_COLL
+
+  },
+  [StatsPeriod.Monthly]: {
+    [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_MONTHLY_COLL,
+    [StatsType.Nft]: firestoreConstants.NFT_STATS_MONTHLY_COLL
+  },
+  [StatsPeriod.Yearly]: {
+    [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_YEARLY_COLL,
+    [StatsType.Nft]: firestoreConstants.NFT_STATS_YEARLY_COLL
+  }
+}
+
+export const getStatsCollName = (period: StatsPeriod, type: StatsType) => {
+  const collectionName = statsCollections?.[period]?.[type];
+  if (!collectionName) {
+    throw new Error(`Invalid period: ${period} or type: ${type}`)
+  }
+  return collectionName;
+}
