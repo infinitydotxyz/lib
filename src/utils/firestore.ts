@@ -1,6 +1,8 @@
 import crypto from 'crypto';
 import { trimLowerCase } from './formatters';
 import { utils } from 'ethers';
+import { StatsPeriod } from '../types/core/StatsPeriod';
+import moment from 'moment';
 
 export function getDocIdHash({
   collectionAddress,
@@ -21,3 +23,28 @@ export function getCollectionDocId(collection: { collectionAddress: string; chai
   }
   return `${collection.chainId}:${trimLowerCase(collection.collectionAddress)}`;
 }
+
+/**
+ * Firestore historical document id ( sales info ) based on date and base time
+ */
+ export const getDocumentIdByTime = (timestamp: number, period: StatsPeriod): string => {
+  const date = new Date(timestamp);
+  const firstDayOfWeek = date.getDate() - date.getDay();
+
+  switch (period) {
+    case StatsPeriod.Hourly:
+      return moment(date).format('YYYY-MM-DD-HH');
+    case StatsPeriod.Daily:
+      return moment(date).format('YYYY-MM-DD');
+    case StatsPeriod.Weekly:
+      return moment(date.setDate(firstDayOfWeek)).format('YYYY-MM-DD');
+    case StatsPeriod.Monthly:
+      return moment(date).format('YYYY-MM');
+    case StatsPeriod.Yearly:
+      return moment(date).format('YYYY');
+    case StatsPeriod.All:
+      return 'allTime';
+    default:
+      throw new Error(`Invalid period: ${period}. Accepted values: ${Object.values(StatsPeriod).join(', ')}`)
+  }
+};
