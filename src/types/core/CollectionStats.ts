@@ -37,3 +37,5 @@ export interface Stats {
    */
   timestamp: number;
 }
+
+export type AllTimeStats = Pick<Stats, 'chainId' | 'collectionAddress' |'tokenId' | 'floorPrice' | 'ceilPrice' | 'volume' | 'numSales' | 'avgPrice' | 'updatedAt' | 'timestamp'>;
