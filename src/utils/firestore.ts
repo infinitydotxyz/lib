@@ -25,9 +25,9 @@ export function getCollectionDocId(collection: { collectionAddress: string; chai
 }
 
 /**
- * Firestore historical document id ( sales info ) based on date and base time
+ * Firestore historical document id based on date and period
  */
- export const getDocumentIdByTime = (timestamp: number, period: StatsPeriod): string => {
+ export const getStatsDocId = (timestamp: number, period: StatsPeriod): string => {
   const date = new Date(timestamp);
   const firstDayOfWeek = date.getDate() - date.getDay();
 
