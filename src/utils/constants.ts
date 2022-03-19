@@ -23,11 +23,19 @@ export const firestoreConstants = {
   MENTIONS_COLL: 'mentions',
   HISTORICAL_COLL: 'historical',
   VOTES_COLL: 'votes',
-  COLLECTION_STATS_COLL: 'collectionStats',
-  COLLECTION_STATS_DOC: 'collectionStats', // TODO deprecate
+  COLLECTION_STATS_ALL_TIME_COLL: 'collectionStatsAllTime',
+  COLLECTION_STATS_HOURLY_COLL: 'collectionStatsHourly',
+  COLLECTION_STATS_DAILY_COLL: 'collectionStatsDaily',
+  COLLECTION_STATS_WEEKLY_COLL: 'collectionStatsWeekly',
+  COLLECTION_STATS_MONTHLY_COLL: 'collectionStatsMonthly',
+  COLLECTION_STATS_YEARLY_COLL: 'collectionStatsYearly',
+  NFT_STATS_ALL_TIME_COLL: 'nftStatsAllTime',
+  NFT_STATS_HOURLY_COLL: 'nftStatsHourly',
+  NFT_STATS_DAILY_COLL: 'nftStatsDaily',
+  NFT_STATS_WEEKLY_COLL: 'nftStatsWeekly',
+  NFT_STATS_MONTHLY_COLL: 'nftStatsMonthly',
+  NFT_STATS_YEARLY_COLL: 'nftStatsYearly',
   COLLECTION_NFTS_COLL: 'nfts',
-  NFT_STATS_COLL: 'nftStats', // TODO deprecate
-  NFT_STATS_DOC: 'nftStats',
   COLLECTION_LINKS_DOC: 'links',
   COLLECTION_OPENSEA_STATS_DOC: 'opensea',
   COLLECTION_TWITTER_DOC: 'twitter',
@@ -36,9 +44,7 @@ export const firestoreConstants = {
   EDITORS_DOC: 'editors',
   CREATOR_DOC: 'creator',
   ADMINS_DOC: 'admins',
-
   FEED_COLL: 'feed',
-
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
   USER_FOLLOWS_COLL: 'userFollows',
   SELL_ORDERS_COLL: 'sellOrders',
