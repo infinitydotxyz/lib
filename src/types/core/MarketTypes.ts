@@ -141,5 +141,8 @@ export const calculateCurrentPrice = (sellOrder: SellOrder): number => {
 
   priceDiff = priceDiff * portion;
 
-  return sellOrder.startPrice - priceDiff;
+  const result = sellOrder.startPrice - priceDiff;
+
+  // rounding to 0.00
+  return Math.round(result * 100) / 100;
 };
