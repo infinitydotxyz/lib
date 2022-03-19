@@ -28,7 +28,7 @@ export function getCollectionDocId(collection: { collectionAddress: string; chai
 /**
  * Firestore historical document id based on date and period
  */
- export const getStatsDocId = (timestamp: number, period: StatsPeriod): string => {
+export const getStatsDocId = (timestamp: number, period: StatsPeriod): string => {
   const date = new Date(timestamp);
   const firstDayOfWeek = date.getDate() - date.getDay();
 
@@ -46,9 +46,29 @@ export function getCollectionDocId(collection: { collectionAddress: string; chai
     case StatsPeriod.All:
       return 'allTime';
     default:
-      throw new Error(`Invalid period: ${period}. Accepted values: ${Object.values(StatsPeriod).join(', ')}`)
+      throw new Error(`Period: ${period as string} not yet implemented`);
   }
 };
+
+/**
+ * returns the timestamp corresponding to the stats docId
+ */
+export function getTimestampFromStatsDocId(docId: string, period: StatsPeriod) {
+  switch (period) {
+    case StatsPeriod.All:
+      return Date.now();
+    case StatsPeriod.Yearly:
+    case StatsPeriod.Monthly:
+    case StatsPeriod.Weekly:
+    case StatsPeriod.Daily:
+      return new Date(docId).getTime();
+    case StatsPeriod.Hourly:
+      const [year, month, day, hour] = docId.split('-');
+      return new Date(`${year}-${month}-${day}T${hour}:00`).getTime();
+    default:
+      throw new Error(`Period: ${period as string} not yet implemented`);
+  }
+}
 
 /**
  *
@@ -69,17 +89,14 @@ const statsCollections = {
   [StatsPeriod.Daily]: {
     [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_DAILY_COLL,
     [StatsType.Nft]: firestoreConstants.NFT_STATS_DAILY_COLL
-
   },
   [StatsPeriod.Hourly]: {
     [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_HOURLY_COLL,
     [StatsType.Nft]: firestoreConstants.NFT_STATS_HOURLY_COLL
-
   },
   [StatsPeriod.Weekly]: {
     [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_WEEKLY_COLL,
     [StatsType.Nft]: firestoreConstants.NFT_STATS_WEEKLY_COLL
-
   },
   [StatsPeriod.Monthly]: {
     [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_MONTHLY_COLL,
@@ -89,12 +106,12 @@ const statsCollections = {
     [StatsType.Collection]: firestoreConstants.COLLECTION_STATS_YEARLY_COLL,
     [StatsType.Nft]: firestoreConstants.NFT_STATS_YEARLY_COLL
   }
-}
+};
 
 export const getStatsCollName = (period: StatsPeriod, type: StatsType) => {
   const collectionName = statsCollections?.[period]?.[type];
   if (!collectionName) {
-    throw new Error(`Invalid period: ${period} or type: ${type}`)
+    throw new Error(`Invalid period: ${period} or type: ${type}`);
   }
   return collectionName;
-}
+};
