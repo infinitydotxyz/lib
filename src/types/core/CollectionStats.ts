@@ -7,7 +7,7 @@ export interface Stats {
 
   floorPrice: number;
   prevFloorPrice: number;
-  floorPriceChange: number;
+  floorPricePercentChange: number;
 
   ceilPrice: number;
   prevCeilPrice: number;
