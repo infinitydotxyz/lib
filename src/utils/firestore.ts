@@ -3,7 +3,7 @@ import { trimLowerCase } from './formatters';
 import { utils } from 'ethers';
 import { StatsPeriod } from '../types/core/StatsPeriod';
 import moment from 'moment';
-import { StringNumber } from '../types/core';
+import { ALL_TIME_STATS_TIMESTAMP } from './constants';
 
 export function getDocIdHash({
   collectionAddress,
@@ -86,7 +86,7 @@ function getFormattedStatsDate(timestamp: number, period: StatsPeriod): string {
 function getTimestampFromFormattedDate(formattedDate: string, period: StatsPeriod) {
   switch (period) {
     case StatsPeriod.All:
-      return Date.now();
+      return ALL_TIME_STATS_TIMESTAMP;
     case StatsPeriod.Yearly:
     case StatsPeriod.Monthly:
     case StatsPeriod.Weekly:

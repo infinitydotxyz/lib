@@ -59,3 +59,9 @@ export const INFO_LOG = getEnvironmentVariable('INFO_LOG', false) === 'true';
 export const ERROR_LOG = getEnvironmentVariable('ERROR_LOG', false) === 'true';
 export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
 
+/**
+ * arbitrary but consistent timestamp to allow us to get all stats using the same
+ * firestore indices as stats where the timestamp changes based on the doc id
+ */
+export type AllTimeStatsTimestampType = 1640995200000;
+export const ALL_TIME_STATS_TIMESTAMP: AllTimeStatsTimestampType = 1640995200000;
