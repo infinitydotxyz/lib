@@ -3,6 +3,7 @@ import { trimLowerCase } from './formatters';
 import { utils } from 'ethers';
 import { StatsPeriod } from '../types/core/StatsPeriod';
 import moment from 'moment';
+import { StringNumber } from '../types/core';
 
 export function getDocIdHash({
   collectionAddress,
@@ -24,27 +25,38 @@ export function getCollectionDocId(collection: { collectionAddress: string; chai
   return `${collection.chainId}:${trimLowerCase(collection.collectionAddress)}`;
 }
 
-export function getStatsTimestamp(timestamp: number, period: StatsPeriod): number {
+export function getStatsDocInfo(
+  timestamp: number,
+  period: StatsPeriod
+): { formattedDate: string; docId: string; timestamp: number } {
   const formattedDate = getFormattedStatsDate(timestamp, period);
-  const statTimestamp = getTimestampFromFormattedDate(formattedDate, period);
-  return statTimestamp;
+  const docId = formatStatsDocId(formattedDate, period);
+  const ts = getTimestampFromFormattedDate(formattedDate, period);
+
+  return {
+    formattedDate,
+    docId,
+    timestamp: ts
+  };
 }
 
-export function getStatsDocId(timestamp: number, period: StatsPeriod): string {
-  const formattedDate = getFormattedStatsDate(timestamp, period);
-  const docId = `${formattedDate}-${period}`;
-  return docId;
-}
-
-export function getFormattedStatsDateFromDocId(docId: string): { statsDate: string; period: StatsPeriod } {
+export function parseStatsDocId(docId: string): {formattedDate: string, period: StatsPeriod, timestamp: number } {
   const parts = docId.split('-');
-  const period = parts.pop();
-  const statsDate = parts.join('-');
-  return { statsDate, period: period as StatsPeriod };
+  const period = parts.pop() as StatsPeriod;
+  const formattedDate = parts.join('-');
+  const timestamp = getTimestampFromFormattedDate(formattedDate, period);
+  return { formattedDate, period, timestamp };
+}
+
+function formatStatsDocId(formattedDate: string, period: StatsPeriod) {
+  if (period === StatsPeriod.All) {
+    return StatsPeriod.All;
+  }
+  return `${formattedDate}-${period}`;
 }
 
 /**
- * Firestore historical document id based on date and period
+ * Firestore historical based on date and period
  */
 function getFormattedStatsDate(timestamp: number, period: StatsPeriod): string {
   const date = new Date(timestamp);
