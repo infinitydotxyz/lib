@@ -24,10 +24,23 @@ export function getCollectionDocId(collection: { collectionAddress: string; chai
   return `${collection.chainId}:${trimLowerCase(collection.collectionAddress)}`;
 }
 
-export const getStatsTimestamp = (timestamp: number, period: StatsPeriod): number => {
+export function getStatsTimestamp(timestamp: number, period: StatsPeriod): number {
   const formattedDate = getFormattedStatsDate(timestamp, period);
   const statTimestamp = getTimestampFromFormattedDate(formattedDate, period);
   return statTimestamp;
+}
+
+export function getStatsDocId(timestamp: number, period: StatsPeriod): string {
+  const formattedDate = getFormattedStatsDate(timestamp, period);
+  const docId = `${formattedDate}-${period}`;
+  return docId;
+}
+
+export function getFormattedStatsDateFromDocId(docId: string): { statsDate: string; period: StatsPeriod } {
+  const parts = docId.split('-');
+  const period = parts.pop();
+  const statsDate = parts.join('-');
+  return { statsDate, period: period as StatsPeriod };
 }
 
 /**
@@ -49,11 +62,11 @@ function getFormattedStatsDate(timestamp: number, period: StatsPeriod): string {
     case StatsPeriod.Yearly:
       return moment(date).format('YYYY');
     case StatsPeriod.All:
-      return 'allTime';
+      return '';
     default:
       throw new Error(`Period: ${period as string} not yet implemented`);
   }
-};
+}
 
 /**
  * returns the timestamp corresponding to the stats docId
@@ -74,4 +87,3 @@ function getTimestampFromFormattedDate(formattedDate: string, period: StatsPerio
       throw new Error(`Period: ${period as string} not yet implemented`);
   }
 }
-
