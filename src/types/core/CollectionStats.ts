@@ -1,3 +1,5 @@
+import { StatsPeriod } from './StatsPeriod';
+
 export interface Stats {
   chainId: string;
 
@@ -36,6 +38,8 @@ export interface Stats {
    * dates
    */
   timestamp: number;
+
+  period: StatsPeriod;
 }
 
-export type AllTimeStats = Pick<Stats, 'chainId' | 'collectionAddress' |'tokenId' | 'floorPrice' | 'ceilPrice' | 'volume' | 'numSales' | 'avgPrice' | 'updatedAt' | 'timestamp'>;
+export type AllTimeStats = Pick<Stats, 'chainId' | 'collectionAddress' |'tokenId' | 'floorPrice' | 'ceilPrice' | 'volume' | 'numSales' | 'avgPrice' | 'updatedAt' | 'timestamp' | 'period'>;
