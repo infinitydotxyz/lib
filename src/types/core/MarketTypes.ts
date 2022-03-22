@@ -82,6 +82,11 @@ export const orderHash = (obj: MarketOrder): string => {
 
   // we don't want the id part of the hash
   copy.id = undefined;
+
+  // we don't want the currentPrice part of the hash
+  // this is set on ActiveSellOrder
+  copy.currentPrice = undefined;
+
   let data = '';
 
   // JSON.stringify can have different results depending on order of keys
