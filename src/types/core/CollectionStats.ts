@@ -1,3 +1,7 @@
+
+import { StatsPeriod } from './StatsPeriod';
+import { AllTimeStatsTimestampType } from '../../utils/constants';
+
 export interface Stats {
   chainId: string;
 
@@ -36,6 +40,12 @@ export interface Stats {
    * dates
    */
   timestamp: number;
+
+  period: StatsPeriod;
 }
 
-export type AllTimeStats = Pick<Stats, 'chainId' | 'collectionAddress' |'tokenId' | 'floorPrice' | 'ceilPrice' | 'volume' | 'numSales' | 'avgPrice' | 'updatedAt' | 'timestamp'>;
+type AllTimeStatsBase = Pick<Stats, 'chainId' | 'collectionAddress' |'tokenId' | 'floorPrice' | 'ceilPrice' | 'volume' | 'numSales' | 'avgPrice' | 'updatedAt' | 'timestamp' | 'period'>;
+
+export interface AllTimeStats extends AllTimeStatsBase {
+  timestamp: AllTimeStatsTimestampType;
+}

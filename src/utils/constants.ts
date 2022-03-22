@@ -23,18 +23,8 @@ export const firestoreConstants = {
   MENTIONS_COLL: 'mentions',
   HISTORICAL_COLL: 'historical',
   VOTES_COLL: 'votes',
-  COLLECTION_STATS_ALL_TIME_COLL: 'collectionStatsAllTime',
-  COLLECTION_STATS_HOURLY_COLL: 'collectionStatsHourly',
-  COLLECTION_STATS_DAILY_COLL: 'collectionStatsDaily',
-  COLLECTION_STATS_WEEKLY_COLL: 'collectionStatsWeekly',
-  COLLECTION_STATS_MONTHLY_COLL: 'collectionStatsMonthly',
-  COLLECTION_STATS_YEARLY_COLL: 'collectionStatsYearly',
-  NFT_STATS_ALL_TIME_COLL: 'nftStatsAllTime',
-  NFT_STATS_HOURLY_COLL: 'nftStatsHourly',
-  NFT_STATS_DAILY_COLL: 'nftStatsDaily',
-  NFT_STATS_WEEKLY_COLL: 'nftStatsWeekly',
-  NFT_STATS_MONTHLY_COLL: 'nftStatsMonthly',
-  NFT_STATS_YEARLY_COLL: 'nftStatsYearly',
+  COLLECTION_STATS_COLL: 'collectionStats',
+  NFT_STATS_COLL: 'nftStats',
   COLLECTION_NFTS_COLL: 'nfts',
   COLLECTION_LINKS_DOC: 'links',
   COLLECTION_OPENSEA_STATS_DOC: 'opensea',
@@ -69,3 +59,9 @@ export const INFO_LOG = getEnvironmentVariable('INFO_LOG', false) === 'true';
 export const ERROR_LOG = getEnvironmentVariable('ERROR_LOG', false) === 'true';
 export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
 
+/**
+ * arbitrary but consistent timestamp to allow us to get all stats using the same
+ * firestore indices as stats where the timestamp changes based on the doc id
+ */
+export type AllTimeStatsTimestampType = 1640995200000;
+export const ALL_TIME_STATS_TIMESTAMP: AllTimeStatsTimestampType = 1640995200000;
