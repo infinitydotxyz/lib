@@ -41,6 +41,11 @@ export interface DiscordEvent extends BaseFeedEvent {
   id: string;
 
   /**
+   * Discord server ID.
+   */
+  guildId: string;
+
+  /**
    * User id of the sender of the discord message.
    */
   authorId: string;
