@@ -34,7 +34,7 @@ export interface DiscordAttachment {
   name?: string;
 }
 
-export interface DiscordEvent extends BaseFeedEvent {
+export interface DiscordAnnouncementEvent extends BaseFeedEvent {
   /**
    * Message ID.
    */
