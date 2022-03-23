@@ -1,6 +1,6 @@
 {
   "name": "@infinityxyz/lib",
-  "version": "1.29.4",
+  "version": "1.29.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -40,7 +40,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "ethers": "^5.6.0",
+    "ethers": "5.4.7",
     "moment": "^2.29.1"
   }
 }
