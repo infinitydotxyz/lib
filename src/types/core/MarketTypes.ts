@@ -63,7 +63,7 @@ export interface MarketListingsBody {
 export interface MarketListingsResponse {
   buyOrders: OBOrder[];
   sellOrders: OBOrder[];
-  matches: OBOrder[];
+  matches: BuyOrderMatch[];
   success: string;
   error: string;
 }
