@@ -8,6 +8,7 @@ export enum FeedEventType {
   NftOffer = 'NFT_OFFER',
   TwitterTweet = 'TWITTER_TWEET',
   DiscordAnnouncement = 'DISCORD_ANNOUNCEMENT',
+  CoinMarketCapNews = 'CMC_NEWS',
 }
 
 export interface BaseFeedEvent {
