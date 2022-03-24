@@ -1,4 +1,36 @@
 import crypto from 'crypto';
+import { BigNumberish } from 'ethers';
+
+export interface Item {
+  collection: string;
+  tokenIds: BigNumberish[];
+}
+
+export interface ExecParams {
+  complicationAddress: string;
+  currencyAddress: string;
+}
+
+export interface ExtraParams {
+  buyer?: string;
+}
+
+export interface OBOrder {
+  id: string;
+  chainId: BigNumberish;
+  isSellOrder: boolean;
+  signerAddress: string;
+  numItems: BigNumberish;
+  startPrice: BigNumberish;
+  endPrice: BigNumberish;
+  startTime: BigNumberish;
+  endTime: BigNumberish;
+  minBpsToSeller: BigNumberish;
+  nonce: BigNumberish;
+  nfts: Item[];
+  execParams: ExecParams;
+  extraParams: ExtraParams;
+}
 
 export interface MarketOrder {
   // firebase id
