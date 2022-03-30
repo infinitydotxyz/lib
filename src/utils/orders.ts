@@ -18,7 +18,23 @@ export const orderHash = (obj: OBOrder): string => {
   // sort keys first
   const keys = Object.keys(copy).sort();
   for (const key of keys) {
-    data += `${key}: ${JSON.stringify(copy[key])}`;
+    if (key === 'nfts') {
+      const cols = [];
+      const ids = [];
+
+      for (const item of obj.nfts) {
+        cols.push(item.collection);
+        ids.push(...item.tokenIds);
+      }
+
+      cols.sort();
+      ids.sort();
+
+      data += `cols: ${cols.toString()}`;
+      data += `ids: ${ids.toString()}`;
+    } else {
+      data += `${key}: ${copy[key].toString()}`;
+    }
   }
 
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
