@@ -18,7 +18,7 @@ export const orderHash = (obj: OBOrder): string => {
   // sort keys first
   const keys = Object.keys(copy).sort();
   for (const key of keys) {
-    data += `${key}: ${copy[key]}`;
+    data += `${key}: ${JSON.stringify(copy[key])}`;
   }
 
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
