@@ -33,7 +33,10 @@ export const orderHash = (obj: OBOrder): string => {
       data += `cols: ${cols.toString()}`;
       data += `ids: ${ids.toString()}`;
     } else {
-      data += `${key}: ${copy[key].toString()}`;
+      const val = copy[key];
+      if (val) {
+        data += `${key}: ${val.toString()}`;
+      }
     }
   }
 
