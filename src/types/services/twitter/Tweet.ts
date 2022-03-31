@@ -13,6 +13,7 @@ export interface InfinityTwitterAccount {
   followingCount: number;
   tweetCount?: number;
   listedCount?: number;
+  profileImageUrl?: string;
 }
 
 export interface InfinityTweet {
