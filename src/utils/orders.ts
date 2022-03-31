@@ -12,6 +12,9 @@ export const orderHash = (obj: OBOrder): string => {
   // this is set on ActiveSellOrder
   copy.currentPrice = undefined;
 
+  // added to to sell orders to help queries
+  copy.collectionAddresses = undefined;
+
   let data = '';
 
   // JSON.stringify can have different results depending on order of keys
