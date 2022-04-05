@@ -3,11 +3,11 @@ export enum FeedEventType {
    * NFT EVENTS
    */
   NftSale = 'NFT_SALE',
-  NftBatchSale = 'NFT_BATCH_SALE',
-  NftListing = 'NFT_LISTING',
-  NftOffer = 'NFT_OFFER',
+  NftListing = 'NFT_LISTING', // TODO needs implementation
+  NftOffer = 'NFT_OFFER', // TODO needs implementation
   TwitterTweet = 'TWITTER_TWEET',
   DiscordAnnouncement = 'DISCORD_ANNOUNCEMENT',
+  CoinMarketCapNews = 'CMC_NEWS',
 }
 
 export interface BaseFeedEvent {
