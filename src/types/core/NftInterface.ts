@@ -167,9 +167,13 @@ export interface CollectionStats {
   floorPrice: number;
   timestamp: number;
   collectionAddress?: string;
+  discordFollowers?: number;
+  discordFollowersPercentChange?: number;
   discordMembers?: number;
   discordPresence?: number;
   twitterFollowers?: number;
+  twitterFollowersPercentChange?: number;
+  volume: number;
   votesFor?: number;
   votesAgainst?: number;
   name?: string;
