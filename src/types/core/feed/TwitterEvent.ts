@@ -1,8 +1,10 @@
-import { BaseFeedEvent } from './FeedEvent';
+import { BaseFeedEvent, FeedEventType } from './FeedEvent';
 
 export type TwitterMediaType = 'photo' | 'GIF' | 'video';
 
 export interface TwitterTweetEvent extends BaseFeedEvent {
+  type: FeedEventType.TwitterTweet;
+
   /**
    * Tweet ID.
    */
