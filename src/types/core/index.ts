@@ -3,7 +3,7 @@ export * from './AssetResponse';
 export * from './ChainId';
 export * from './Collection';
 export * from './CollectionResponse';
-export * from './CollectionStats';
+export * from './Stats';
 export * from './Etherscan';
 export * from './Follows';
 export * from './Historical';
