@@ -21,6 +21,11 @@ export interface CollectionEvent {
   collectionProfileImage: string;
 
   /**
+   * Whether the collection is verified
+   */
+  hasBlueCheck: boolean;
+
+  /**
    * link to the collection
    */
   internalUrl: string;
