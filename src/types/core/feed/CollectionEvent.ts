@@ -16,6 +16,11 @@ export interface CollectionEvent {
   collectionSlug: string;
 
   /**
+   * profile image for the collection
+   */
+  collectionProfileImage: string;
+
+  /**
    * link to the collection
    */
   internalUrl: string;
