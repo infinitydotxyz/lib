@@ -53,7 +53,7 @@ export interface CollectionInfo {
 
 export type CollectionData = CollectionInfo & {
   links?: Links;
-  stats?: CollectionStats;
+  stats?: CollectionStatsDeprecated;
   integrations?: CollectionIntegrations;
 };
 
@@ -126,7 +126,7 @@ export interface DiscordSnippet {
   presenceCount: number;
 }
 
-export interface CollectionStats {
+export interface CollectionStatsDeprecated {
   oneDay: {
     volume: number;
     change: number;
