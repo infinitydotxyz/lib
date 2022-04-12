@@ -47,18 +47,31 @@ export interface BuyOrderMatch {
 
 // ===============================================
 // API parameter and response types (/marketListings)
+export enum MarketOrder {
+  SellOrders = 'sellOrders',
+  BuyOrders = 'buyOrders',
+}
 
-export type MarketOrderType = 'sellOrders' | 'buyOrders';
-export type MarketActionType = 'list' | 'delete' | 'move' | 'match' | 'buy';
-export type MarketListIdType = 'validActive' | 'validInactive' | 'invalid';
+export enum MarketAction {
+  List = 'list',
+  Delete = 'delete',
+  Move = 'move',
+  Match = 'match',
+  Buy = 'buy',
+}
+
+export enum MarketListId {
+  ValidActive = 'validActive',
+  ValidInactive = 'validInactive',
+  Invalid = 'invalid',
+}
 
 export interface MarketListingsBody {
-  orderType: MarketOrderType;
-  action: MarketActionType;
-  listId?: MarketListIdType;
+  orderType: MarketOrder;
+  action: MarketAction;
+  listId?: MarketListId;
   orderId?: string; // delete and move
-  moveListId?: MarketListIdType;
-
+  moveListId?: MarketListId;
   cursor?: string;
   limit?: number;
 }
