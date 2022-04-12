@@ -58,11 +58,19 @@ export interface MarketListingsBody {
   listId?: MarketListIdType;
   orderId?: string; // delete and move
   moveListId?: MarketListIdType;
+
+  cursor?: string;
+  limit?: number;
+}
+
+export interface MarketListOrders {
+  orders: OBOrder[];
+  cursor: string;
 }
 
 export interface MarketListingsResponse {
-  buyOrders: OBOrder[];
-  sellOrders: OBOrder[];
+  buyOrders: MarketListOrders;
+  sellOrders: MarketListOrders;
   matches: BuyOrderMatch[];
   success: string;
   error: string;
