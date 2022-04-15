@@ -186,10 +186,7 @@ export interface CollectionMetadata {
   bannerImage: string;
   links: Links;
   benefits?: string[];
-  partnerships?: Array<{
-    name: string;
-    link: string;
-  }>;
+  partnerships?: Partnership[];
   integrations?: CollectionIntegrations;
   displayType?: string;
 }
@@ -208,6 +205,11 @@ export interface Links {
   instagram?: string;
   wiki?: string;
   facebook?: string;
+}
+
+export interface Partnership {
+  name: string;
+  link: string;
 }
 
 export interface CollectionAttributes {
