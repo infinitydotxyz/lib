@@ -1,7 +1,6 @@
 import crypto from 'crypto';
 import { BigNumber } from 'ethers';
 import { formatEther } from 'ethers/lib/utils';
-import { nowSeconds } from '../../utils';
 import { OBOrder } from './OBOrder';
 
 // =====================================================
@@ -114,7 +113,7 @@ export const isOrderSpecExpired = (order: OBOrderSpec): boolean => {
     return false;
   }
 
-  return BigNumber.from(order.endTime / 1000).lt(nowSeconds());
+  return order.endTime < Date.now();
 };
 
 export const specToOBOrder = (spec: OBOrderSpec): OBOrder => {
