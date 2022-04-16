@@ -15,6 +15,7 @@ export interface OBOrderSpecToken {
 export interface OBOrderSpecNFT {
   collectionAddress: string;
   collectionName: string;
+  profileImage: string;
   tokens: OBOrderSpecToken[];
 }
 
