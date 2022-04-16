@@ -9,6 +9,7 @@ import { OBOrder } from './OBOrder';
 export interface OBOrderSpecToken {
   tokenId: number;
   tokenName: string;
+  imageUrl: string;
 }
 
 export interface OBOrderSpecNFT {
