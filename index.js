@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 // this script is run as a pre-commit hook
 // it generates index.ts files in each low-level dir that exports all the files in that dir
 // this makes the imports shorter and easier to read

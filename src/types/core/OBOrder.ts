@@ -1,6 +1,47 @@
+import { BigNumberish, BigNumber, BytesLike } from 'ethers';
 import crypto from 'crypto';
-import { BigNumber } from 'ethers';
-import { OBOrder } from '../types/core';
+import { nowSeconds } from '../../utils';
+
+export interface Item {
+  collection: string;
+  tokenIds: BigNumberish[];
+}
+
+export interface ExecParams {
+  complicationAddress: string;
+  currencyAddress: string;
+}
+
+export interface ExtraParams {
+  buyer?: string;
+}
+
+export interface OBOrder {
+  id: string;
+  chainId: BigNumberish;
+  isSellOrder: boolean;
+  signerAddress: string;
+  numItems: BigNumberish;
+  startPrice: BigNumberish;
+  endPrice: BigNumberish;
+  startTime: BigNumberish;
+  endTime: BigNumberish;
+  minBpsToSeller: BigNumberish;
+  nonce: BigNumberish;
+  nfts: Item[];
+  execParams: ExecParams;
+  extraParams: ExtraParams;
+}
+
+export interface SignedOBOrder {
+  isSellOrder: boolean;
+  signer: string;
+  constraints: BigNumberish[];
+  nfts: Item[];
+  execParams: string[];
+  extraParams: BytesLike;
+  sig: BytesLike;
+}
 
 export const orderHash = (obj: OBOrder): string => {
   const copy = JSON.parse(JSON.stringify(obj));
@@ -62,10 +103,6 @@ export const isOrderExpired = (order: OBOrder): boolean => {
   }
 
   return BigNumber.from(order.endTime).lt(nowSeconds());
-};
-
-export const nowSeconds = (): BigNumber => {
-  return BigNumber.from(Math.floor(Date.now() / 1000));
 };
 
 export const getCurrentOrderPrice = (order: OBOrder): BigNumber => {

@@ -1,3 +1,5 @@
+import { BigNumber } from 'ethers';
+
 export async function sleep(ms: number) {
   return await new Promise<void>((resolve) => {
     setTimeout(() => {
@@ -37,3 +39,7 @@ export function hexToDecimalTokenId(tokenId: string): string {
 
   return tokenId;
 }
+
+export const nowSeconds = (): BigNumber => {
+  return BigNumber.from(Math.floor(Date.now() / 1000));
+};
