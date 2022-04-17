@@ -1,10 +1,56 @@
 import crypto from 'crypto';
-import { BigNumber } from 'ethers';
+import { BigNumber, BigNumberish, BytesLike } from 'ethers';
 import { formatEther } from 'ethers/lib/utils';
-import { OBOrder } from './OBOrder';
+import { nowSeconds } from '../../utils';
 
-// =====================================================
-// used for display and stored in Firebase
+// exchange types
+export interface TokenInfo {
+  tokenId: BigNumberish;
+  numTokens: BigNumberish;
+}
+
+export interface OrderItem {
+  collection: string;
+  tokens: TokenInfo[];
+}
+
+export interface ExecParams {
+  complicationAddress: string;
+  currencyAddress: string;
+}
+
+export interface ExtraParams {
+  buyer?: string;
+}
+
+export interface OBOrder {
+  id: string;
+  chainId: BigNumberish;
+  isSellOrder: boolean;
+  signerAddress: string;
+  numItems: BigNumberish;
+  startPrice: BigNumberish;
+  endPrice: BigNumberish;
+  startTime: BigNumberish;
+  endTime: BigNumberish;
+  minBpsToSeller: BigNumberish;
+  nonce: BigNumberish;
+  nfts: OrderItem[];
+  execParams: ExecParams;
+  extraParams: ExtraParams;
+}
+
+export interface SignedOBOrder {
+  isSellOrder: boolean;
+  signer: string;
+  constraints: BigNumberish[];
+  nfts: OrderItem[];
+  execParams: string[];
+  extraParams: BytesLike;
+  sig: BytesLike;
+}
+
+// dusplay types
 
 export interface OBOrderSpecToken {
   tokenId: number;
@@ -82,22 +128,32 @@ export const orderSpecHash = (obj: OBOrderSpec): string => {
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 };
 
-export const getCurrentOrderSpecPrice = (order: OBOrderSpec): number => {
-  const startTime = order.startTime;
-  const endTime = order.endTime;
-  const startPrice = order.startPrice;
-  const endPrice = order.endPrice;
-  const duration = endTime - startTime;
-  let priceDiff = startPrice - endPrice;
-
-  if (priceDiff === 0 || duration === 0) {
+export const getCurrentOrderSpecPrice = (order: OBOrderSpec): BigNumber => {
+  const startTime = BigNumber.from(order.startTime);
+  const endTime = BigNumber.from(order.endTime);
+  const startPrice = BigNumber.from(order.startPrice);
+  const endPrice = BigNumber.from(order.endPrice);
+  const duration = endTime.sub(startTime);
+  let priceDiff = BigNumber.from(0);
+  if (startPrice.gt(endPrice)) {
+    priceDiff = startPrice.sub(endPrice);
+  } else {
+    priceDiff = endPrice.sub(startPrice);
+  }
+  if (priceDiff.eq(0) || duration.eq(0)) {
     return startPrice;
   }
-
-  const elapsedTime = Date.now() - startTime;
-  const portion = elapsedTime > duration ? 1 : elapsedTime / duration;
-  priceDiff = priceDiff * portion;
-  return startPrice - priceDiff;
+  const elapsedTime = BigNumber.from(nowSeconds()).sub(startTime);
+  const precision = 10000;
+  const portion = elapsedTime.gt(duration) ? 1 : elapsedTime.mul(precision).div(duration);
+  priceDiff = priceDiff.mul(portion).div(precision);
+  let currentPrice = BigNumber.from(0);
+  if (startPrice.gt(endPrice)) {
+    currentPrice = startPrice.sub(priceDiff);
+  } else {
+    currentPrice = startPrice.add(priceDiff);
+  }
+  return currentPrice;
 };
 
 export const isOrderSpecEqual = (a: OBOrderSpec, b: OBOrderSpec): boolean => {
@@ -123,8 +179,8 @@ export const specToOBOrder = (spec: OBOrderSpec): OBOrder => {
     chainId: BigNumber.from(spec.chainId),
     endPrice: BigNumber.from(formatEther(spec.endPrice)),
     startPrice: BigNumber.from(formatEther(spec.startPrice)),
-    endTime: BigNumber.from(spec.endTime / 1000),
-    startTime: BigNumber.from(spec.startTime / 1000),
+    endTime: BigNumber.from(Math.floor(spec.endTime / 1000)),
+    startTime: BigNumber.from(Math.floor(spec.startTime / 1000)),
     isSellOrder: spec.isSellOrder,
     numItems: spec.numItems,
     execParams: { complicationAddress: '', currencyAddress: '' },
@@ -135,7 +191,6 @@ export const specToOBOrder = (spec: OBOrderSpec): OBOrder => {
     nonce: BigNumber.from(0),
     signerAddress: ''
   };
-
   return result;
 };
 
