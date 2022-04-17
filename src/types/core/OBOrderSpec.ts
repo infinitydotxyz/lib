@@ -72,6 +72,10 @@ export interface OBOrderSpec extends OBOrder {
   takerAddress: string;
   ownerUsername: string;
   ownerAddress: string;
+  buyerUsername: string;
+  buyerAddress: string;
+  startPriceEth: number;
+  endPriceEth: number;
 }
 
 export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
