@@ -1,6 +1,5 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { BytesLike } from '@ethersproject/bytes';
-import { formatEther } from '@ethersproject/units';
 import { nowSeconds } from '../../utils';
 
 // exchange types
@@ -65,21 +64,8 @@ export interface OBOrderSpecNFT {
   tokens: OBOrderSpecToken[];
 }
 
-export interface OBOrderSpec {
-  id: string;
-  chainId: number;
-  isSellOrder: boolean;
-  signerAddress: string;
-  numItems: number;
-
-  // in Eth
-  startPrice: number;
-  endPrice: number;
-
-  // milliseconds
-  startTime: number;
-  endTime: number;
-  nfts: OBOrderSpecNFT[];
+export interface OBOrderSpec extends OBOrder {
+  nftsWithMetadata: OBOrderSpecNFT[];
 }
 
 export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
@@ -117,26 +103,6 @@ export const isOrderSpecExpired = (order: OBOrderSpec): boolean => {
   }
 
   return order.endTime < Date.now();
-};
-
-export const specToOBOrder = (spec: OBOrderSpec): OBOrder => {
-  const result: OBOrder = {
-    chainId: BigNumber.from(spec.chainId),
-    endPrice: BigNumber.from(formatEther(spec.endPrice)),
-    startPrice: BigNumber.from(formatEther(spec.startPrice)),
-    endTime: BigNumber.from(Math.floor(spec.endTime / 1000)),
-    startTime: BigNumber.from(Math.floor(spec.startTime / 1000)),
-    isSellOrder: spec.isSellOrder,
-    numItems: spec.numItems,
-    execParams: { complicationAddress: '', currencyAddress: '' },
-    extraParams: {},
-    id: '',
-    minBpsToSeller: BigNumber.from(0),
-    nfts: [],
-    nonce: BigNumber.from(0),
-    signerAddress: ''
-  };
-  return result;
 };
 
 export interface BuyOrderMatch {
