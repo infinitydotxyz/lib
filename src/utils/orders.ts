@@ -27,7 +27,7 @@ export const orderHash = (obj: OBOrder): string => {
 
       for (const item of obj.nfts) {
         cols.push(item.collection);
-        ids.push(...item.tokenIds);
+        ids.push(...item.tokens);
       }
 
       cols.sort();
@@ -74,12 +74,24 @@ export const getCurrentOrderPrice = (order: OBOrder): BigNumber => {
   const startPrice = BigNumber.from(order.startPrice);
   const endPrice = BigNumber.from(order.endPrice);
   const duration = endTime.sub(startTime);
-  let priceDiff = startPrice.sub(endPrice);
+  let priceDiff = BigNumber.from(0);
+  if (startPrice.gt(endPrice)) {
+    priceDiff = startPrice.sub(endPrice);
+  } else {
+    priceDiff = endPrice.sub(startPrice);
+  }
   if (priceDiff.eq(0) || duration.eq(0)) {
     return startPrice;
   }
   const elapsedTime = BigNumber.from(nowSeconds()).sub(startTime);
-  const portion = elapsedTime.gt(duration) ? 1 : elapsedTime.div(duration);
-  priceDiff = priceDiff.mul(portion);
-  return startPrice.sub(priceDiff);
+  const precision = 10000;
+  const portion = elapsedTime.gt(duration) ? 1 : elapsedTime.mul(precision).div(duration);
+  priceDiff = priceDiff.mul(portion).div(precision);
+  let currentPrice = BigNumber.from(0);
+  if (startPrice.gt(endPrice)) {
+    currentPrice = startPrice.sub(priceDiff);
+  } else {
+    currentPrice = startPrice.add(priceDiff);
+  }
+  return currentPrice;
 };

@@ -1,8 +1,13 @@
 import { BigNumberish, BytesLike } from 'ethers';
 
-export interface Item {
+export interface TokenInfo {
+  tokenId: BigNumberish;
+  numTokens: BigNumberish;
+}
+
+export interface OrderItem {
   collection: string;
-  tokenIds: BigNumberish[];
+  tokens: TokenInfo[];
 }
 
 export interface ExecParams {
@@ -26,15 +31,16 @@ export interface OBOrder {
   endTime: BigNumberish;
   minBpsToSeller: BigNumberish;
   nonce: BigNumberish;
-  nfts: Item[];
+  nfts: OrderItem[];
   execParams: ExecParams;
   extraParams: ExtraParams;
 }
+
 export interface SignedOBOrder {
   isSellOrder: boolean;
   signer: string;
   constraints: BigNumberish[];
-  nfts: Item[];
+  nfts: OrderItem[];
   execParams: string[];
   extraParams: BytesLike;
   sig: BytesLike;
