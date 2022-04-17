@@ -66,6 +66,12 @@ export interface OBOrderSpecNFT {
 
 export interface OBOrderSpec extends OBOrder {
   nftsWithMetadata: OBOrderSpecNFT[];
+  makerUsername: string;
+  makerAddress: string;
+  takerUsername: string;
+  takerAddress: string;
+  ownerUsername: string;
+  ownerAddress: string;
 }
 
 export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
