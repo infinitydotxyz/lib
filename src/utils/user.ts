@@ -1,6 +1,6 @@
-import { providers } from 'ethers';
+import { JsonRpcProvider } from '@ethersproject/providers';
 
-export async function getUserDisplayName(address: string, chainId: string, provider: providers.JsonRpcProvider) {
+export async function getUserDisplayName(address: string, chainId: string, provider: JsonRpcProvider) {
   try {
     // TODO support users setting their own display name
 

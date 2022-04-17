@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { trimLowerCase } from './formatters';
-import { utils } from 'ethers';
+import { isAddress } from '@ethersproject/address';
 import { StatsPeriod } from '../types/core/StatsPeriod';
 import { format } from 'date-fns';
 import { ALL_TIME_STATS_TIMESTAMP } from './constants';
@@ -19,7 +19,7 @@ export function getDocIdHash({
 }
 
 export function getCollectionDocId(collection: { collectionAddress: string; chainId: string }) {
-  if (!utils.isAddress(collection.collectionAddress)) {
+  if (!isAddress(collection.collectionAddress)) {
     throw new Error('Invalid collection address');
   }
   return `${collection.chainId}:${trimLowerCase(collection.collectionAddress)}`;

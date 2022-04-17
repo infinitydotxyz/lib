@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { getNetwork } from '@ethersproject/networks';
 import { ChainId } from '../types/core/ChainId';
 
 export function getChainId(chain: string) {
@@ -13,10 +13,10 @@ export function getChainId(chain: string) {
 }
 
 export function getNetworkish(chainId: ChainId) {
-  const network = ethers.providers.getNetwork(chainId);
+  const network = getNetwork(chainId);
   return {
     chainId: network.chainId,
     name: network.name,
     ensAddress: network.ensAddress
-  }
+  };
 }

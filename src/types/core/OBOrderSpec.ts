@@ -1,6 +1,7 @@
 import crypto from 'crypto';
-import { BigNumber, BigNumberish, BytesLike } from 'ethers';
-import { formatEther } from 'ethers/lib/utils';
+import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
+import { BytesLike } from '@ethersproject/bytes';
+import { formatEther } from '@ethersproject/units';
 import { nowSeconds } from '../../utils';
 
 // exchange types

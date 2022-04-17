@@ -1,4 +1,4 @@
-import { BigNumber } from 'ethers';
+import { BigNumber } from '@ethersproject/bignumber';
 
 export async function sleep(ms: number) {
   return await new Promise<void>((resolve) => {
