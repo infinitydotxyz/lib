@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+// import crypto from 'crypto';
 import { trimLowerCase } from './formatters';
 import { isAddress } from '@ethersproject/address';
 import { StatsPeriod } from '../types/core/StatsPeriod';
@@ -15,7 +15,8 @@ export function getDocIdHash({
   chainId: string;
 }) {
   const data = chainId.trim() + '::' + trimLowerCase(collectionAddress) + '::' + tokenId.trim();
-  return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
+  return 'abc';
+  // return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 }
 
 export function getCollectionDocId(collection: { collectionAddress: string; chainId: string }) {

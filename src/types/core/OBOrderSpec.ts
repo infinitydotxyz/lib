@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+// import crypto from 'crypto';
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { BytesLike } from '@ethersproject/bytes';
 import { formatEther } from '@ethersproject/units';
@@ -125,8 +125,8 @@ export const orderSpecHash = (obj: OBOrderSpec): string => {
       }
     }
   }
-
-  return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
+  return 'abc';
+  // return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 };
 
 export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
