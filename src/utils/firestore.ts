@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import { trimLowerCase } from './formatters';
 import { utils } from 'ethers';
 import { StatsPeriod } from '../types/core/StatsPeriod';
-import moment from 'moment';
+import { format } from 'date-fns';
 import { ALL_TIME_STATS_TIMESTAMP } from './constants';
 
 export function getDocIdHash({
@@ -64,15 +64,15 @@ function getFormattedStatsDate(timestamp: number, period: StatsPeriod): string {
 
   switch (period) {
     case StatsPeriod.Hourly:
-      return moment(date).format('YYYY-MM-DD-HH');
+      return format(date, 'YYYY-MM-DD-HH');
     case StatsPeriod.Daily:
-      return moment(date).format('YYYY-MM-DD');
+      return format(date, 'YYYY-MM-DD');
     case StatsPeriod.Weekly:
-      return moment(date.setDate(firstDayOfWeek)).format('YYYY-MM-DD');
+      return format(date.setDate(firstDayOfWeek), 'YYYY-MM-DD');
     case StatsPeriod.Monthly:
-      return moment(date).format('YYYY-MM');
+      return format(date, 'YYYY-MM');
     case StatsPeriod.Yearly:
-      return moment(date).format('YYYY');
+      return format(date, 'YYYY');
     case StatsPeriod.All:
       return '';
     default:

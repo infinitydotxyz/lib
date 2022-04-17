@@ -40,7 +40,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "ethers": "^5.6.4",
-    "moment": "^2.29.2"
+    "date-fns": "^2.28.0",
+    "ethers": "^5.6.4"
   }
 }
