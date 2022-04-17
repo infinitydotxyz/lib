@@ -15,7 +15,6 @@ export * from './ListingResponse';
 export * from './Metadata';
 export * from './NftInterface';
 export * from './NftSale';
-export * from './OBOrder';
 export * from './OBOrderSpec';
 export * from './OpenSeaAsset';
 export * from './Order';
