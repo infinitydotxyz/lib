@@ -128,7 +128,7 @@ export const orderSpecHash = (obj: OBOrderSpec): string => {
   return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
 };
 
-export const getCurrentOrderSpecPrice = (order: OBOrderSpec): BigNumber => {
+export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
   const startTime = BigNumber.from(order.startTime);
   const endTime = BigNumber.from(order.endTime);
   const startPrice = BigNumber.from(order.startPrice);
