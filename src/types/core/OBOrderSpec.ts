@@ -1,4 +1,3 @@
-// import crypto from 'crypto';
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { BytesLike } from '@ethersproject/bytes';
 import { formatEther } from '@ethersproject/units';
@@ -83,52 +82,6 @@ export interface OBOrderSpec {
   nfts: OBOrderSpecNFT[];
 }
 
-export const orderSpecHash = (obj: OBOrderSpec): string => {
-  const copy = JSON.parse(JSON.stringify(obj));
-
-  // we don't want the id part of the hash
-  copy.id = undefined;
-
-  // we don't want the currentPrice part of the hash
-  // this is set on ActiveSellOrder
-  copy.currentPrice = undefined;
-
-  // added to to sell orders to help queries
-  copy.collectionAddresses = undefined;
-
-  let data = '';
-
-  // JSON.stringify can have different results depending on order of keys
-  // sort keys first
-  const keys = Object.keys(copy).sort();
-  for (const key of keys) {
-    if (key === 'nfts') {
-      const collectionAddresses = [];
-      const ids = [];
-
-      for (const item of obj.nfts) {
-        collectionAddresses.push(item.collectionAddress);
-        ids.push(...item.tokens);
-      }
-
-      collectionAddresses.sort();
-      ids.sort((a, b) => {
-        return a.tokenId - b.tokenId;
-      });
-
-      data += `cols: ${collectionAddresses.toString()}`;
-      data += `ids: ${ids.toString()}`;
-    } else {
-      const val = copy[key];
-      if (val) {
-        data += `${key}: ${val.toString()}`;
-      }
-    }
-  }
-  return 'abc';
-  // return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
-};
-
 export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
   const startTime = BigNumber.from(order.startTime);
   const endTime = BigNumber.from(order.endTime);
@@ -155,15 +108,6 @@ export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumbe
     currentPrice = startPrice.add(priceDiff);
   }
   return currentPrice;
-};
-
-export const isOrderSpecEqual = (a: OBOrderSpec, b: OBOrderSpec): boolean => {
-  // use ids if set, id is hash
-  if (a.id && b.id) {
-    return a.id === b.id;
-  }
-
-  return orderSpecHash(a) === orderSpecHash(b);
 };
 
 export const isOrderSpecExpired = (order: OBOrderSpec): boolean => {

@@ -1,23 +1,8 @@
-// import crypto from 'crypto';
 import { trimLowerCase } from './formatters';
 import { isAddress } from '@ethersproject/address';
 import { StatsPeriod } from '../types/core/StatsPeriod';
 import { format } from 'date-fns';
 import { ALL_TIME_STATS_TIMESTAMP } from './constants';
-
-export function getDocIdHash({
-  collectionAddress,
-  tokenId,
-  chainId
-}: {
-  collectionAddress: string;
-  tokenId: string;
-  chainId: string;
-}) {
-  const data = chainId.trim() + '::' + trimLowerCase(collectionAddress) + '::' + tokenId.trim();
-  return 'abc';
-  // return crypto.createHash('sha256').update(data).digest('hex').trim().toLowerCase();
-}
 
 export function getCollectionDocId(collection: { collectionAddress: string; chainId: string }) {
   if (!isAddress(collection.collectionAddress)) {
@@ -41,7 +26,7 @@ export function getStatsDocInfo(
   };
 }
 
-export function parseStatsDocId(docId: string): {formattedDate: string, period: StatsPeriod, timestamp: number } {
+export function parseStatsDocId(docId: string): { formattedDate: string; period: StatsPeriod; timestamp: number } {
   const parts = docId.split('-');
   const period = parts.pop() as StatsPeriod;
   const formattedDate = parts.join('-');
