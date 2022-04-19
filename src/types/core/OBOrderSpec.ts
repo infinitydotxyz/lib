@@ -78,6 +78,10 @@ export interface OBOrderSpec extends OBOrder {
   endPriceEth: number;
 }
 
+export interface SignedOBOrderSpec extends OBOrderSpec {
+  signedOrder: SignedOBOrder;
+}
+
 export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
   const startTime = BigNumber.from(order.startTime);
   const endTime = BigNumber.from(order.endTime);
