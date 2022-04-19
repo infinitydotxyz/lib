@@ -83,7 +83,7 @@ export const getCurrentOBOrderPrice = (order: OBOrder): BigNumber => {
   if (priceDiff.eq(0) || duration.eq(0)) {
     return startPrice;
   }
-  const elapsedTime = BigNumber.from(nowSeconds()).sub(startTime);
+  const elapsedTime = BigNumber.from(Date.now()).sub(startTime.toNumber());
   const precision = 10000;
   const portion = elapsedTime.gt(duration) ? 1 : elapsedTime.mul(precision).div(duration);
   priceDiff = priceDiff.mul(portion).div(precision);
