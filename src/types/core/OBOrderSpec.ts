@@ -49,7 +49,7 @@ export interface SignedOBOrder {
   sig: BytesLike;
 }
 
-// dusplay types
+// display types
 
 export interface OBOrderSpecToken {
   tokenId: number;
@@ -70,10 +70,6 @@ export interface OBOrderSpec extends OBOrder {
   makerAddress: string;
   takerUsername: string;
   takerAddress: string;
-  ownerUsername: string;
-  ownerAddress: string;
-  buyerUsername: string;
-  buyerAddress: string;
   startPriceEth: number;
   endPriceEth: number;
 }
