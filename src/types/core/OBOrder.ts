@@ -30,7 +30,7 @@ export interface OBOrder {
   id: string;
   chainId: string;
   isSellOrder: boolean;
-  numItems: string;
+  numItems: number;
   makerUsername: string;
   makerAddress: string;
   takerUsername: string;
