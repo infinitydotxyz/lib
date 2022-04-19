@@ -3,14 +3,18 @@ import { BytesLike } from '@ethersproject/bytes';
 import { nowSeconds } from '../../utils';
 
 // exchange types
-export interface TokenInfo {
-  tokenId: BigNumberish;
-  numTokens: BigNumberish;
+export interface OBTokenInfo {
+  tokenId: string;
+  tokenName: string;
+  imageUrl: string;
+  numTokens: number;
 }
 
-export interface OrderItem {
-  collection: string;
-  tokens: TokenInfo[];
+export interface OBOrderItem {
+  collectionAddress: string;
+  collectionName: string;
+  profileImage: string;
+  tokens: OBTokenInfo[];
 }
 
 export interface ExecParams {
@@ -24,66 +28,46 @@ export interface ExtraParams {
 
 export interface OBOrder {
   id: string;
-  chainId: BigNumberish;
+  chainId: string;
   isSellOrder: boolean;
-  signerAddress: string;
-  numItems: BigNumberish;
-  startPrice: BigNumberish;
-  endPrice: BigNumberish;
-  startTime: BigNumberish;
-  endTime: BigNumberish;
-  minBpsToSeller: BigNumberish;
-  nonce: BigNumberish;
-  nfts: OrderItem[];
-  execParams: ExecParams;
-  extraParams: ExtraParams;
-}
-
-export interface SignedOBOrder {
-  isSellOrder: boolean;
-  signer: string;
-  constraints: BigNumberish[];
-  nfts: OrderItem[];
-  execParams: string[];
-  extraParams: BytesLike;
-  sig: BytesLike;
-}
-
-// display types
-
-export interface OBOrderSpecToken {
-  tokenId: number;
-  tokenName: string;
-  imageUrl: string;
-}
-
-export interface OBOrderSpecNFT {
-  collectionAddress: string;
-  collectionName: string;
-  profileImage: string;
-  tokens: OBOrderSpecToken[];
-}
-
-export interface OBOrderSpec extends OBOrder {
-  nftsWithMetadata: OBOrderSpecNFT[];
+  numItems: string;
   makerUsername: string;
   makerAddress: string;
   takerUsername: string;
   takerAddress: string;
   startPriceEth: number;
   endPriceEth: number;
+  startPriceWei: string;
+  endPriceWei: string;
+  startTimeMs: number;
+  endTimeMs: number;
+  minBpsToSeller: number;
+  nonce: string;
+  nfts: OBOrderItem[];
+  execParams: ExecParams;
+  extraParams: ExtraParams;
+}
+
+export interface ChainOBOrder {
+  isSellOrder: boolean;
+  signer: string;
+  constraints: BigNumberish[];
+  nfts: OBOrderItem[];
+  execParams: string[];
+  extraParams: BytesLike;
+  sig: BytesLike;
 }
 
 // signed order reqd for order execution
-export interface SignedOBOrderSpec extends OBOrderSpec {
-  signedOrder: SignedOBOrder;
+export interface SignedOBOrder extends OBOrder {
+  signedOrder: ChainOBOrder;
 }
 
-export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumber => {
-  const startTime = BigNumber.from(order.startTime);
-  const endTime = BigNumber.from(order.endTime);
-  const startPrice = BigNumber.from(order.startPrice);
-  const endPrice = BigNumber.from(order.endPrice);
+export const getCurrentOBOrderPrice = (order: OBOrder): BigNumber => {
+  const startTime = BigNumber.from(order.startTimeMs);
+  const endTime = BigNumber.from(order.endTimeMs);
+  const startPrice = BigNumber.from(order.startPriceWei);
+  const endPrice = BigNumber.from(order.endPriceWei);
   const duration = endTime.sub(startTime);
   let priceDiff = BigNumber.from(0);
   if (startPrice.gt(endPrice)) {
@@ -107,18 +91,18 @@ export const getCurrentOrderSpecPrice = (order: OBOrderSpec | OBOrder): BigNumbe
   return currentPrice;
 };
 
-export const isOrderSpecExpired = (order: OBOrderSpec): boolean => {
+export const isOrderExpired = (order: OBOrder): boolean => {
   // special case of never expire
-  if (order.endTime === 0) {
+  if (order.endTimeMs === 0) {
     return false;
   }
 
-  return order.endTime < Date.now();
+  return order.endTimeMs < Date.now();
 };
 
 export interface BuyOrderMatch {
-  buyOrder: OBOrderSpec;
-  sellOrders: OBOrderSpec[];
+  buyOrder: OBOrder;
+  sellOrders: OBOrder[];
 }
 
 // ===============================================
@@ -153,7 +137,7 @@ export interface MarketListingsBody {
 }
 
 export interface MarketListOrders {
-  orders: OBOrderSpec[];
+  orders: OBOrder[];
   cursor: string;
 }
 
@@ -169,8 +153,8 @@ export interface MarketListingsResponse {
 // API parameter and response types (/:user/market)
 
 export interface TradeBody {
-  buyOrder?: OBOrderSpec;
-  sellOrder?: OBOrderSpec;
+  buyOrder?: OBOrder;
+  sellOrder?: OBOrder;
 }
 
 export interface TradeReq {
