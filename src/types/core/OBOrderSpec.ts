@@ -78,6 +78,7 @@ export interface OBOrderSpec extends OBOrder {
   endPriceEth: number;
 }
 
+// signed order reqd for order execution
 export interface SignedOBOrderSpec extends OBOrderSpec {
   signedOrder: SignedOBOrder;
 }
