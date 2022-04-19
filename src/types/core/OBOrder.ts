@@ -48,11 +48,16 @@ export interface OBOrder {
   extraParams: ExtraParams;
 }
 
+export interface ChainNFTs {
+  collection: string;
+  tokens: { tokenId: string; numTokens: number }[];
+}
+
 export interface ChainOBOrder {
   isSellOrder: boolean;
   signer: string;
   constraints: BigNumberish[];
-  nfts: OBOrderItem[];
+  nfts: ChainNFTs[];
   execParams: string[];
   extraParams: BytesLike;
   sig: BytesLike;
@@ -91,7 +96,7 @@ export const getCurrentOBOrderPrice = (order: OBOrder): BigNumber => {
   return currentPrice;
 };
 
-export const isOrderExpired = (order: OBOrder): boolean => {
+export const isOBOrderExpired = (order: OBOrder): boolean => {
   // special case of never expire
   if (order.endTimeMs === 0) {
     return false;
