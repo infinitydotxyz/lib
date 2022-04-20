@@ -1,5 +1,4 @@
 import { keccak256 } from '@ethersproject/solidity';
-import { error } from 'console';
 import {
   ETHEREUM_WETH_ADDRESS,
   NULL_ADDRESS,
@@ -9,6 +8,7 @@ import {
   POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
   POLYGON_WETH_ADDRESS
 } from './constants';
+import { error } from './logger';
 
 export function getOrderId(user: string, nonce: string, chainId: string): string {
   try {
