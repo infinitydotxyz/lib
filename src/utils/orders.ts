@@ -19,6 +19,12 @@ export function getOrderId(user: string, nonce: string, chainId: string): string
   return NULL_HASH;
 }
 
+// todo: change this
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function getOrderNonce(user: string, chainId: string): string {
+  return '1';
+}
+
 export function getTxnCurrencyAddress(chainId: string): string {
   if (chainId === '1') {
     return ETHEREUM_WETH_ADDRESS;
