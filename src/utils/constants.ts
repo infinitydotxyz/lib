@@ -61,12 +61,11 @@ export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
 
 // ethereum
 export const ETHEREUM_NETWORK_NAME = 'main';
-export const CHAIN_SCANNER_BASE = 'https://etherscan.io';
+export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
 
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
-export const PROVIDER_URL_POLYGON = 'https://polygon-mainnet.g.alchemy.com/v2/Gqzc95BlMXL7q7mGV_q4CREHw4oohxiY';
 export const POLYGON_CHAIN_SCANNER_BASE = 'https://polygonscan.com';
 export const POLYGON_WETH_ADDRESS = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619';
 export const POLYGON_INFINITY_TOKEN_ADDRESS = '0x5c600fff0AC90cdF026a16E4E315a2471F7BF7A6';
