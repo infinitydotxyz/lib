@@ -3,18 +3,20 @@ import { error } from 'console';
 import {
   ETHEREUM_WETH_ADDRESS,
   NULL_ADDRESS,
+  NULL_HASH,
   POLYGON_INFINITY_EXCHANGE_ADDRESS,
   POLYGON_INFINITY_FEE_TREASURY_ADDRESS,
   POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
   POLYGON_WETH_ADDRESS
 } from './constants';
 
-export function getOrderId(user: string, nonce: string, chainId: string): string | undefined {
+export function getOrderId(user: string, nonce: string, chainId: string): string {
   try {
     return keccak256(['address', 'uint256', 'uint256'], [user, nonce, chainId]);
   } catch (e) {
     error('Error calculating orderId', e);
   }
+  return NULL_HASH;
 }
 
 export function getTxnCurrencyAddress(chainId: string): string {
