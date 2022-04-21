@@ -1,6 +1,5 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { BytesLike } from '@ethersproject/bytes';
-import { nowSeconds } from '../../utils';
 
 // exchange types
 export interface OBTokenInfo {

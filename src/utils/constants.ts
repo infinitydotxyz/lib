@@ -6,6 +6,7 @@ const getEnvironmentVariable = (name: string, required = true) => {
   return variable;
 };
 
+// todo: remove unused constants
 export const firestoreConstants = {
   COLLECTIONS_COLL: 'collections',
   DATA_SUB_COLL: 'data',
@@ -41,7 +42,9 @@ export const firestoreConstants = {
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
   USER_FOLLOWS_COLL: 'userFollows',
   SELL_ORDERS_COLL: 'sellOrders',
-  BUY_ORDERS_COLL: 'buyOrders'
+  BUY_ORDERS_COLL: 'buyOrders',
+  ORDERS_COLL: 'orders',
+  ORDER_ITEMS_SUB_COLL: 'orderItems'
 };
 
 export const WYVERN_EXCHANGE_ADDRESS = '0x7f268357a8c2552623316e2562d90e642bb538e5';
