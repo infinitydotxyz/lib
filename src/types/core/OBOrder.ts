@@ -4,14 +4,14 @@ import { BytesLike } from '@ethersproject/bytes';
 export interface OBTokenInfo {
   tokenId: string;
   tokenName: string;
-  imageUrl: string;
+  tokenImage: string;
   numTokens: number;
 }
 
 export interface OBOrderItem {
   collectionAddress: string;
   collectionName: string;
-  profileImage: string;
+  collectionImage: string;
   tokens: OBTokenInfo[];
 }
 
@@ -31,12 +31,8 @@ export interface OBOrder {
   numItems: number;
   makerUsername: string;
   makerAddress: string;
-  takerUsername: string;
-  takerAddress: string;
   startPriceEth: number;
   endPriceEth: number;
-  startPriceWei: string;
-  endPriceWei: string;
   startTimeMs: number;
   endTimeMs: number;
   minBpsToSeller: number;

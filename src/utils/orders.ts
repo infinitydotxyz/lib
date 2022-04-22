@@ -2,6 +2,7 @@ import { keccak256 as solidityKeccak256 } from '@ethersproject/solidity';
 import { keccak256 } from '@ethersproject/keccak256';
 import { BytesLike } from '@ethersproject/bytes';
 import { defaultAbiCoder } from '@ethersproject/abi';
+import { parseEther } from '@ethersproject/units';
 import { OBOrder, OBOrderItem, OBTokenInfo } from '../types/core';
 import {
   ETHEREUM_WETH_ADDRESS,
@@ -24,8 +25,8 @@ export function getOrderId(chainId: string, exchangeAddr: string, order: OBOrder
 
     const constraints = [
       order.numItems,
-      order.startPriceWei,
-      order.endPriceWei,
+      parseEther(String(order.startPriceEth)),
+      parseEther(String(order.endPriceEth)),
       Math.floor(order.startTimeMs / 1000),
       Math.floor(order.endTimeMs / 1000),
       order.minBpsToSeller,
@@ -147,8 +148,8 @@ export function getFeeTreasuryAddress(chainId: string): string {
 export const getCurrentOBOrderPrice = (order: OBOrder): BigNumber => {
   const startTime = BigNumber.from(order.startTimeMs);
   const endTime = BigNumber.from(order.endTimeMs);
-  const startPrice = BigNumber.from(order.startPriceWei);
-  const endPrice = BigNumber.from(order.endPriceWei);
+  const startPrice = BigNumber.from(parseEther(String(order.startPriceEth)));
+  const endPrice = BigNumber.from(parseEther(String(order.endPriceEth)));
   const duration = endTime.sub(startTime);
   let priceDiff = BigNumber.from(0);
   if (startPrice.gt(endPrice)) {
