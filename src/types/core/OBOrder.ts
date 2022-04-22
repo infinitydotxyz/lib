@@ -5,6 +5,8 @@ export interface OBTokenInfo {
   tokenId: string;
   tokenName: string;
   tokenImage: string;
+  takerUsername: string;
+  takerAddress: string;
   numTokens: number;
 }
 
