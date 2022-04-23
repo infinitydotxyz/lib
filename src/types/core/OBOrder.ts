@@ -111,3 +111,12 @@ export enum OBOrderStatus {
   ValidInactive = 'validInactive',
   Invalid = 'invalid'
 }
+
+export interface GetOrdersQuery {
+  chainId?: string;
+  isSellOrder?: boolean;
+  minPrice?: number;
+  maxPrice?: number;
+  numItems?: number;
+  collections?: string[];
+}
