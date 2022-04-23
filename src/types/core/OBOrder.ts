@@ -119,4 +119,6 @@ export interface GetOrdersQuery {
   maxPrice?: number;
   numItems?: number;
   collections?: string[];
+  cursor?: string;
+  limit?: number;
 }
