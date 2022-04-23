@@ -105,69 +105,9 @@ export interface FirestoreOrderItem {
   tokenImage: string;
   numTokens: number;
 }
-export interface BuyOrderMatch {
-  buyOrder: OBOrder;
-  sellOrders: OBOrder[];
-}
 
-// ===============================================
-// API parameter and response types (/marketListings)
-export enum MarketOrder {
-  SellOrders = 'sellOrders',
-  BuyOrders = 'buyOrders'
-}
-
-export enum MarketAction {
-  List = 'list',
-  Delete = 'delete',
-  Move = 'move',
-  Match = 'match',
-  Buy = 'buy'
-}
-
-export enum MarketListId {
+export enum OBOrderStatus {
   ValidActive = 'validActive',
   ValidInactive = 'validInactive',
   Invalid = 'invalid'
-}
-
-export interface MarketListingsBody {
-  orderType: MarketOrder;
-  action: MarketAction;
-  listId?: MarketListId;
-  orderId?: string; // delete and move
-  moveListId?: MarketListId;
-  cursor?: string;
-  limit?: number;
-}
-
-export interface MarketListOrders {
-  orders: OBOrder[];
-  cursor: string;
-}
-
-export interface MarketListingsResponse {
-  buyOrders: MarketListOrders;
-  sellOrders: MarketListOrders;
-  matches: BuyOrderMatch[];
-  success: string;
-  error: string;
-}
-
-// ===============================================
-// API parameter and response types (/:user/market)
-
-export interface TradeBody {
-  buyOrder?: OBOrder;
-  sellOrder?: OBOrder;
-}
-
-export interface TradeReq {
-  user?: string;
-}
-
-export interface TradeResponse {
-  matches: BuyOrderMatch[];
-  success: string;
-  error: string;
 }
