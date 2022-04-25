@@ -3,7 +3,9 @@ import { parseEther } from '@ethersproject/units';
 import { OBOrder } from '../types/core';
 import {
   ETHEREUM_WETH_ADDRESS,
-  NULL_ADDRESS, POLYGON_INFINITY_EXCHANGE_ADDRESS,
+  NULL_ADDRESS,
+  POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS,
+  POLYGON_INFINITY_EXCHANGE_ADDRESS,
   POLYGON_INFINITY_FEE_TREASURY_ADDRESS,
   POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
   POLYGON_WETH_ADDRESS
@@ -44,6 +46,16 @@ export function getFeeTreasuryAddress(chainId: string): string {
     return NULL_ADDRESS; // todo: change this
   } else if (chainId === '137') {
     return POLYGON_INFINITY_FEE_TREASURY_ADDRESS;
+  } else {
+    return NULL_ADDRESS;
+  }
+}
+
+export function getCreatorFeeManagerAddress(chainId: string): string {
+  if (chainId === '1') {
+    return NULL_ADDRESS; // todo: change this
+  } else if (chainId === '137') {
+    return POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS;
   } else {
     return NULL_ADDRESS;
   }
