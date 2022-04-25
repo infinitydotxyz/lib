@@ -122,6 +122,6 @@ export interface GetOrdersQuery {
   collections?: string[];
   cursor?: string;
   limit?: number;
-  orderBy?: 'PRICE' | 'START_TIME' | 'END_TIME';
-  orderByDirection?: 'ASC' | 'DESC';
+  orderBy?: 'startPriceEth' | 'startTimeMs' | 'endTimeMs';
+  orderByDirection?: 'asc' | 'desc';
 }
