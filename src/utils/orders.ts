@@ -89,7 +89,7 @@ export const getCurrentOBOrderPrice = (order: OBOrder): BigNumber => {
   return currentPrice;
 };
 
-export const isOBOrderExpired = (order: OBOrder): boolean => {
+export const isOBOrderExpired = (order: Pick<OBOrder, 'endTimeMs'>): boolean => {
   // special case of never expire
   if (order.endTimeMs === 0) {
     return false;
