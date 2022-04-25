@@ -47,6 +47,8 @@ export const firestoreConstants = {
   ORDER_ITEMS_SUB_COLL: 'orderItems'
 };
 
+export const DEFAULT_ITEMS_PER_PAGE = 50;
+
 export const WYVERN_EXCHANGE_ADDRESS = '0x7f268357a8c2552623316e2562d90e642bb538e5';
 
 export const WYVERN_ATOMIC_MATCH_FUNCTION = 'atomicMatch_';
