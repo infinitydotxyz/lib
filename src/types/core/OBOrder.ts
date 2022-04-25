@@ -125,3 +125,8 @@ export interface GetOrderItemsQuery {
   orderBy?: 'startPriceEth' | 'startTimeMs' | 'endTimeMs';
   orderByDirection?: 'asc' | 'desc';
 }
+
+export interface GetMinBpsQuery {
+  chainId?: string;
+  collections?: string[];
+}
