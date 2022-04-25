@@ -112,7 +112,7 @@ export enum OBOrderStatus {
   Invalid = 'invalid'
 }
 
-export interface GetOrdersQuery {
+export interface GetOrderItemsQuery {
   chainId?: string;
   isSellOrder?: boolean;
   orderStatus?: string;
