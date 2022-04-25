@@ -115,6 +115,7 @@ export enum OBOrderStatus {
 export interface GetOrdersQuery {
   chainId?: string;
   isSellOrder?: boolean;
+  orderStatus?: string;
   minPrice?: number;
   maxPrice?: number;
   numItems?: number;
