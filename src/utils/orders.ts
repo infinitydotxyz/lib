@@ -1,103 +1,13 @@
-import { keccak256 as solidityKeccak256 } from '@ethersproject/solidity';
-import { keccak256 } from '@ethersproject/keccak256';
-import { BytesLike } from '@ethersproject/bytes';
-import { defaultAbiCoder } from '@ethersproject/abi';
+import { BigNumber } from '@ethersproject/bignumber';
 import { parseEther } from '@ethersproject/units';
-import { OBOrder, OBOrderItem, OBTokenInfo } from '../types/core';
+import { OBOrder } from '../types/core';
 import {
   ETHEREUM_WETH_ADDRESS,
-  NULL_ADDRESS,
-  NULL_HASH,
-  POLYGON_INFINITY_EXCHANGE_ADDRESS,
+  NULL_ADDRESS, POLYGON_INFINITY_EXCHANGE_ADDRESS,
   POLYGON_INFINITY_FEE_TREASURY_ADDRESS,
   POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
   POLYGON_WETH_ADDRESS
 } from './constants';
-import { error } from './logger';
-import { BigNumber } from '@ethersproject/bignumber';
-
-export function getOrderId(chainId: string, exchangeAddr: string, order: OBOrder): string {
-  try {
-    const fnSign =
-      'Order(bool isSellOrder,address signer,uint256[] constraints,OrderItem[] nfts,address[] execParams,bytes extraParams)OrderItem(address collection,TokenInfo[] tokens)TokenInfo(uint256 tokenId,uint256 numTokens)';
-    const orderTypeHash = solidityKeccak256(['string'], [fnSign]);
-    // console.log('Order type hash', orderTypeHash);
-
-    const constraints = [
-      order.numItems,
-      parseEther(String(order.startPriceEth)),
-      parseEther(String(order.endPriceEth)),
-      Math.floor(order.startTimeMs / 1000),
-      Math.floor(order.endTimeMs / 1000),
-      order.minBpsToSeller,
-      order.nonce
-    ];
-    const execParams = [order.execParams.complicationAddress, order.execParams.currencyAddress];
-    const extraParams = defaultAbiCoder.encode(['address'], [order.extraParams.buyer ?? NULL_ADDRESS]);
-
-    const constraintsHash = keccak256(
-      defaultAbiCoder.encode(['uint256', 'uint256', 'uint256', 'uint256', 'uint256', 'uint256', 'uint256'], constraints)
-    );
-    // console.log('constraints hash', constraintsHash);
-    const nftsHash = _getNftsHash(order.nfts);
-    const execParamsHash = keccak256(defaultAbiCoder.encode(['address', 'address'], execParams));
-    // console.log('execParamsHash', execParamsHash);
-
-    const calcEncode = defaultAbiCoder.encode(
-      ['bytes32', 'bool', 'address', 'bytes32', 'bytes32', 'bytes32', 'bytes32'],
-      [
-        orderTypeHash,
-        order.isSellOrder,
-        order.makerAddress,
-        constraintsHash,
-        nftsHash,
-        execParamsHash,
-        keccak256(extraParams)
-      ]
-    );
-    const orderHash = keccak256(calcEncode);
-    return orderHash;
-  } catch (e) {
-    error('Error calculating orderId', e);
-  }
-  return NULL_HASH;
-}
-
-function _getNftsHash(nfts: OBOrderItem[]): BytesLike {
-  const fnSign = 'OrderItem(address collection,TokenInfo[] tokens)TokenInfo(uint256 tokenId,uint256 numTokens)';
-  const typeHash = solidityKeccak256(['string'], [fnSign]);
-  // console.log('Order item type hash', typeHash);
-
-  const hashes = [];
-  for (const nft of nfts) {
-    const hash = keccak256(
-      defaultAbiCoder.encode(['bytes32', 'uint256', 'bytes32'], [typeHash, nft.collectionAddress, _getTokensHash(nft.tokens)])
-    );
-    hashes.push(hash);
-  }
-  const encodeTypeArray = hashes.map(() => 'bytes32');
-  const nftsHash = keccak256(defaultAbiCoder.encode(encodeTypeArray, hashes));
-  // console.log('nftsHash', nftsHash);
-  return nftsHash;
-}
-
-function _getTokensHash(tokens: OBTokenInfo[]): BytesLike {
-  const fnSign = 'TokenInfo(uint256 tokenId,uint256 numTokens)';
-  const typeHash = solidityKeccak256(['string'], [fnSign]);
-  // console.log('Token info type hash', typeHash);
-
-  const hashes = [];
-  for (const token of tokens) {
-    const hash = keccak256(
-      defaultAbiCoder.encode(['bytes32', 'uint256', 'uint256'], [typeHash, token.tokenId, token.numTokens])
-    );
-    hashes.push(hash);
-  }
-  const encodeTypeArray = hashes.map(() => 'bytes32');
-  const tokensHash = keccak256(defaultAbiCoder.encode(encodeTypeArray, hashes));
-  // console.log('tokensHash', tokensHash);
-  return tokensHash;
-}
 
 export function getTxnCurrencyAddress(chainId: string): string {
   if (chainId === '1') {
