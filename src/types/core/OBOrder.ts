@@ -97,7 +97,7 @@ export interface FirestoreOrderItem {
   makerAddress: string;
   takerUsername: string;
   takerAddress: string;
-  collection: string;
+  collectionAddress: string;
   collectionName: string;
   collectionImage: string;
   tokenId: string;
