@@ -66,7 +66,7 @@ export interface SignedOBOrder extends OBOrder {
 
 export interface FirestoreOrder {
   id: string;
-  orderStatus: string;
+  orderStatus: OBOrderStatus;
   chainId: string;
   isSellOrder: boolean;
   numItems: number;
@@ -85,7 +85,7 @@ export interface FirestoreOrder {
 
 export interface FirestoreOrderItem {
   id: string;
-  orderStatus: string;
+  orderStatus: OBOrderStatus;
   chainId: string;
   isSellOrder: boolean;
   numItems: number;
@@ -115,7 +115,7 @@ export enum OBOrderStatus {
 export interface GetOrderItemsQuery {
   chainId?: string;
   isSellOrder?: boolean;
-  orderStatus?: string;
+  orderStatus?: OBOrderStatus;
   minPrice?: number;
   maxPrice?: number;
   numItems?: number;
