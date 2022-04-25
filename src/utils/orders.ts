@@ -99,12 +99,6 @@ function _getTokensHash(tokens: OBTokenInfo[]): BytesLike {
   return tokensHash;
 }
 
-// todo: change this
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function getOrderNonce(user: string, chainId: string): string {
-  return '1';
-}
-
 export function getTxnCurrencyAddress(chainId: string): string {
   if (chainId === '1') {
     return ETHEREUM_WETH_ADDRESS;
