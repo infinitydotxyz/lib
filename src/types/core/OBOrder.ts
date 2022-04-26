@@ -1,18 +1,19 @@
-import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
+import { BigNumberish } from '@ethersproject/bignumber';
 import { BytesLike } from '@ethersproject/bytes';
 
-// exchange types
 export interface OBTokenInfo {
   tokenId: string;
   tokenName: string;
-  imageUrl: string;
+  tokenImage: string;
+  takerUsername: string;
+  takerAddress: string;
   numTokens: number;
 }
 
 export interface OBOrderItem {
   collectionAddress: string;
   collectionName: string;
-  profileImage: string;
+  collectionImage: string;
   tokens: OBTokenInfo[];
 }
 
@@ -32,12 +33,8 @@ export interface OBOrder {
   numItems: number;
   makerUsername: string;
   makerAddress: string;
-  takerUsername: string;
-  takerAddress: string;
   startPriceEth: number;
   endPriceEth: number;
-  startPriceWei: string;
-  endPriceWei: string;
   startTimeMs: number;
   endTimeMs: number;
   minBpsToSeller: number;
@@ -67,106 +64,69 @@ export interface SignedOBOrder extends OBOrder {
   signedOrder: ChainOBOrder;
 }
 
-export const getCurrentOBOrderPrice = (order: OBOrder): BigNumber => {
-  const startTime = BigNumber.from(order.startTimeMs);
-  const endTime = BigNumber.from(order.endTimeMs);
-  const startPrice = BigNumber.from(order.startPriceWei);
-  const endPrice = BigNumber.from(order.endPriceWei);
-  const duration = endTime.sub(startTime);
-  let priceDiff = BigNumber.from(0);
-  if (startPrice.gt(endPrice)) {
-    priceDiff = startPrice.sub(endPrice);
-  } else {
-    priceDiff = endPrice.sub(startPrice);
-  }
-  if (priceDiff.eq(0) || duration.eq(0)) {
-    return startPrice;
-  }
-  const elapsedTime = BigNumber.from(Date.now()).sub(startTime.toNumber());
-  const precision = 10000;
-  const portion = elapsedTime.gt(duration) ? 1 : elapsedTime.mul(precision).div(duration);
-  priceDiff = priceDiff.mul(portion).div(precision);
-  let currentPrice = BigNumber.from(0);
-  if (startPrice.gt(endPrice)) {
-    currentPrice = startPrice.sub(priceDiff);
-  } else {
-    currentPrice = startPrice.add(priceDiff);
-  }
-  return currentPrice;
-};
-
-export const isOBOrderExpired = (order: OBOrder): boolean => {
-  // special case of never expire
-  if (order.endTimeMs === 0) {
-    return false;
-  }
-
-  return order.endTimeMs < Date.now();
-};
-
-export interface BuyOrderMatch {
-  buyOrder: OBOrder;
-  sellOrders: OBOrder[];
+export interface FirestoreOrder {
+  id: string;
+  orderStatus: OBOrderStatus;
+  chainId: string;
+  isSellOrder: boolean;
+  numItems: number;
+  startPriceEth: number;
+  endPriceEth: number;
+  startTimeMs: number;
+  endTimeMs: number;
+  minBpsToSeller: number;
+  nonce: string;
+  complicationAddress: string;
+  currencyAddress: string;
+  makerUsername: string;
+  makerAddress: string;
+  signedOrder: ChainOBOrder;
 }
 
-// ===============================================
-// API parameter and response types (/marketListings)
-export enum MarketOrder {
-  SellOrders = 'sellOrders',
-  BuyOrders = 'buyOrders'
+export interface FirestoreOrderItem {
+  id: string;
+  orderStatus: OBOrderStatus;
+  chainId: string;
+  isSellOrder: boolean;
+  numItems: number;
+  startPriceEth: number;
+  endPriceEth: number;
+  startTimeMs: number;
+  endTimeMs: number;
+  makerUsername: string;
+  makerAddress: string;
+  takerUsername: string;
+  takerAddress: string;
+  collectionAddress: string;
+  collectionName: string;
+  collectionImage: string;
+  tokenId: string;
+  tokenName: string;
+  tokenImage: string;
+  numTokens: number;
 }
 
-export enum MarketAction {
-  List = 'list',
-  Delete = 'delete',
-  Move = 'move',
-  Match = 'match',
-  Buy = 'buy'
-}
-
-export enum MarketListId {
+export enum OBOrderStatus {
   ValidActive = 'validActive',
   ValidInactive = 'validInactive',
   Invalid = 'invalid'
 }
 
-export interface MarketListingsBody {
-  orderType: MarketOrder;
-  action: MarketAction;
-  listId?: MarketListId;
-  orderId?: string; // delete and move
-  moveListId?: MarketListId;
+export interface GetOrderItemsQuery {
+  chainId?: string;
+  isSellOrder?: boolean;
+  orderStatus?: OBOrderStatus;
+  minPrice?: number;
+  maxPrice?: number;
+  numItems?: number;
+  collections?: string[];
   cursor?: string;
   limit?: number;
+  orderBy?: 'startPriceEth' | 'startTimeMs' | 'endTimeMs';
+  orderByDirection?: 'asc' | 'desc';
 }
 
-export interface MarketListOrders {
-  orders: OBOrder[];
-  cursor: string;
-}
-
-export interface MarketListingsResponse {
-  buyOrders: MarketListOrders;
-  sellOrders: MarketListOrders;
-  matches: BuyOrderMatch[];
-  success: string;
-  error: string;
-}
-
-// ===============================================
-// API parameter and response types (/:user/market)
-
-export interface TradeBody {
-  buyOrder?: OBOrder;
-  sellOrder?: OBOrder;
-}
-
-export interface TradeReq {
-  user?: string;
-}
-
-export interface TradeResponse {
-  matches: BuyOrderMatch[];
-  success: string;
-  error: string;
+export interface GetMinBpsQuery {
+  chainId?: string;
+  collections?: string[];
 }
