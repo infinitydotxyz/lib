@@ -1,4 +1,5 @@
 import { Erc721Metadata } from './Metadata';
+import { OBOrderItem } from './OBOrder';
 
 export enum TokenStandard {
   ERC721 = 'ERC721',
@@ -113,6 +114,8 @@ export interface BaseToken {
    */
   rarityRank: number;
 
+  ordersSnippet?: OrdersSnippet;
+
   /**
    * cached token image
    */
@@ -152,3 +155,14 @@ export interface Erc1155Token extends BaseToken {
 }
 
 export type Token = Erc721Token | Erc1155Token;
+
+export interface OrdersSnippet {
+  listing?: {
+    hasListing: boolean;
+    orderItem: OBOrderItem;
+  };
+  offer?: {
+    hasOffer: boolean;
+    orderItem: OBOrderItem;
+  };
+}
