@@ -57,7 +57,7 @@ export interface OrdersSnippet {
   offer?: OrderItemSnippet;
 }
 
-interface OrderItemSnippet {
+export interface OrderItemSnippet {
   /**
    * whether there is an order for this nft
    */
