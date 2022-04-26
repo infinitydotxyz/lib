@@ -159,10 +159,12 @@ export type Token = Erc721Token | Erc1155Token;
 export interface OrdersSnippet {
   listing?: {
     hasListing: boolean;
-    orderItem: OBOrderItem;
+    orderItemId?: string;
+    orderItem?: OBOrderItem;
   };
   offer?: {
     hasOffer: boolean;
-    orderItem: OBOrderItem;
+    orderItemId?: string;
+    orderItem?: OBOrderItem;
   };
 }
