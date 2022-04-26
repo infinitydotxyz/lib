@@ -171,4 +171,3 @@ export interface Erc1155Token extends BaseToken {
 }
 
 export type Token = Erc721Token | Erc1155Token;
-
