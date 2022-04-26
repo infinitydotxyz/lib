@@ -245,6 +245,8 @@ export type BaseCardData = {
   schemaName?: string;
   expirationTime?: string;
   chainId?: string;
+  rarityRank?: number;
+  rarityScore?: number;
 };
 
 export type CardData = BaseCardData & {
