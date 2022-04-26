@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/no-unused-vars': 'error',
+    curly: 1,
 
     // fix the any types at some point
     '@typescript-eslint/no-explicit-any': 'off',
