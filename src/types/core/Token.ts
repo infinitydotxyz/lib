@@ -24,7 +24,6 @@ export type ImageToken = MetadataToken & ImageData;
 
 export type AggregatedData = Pick<Token, 'rarityScore' | 'rarityRank'>;
 export type AggregatedToken = ImageToken & AggregatedData;
-
 export interface RefreshTokenErrorJson {
   message: string;
 
@@ -51,6 +50,23 @@ export enum RefreshTokenFlow {
   Image = 'token-image',
 
   Complete = 'complete'
+}
+
+export interface OrdersSnippet {
+  listing?: OrderItemSnippet;
+  offer?: OrderItemSnippet;
+}
+
+interface OrderItemSnippet {
+  /**
+   * whether there is an order for this nft
+   */
+  hasOrder: boolean;
+  /**
+   * id of the order item in firestore
+   */
+  orderItemId?: string;
+  orderItem?: OBOrderItem;
 }
 
 export interface BaseToken {
@@ -156,15 +172,3 @@ export interface Erc1155Token extends BaseToken {
 
 export type Token = Erc721Token | Erc1155Token;
 
-export interface OrdersSnippet {
-  listing?: {
-    hasListing: boolean;
-    orderItemId?: string;
-    orderItem?: OBOrderItem;
-  };
-  offer?: {
-    hasOffer: boolean;
-    orderItemId?: string;
-    orderItem?: OBOrderItem;
-  };
-}
