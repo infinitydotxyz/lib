@@ -66,7 +66,7 @@ export interface SignedOBOrder extends OBOrder {
 
 export interface FirestoreOrder {
   id: string;
-  orderStatus: string;
+  orderStatus: OBOrderStatus;
   chainId: string;
   isSellOrder: boolean;
   numItems: number;
@@ -85,7 +85,7 @@ export interface FirestoreOrder {
 
 export interface FirestoreOrderItem {
   id: string;
-  orderStatus: string;
+  orderStatus: OBOrderStatus;
   chainId: string;
   isSellOrder: boolean;
   numItems: number;
@@ -97,7 +97,7 @@ export interface FirestoreOrderItem {
   makerAddress: string;
   takerUsername: string;
   takerAddress: string;
-  collection: string;
+  collectionAddress: string;
   collectionName: string;
   collectionImage: string;
   tokenId: string;
@@ -112,13 +112,21 @@ export enum OBOrderStatus {
   Invalid = 'invalid'
 }
 
-export interface GetOrdersQuery {
+export interface GetOrderItemsQuery {
   chainId?: string;
   isSellOrder?: boolean;
+  orderStatus?: OBOrderStatus;
   minPrice?: number;
   maxPrice?: number;
   numItems?: number;
   collections?: string[];
   cursor?: string;
   limit?: number;
+  orderBy?: 'startPriceEth' | 'startTimeMs' | 'endTimeMs';
+  orderByDirection?: 'asc' | 'desc';
+}
+
+export interface GetMinBpsQuery {
+  chainId?: string;
+  collections?: string[];
 }

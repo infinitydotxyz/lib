@@ -146,4 +146,9 @@ export interface Erc721Token extends BaseToken {
   tokenStandard: TokenStandard.ERC721;
 }
 
-export type Token = Erc721Token;
+export interface Erc1155Token extends BaseToken {
+  metadata: any; // TODO
+  tokenStandard: TokenStandard.ERC1155;
+}
+
+export type Token = Erc721Token | Erc1155Token;
