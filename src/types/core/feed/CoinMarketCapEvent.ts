@@ -19,46 +19,46 @@ export interface CoinMarketCapNewsEvent extends BaseFeedEvent {
   /**
    * Title of the article.
    */
-   title: string;
+  title: string;
 
-   /**
-    * Subtitle of the article.
-    */
-   subtitle: string;
+  /**
+   * Subtitle of the article.
+   */
+  subtitle: string;
 
-   /**
-    * Article contents.
-    * Ususally this doesn't contain the while article body; users should visit the source to read more.
-    */
-   content: string;
+  /**
+   * Article contents.
+   * Ususally this doesn't contain the while article body; users should visit the source to read more.
+   */
+  content: string;
 
-   /**
-    * Name of the source where the article originally came from.
-    */
-   sourceName: string;
+  /**
+   * Name of the source where the article originally came from.
+   */
+  sourceName: string;
 
-   /**
-    * Original source URL of the article.
-    */
-    sourceUrl: string;
+  /**
+   * Original source URL of the article.
+   */
+  sourceUrl: string;
 
-   /**
-    * Language the article was written in.
-    */
-   language: string;
+  /**
+   * Language the article was written in.
+   */
+  language: string;
 
-   /**
-    * Date the article was published at the specific source.
-    */
-   createdAt: string;
+  /**
+   * Date the article was published at the specific source.
+   */
+  createdAt: string;
 
-   /**
-    * Date the article was updated at the specific source.
-    */
-   updatedAt: string;
+  /**
+   * Date the article was updated at the specific source.
+   */
+  updatedAt: string;
 
-   /**
-    * Date the article was publically released at the specific source.
-    */
-   releasedAt: string;
+  /**
+   * Date the article was publically released at the specific source.
+   */
+  releasedAt: string;
 }

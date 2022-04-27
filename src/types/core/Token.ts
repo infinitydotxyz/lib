@@ -1,4 +1,5 @@
 import { Erc721Metadata } from './Metadata';
+import { FirestoreOrder, FirestoreOrderItem, OBOrderItem } from './OBOrder';
 
 export enum TokenStandard {
   ERC721 = 'ERC721',
@@ -23,7 +24,6 @@ export type ImageToken = MetadataToken & ImageData;
 
 export type AggregatedData = Pick<Token, 'rarityScore' | 'rarityRank'>;
 export type AggregatedToken = ImageToken & AggregatedData;
-
 export interface RefreshTokenErrorJson {
   message: string;
 
@@ -50,6 +50,23 @@ export enum RefreshTokenFlow {
   Image = 'token-image',
 
   Complete = 'complete'
+}
+
+export interface OrdersSnippet {
+  listing?: OrderItemSnippet;
+  offer?: OrderItemSnippet;
+}
+
+export interface OrderItemSnippet {
+  /**
+   * whether there is an order for this nft
+   */
+  hasOrder: boolean;
+  /**
+   * id of the order item in firestore
+   */
+  orderItemId?: string;
+  orderItem?: FirestoreOrderItem | null;
 }
 
 export interface BaseToken {
@@ -112,6 +129,8 @@ export interface BaseToken {
    * rank relative to other items in the collection
    */
   rarityRank: number;
+
+  ordersSnippet?: OrdersSnippet;
 
   /**
    * cached token image
