@@ -66,7 +66,7 @@ export interface OrderItemSnippet {
    * id of the order item in firestore
    */
   orderItemId?: string;
-  orderItem?: OBOrderItem;
+  orderItem?: OBOrderItem | null;
 }
 
 export interface BaseToken {
