@@ -10,6 +10,15 @@ export enum FeedEventType {
   CoinMarketCapNews = 'CMC_NEWS',
 }
 
+export const FeedEventTypeNames: { [key: string]: string } = {
+  [FeedEventType.NftSale]: 'Sale',
+  [FeedEventType.NftListing]: 'Listing',
+  [FeedEventType.NftOffer]: 'Offer',
+  [FeedEventType.TwitterTweet]: 'Tweet',
+  [FeedEventType.DiscordAnnouncement]: 'Discord',
+  [FeedEventType.CoinMarketCapNews]: 'News'
+};
+
 export interface BaseFeedEvent {
   type: FeedEventType;
 
