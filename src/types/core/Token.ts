@@ -1,5 +1,5 @@
 import { Erc721Metadata } from './Metadata';
-import { OBOrderItem } from './OBOrder';
+import { FirestoreOrder, FirestoreOrderItem, OBOrderItem } from './OBOrder';
 
 export enum TokenStandard {
   ERC721 = 'ERC721',
@@ -66,7 +66,7 @@ export interface OrderItemSnippet {
    * id of the order item in firestore
    */
   orderItemId?: string;
-  orderItem?: OBOrderItem | null;
+  orderItem?: FirestoreOrderItem | null;
 }
 
 export interface BaseToken {
