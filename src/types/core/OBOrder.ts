@@ -101,9 +101,12 @@ export interface FirestoreOrderItem {
   collectionAddress: string;
   collectionName: string;
   collectionImage: string;
+  collectionSlug: string;
+  hasBlueCheck: boolean;
   tokenId: string;
   tokenName: string;
   tokenImage: string;
+  tokenSlug: string;
   numTokens: number;
 }
 
