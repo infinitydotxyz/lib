@@ -4,3 +4,4 @@ export * from './DiscordEvent';
 export * from './FeedEvent';
 export * from './NftEvent';
 export * from './TwitterEvent';
+export * from './UserEvent';
