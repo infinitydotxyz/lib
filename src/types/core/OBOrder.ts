@@ -85,6 +85,7 @@ export interface FirestoreOrder {
 
 export interface FirestoreOrderItem {
   id: string;
+  currencyAddress: string;
   orderStatus: OBOrderStatus;
   chainId: string;
   isSellOrder: boolean;
