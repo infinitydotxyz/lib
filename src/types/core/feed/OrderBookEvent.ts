@@ -1,7 +1,9 @@
 import { BaseNftEvent } from './NftEvent';
 import { UserEvent } from './UserEvent';
 
-export interface OrderBookEvent extends BaseNftEvent, UserEvent {
+type UserOrderBookEvent = BaseNftEvent & UserEvent;
+
+export interface OrderBookEvent extends UserOrderBookEvent {
   /**
    * id of the order
    */
