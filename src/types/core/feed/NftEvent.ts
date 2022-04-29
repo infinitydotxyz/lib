@@ -2,6 +2,8 @@ import { SaleSource } from '../NftSale';
 import { TokenStandard } from '../Token';
 import { BaseCollectionEvent, CollectionEvent } from './CollectionEvent';
 import { FeedEventType } from './FeedEvent';
+import { OrderBookEvent } from './OrderBookEvent';
+import { UserEvent } from './UserEvent';
 
 /**
  * data needed for each nft event
@@ -27,12 +29,12 @@ interface NftData extends CollectionEvent {
   internalUrl: string;
 }
 
-interface BaseNftEvent extends BaseCollectionEvent, NftData {}
+export interface BaseNftEvent extends BaseCollectionEvent, NftData {}
 
 /**
  * represent an exchange of an nft from one wallet/user to another
  */
-export interface ExchangeEvent extends BaseNftEvent {
+interface BaseExchangeEvent {
   buyer: string;
 
   buyerDisplayName?: string;
@@ -62,9 +64,23 @@ export interface ExchangeEvent extends BaseNftEvent {
   externalUrl: string;
 }
 
+export type ExchangeEvent = BaseExchangeEvent & BaseNftEvent & UserEvent;
+
 /**
  * -------- NFT Events --------
  */
 export interface NftSaleEvent extends ExchangeEvent {
   type: FeedEventType.NftSale;
+}
+
+export interface NftOfferEvent extends OrderBookEvent {
+  type: FeedEventType.NftOffer;
+
+  isSellOrder: false;
+}
+
+export interface NftListingEvent extends OrderBookEvent {
+  type: FeedEventType.NftListing;
+
+  isSellOrder: true;
 }

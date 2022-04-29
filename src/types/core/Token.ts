@@ -1,12 +1,19 @@
 import { Erc721Metadata } from './Metadata';
-import { FirestoreOrder, FirestoreOrderItem, OBOrderItem } from './OBOrder';
+import { FirestoreOrderItem } from './OBOrder';
 
 export enum TokenStandard {
   ERC721 = 'ERC721',
   ERC1155 = 'ERC1155'
 }
 
-export type TokenMetadata = Erc721Metadata;
+export type Erc1155Metadata = {
+  name: string;
+  description: string;
+  image: string;
+  // TODO add attributes/properties
+};
+
+export type TokenMetadata = Erc721Metadata | Erc1155Metadata;
 
 export type MintToken = Pick<
   Token,
@@ -166,7 +173,7 @@ export interface Erc721Token extends BaseToken {
 }
 
 export interface Erc1155Token extends BaseToken {
-  metadata: any; // TODO
+  metadata: Erc1155Metadata;
   tokenStandard: TokenStandard.ERC1155;
 }
 

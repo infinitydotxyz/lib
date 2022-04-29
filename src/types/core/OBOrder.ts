@@ -85,6 +85,7 @@ export interface FirestoreOrder {
 
 export interface FirestoreOrderItem {
   id: string;
+  currencyAddress: string;
   orderStatus: OBOrderStatus;
   chainId: string;
   isSellOrder: boolean;
@@ -100,9 +101,12 @@ export interface FirestoreOrderItem {
   collectionAddress: string;
   collectionName: string;
   collectionImage: string;
+  collectionSlug: string;
+  hasBlueCheck: boolean;
   tokenId: string;
   tokenName: string;
   tokenImage: string;
+  tokenSlug: string;
   numTokens: number;
 }
 
