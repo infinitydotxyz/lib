@@ -3,6 +3,7 @@ import { InfinityTweet, InfinityTwitterAccount } from '../services/twitter/Tweet
 import { Asset } from './Asset';
 import { Links } from './Collection';
 import { Order } from './Order';
+import { OrdersSnippet } from './Token';
 
 export enum OrderSide {
   Buy = 0,
@@ -247,6 +248,7 @@ export type BaseCardData = {
   chainId?: string;
   rarityRank?: number;
   rarityScore?: number;
+  orderSnippet?: OrdersSnippet;
 };
 
 export type CardData = BaseCardData & {
