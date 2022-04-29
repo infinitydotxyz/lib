@@ -3,5 +3,6 @@
  * supported ChainIds
  */
 export enum ChainId {
-  Mainnet = '1'
+  Mainnet = '1',
+  Polygon = '137'
 }
