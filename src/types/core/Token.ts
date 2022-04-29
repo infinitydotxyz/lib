@@ -6,7 +6,12 @@ export enum TokenStandard {
   ERC1155 = 'ERC1155'
 }
 
-export type Erc1155Metadata = object; // TODO
+export type Erc1155Metadata = {
+  name: string;
+  description: string;
+  image: string;
+  // TODO add attributes/properties
+};
 
 export type TokenMetadata = Erc721Metadata | Erc1155Metadata;
 
