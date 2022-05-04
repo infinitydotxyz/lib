@@ -125,6 +125,10 @@ export interface BaseToken {
 
   tokenUri: string;
 
+  // TODO: Added by Steve, remove if wrong
+  // set by the BE when getting one token
+  owner: string;
+
   /**
    * sum of the token's rarity scores
    *
