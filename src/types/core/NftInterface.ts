@@ -236,6 +236,7 @@ export type BaseCardData = {
   inStock?: number;
   order?: Order;
   tokenAddress?: string;
+  address?: string; // tokenAddress = address = collectionAddress
   tokenId?: string;
   collectionName?: string;
   maker?: string;
