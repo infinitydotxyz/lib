@@ -61,7 +61,9 @@ export function getCreatorFeeManagerAddress(chainId: string): string {
   }
 }
 
-export const getCurrentOBOrderPrice = (order: OBOrder): BigNumber => {
+export const getCurrentOBOrderPrice = (
+  order: Pick<OBOrder, 'startPriceEth' | 'startTimeMs' | 'endPriceEth' | 'endTimeMs'>
+): BigNumber => {
   const startTime = BigNumber.from(order.startTimeMs);
   const endTime = BigNumber.from(order.endTimeMs);
   const startPrice = BigNumber.from(parseEther(String(order.startPriceEth)));
