@@ -79,6 +79,12 @@ export interface OrderItemSnippet {
 export interface BaseToken {
   chainId: string;
 
+  collectionAddress?: string;
+
+  collectionSlug?: string;
+
+  collectionName?: string;
+
   /**
    * search friendly name for this token
    * not the same as the collection slug
