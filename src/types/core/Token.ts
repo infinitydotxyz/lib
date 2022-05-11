@@ -86,6 +86,11 @@ export interface BaseToken {
   collectionName?: string;
 
   /**
+   * whether the collection is verified
+   */
+  hasBlueCheck?: boolean;
+
+  /**
    * search friendly name for this token
    * not the same as the collection slug
    */
