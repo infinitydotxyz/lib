@@ -43,6 +43,7 @@ export type BaseCardData = {
   address?: string; // tokenAddress = address = collectionAddress
   tokenId?: string;
   collectionName?: string;
+  collectionSlug?: string;
   maker?: string;
   hasBonusReward?: boolean;
   hasBlueCheck?: boolean;
