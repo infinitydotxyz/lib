@@ -147,6 +147,8 @@ export interface FirestoreOrderMatch {
 
   offerId: string;
 
+  matches: { listing: FirestoreOrderItem; offer: FirestoreOrderItem }[];
+
   /**
    * array containing the offerId and listingId
    * used to support a logical OR firestore query
