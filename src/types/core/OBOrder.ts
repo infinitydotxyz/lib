@@ -148,6 +148,12 @@ export interface FirestoreOrderMatch {
   offerId: string;
 
   /**
+   * array containing the offerId and listingId
+   * used to support a logical OR firestore query
+   */
+  ids: string[];
+
+  /**
    * timestamp that the orders become valid
    * matches
    */
