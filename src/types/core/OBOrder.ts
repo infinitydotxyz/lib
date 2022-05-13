@@ -136,3 +136,27 @@ export interface GetMinBpsQuery {
   chainId?: string;
   collections?: string[];
 }
+
+export enum FirestoreOrderMatchStatus {
+  Active = 'active',
+  Inactive = 'inactive'
+}
+
+export interface FirestoreOrderMatch {
+  listingId: string;
+
+  offerId: string;
+
+  /**
+   * timestamp that the orders become valid
+   * matches
+   */
+  timestamp: number;
+
+  /**
+   * the price of the match
+   */
+  price: number;
+
+  status: FirestoreOrderMatchStatus;
+}
