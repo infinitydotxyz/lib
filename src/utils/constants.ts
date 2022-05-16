@@ -70,6 +70,11 @@ export const ETHEREUM_NETWORK_NAME = 'main';
 export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
 
+// goerli
+export const GOERLI_NETWORK_NAME = 'goerli';
+export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
+export const GOERLI_WETH_ADDRESS = '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6';
+
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
 export const POLYGON_CHAIN_SCANNER_BASE = 'https://polygonscan.com';
