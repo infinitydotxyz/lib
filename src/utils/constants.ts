@@ -72,7 +72,7 @@ export const ETHEREUM_NETWORK_NAME = 'main';
 export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase();
 
-export const ETHEREUM_INFINITY_TOKEN_ADDRESS = '';
+export const ETHEREUM_INFINITY_TOKEN_ADDRESS = ''; // TODO adi - add mainnet addresses
 export const ETHEREUM_INFINITY_CURRENCY_REGISTRY_ADDRESS = '';
 export const ETHEREUM_INFINITY_COMPLICATION_REGISTRY_ADDRESS = '';
 export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '';
