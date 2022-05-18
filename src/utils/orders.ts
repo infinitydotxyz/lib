@@ -1,64 +1,31 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { parseEther } from '@ethersproject/units';
-import { OBOrder } from '../types/core';
-import {
-  ETHEREUM_WETH_ADDRESS,
-  NULL_ADDRESS,
-  POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS,
-  POLYGON_INFINITY_EXCHANGE_ADDRESS,
-  POLYGON_INFINITY_FEE_TREASURY_ADDRESS,
-  POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
-  POLYGON_WETH_ADDRESS
-} from './constants';
+import { ChainId, OBOrder } from '../types/core';
+import { chainConstants, NULL_ADDRESS } from './constants';
 
-export function getTxnCurrencyAddress(chainId: string): string {
-  if (chainId === '1') {
-    return ETHEREUM_WETH_ADDRESS;
-  } else if (chainId === '137') {
-    return POLYGON_WETH_ADDRESS;
-  } else {
-    return NULL_ADDRESS;
-  }
+export function getTxnCurrencyAddress(_chainId: string): string {
+  const chainId = _chainId as ChainId;
+  return chainConstants[chainId]?.wethAddress ?? NULL_ADDRESS;
 }
 
-export function getOBComplicationAddress(chainId: string): string {
-  if (chainId === '1') {
-    return NULL_ADDRESS; // todo: change this
-  } else if (chainId === '137') {
-    return POLYGON_INFINITY_OB_COMPLICATION_ADDRESS;
-  } else {
-    return NULL_ADDRESS;
-  }
+export function getOBComplicationAddress(_chainId: string): string {
+  const chainId = _chainId as ChainId;
+  return chainConstants[chainId]?.infinityContracts?.obComplicationAddress ?? NULL_ADDRESS;
 }
 
-export function getExchangeAddress(chainId: string): string {
-  if (chainId === '1') {
-    return NULL_ADDRESS; // todo: change this
-  } else if (chainId === '137') {
-    return POLYGON_INFINITY_EXCHANGE_ADDRESS;
-  } else {
-    return NULL_ADDRESS;
-  }
+export function getExchangeAddress(_chainId: string): string {
+  const chainId = _chainId as ChainId;
+  return chainConstants[chainId]?.infinityContracts?.exchangeAddress ?? NULL_ADDRESS;
 }
 
-export function getFeeTreasuryAddress(chainId: string): string {
-  if (chainId === '1') {
-    return NULL_ADDRESS; // todo: change this
-  } else if (chainId === '137') {
-    return POLYGON_INFINITY_FEE_TREASURY_ADDRESS;
-  } else {
-    return NULL_ADDRESS;
-  }
+export function getFeeTreasuryAddress(_chainId: string): string {
+  const chainId = _chainId as ChainId;
+  return chainConstants[chainId]?.infinityContracts?.feeTreasuryAddress ?? NULL_ADDRESS;
 }
 
-export function getCreatorFeeManagerAddress(chainId: string): string {
-  if (chainId === '1') {
-    return NULL_ADDRESS; // todo: change this
-  } else if (chainId === '137') {
-    return POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS;
-  } else {
-    return NULL_ADDRESS;
-  }
+export function getCreatorFeeManagerAddress(_chainId: string): string {
+  const chainId = _chainId as ChainId;
+  return chainConstants[chainId]?.infinityContracts?.creatorsFeeManagerAddress ?? NULL_ADDRESS;
 }
 
 export const getCurrentOBOrderPrice = (
