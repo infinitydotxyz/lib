@@ -43,6 +43,7 @@ export const firestoreConstants = {
   FEED_COLL: 'feed',
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
   USER_FOLLOWS_COLL: 'userFollows',
+  USER_NFT_COLLECTION_COLL: 'nftCollections',
   SELL_ORDERS_COLL: 'sellOrders',
   BUY_ORDERS_COLL: 'buyOrders',
   ORDERS_COLL: 'orders',
