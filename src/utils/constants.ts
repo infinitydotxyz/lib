@@ -51,7 +51,7 @@ export const firestoreConstants = {
   ORDERS_COLL: 'orders',
   ORDER_ITEMS_SUB_COLL: 'orderItems',
   ORDER_MATCHES_COLL: 'orderMatches',
-  ORDER_MATCHES_ITEMS_SUB_COLL: 'orderMatchItems'
+  ORDER_MATCH_ITEMS_SUB_COLL: 'orderMatchItems'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
