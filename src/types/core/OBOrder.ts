@@ -188,10 +188,6 @@ export interface FirestoreOrderItemMatch {
 
   chainId: string;
 
-  numItems: number;
-
-  numTokens: number;
-
   /**
    * the price of the match
    */
