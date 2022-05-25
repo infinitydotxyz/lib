@@ -176,10 +176,6 @@ export interface FirestoreOrderItemMatch {
    */
   usersInvolved: string[];
 
-  listingId: string;
-
-  offerId: string;
-
   listing: FirestoreOrderItem;
 
   offer: FirestoreOrderItem;
