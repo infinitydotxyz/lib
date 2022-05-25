@@ -144,6 +144,11 @@ export enum FirestoreOrderMatchStatus {
 
 export interface FirestoreOrderMatch {
   /**
+   * the id of this order match in firestore
+   */
+  id: string;
+
+  /**
    * array containing the users involved
    * used to support a logical OR firestore query
    */
@@ -175,6 +180,8 @@ export interface FirestoreOrderItemMatch {
    * used to support a logical OR firestore query
    */
   usersInvolved: string[];
+
+  orderMatchId: string;
 
   listing: FirestoreOrderItem;
 
