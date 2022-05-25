@@ -143,11 +143,11 @@ export enum FirestoreOrderMatchStatus {
 }
 
 export interface FirestoreOrderMatch {
-  listingId: string;
-
-  offerId: string;
-
-  matches: { listing: FirestoreOrderItem; offer: FirestoreOrderItem }[];
+  /**
+   * array containing the users involved
+   * used to support a logical OR firestore query
+   */
+  usersInvolved: string[];
 
   /**
    * array containing the offerId and listingId
@@ -167,4 +167,58 @@ export interface FirestoreOrderMatch {
   price: number;
 
   status: FirestoreOrderMatchStatus;
+}
+
+export interface FirestoreOrderItemMatch {
+  /**
+   * array containing the users involved
+   * used to support a logical OR firestore query
+   */
+  usersInvolved: string[];
+
+  listingId: string;
+
+  offerId: string;
+
+  listing: FirestoreOrderItem;
+
+  offer: FirestoreOrderItem;
+
+  currencyAddress: string;
+
+  chainId: string;
+
+  numItems: number;
+
+  numTokens: number;
+
+  /**
+   * the price of the match
+   */
+  price: number;
+
+  /**
+   * timestamp that the orders become valid
+   * matches
+   */
+  timestamp: number;
+
+  makerUsername: string;
+
+  makerAddress: string;
+
+  takerUsername: string;
+
+  takerAddress: string;
+
+  collectionAddress: string;
+  collectionName: string;
+  collectionImage: string;
+  collectionSlug: string;
+  hasBlueCheck: boolean;
+
+  tokenId: string;
+  tokenName: string;
+  tokenImage: string;
+  tokenSlug: string;
 }
