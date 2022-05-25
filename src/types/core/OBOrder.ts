@@ -171,10 +171,22 @@ export interface FirestoreOrderMatch {
    */
   price: number;
 
+  /**
+   * timestamp that the match was created
+   */
+  createdAt: number;
+
   status: FirestoreOrderMatchStatus;
 }
 
 export interface FirestoreOrderItemMatch {
+  /**
+   * timestamp that the match was created
+   */
+  createdAt: number;
+
+  status: FirestoreOrderMatchStatus;
+
   /**
    * array containing the users involved
    * used to support a logical OR firestore query
