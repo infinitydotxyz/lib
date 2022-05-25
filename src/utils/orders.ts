@@ -28,8 +28,9 @@ export function getCreatorFeeManagerAddress(_chainId: string): string {
   return chainConstants[chainId]?.infinityContracts?.creatorsFeeManagerAddress ?? NULL_ADDRESS;
 }
 
-export const getCurrentOBOrderPrice = (
-  order: Pick<OBOrder, 'startPriceEth' | 'startTimeMs' | 'endPriceEth' | 'endTimeMs'>
+export const getOBOrderPrice = (
+  order: Pick<OBOrder, 'startPriceEth' | 'startTimeMs' | 'endPriceEth' | 'endTimeMs'>,
+  timestamp: number
 ): BigNumber => {
   const startTime = BigNumber.from(order.startTimeMs);
   const endTime = BigNumber.from(order.endTimeMs);
@@ -45,17 +46,23 @@ export const getCurrentOBOrderPrice = (
   if (priceDiff.eq(0) || duration.eq(0)) {
     return startPrice;
   }
-  const elapsedTime = BigNumber.from(Date.now()).sub(startTime.toNumber());
+  const elapsedTime = BigNumber.from(timestamp).sub(startTime.toNumber());
   const precision = 10000;
   const portion = elapsedTime.gt(duration) ? 1 : elapsedTime.mul(precision).div(duration);
   priceDiff = priceDiff.mul(portion).div(precision);
-  let currentPrice = BigNumber.from(0);
+  let priceAtTime = BigNumber.from(0);
   if (startPrice.gt(endPrice)) {
-    currentPrice = startPrice.sub(priceDiff);
+    priceAtTime = startPrice.sub(priceDiff);
   } else {
-    currentPrice = startPrice.add(priceDiff);
+    priceAtTime = startPrice.add(priceDiff);
   }
-  return currentPrice;
+  return priceAtTime;
+};
+
+export const getCurrentOBOrderPrice = (
+  order: Pick<OBOrder, 'startPriceEth' | 'startTimeMs' | 'endPriceEth' | 'endTimeMs'>
+): BigNumber => {
+  return getOBOrderPrice(order, Date.now());
 };
 
 export const isOBOrderExpired = (order: Pick<OBOrder, 'endTimeMs'>): boolean => {
