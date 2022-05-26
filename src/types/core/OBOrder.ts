@@ -142,17 +142,28 @@ export enum FirestoreOrderMatchStatus {
   Inactive = 'inactive'
 }
 
+export type FirestoreOrderMatchCollection = {
+  collectionAddress: string;
+  collectionName: string;
+  collectionImage: string;
+  collectionSlug: string;
+  hasBlueCheck: boolean;
+  tokens: { [tokenId: string]: FirestoreOrderMatchToken };
+};
+
+export type FirestoreOrderMatchToken = {
+  tokenId: string;
+  tokenName: string;
+  tokenImage: string;
+  tokenSlug: string;
+  numTokens: number;
+};
+
 export interface FirestoreOrderMatch {
   /**
    * the id of this order match in firestore
    */
   id: string;
-
-  /**
-   * array containing the users involved
-   * used to support a logical OR firestore query
-   */
-  usersInvolved: string[];
 
   /**
    * array containing the offerId and listingId
@@ -161,52 +172,37 @@ export interface FirestoreOrderMatch {
   ids: string[];
 
   /**
-   * timestamp that the orders become valid
-   * matches
+   * address of the user that created the listing in the match
    */
-  timestamp: number;
+  listerAddress: string;
 
   /**
-   * the price of the match
+   * address of the user that created the offer in the match
+   */
+  offererAddress: string;
+
+  /**
+   * price that the order will be executed at
    */
   price: number;
 
   /**
-   * timestamp that the match was created
+   * collection addresses in the match
    */
-  createdAt: number;
-
-  status: FirestoreOrderMatchStatus;
-}
-
-export interface FirestoreOrderItemMatch {
-  /**
-   * timestamp that the match was created
-   */
-  createdAt: number;
-
-  status: FirestoreOrderMatchStatus;
-
-  /**
-   * array containing the users involved
-   * used to support a logical OR firestore query
-   */
-  usersInvolved: string[];
-
-  orderMatchId: string;
-
-  listing: FirestoreOrderItem;
-
-  offer: FirestoreOrderItem;
-
-  currencyAddress: string;
+  collectionAddresses: string[];
 
   chainId: string;
 
   /**
-   * the price of the match
+   * array of `collectionAddress:tokenId` formatted strings
+   * used to search for specific tokens in order matches
    */
-  price: number;
+  tokens: string[];
+
+  /**
+   * timestamp that the match was created
+   */
+  createdAt: number;
 
   /**
    * timestamp that the orders become valid
@@ -214,22 +210,11 @@ export interface FirestoreOrderItemMatch {
    */
   timestamp: number;
 
-  makerUsername: string;
+  status: FirestoreOrderMatchStatus;
 
-  makerAddress: string;
+  currencyAddress: string;
 
-  takerUsername: string;
-
-  takerAddress: string;
-
-  collectionAddress: string;
-  collectionName: string;
-  collectionImage: string;
-  collectionSlug: string;
-  hasBlueCheck: boolean;
-
-  tokenId: string;
-  tokenName: string;
-  tokenImage: string;
-  tokenSlug: string;
+  collections: {
+    [collectionAddress: string]: FirestoreOrderMatchCollection;
+  };
 }
