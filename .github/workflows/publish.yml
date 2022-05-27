@@ -19,8 +19,9 @@ jobs:
           patch-wording: 'Patch,patch,Patches,patches,Fixes,fixes,Fix,fix'
           rc-wording: 'ALPHA,Alpha,alpha,BETA,Beta,beta'
           default: patch
+          skip-commit: 'true'
           skip-tag: 'true'
-          skip-push:  'true'
+          skip-push: 'true'
       - name: 'Bump version'
         uses: 'phips28/gh-action-bump-version@master'
         env:
