@@ -12,8 +12,10 @@ function getDirectories(source) {
 }
 
 const src = join(__dirname, 'src');
+const dto = join(src, 'types', 'dto');
 
-const entrypoints = getDirectories(join(src, 'types', 'dto'));
+const entrypoints = getDirectories(dto).map((dirName) => join(dto, dirName, 'index.ts'));
+entrypoints.push(join(dto, 'collections', 'nfts', 'index.ts')); // TODO: recursively scan subdirectories instead
 
 function main() {
   console.log('Creating frontend-specific build...');
