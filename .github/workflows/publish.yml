@@ -19,7 +19,7 @@ jobs:
           patch-wording: 'Patch,patch,Patches,patches,Fixes,fixes,Fix,fix'
           rc-wording: 'ALPHA,Alpha,alpha,BETA,Beta,beta'
           default: patch
-          tag-prefix: 'v'
+          skip-tag: 'true'
           skip-push:  'true'
       - name: 'Bump version'
         uses: 'phips28/gh-action-bump-version@master'
