@@ -2,9 +2,10 @@
   "name": "@infinityxyz/lib-frontend",
   "version": "1.68.3",
   "description": "Stripped down version of @infinityxyz/lib suited for frontend development",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "cp package.json dist"
   },
   "repository": {
     "type": "git",
