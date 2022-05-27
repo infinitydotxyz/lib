@@ -8,7 +8,7 @@
     "build": "node index.js && rimraf dist && tsc && node build-frontend.js",
     "lint": "eslint --ext=jsx,ts,tsx src",
     "lint:fix": "eslint --fix --ext=jsx,ts,tsx src",
-    "prepublish": "npm run build && cp package.json dist",
+    "prepublish": "npm run build && cp package.json dist && cp frontend/package.json frontend/dist",
     "fmt:write": "prettier -w ./src",
     "pre:push": "npm run lint:fix && npm run fmt:write && npm run build"
   },
