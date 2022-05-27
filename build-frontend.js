@@ -5,17 +5,20 @@ const tsconfig = require('./tsconfig.json');
 const { join } = require('path');
 const { readdirSync } = require('fs');
 
-function getDirectories(source) {
+function readEntrypoints(source) {
   return readdirSync(source, { withFileTypes: true })
     .filter((item) => item.isDirectory())
-    .map((item) => item.name);
+    .flatMap((item) => {
+      const path = `${source}/${item.name}`;
+      const entrypoints = readEntrypoints(path); // recursively look for entrypoints in subdirectories
+      entrypoints.push(`${path}/index.ts`); // add the entrypoint from the current top level
+      return entrypoints;
+    });
 }
 
 const src = join(__dirname, 'src');
-const dto = join(src, 'types', 'dto');
 
-const entrypoints = getDirectories(dto).map((dirName) => join(dto, dirName, 'index.ts'));
-entrypoints.push(join(dto, 'collections', 'nfts', 'index.ts')); // TODO: recursively scan subdirectories instead
+const entrypoints = readEntrypoints(src);
 
 function main() {
   console.log('Creating frontend-specific build...');
