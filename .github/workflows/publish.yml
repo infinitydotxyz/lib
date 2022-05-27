@@ -41,6 +41,8 @@ jobs:
         run: |
           npm install
           npm publish ./dist --access restricted
-          npm publish ./frontend/dist --access restricted
+          cd frontend
+          npm install
+          npm publish ./dist --access restricted
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
