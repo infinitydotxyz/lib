@@ -1,0 +1,20 @@
+{
+  "name": "@infinityxyz/lib-frontend",
+  "version": "1.68.0",
+  "description": "Stripped down version of @infinityxyz/lib suited for frontend development",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mavriklabs/lib.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mavriklabs/lib/issues"
+  },
+  "homepage": "https://github.com/mavriklabs/lib#readme",
+  "keywords": []
+}

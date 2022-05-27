@@ -6,6 +6,8 @@ To add a new type or util, just create a `.ts` file in an approproate location a
 
 `npm run build` creates a top-level `index.ts` file in each directory to keep imports shorter in other files.
 
+A frontend-specific build - without decorators and other unused imports - is written to `frontend` and published as a separate package.
+
 Pushing to `main` bumps the patch version number in `package.json` file which triggers a new `npm publish` via a `Github Action`.
 
 # Usage
