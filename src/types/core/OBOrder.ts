@@ -110,6 +110,7 @@ export interface FirestoreOrderItem {
   tokenImage: string;
   tokenSlug: string;
   numTokens: number;
+  complicationAddress: string;
 }
 
 export enum OBOrderStatus {
