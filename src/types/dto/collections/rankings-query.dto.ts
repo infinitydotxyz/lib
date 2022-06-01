@@ -4,7 +4,7 @@ import { Transform } from 'class-transformer';
 import { OrderDirection, StatsPeriod, StatType } from '../../core';
 import { parseIntTransformer } from '../../../transformers/parse-int.transformer';
 
-export default class RankingQueryDto {
+export class RankingQueryDto {
   @ApiProperty({
     description: 'Period to get stats for',
     enum: StatsPeriod
