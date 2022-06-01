@@ -93,16 +93,10 @@ export const GOERLI_NETWORK_NAME = 'goerli';
 export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
 export const GOERLI_WETH_ADDRESS = '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6'.toLowerCase();
 
-export const GOERLI_INFINITY_TOKEN_ADDRESS = '0x2BDB98086d47e38e3A40B42463Af005F5CF72146'.toLowerCase();
-export const GOERLI_INFINITY_CURRENCY_REGISTRY_ADDRESS = '0xC01dD38a8D423A247ACEe30D698b33b609a37649'.toLowerCase();
-export const GOERLI_INFINITY_COMPLICATION_REGISTRY_ADDRESS = '0xbE93671b19E2D7B96f2cA1096Cf438b1918Ed685'.toLowerCase();
-export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0xFaEAb856fa0B46F95Ff3ad74D5d2285EEA3D8F75'.toLowerCase();
-export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x96068504a17A419c8fAD7187107A5064B1164f67'.toLowerCase();
-export const GOERLI_INFINITY_STAKER_ADDRESS = '0x031D5A5F12916380ae26c174AF3526f816505CaF'.toLowerCase();
-export const GOERLI_INFINITY_TRADING_REWARDS_ADDRESS = '0xc9719D68f19C430766805da6CcC26D33ff6d42D1'.toLowerCase();
-export const GOERLI_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS = '0x2d549F8d7d52613e20350447BD70ECBe3c2d9bD7'.toLowerCase();
-export const GOERLI_INFINITY_CREATORS_FEE_MANAGER_ADDRESS = '0xFe346B18DFc82576480E39B4F9E289Db63Dd887C'.toLowerCase();
-export const GOERLI_INFINITY_FEE_TREASURY_ADDRESS = '0xe246f8BcF9e8119A93e34F0aeb485a139472bE99'.toLowerCase();
+export const GOERLI_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS = '0xD5A3015Bcb77E3685DFd22Bc40424C0F1F67b2Fd'.toLowerCase();
+export const GOERLI_INFINITY_CREATORS_FEE_MANAGER_ADDRESS = '0x3129B14e3f90670262f3151d1d207e142e19731d'.toLowerCase();
+export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0x2177bA3fEF932E7EB59c8b940E1532249D012022'.toLowerCase();
+export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x99F38a382BB6af01da94B0f64E22fEA45BFd503a'.toLowerCase();
 
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
@@ -136,16 +130,10 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
     wethAddress: ETHEREUM_WETH_ADDRESS,
     infinityContracts: {
-      tokenAddress: ETHEREUM_INFINITY_TOKEN_ADDRESS,
-      currencyRegistryAddress: ETHEREUM_INFINITY_CURRENCY_REGISTRY_ADDRESS,
-      complicationRegistryAddress: ETHEREUM_INFINITY_COMPLICATION_REGISTRY_ADDRESS,
       exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
       obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
-      stakerAddress: ETHEREUM_INFINITY_STAKER_ADDRESS,
-      tradingRewardsAddress: ETHEREUM_INFINITY_TRADING_REWARDS_ADDRESS,
       creatorsFeeRegistryAddress: ETHEREUM_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS,
-      creatorsFeeManagerAddress: ETHEREUM_INFINITY_CREATORS_FEE_MANAGER_ADDRESS,
-      feeTreasuryAddress: ETHEREUM_INFINITY_FEE_TREASURY_ADDRESS
+      creatorsFeeManagerAddress: ETHEREUM_INFINITY_CREATORS_FEE_MANAGER_ADDRESS
     }
   },
   [ChainId.Goerli]: {
@@ -153,16 +141,10 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     scannerBase: GOERLI_CHAIN_SCANNER_BASE,
     wethAddress: GOERLI_WETH_ADDRESS,
     infinityContracts: {
-      tokenAddress: GOERLI_INFINITY_TOKEN_ADDRESS,
-      currencyRegistryAddress: GOERLI_INFINITY_CURRENCY_REGISTRY_ADDRESS,
-      complicationRegistryAddress: GOERLI_INFINITY_COMPLICATION_REGISTRY_ADDRESS,
       exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
       obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
-      stakerAddress: GOERLI_INFINITY_STAKER_ADDRESS,
-      tradingRewardsAddress: GOERLI_INFINITY_TRADING_REWARDS_ADDRESS,
       creatorsFeeRegistryAddress: GOERLI_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS,
-      creatorsFeeManagerAddress: GOERLI_INFINITY_CREATORS_FEE_MANAGER_ADDRESS,
-      feeTreasuryAddress: GOERLI_INFINITY_FEE_TREASURY_ADDRESS
+      creatorsFeeManagerAddress: GOERLI_INFINITY_CREATORS_FEE_MANAGER_ADDRESS
     }
   },
   [ChainId.Polygon]: {
@@ -170,16 +152,10 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     scannerBase: POLYGON_CHAIN_SCANNER_BASE,
     wethAddress: POLYGON_WETH_ADDRESS,
     infinityContracts: {
-      tokenAddress: POLYGON_INFINITY_TOKEN_ADDRESS,
-      currencyRegistryAddress: POLYGON_INFINITY_CURRENCY_REGISTRY_ADDRESS,
-      complicationRegistryAddress: POLYGON_INFINITY_COMPLICATION_REGISTRY_ADDRESS,
       exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
       obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
-      stakerAddress: POLYGON_INFINITY_STAKER_ADDRESS,
-      tradingRewardsAddress: POLYGON_INFINITY_TRADING_REWARDS_ADDRESS,
       creatorsFeeRegistryAddress: POLYGON_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS,
-      creatorsFeeManagerAddress: POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS,
-      feeTreasuryAddress: POLYGON_INFINITY_FEE_TREASURY_ADDRESS
+      creatorsFeeManagerAddress: POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS
     }
   }
 };
@@ -189,15 +165,9 @@ interface ChainIdConstants {
   scannerBase: string;
   wethAddress: string;
   infinityContracts: {
-    tokenAddress: string;
-    currencyRegistryAddress: string;
-    complicationRegistryAddress: string;
     exchangeAddress: string;
     obComplicationAddress: string;
-    stakerAddress: string;
-    tradingRewardsAddress: string;
     creatorsFeeRegistryAddress: string;
     creatorsFeeManagerAddress: string;
-    feeTreasuryAddress: string;
   };
 }
