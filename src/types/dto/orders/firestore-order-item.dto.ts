@@ -150,4 +150,11 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
   })
   @IsString()
   tokenSlug!: string;
+
+  @ApiProperty({
+    description: 'Complication address'
+  })
+  @Transform(normalizeAddressTransformer)
+  @IsEthereumAddress()
+  complicationAddress: string;
 }

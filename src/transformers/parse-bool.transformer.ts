@@ -5,6 +5,7 @@ import { trimLowerCase } from '../utils/formatters';
 
 export function parseBoolTransformer(options: { optional?: boolean } = {}) {
   return (params: TransformFnParams): boolean | undefined => {
+    // eslint-disable-next-line eqeqeq
     if (options.optional && params.value == null) {
       return undefined;
     }
