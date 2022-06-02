@@ -129,6 +129,11 @@ export interface BaseCollection {
    */
   numNfts: number;
 
+  /**
+   * @deprecated Attributes are no longer stored in the collection document.
+   * Please fetch attributes from the 'attributes' subcollection instead.
+   * Update your code to something like this: `const attributesDoc = collectionDoc.collection('attributes').doc('all');`
+   */
   attributes: CollectionAttributes;
 
   /**

@@ -78,8 +78,14 @@ export class CollectionDto implements CollectionType {
   })
   numNfts!: number;
 
+  /**
+   * @deprecated Attributes are no longer stored in the collection document.
+   * Please fetch attributes from the 'attributes' subcollection instead.
+   * Update your code to something like this: `const attributesDoc = collectionDoc.collection('attributes').doc('all');`
+   */
   @ApiProperty({
-    description: 'Attributes (i.e. traits) for the collection'
+    description: 'Attributes (i.e. traits) for the collection',
+    deprecated: true
   })
   attributes!: CollectionAttributes;
 
