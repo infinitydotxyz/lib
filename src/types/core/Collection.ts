@@ -76,6 +76,18 @@ export enum CreationFlow {
   Unknown = 'unknown'
 }
 
+type CollectionStatsContent = {
+  contractAddress: string;
+  avgPrice?: number;
+  salesVolume?: number;
+};
+
+type CollectionStats = {
+  daily?: CollectionStatsContent;
+  weekly?: CollectionStatsContent;
+  monthly?: CollectionStatsContent;
+};
+
 export interface BaseCollection {
   chainId: string;
 
@@ -156,6 +168,8 @@ export interface BaseCollection {
       done: boolean;
     };
   };
+
+  stats?: CollectionStats;
 }
 
 export interface TraitValueMetadata {
