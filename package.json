@@ -1,6 +1,6 @@
 {
   "name": "@infinityxyz/lib",
-  "version": "1.73.6",
+  "version": "1.73.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -50,8 +50,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "ethers": "^5.6.4",
-    "lodash": "^4.17.21",
-    "reflect-metadata": "^0.1.13"
+    "lodash": "^4.17.21"
   },
   "keywords": []
 }

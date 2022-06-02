@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsEthereumAddress, IsNumber, IsString, MaxLength } from 'class-validator';
-import { IsUsername } from '../../../decorators/is-username.decorator';
+import { IsUsername } from '../../../decorators';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
 
 export const MIN_USERNAME_CHARS = 3;
