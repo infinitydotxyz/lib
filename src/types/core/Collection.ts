@@ -132,7 +132,7 @@ export interface BaseCollection {
   /**
    * @deprecated Attributes are no longer stored in the collection document.
    * Please fetch attributes from the 'attributes' subcollection instead.
-   * Update your code to something like this: `const attributesDoc = collectionDoc.collection('attributes').doc('all');`
+   * Update your code to something like this: `const attributesDoc = collectionDoc.collection(COLLECTION_NFTS_ATTRIBUTES).doc('AttributeTypeExample');`
    */
   attributes: CollectionAttributes;
 
