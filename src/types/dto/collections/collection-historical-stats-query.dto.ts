@@ -54,4 +54,11 @@ export class CollectionHistoricalStatsQueryDto {
   @IsString()
   @IsOptional()
   queryBy?: string;
+
+  @ApiProperty({
+    description: 'Offset (for mnemonic queries).'
+  })
+  @IsNumber()
+  @Transform(parseIntTransformer())
+  offset?: number;
 }
