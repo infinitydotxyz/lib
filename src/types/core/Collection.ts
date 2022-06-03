@@ -76,13 +76,13 @@ export enum CreationFlow {
   Unknown = 'unknown'
 }
 
-type CollectionStatsContent = {
+export type CollectionStatsContent = {
   contractAddress?: string;
   avgPrice?: number;
   salesVolume?: number;
 };
 
-type CollectionStats = {
+export type CollectionStats = {
   daily?: CollectionStatsContent;
   weekly?: CollectionStatsContent;
   monthly?: CollectionStatsContent;
