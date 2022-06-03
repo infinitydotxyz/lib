@@ -47,4 +47,11 @@ export class CollectionHistoricalStatsQueryDto {
   @IsNumber()
   @Transform(parseIntTransformer())
   maxDate!: number;
+
+  @ApiPropertyOptional({
+    description: 'Query by field (for mnemonic queries). Example: by_sales_volume or by_avg_price.'
+  })
+  @IsString()
+  @IsOptional()
+  queryBy?: string;
 }
