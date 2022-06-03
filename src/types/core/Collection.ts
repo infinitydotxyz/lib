@@ -77,7 +77,7 @@ export enum CreationFlow {
 }
 
 type CollectionStatsContent = {
-  contractAddress: string;
+  contractAddress?: string;
   avgPrice?: number;
   salesVolume?: number;
 };
