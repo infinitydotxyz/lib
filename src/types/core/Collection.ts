@@ -76,16 +76,16 @@ export enum CreationFlow {
   Unknown = 'unknown'
 }
 
-export type CollectionStatsContent = {
+export type CollectionPeriodStatsContent = {
   contractAddress?: string;
   avgPrice?: number;
   salesVolume?: number;
 };
 
-export type CollectionStats = {
-  daily?: CollectionStatsContent;
-  weekly?: CollectionStatsContent;
-  monthly?: CollectionStatsContent;
+export type CollectionPeriodStats = {
+  daily?: CollectionPeriodStatsContent;
+  weekly?: CollectionPeriodStatsContent;
+  monthly?: CollectionPeriodStatsContent;
 };
 
 export interface BaseCollection {
@@ -169,7 +169,7 @@ export interface BaseCollection {
     };
   };
 
-  stats?: CollectionStats;
+  stats?: CollectionPeriodStats;
 }
 
 export interface TraitValueMetadata {
