@@ -8,6 +8,8 @@ const getEnvironmentVariable = (name: string, required = true) => {
   return variable;
 };
 
+export const PROTOCOL_FEE_BPS = 250;
+
 // todo: remove unused constants
 export const firestoreConstants = {
   COLLECTIONS_COLL: 'collections',
