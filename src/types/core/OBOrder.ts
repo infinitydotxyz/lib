@@ -143,7 +143,8 @@ export interface GetMinBpsQuery {
 
 export enum FirestoreOrderMatchStatus {
   Active = 'active',
-  Inactive = 'inactive'
+  Inactive = 'inactive',
+  Matched = 'matched'
 }
 
 export type FirestoreOrderMatchCollection = {
@@ -163,27 +164,46 @@ export type FirestoreOrderMatchToken = {
   numTokens: number;
 };
 
-export interface FirestoreOrderMatch {
+export enum FirestoreOrderMatchMethod {
+  MatchOrders = 'matchOrders',
+  MatchOneToOneOrders = 'matchOneToOneOrders',
+  MatchOneToManyOrders = 'matchOneToManyOrders'
+}
+
+export enum UserOrderRole {
+  Maker = 'maker',
+  Taker = 'taker',
+  Offerer = 'offerer',
+  Lister = 'lister'
+}
+
+export interface FirestoreOrderMatchBase {
+  type: FirestoreOrderMatchMethod;
+
+  /**
+   * array of user addresses and user addresses with their role appended
+   * i.e.
+   * [
+   * `0x02bf5bdd3387ffd93474252a95b16976429707cc`,
+   * `0x02bf5bdd3387ffd93474252a95b16976429707cc:maker`,
+   * `0x02bf5bdd3387ffd93474252a95b16976429707cc:offerer`,
+   * `0x367b6cf125db1540f0da0523200781d4b3147ced`,
+   * `0x367b6cf125db1540f0da0523200781d4b3147ced:taker`,
+   * `0x367b6cf125db1540f0da0523200781d4b3147ced:lister`
+   * ]
+   */
+  usersInvolved: string[];
+
   /**
    * the id of this order match in firestore
    */
   id: string;
 
   /**
-   * array containing the offerId and listingId
+   * array containing the offerId(s) and listingId(s)
    * used to support a logical OR firestore query
    */
   ids: string[];
-
-  /**
-   * address of the user that created the listing in the match
-   */
-  listerAddress: string;
-
-  /**
-   * address of the user that created the offer in the match
-   */
-  offererAddress: string;
 
   /**
    * price that the order will be executed at
@@ -203,6 +223,8 @@ export interface FirestoreOrderMatch {
    */
   tokens: string[];
 
+  currencyAddress: string;
+
   /**
    * timestamp that the match was created
    */
@@ -216,9 +238,42 @@ export interface FirestoreOrderMatch {
 
   status: FirestoreOrderMatchStatus;
 
-  currencyAddress: string;
+  message?: string;
+}
 
-  collections: {
-    [collectionAddress: string]: FirestoreOrderMatchCollection;
+export interface FirestoreOrderMatch extends FirestoreOrderMatchBase {
+  type: FirestoreOrderMatchMethod.MatchOrders;
+
+  matchData: {
+    listingId: string;
+
+    offerId: string;
+
+    /**
+     * the intersection of the order items in the offer and listing
+     */
+    orderItems: {
+      [collectionAddress: string]: FirestoreOrderMatchCollection;
+    };
+  };
+}
+
+export interface FirestoreOrderMatchOneToOne extends FirestoreOrderMatchBase {
+  type: FirestoreOrderMatchMethod.MatchOneToOneOrders;
+
+  matchData: {
+    listingId: string;
+
+    offerId: string;
+  };
+}
+
+export interface FirestoreOrderMatchOneToMany extends FirestoreOrderMatchBase {
+  type: FirestoreOrderMatchMethod.MatchOneToManyOrders;
+
+  matchData: {
+    listingId: string;
+
+    offerIds: string[];
   };
 }
