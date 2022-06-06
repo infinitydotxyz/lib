@@ -60,6 +60,10 @@ export interface ChainOBOrder {
   sig: string;
 }
 
+export type MakerOrder = ChainOBOrder;
+
+export type TakerOrder = Pick<MakerOrder, 'isSellOrder' | 'nfts'>;
+
 // signed order reqd for order execution
 export interface SignedOBOrder extends OBOrder {
   signedOrder: ChainOBOrder;
