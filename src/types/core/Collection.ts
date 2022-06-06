@@ -76,6 +76,18 @@ export enum CreationFlow {
   Unknown = 'unknown'
 }
 
+export type CollectionPeriodStatsContent = {
+  contractAddress?: string;
+  avgPrice?: number;
+  salesVolume?: number;
+};
+
+export type CollectionPeriodStats = {
+  daily?: CollectionPeriodStatsContent;
+  weekly?: CollectionPeriodStatsContent;
+  monthly?: CollectionPeriodStatsContent;
+};
+
 export interface BaseCollection {
   chainId: string;
 
@@ -129,6 +141,11 @@ export interface BaseCollection {
    */
   numNfts: number;
 
+  /**
+   * @deprecated Attributes are no longer stored in the collection document.
+   * Please fetch attributes from the 'attributes' subcollection instead.
+   * Update your code to something like this: `const attributesDoc = collectionDoc.collection(COLLECTION_NFTS_ATTRIBUTES).doc('AttributeTypeExample');`
+   */
   attributes: CollectionAttributes;
 
   /**
@@ -156,6 +173,8 @@ export interface BaseCollection {
       done: boolean;
     };
   };
+
+  stats?: CollectionPeriodStats;
 }
 
 export interface TraitValueMetadata {
