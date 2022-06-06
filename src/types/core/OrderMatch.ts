@@ -194,7 +194,7 @@ export interface FirestoreOrderMatchOneToMany extends FirestoreOrderMatchBase {
   type: FirestoreOrderMatchMethod.MatchOneToManyOrders;
 
   matchData: {
-    listingId: string;
+    listingIds: string[];
 
     offerIds: string[];
 
