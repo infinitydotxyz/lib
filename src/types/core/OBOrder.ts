@@ -1,5 +1,4 @@
 import { BigNumberish } from '@ethersproject/bignumber';
-import { BytesLike } from '@ethersproject/bytes';
 
 export interface OBTokenInfo {
   tokenId: string;
@@ -57,8 +56,8 @@ export interface ChainOBOrder {
   constraints: BigNumberish[];
   nfts: ChainNFTs[];
   execParams: string[];
-  extraParams: BytesLike;
-  sig: BytesLike;
+  extraParams: string;
+  sig: string;
 }
 
 // signed order reqd for order execution
