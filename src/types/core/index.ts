@@ -9,6 +9,7 @@ export * from './Metadata';
 export * from './NftInterface';
 export * from './NftSale';
 export * from './OBOrder';
+export * from './OrderMatch';
 export * from './Queries';
 export * from './SocialsStats';
 export * from './Stats';
