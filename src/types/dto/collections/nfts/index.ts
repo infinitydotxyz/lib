@@ -1,6 +1,7 @@
 export * from './erc721-attribute.dto';
 export * from './erc721-metadata.dto';
 export * from './external-nft-array.dto';
+export * from './external-nft-collection.dto';
 export * from './external-nft.dto';
 export * from './nft-activity-array.dto';
 export * from './nft-activity-filters.dto';
