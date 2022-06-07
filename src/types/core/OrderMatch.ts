@@ -102,8 +102,6 @@ export enum FirestoreOrderMatchMethod {
 }
 
 export enum UserOrderRole {
-  Maker = 'maker',
-  Taker = 'taker',
   Offerer = 'offerer',
   Lister = 'lister'
 }
