@@ -73,7 +73,12 @@ export enum CreationFlow {
   /**
    * at this point you give up
    */
-  Unknown = 'unknown'
+  Unknown = 'unknown',
+
+  /**
+   * force stop
+   */
+  Invalid = 'invalid'
 }
 
 export type CollectionPeriodStatsContent = {
