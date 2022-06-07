@@ -201,3 +201,5 @@ export interface FirestoreOrderMatchOneToMany extends FirestoreOrderMatchBase {
     };
   };
 }
+
+export type FirestoreOrderMatches = FirestoreOrderMatch | FirestoreOrderMatchOneToMany | FirestoreOrderMatchOneToOne;
