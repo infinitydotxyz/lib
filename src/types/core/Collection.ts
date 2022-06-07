@@ -85,6 +85,8 @@ export type CollectionPeriodStatsContent = {
   contractAddress?: string;
   avgPrice?: number;
   salesVolume?: number;
+  ownerCount?: number;
+  tokenCount?: number;
 };
 
 export type CollectionPeriodStats = {
