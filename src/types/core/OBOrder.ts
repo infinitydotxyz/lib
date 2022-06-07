@@ -1,5 +1,4 @@
 import { BigNumberish } from '@ethersproject/bignumber';
-import { BytesLike } from '@ethersproject/bytes';
 
 export interface OBTokenInfo {
   tokenId: string;
@@ -57,9 +56,13 @@ export interface ChainOBOrder {
   constraints: BigNumberish[];
   nfts: ChainNFTs[];
   execParams: string[];
-  extraParams: BytesLike;
-  sig: BytesLike;
+  extraParams: string;
+  sig: string;
 }
+
+export type MakerOrder = ChainOBOrder;
+
+export type TakerOrder = Pick<MakerOrder, 'isSellOrder' | 'nfts'>;
 
 // signed order reqd for order execution
 export interface SignedOBOrder extends OBOrder {
@@ -136,86 +139,4 @@ export interface GetOrderItemsQuery {
 export interface GetMinBpsQuery {
   chainId?: string;
   collections?: string[];
-}
-
-export enum FirestoreOrderMatchStatus {
-  Active = 'active',
-  Inactive = 'inactive'
-}
-
-export type FirestoreOrderMatchCollection = {
-  collectionAddress: string;
-  collectionName: string;
-  collectionImage: string;
-  collectionSlug: string;
-  hasBlueCheck: boolean;
-  tokens: { [tokenId: string]: FirestoreOrderMatchToken };
-};
-
-export type FirestoreOrderMatchToken = {
-  tokenId: string;
-  tokenName: string;
-  tokenImage: string;
-  tokenSlug: string;
-  numTokens: number;
-};
-
-export interface FirestoreOrderMatch {
-  /**
-   * the id of this order match in firestore
-   */
-  id: string;
-
-  /**
-   * array containing the offerId and listingId
-   * used to support a logical OR firestore query
-   */
-  ids: string[];
-
-  /**
-   * address of the user that created the listing in the match
-   */
-  listerAddress: string;
-
-  /**
-   * address of the user that created the offer in the match
-   */
-  offererAddress: string;
-
-  /**
-   * price that the order will be executed at
-   */
-  price: number;
-
-  /**
-   * collection addresses in the match
-   */
-  collectionAddresses: string[];
-
-  chainId: string;
-
-  /**
-   * array of `collectionAddress:tokenId` formatted strings
-   * used to search for specific tokens in order matches
-   */
-  tokens: string[];
-
-  /**
-   * timestamp that the match was created
-   */
-  createdAt: number;
-
-  /**
-   * timestamp that the orders become valid
-   * matches
-   */
-  timestamp: number;
-
-  status: FirestoreOrderMatchStatus;
-
-  currencyAddress: string;
-
-  collections: {
-    [collectionAddress: string]: FirestoreOrderMatchCollection;
-  };
 }

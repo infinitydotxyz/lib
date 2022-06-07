@@ -8,6 +8,8 @@ const getEnvironmentVariable = (name: string, required = true) => {
   return variable;
 };
 
+export const PROTOCOL_FEE_BPS = 250;
+
 // todo: remove unused constants
 export const firestoreConstants = {
   COLLECTIONS_COLL: 'collections',
@@ -32,6 +34,7 @@ export const firestoreConstants = {
   COLLECTION_MENTIONS_COLL: 'mentions',
   COLLECTION_SOCIALS_STATS_COLL: 'socialsStats',
   COLLECTION_NFTS_COLL: 'nfts',
+  COLLECTION_NFTS_ATTRIBUTES: 'attributes',
   COLLECTION_LINKS_DOC: 'links',
   COLLECTION_OPENSEA_STATS_DOC: 'opensea',
   COLLECTION_TWITTER_DOC: 'twitter',
@@ -75,40 +78,25 @@ export const ETHEREUM_NETWORK_NAME = 'main';
 export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase();
 
-export const ETHEREUM_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS =
-  '0x31F320AE6b4c3F57B1e2E26E78359E1089C4D351'.toLowerCase();
-export const ETHEREUM_INFINITY_CREATORS_FEE_MANAGER_ADDRESS =
-  '0x2BDB98086d47e38e3A40B42463Af005F5CF72146'.toLowerCase();
-export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0x3643e1f18E98B7dcaa199Ee64685040C764ca454'.toLowerCase();
-export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0x2Be9EE712944C6e391e9159c524D65301e5E6d4f'.toLowerCase();
+export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0x954842c5314e203049cbCB3377F7076c2664e266'.toLowerCase();
+export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0x88396C73d6B85436be8cef8E52d561A19CcD01D3'.toLowerCase();
 
 // goerli
 export const GOERLI_NETWORK_NAME = 'goerli';
 export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
 export const GOERLI_WETH_ADDRESS = '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6'.toLowerCase();
 
-export const GOERLI_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS = '0xD5A3015Bcb77E3685DFd22Bc40424C0F1F67b2Fd'.toLowerCase();
-export const GOERLI_INFINITY_CREATORS_FEE_MANAGER_ADDRESS = '0x3129B14e3f90670262f3151d1d207e142e19731d'.toLowerCase();
-export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0x2e8Ffca577F52a62B9742EF1160923bCeA0f3Ba8'.toLowerCase();
-export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x13b4724f2Ec3288D132beb81Ef5153428E86f241'.toLowerCase();
+export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0x2Be9EE712944C6e391e9159c524D65301e5E6d4f'.toLowerCase();
+export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x3643e1f18E98B7dcaa199Ee64685040C764ca454'.toLowerCase();
 
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
 export const POLYGON_CHAIN_SCANNER_BASE = 'https://polygonscan.com';
 export const POLYGON_WETH_ADDRESS = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'.toLowerCase();
 
-export const POLYGON_INFINITY_TOKEN_ADDRESS = '0xF45793A9e8f14E4448cdaE6B21C0606cBE9ea221'.toLowerCase();
-export const POLYGON_INFINITY_CURRENCY_REGISTRY_ADDRESS = '0x9b318C69a4D4DcFD50cE3A4B7ED2597bd6d7ac18'.toLowerCase();
-export const POLYGON_INFINITY_COMPLICATION_REGISTRY_ADDRESS =
-  '0xbCc3ce28eC5E646d3AF11E269dA3877Ea84721cf'.toLowerCase();
+// todo these are not the most recent contracts
 export const POLYGON_INFINITY_EXCHANGE_ADDRESS = '0x5c600fff0AC90cdF026a16E4E315a2471F7BF7A6'.toLowerCase();
 export const POLYGON_INFINITY_OB_COMPLICATION_ADDRESS = '0x748C74994fFF570D7E3fd14f25c17C3D9702832c'.toLowerCase();
-export const POLYGON_INFINITY_STAKER_ADDRESS = '0xc14Bce7D2b1829EF27092e4efD0CE77F2489e984'.toLowerCase();
-export const POLYGON_INFINITY_TRADING_REWARDS_ADDRESS = '0x3f138B76c72Eb84ab7894F1d6506F8CEA7071aA9'.toLowerCase();
-export const POLYGON_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS =
-  '0x9654BeE11276f6F9D5A28783d4dAfeeA8CA00E2C'.toLowerCase();
-export const POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS = '0xfBf5b55D30e7f49D371b6A7250179Be41173670a'.toLowerCase();
-export const POLYGON_INFINITY_FEE_TREASURY_ADDRESS = '0x75Eb52b9db465d497Ab35CE7F9522BdA159d74DD'.toLowerCase();
 
 /**
  * arbitrary but consistent timestamp to allow us to get all stats using the same
@@ -117,7 +105,6 @@ export const POLYGON_INFINITY_FEE_TREASURY_ADDRESS = '0x75Eb52b9db465d497Ab35CE7
 export type AllTimeStatsTimestampType = 1640995200000;
 export const ALL_TIME_STATS_TIMESTAMP: AllTimeStatsTimestampType = 1640995200000;
 
-// todo: remove unnecessary addresses
 export const chainConstants: Record<ChainId, ChainIdConstants> = {
   [ChainId.Mainnet]: {
     networkName: ETHEREUM_NETWORK_NAME,
@@ -125,9 +112,7 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     wethAddress: ETHEREUM_WETH_ADDRESS,
     infinityContracts: {
       exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
-      creatorsFeeRegistryAddress: ETHEREUM_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS,
-      creatorsFeeManagerAddress: ETHEREUM_INFINITY_CREATORS_FEE_MANAGER_ADDRESS
+      obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS
     }
   },
   [ChainId.Goerli]: {
@@ -136,9 +121,7 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     wethAddress: GOERLI_WETH_ADDRESS,
     infinityContracts: {
       exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
-      creatorsFeeRegistryAddress: GOERLI_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS,
-      creatorsFeeManagerAddress: GOERLI_INFINITY_CREATORS_FEE_MANAGER_ADDRESS
+      obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS
     }
   },
   [ChainId.Polygon]: {
@@ -147,9 +130,7 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     wethAddress: POLYGON_WETH_ADDRESS,
     infinityContracts: {
       exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
-      creatorsFeeRegistryAddress: POLYGON_INFINITY_CREATORS_FEE_REGISTRY_ADDRESS,
-      creatorsFeeManagerAddress: POLYGON_INFINITY_CREATORS_FEE_MANAGER_ADDRESS
+      obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS
     }
   }
 };
@@ -161,7 +142,5 @@ interface ChainIdConstants {
   infinityContracts: {
     exchangeAddress: string;
     obComplicationAddress: string;
-    creatorsFeeRegistryAddress: string;
-    creatorsFeeManagerAddress: string;
   };
 }

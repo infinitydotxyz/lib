@@ -18,11 +18,6 @@ export function getExchangeAddress(_chainId: string): string {
   return chainConstants[chainId]?.infinityContracts?.exchangeAddress ?? NULL_ADDRESS;
 }
 
-export function getCreatorFeeManagerAddress(_chainId: string): string {
-  const chainId = _chainId as ChainId;
-  return chainConstants[chainId]?.infinityContracts?.creatorsFeeManagerAddress ?? NULL_ADDRESS;
-}
-
 export const getOBOrderPrice = (
   order: Pick<OBOrder, 'startPriceEth' | 'startTimeMs' | 'endPriceEth' | 'endTimeMs'>,
   timestamp: number
