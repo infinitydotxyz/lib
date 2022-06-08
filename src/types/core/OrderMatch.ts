@@ -11,7 +11,7 @@ export enum FirestoreOrderMatchErrorCode {
   /**
    * order cancelled or expired
    */
-  OrderNoLongerValid = 0,
+  OrderInvalid = 0,
 
   /**
    * lister failed to approve contract to transfer NFT
