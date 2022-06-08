@@ -21,7 +21,7 @@ export enum FirestoreOrderMatchErrorCode {
   /**
    * buyer failed to approve contract to spend ERC20
    */
-  NotApprovedToSpendCurrency = 2,
+  InsufficientCurrencyAllowance = 2,
 
   /**
    * buyer does not have enough of the ERC20
