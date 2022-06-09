@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsEthereumAddress, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
-import { BigNumberish, BytesLike } from 'ethers';
+import { BigNumberish } from 'ethers';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
 import { ChainOBOrder } from '../../core';
 import { ChainNFTsDto } from './chain-nfts.dto';
@@ -11,21 +11,21 @@ export class ChainOBOrderDto implements ChainOBOrder {
     description: 'Order side (buy/sell)'
   })
   @IsBoolean()
-  isSellOrder!: boolean;
+  isSellOrder: boolean;
 
   @ApiProperty({
     description: 'Signer address'
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  signer!: string;
+  signer: string;
 
   @ApiProperty({
     description: 'Constraints like num items, prices, times',
     type: [String]
   })
   @IsArray()
-  constraints!: BigNumberish[];
+  constraints: BigNumberish[];
 
   @ApiProperty({
     description: 'NFTs in the order',
@@ -34,21 +34,21 @@ export class ChainOBOrderDto implements ChainOBOrder {
   @IsArray()
   @ValidateNested({ each: true, message: 'Invalid chain nft' })
   @Type(() => ChainNFTsDto)
-  nfts!: ChainNFTsDto[];
+  nfts: ChainNFTsDto[];
 
   @ApiProperty({
     description: 'Exec params like currency address, complication address',
     type: [String]
   })
   @IsArray()
-  execParams!: string[];
+  execParams: string[];
 
   @ApiProperty({
     description: 'Encoded extra params',
     type: String
   })
   @IsString()
-  extraParams!: BytesLike;
+  extraParams: string;
 
   @ApiProperty({
     description: 'Order signature',
@@ -56,5 +56,5 @@ export class ChainOBOrderDto implements ChainOBOrder {
   })
   @IsNotEmpty()
   @IsString()
-  sig!: BytesLike;
+  sig: string;
 }

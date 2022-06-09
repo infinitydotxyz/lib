@@ -11,6 +11,7 @@ export * from './user-following-user-delete-payload.dto';
 export * from './user-following-user-post-payload.dto';
 export * from './user-following-user.dto';
 export * from './user-following-users-array.dto';
+export * from './user-login.dto';
 export * from './user-nfts-query.dto';
 export * from './user-profile.dto';
 export * from './user.dto';
