@@ -60,12 +60,29 @@ export interface OrderMatchStatePending extends OrderMatchStateBase {
   status: FirestoreOrderMatchStatus.Active | FirestoreOrderMatchStatus.Inactive;
 }
 
+export interface MatchOrderFulfilledEvent {
+  exchangeAddress: string;
+  currencyAddress: string;
+  sellOrderHash: string;
+  buyOrderHash: string;
+  buyer: string;
+  seller: string;
+  complication: string;
+  amount: string;
+  txHash: string;
+  blockNumber: number;
+}
+
 export interface OrderMatchStateSuccess extends OrderMatchStateBase {
   status: FirestoreOrderMatchStatus.Matched;
 
   txHash: string;
 
-  price: number;
+  currency: string;
+
+  amount: string;
+
+  ordersFulfilled: MatchOrderFulfilledEvent[];
 }
 
 export interface OrderMatchStateError extends OrderMatchStateBase {
@@ -140,6 +157,8 @@ export interface FirestoreOrderMatchBase {
   collectionAddresses: string[];
 
   chainId: ChainId;
+
+  complicationAddress: string;
 
   /**
    * array of `collectionAddress:tokenId` formatted strings
