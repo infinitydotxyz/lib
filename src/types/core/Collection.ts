@@ -238,19 +238,21 @@ export interface Partnership {
 }
 
 export interface CollectionAttributes {
-  [traitType: string]: {
-    displayType?: DisplayType;
+  [traitType: string]: CollectionAttribute;
+}
 
-    /**
-     * number of nfts with this trait type
-     */
-    count: number;
+export interface CollectionAttribute {
+  displayType?: DisplayType;
 
-    /**
-     * percent of nfts with this trait type
-     */
-    percent: number;
+  /**
+   * number of nfts with this trait type
+   */
+  count: number;
 
-    values: { [traitValue: string | number]: TraitValueMetadata };
-  };
+  /**
+   * percent of nfts with this trait type
+   */
+  percent: number;
+
+  values: { [traitValue: string | number]: TraitValueMetadata };
 }
