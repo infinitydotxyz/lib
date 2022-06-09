@@ -10,6 +10,8 @@ const getEnvironmentVariable = (name: string, required = true) => {
 
 export const PROTOCOL_FEE_BPS = 250;
 
+export const LOGIN_NONCE_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
+
 // todo: remove unused constants
 export const firestoreConstants = {
   COLLECTIONS_COLL: 'collections',
