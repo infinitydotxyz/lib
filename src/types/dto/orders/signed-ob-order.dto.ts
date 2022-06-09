@@ -31,6 +31,8 @@ export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce'> {
   @ApiProperty({
     description: 'Order items in this order'
   })
+  @ValidateNested({ message: 'Invalid oborder item' })
+  @Type(() => OBOrderItemDto)
   nfts: OBOrderItemDto[];
 
   @ApiProperty({
