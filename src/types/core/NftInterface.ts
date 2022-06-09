@@ -1,3 +1,4 @@
+import { Erc721Attribute } from './Metadata';
 import { OrdersSnippet } from './Token';
 
 export enum ListingType {
@@ -58,6 +59,10 @@ export type BaseCardData = {
 
 export type CardData = BaseCardData & {
   openseaListing?: BaseCardData;
+};
+
+export type ERC721CardData = CardData & {
+  attributes?: Erc721Attribute[];
 };
 
 export enum WyvernSchemaName {

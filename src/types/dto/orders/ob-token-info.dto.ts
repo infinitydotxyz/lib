@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { Erc721Attribute } from '../../core';
 
 export class OBTokenInfoDto {
   @ApiProperty({
@@ -40,4 +41,10 @@ export class OBTokenInfoDto {
   })
   @IsString()
   takerAddress!: string;
+
+  @ApiProperty({
+    description: 'NFT attributes'
+  })
+  @IsArray()
+  attributes!: Erc721Attribute[];
 }

@@ -1,4 +1,5 @@
 import { BigNumberish } from '@ethersproject/bignumber';
+import { Erc721Attribute } from './Metadata';
 
 export interface OBTokenInfo {
   tokenId: string;
@@ -7,6 +8,7 @@ export interface OBTokenInfo {
   takerUsername: string;
   takerAddress: string;
   numTokens: number;
+  attributes: Erc721Attribute[];
 }
 
 export interface OBOrderItem {
