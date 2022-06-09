@@ -116,6 +116,7 @@ export interface FirestoreOrderItem {
   tokenSlug: string;
   numTokens: number;
   complicationAddress: string;
+  attributes: Erc721Attribute[];
 }
 
 export enum OBOrderStatus {
