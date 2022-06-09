@@ -141,7 +141,7 @@ export interface FirestoreOrderMatchBase {
 
   chainId: ChainId;
 
-  exchangeAddress: string;
+  complicationAddress: string;
 
   /**
    * array of `collectionAddress:tokenId` formatted strings
