@@ -28,7 +28,7 @@ export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce'> {
   makerAddress: string;
 
   @ApiProperty({
-    description: 'Order item in this order'
+    description: 'Order items in this order'
   })
   nfts: OBOrderItem[];
 
