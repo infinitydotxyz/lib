@@ -1,8 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger/dist';
-import { Transform } from 'class-transformer';
-import { IsBoolean, IsEnum, IsEthereumAddress, IsNumber, IsString } from 'class-validator';
+import { Transform, Type } from 'class-transformer';
+import { IsArray, IsBoolean, IsEnum, IsEthereumAddress, IsNumber, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
-import { FirestoreOrderItem, OBOrderStatus } from '../../core';
+import { Erc721Attribute, FirestoreOrderItem, OBOrderStatus } from '../../core';
+import { Erc721AttributeDto } from '../collections/nfts';
 
 export class FirestoreOrderItemDto implements FirestoreOrderItem {
   @ApiProperty({
@@ -157,4 +158,11 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
   @Transform(normalizeAddressTransformer)
   @IsEthereumAddress()
   complicationAddress: string;
+
+  @ApiProperty({
+    description: 'NFT attributes'
+  })
+  @Type(() => Erc721AttributeDto)
+  @IsArray()
+  attributes: Erc721Attribute[];
 }
