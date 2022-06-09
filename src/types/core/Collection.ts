@@ -254,5 +254,9 @@ export interface CollectionAttribute {
    */
   percent: number;
 
+  /**
+   * @deprecated Values are no longer stored in the attribute document.
+   * Please fetch attribute values from the 'values' subcollection instead.
+   */
   values: { [traitValue: string | number]: TraitValueMetadata };
 }
