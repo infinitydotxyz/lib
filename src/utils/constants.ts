@@ -51,7 +51,7 @@ export const firestoreConstants = {
   FEED_COLL: 'feed',
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
   USER_FOLLOWS_COLL: 'userFollows',
-  USER_NFT_COLLECTION_COLL: 'nftCollections',
+  USER_NFT_COLLECTION_COLL: 'nftCollections', // todo: remove
   USER_COLLECTIONS_COLL: 'userCollections',
   USER_NFTS_COLL: 'userNfts',
   SELL_ORDERS_COLL: 'sellOrders',
