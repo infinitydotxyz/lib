@@ -17,7 +17,7 @@ export interface OBOrderItem {
   collectionImage: string;
   collectionSlug: string;
   hasBlueCheck: boolean;
-  tokens: OBTokenInfo[];
+  tokens?: OBTokenInfo[];
 }
 
 export interface ExecParams {
