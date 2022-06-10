@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsEthereumAddress } from 'class-validator';
+import { IsEthereumAddress, IsNumber, IsOptional } from 'class-validator';
 import { IsSupportedChainId } from '../../../decorators/is-supported-chain-id.decorator';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
 import { ChainId } from '../../core';
@@ -23,4 +23,18 @@ export class UserDto {
     message: 'Invalid chainId'
   })
   readonly userChainId!: ChainId;
+
+  @ApiProperty({
+    description: 'Num NFTs owned by user'
+  })
+  @IsNumber()
+  @IsOptional()
+  readonly numNftsOwned: number;
+
+  @ApiProperty({
+    description: 'Num NFTs owned last updated'
+  })
+  @IsNumber()
+  @IsOptional()
+  readonly numNftsOwnedLastUpdatedAt: number;
 }
