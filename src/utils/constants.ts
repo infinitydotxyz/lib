@@ -52,6 +52,8 @@ export const firestoreConstants = {
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
   USER_FOLLOWS_COLL: 'userFollows',
   USER_NFT_COLLECTION_COLL: 'nftCollections',
+  USER_COLLECTIONS_COLL: 'userCollections',
+  USER_NFTS_COLL: 'userNfts',
   SELL_ORDERS_COLL: 'sellOrders',
   BUY_ORDERS_COLL: 'buyOrders',
   ORDERS_COLL: 'orders',
