@@ -37,4 +37,11 @@ export class UserDto {
   @IsNumber()
   @IsOptional()
   readonly numNftsOwnedLastUpdatedAt: number;
+
+  @ApiProperty({
+    description: 'Num NFTs owned by user of a specific collection'
+  })
+  @IsNumber()
+  @IsOptional()
+  readonly numCollectionNftsOwned: number;
 }
