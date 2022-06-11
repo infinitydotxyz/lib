@@ -73,12 +73,6 @@ export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce'> {
   endTimeMs: number;
 
   @ApiProperty({
-    description: 'Minimum percentage in bps a seller should get after all fees'
-  })
-  @IsNumber()
-  minBpsToSeller: number;
-
-  @ApiProperty({
     description: 'Order nonce'
   })
   @IsNumber()

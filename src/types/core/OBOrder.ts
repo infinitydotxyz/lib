@@ -40,7 +40,6 @@ export interface OBOrder {
   endPriceEth: number;
   startTimeMs: number;
   endTimeMs: number;
-  minBpsToSeller: number;
   nonce: string;
   nfts: OBOrderItem[];
   execParams: ExecParams;
@@ -81,7 +80,6 @@ export interface FirestoreOrder {
   endPriceEth: number;
   startTimeMs: number;
   endTimeMs: number;
-  minBpsToSeller: number;
   nonce: string;
   complicationAddress: string;
   currencyAddress: string;
@@ -137,9 +135,4 @@ export interface GetOrderItemsQuery {
   limit?: number;
   orderBy?: 'startPriceEth' | 'startTimeMs' | 'endTimeMs';
   orderByDirection?: 'asc' | 'desc';
-}
-
-export interface GetMinBpsQuery {
-  chainId?: string;
-  collections?: string[];
 }
