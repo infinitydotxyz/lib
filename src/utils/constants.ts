@@ -92,7 +92,7 @@ export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
 export const GOERLI_WETH_ADDRESS = '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6'.toLowerCase();
 
 export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0x2Be9EE712944C6e391e9159c524D65301e5E6d4f'.toLowerCase();
-export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x3643e1f18E98B7dcaa199Ee64685040C764ca454'.toLowerCase();
+export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x5ccA1948b04828226815f8c36AdD4ECd48f36a8c'.toLowerCase();
 
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
