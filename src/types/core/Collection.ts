@@ -201,7 +201,7 @@ export interface TraitValueMetadata {
 
   attributeType: string;
   attributeTypeSlug: string;
-  attributeValue: string;
+  attributeValue: string | number;
   attributeValueSlug: string;
 }
 
