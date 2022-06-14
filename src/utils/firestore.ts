@@ -12,7 +12,7 @@ export function getAttributeDocId(input: string) {
   if (!input) {
     throw new Error('Invalid attribute input');
   }
-  // remove spaces, dashes, underscores, slashes
-  const output = input.replace(/[\s-_/\\]/g, '');
+  // remove spaces, dashes, dots, underscores, slashes
+  const output = input.replace(/[\s-._/\\]/g, '');
   return output.toLowerCase();
 }
