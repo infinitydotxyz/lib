@@ -17,4 +17,5 @@ export * from './StatsPeriod';
 export * from './StatusCode';
 export * from './Token';
 export * from './Trait';
+export * from './UserOwned';
 export * from './UtilityTypes';
