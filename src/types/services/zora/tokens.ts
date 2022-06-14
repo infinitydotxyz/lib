@@ -11,6 +11,12 @@ export interface ZoraTokensResponse {
   };
 }
 
+export interface ZoraSingleTokenResponse {
+  data: {
+    token: ZoraToken;
+  };
+}
+
 export interface ZoraToken {
   token: {
     collectionName: string;
