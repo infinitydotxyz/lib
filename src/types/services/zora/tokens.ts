@@ -13,6 +13,7 @@ export interface ZoraTokensResponse {
 
 export interface ZoraToken {
   token: {
+    collectionName: string;
     tokenId: string;
     name: string;
     owner: string;
