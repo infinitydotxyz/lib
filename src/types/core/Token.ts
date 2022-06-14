@@ -1,3 +1,4 @@
+import { ZoraContent } from '../services/zora/tokens';
 import { Erc721Metadata } from './Metadata';
 import { FirestoreOrderItem } from './OBOrder';
 
@@ -151,6 +152,10 @@ export interface BaseToken {
   rarityRank: number;
 
   ordersSnippet?: OrdersSnippet;
+
+  zoraImage?: ZoraContent;
+
+  zoraContent?: ZoraContent;
 
   /**
    * cached token image
