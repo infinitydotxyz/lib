@@ -198,6 +198,11 @@ export interface TraitValueMetadata {
    * 1 / (percent / 100)
    */
   rarityScore: number;
+
+  attributeType: string;
+  attributeTypeSlug: string;
+  attributeValue: string;
+  attributeValueSlug: string;
 }
 
 /**
@@ -243,6 +248,9 @@ export interface CollectionAttributes {
 
 export interface CollectionAttribute {
   displayType?: DisplayType;
+
+  attributeType: string;
+  attributeTypeSlug: string;
 
   /**
    * number of nfts with this trait type
