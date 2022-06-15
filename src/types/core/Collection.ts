@@ -152,7 +152,7 @@ export interface BaseCollection {
    * @deprecated Attributes are no longer stored in the collection document.
    * Please fetch attributes from the 'attributes' subcollection instead.
    */
-  attributes: CollectionAttributes;
+  attributes?: CollectionAttributes;
 
   /**
    * total number of trait_types in the collection
