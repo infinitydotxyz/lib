@@ -157,6 +157,8 @@ export interface BaseToken {
 
   zoraContent?: ZoraContent;
 
+  alchemyCachedImage?: string;
+
   /**
    * cached token image
    */
