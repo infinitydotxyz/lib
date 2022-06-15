@@ -78,10 +78,6 @@ export class CollectionDto implements CollectionType {
   })
   numNfts!: number;
 
-  /**
-   * @deprecated Attributes are no longer stored in the collection document.
-   * Please fetch attributes from the 'attributes' subcollection instead.
-   */
   @ApiProperty({
     description: 'Attributes (i.e. traits) for the collection',
     deprecated: true

@@ -149,8 +149,7 @@ export interface BaseCollection {
   numNfts: number;
 
   /**
-   * @deprecated Attributes are no longer stored in the collection document.
-   * Please fetch attributes from the 'attributes' subcollection instead.
+   * attributes/trait types.
    */
   attributes?: CollectionAttributes;
 
@@ -263,8 +262,7 @@ export interface CollectionAttribute {
   percent: number;
 
   /**
-   * @deprecated Values are no longer stored in the attribute document.
-   * Please fetch attribute values from the 'values' subcollection instead.
+   * values.
    */
   values: { [traitValue: string | number]: TraitValueMetadata };
 }
