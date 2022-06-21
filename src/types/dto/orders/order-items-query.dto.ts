@@ -22,6 +22,13 @@ export class OrderItemsQueryDto implements Omit<GetOrderItemsQuery, 'chainId'> {
   //   chainId?: ChainId;
 
   @ApiPropertyOptional({
+    description: 'Filter by order id'
+  })
+  @IsString()
+  @IsOptional()
+  id?: string;
+
+  @ApiPropertyOptional({
     description: 'Filter by order type'
   })
   @IsOptional()
