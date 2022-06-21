@@ -5,6 +5,7 @@ export * from './external-nft-collection.dto';
 export * from './external-nft.dto';
 export * from './nft-activity-array.dto';
 export * from './nft-activity-filters.dto';
+export * from './nft-activity-query.dto';
 export * from './nft-activity.dto';
 export * from './nft-activity.types';
 export * from './nft-array.dto';
