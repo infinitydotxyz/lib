@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
 import { IsBoolean, IsEnum, IsEthereumAddress, IsNumber } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../transformers';
 import { ChainId } from '../../core';
 
 export class UserCollectionVoteDto {
@@ -7,6 +9,7 @@ export class UserCollectionVoteDto {
     description: "User's wallet address"
   })
   @IsEthereumAddress()
+  @Transform(normalizeAddressTransformer)
   userAddress!: string;
 
   @ApiProperty({
@@ -20,6 +23,7 @@ export class UserCollectionVoteDto {
     description: 'Address of the collection being voted on'
   })
   @IsEthereumAddress()
+  @Transform(normalizeAddressTransformer)
   collectionAddress!: string;
 
   @ApiProperty({

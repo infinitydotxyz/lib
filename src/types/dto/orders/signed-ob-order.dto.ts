@@ -1,13 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
-import { ValidateNested, IsString, IsNumber, IsNotEmpty } from 'class-validator';
+import { Transform, Type } from 'class-transformer';
+import { ValidateNested, IsString, IsNumber, IsNotEmpty, IsEthereumAddress } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../transformers';
 import { SignedOBOrder } from '../../core';
 import { ChainOBOrderDto } from './chain-ob-order.dto';
 import { ExecParamsDto } from './exec-params.dto';
 import { ExtraParamsDto } from './extra-params.dto';
 import { OBOrderItemDto } from './ob-order-item.dto';
 
-export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce'> {
+export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce, nfts'> {
   @ApiProperty({
     description: 'id of the order'
   })
@@ -26,6 +27,8 @@ export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce'> {
   @ApiProperty({
     description: 'The maker of the order'
   })
+  @Transform(normalizeAddressTransformer)
+  @IsEthereumAddress()
   makerAddress: string;
 
   @ApiProperty({

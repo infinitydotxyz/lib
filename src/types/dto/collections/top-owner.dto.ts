@@ -1,11 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
 import { IsEthereumAddress, IsNumber } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../transformers';
 
 export class TopOwnerDto {
   @ApiProperty({
     description: 'The address of the owner'
   })
   @IsEthereumAddress()
+  @Transform(normalizeAddressTransformer)
   ownerAddress!: string;
 
   @ApiProperty({

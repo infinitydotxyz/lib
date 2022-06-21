@@ -1,10 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
+import { normalizeAddressTransformer } from '../../../transformers';
 import { ChainId } from '../../core';
 
 export class CollectionSearchDto {
   @ApiProperty({
     description: 'Collection address'
   })
+  @Transform(normalizeAddressTransformer)
   address!: string;
 
   @ApiProperty({

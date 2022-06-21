@@ -1,6 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import { IsBoolean, IsObject, IsOptional, ValidateNested } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../transformers';
 import { ChainId, Collection, CollectionAttributes, TokenStandard } from '../../core';
 import { CollectionMetaDataDto, PartialCollectionMetadataDto } from './collection-metadata.dto';
 import { CollectionStateDto } from './collection-state.dto';
@@ -23,6 +24,7 @@ export class CollectionDto implements CollectionType {
   @ApiProperty({
     description: 'Collection address'
   })
+  @Transform(normalizeAddressTransformer)
   address!: string;
 
   @ApiProperty({

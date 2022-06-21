@@ -1,15 +1,25 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsEthereumAddress, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../transformers';
+import { ChainId } from '../../core';
 import { OBTokenInfoDto } from './ob-token-info.dto';
 
 export class OBOrderItemDto {
+  @ApiProperty({
+    description: 'Chain id'
+  })
+  @IsString()
+  @IsNotEmpty()
+  chainId: ChainId;
+
   @ApiProperty({
     description: 'Collection address'
   })
   @IsString()
   @IsNotEmpty()
   @IsEthereumAddress()
+  @Transform(normalizeAddressTransformer)
   collectionAddress!: string;
 
   @ApiProperty({

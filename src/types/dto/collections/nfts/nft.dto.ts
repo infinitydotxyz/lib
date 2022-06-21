@@ -1,4 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
+import { normalizeAddressTransformer } from '../../../../transformers';
 import { ChainId, TokenStandard } from '../../../core';
 import { Erc721MetadataDto } from './erc721-metadata.dto';
 import { NftImageDto } from './nft-image.dto';
@@ -9,6 +11,7 @@ export class NftDto {
   @ApiProperty({
     description: 'Collection address'
   })
+  @Transform(normalizeAddressTransformer)
   collectionAddress?: string;
 
   @ApiProperty({

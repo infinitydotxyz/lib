@@ -71,6 +71,7 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
     description: 'The address of the maker of the order'
   })
   @IsString()
+  @Transform(normalizeAddressTransformer)
   makerAddress!: string;
 
   @ApiProperty({
@@ -83,12 +84,14 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
     description: 'The address of the taker of the order'
   })
   @IsString()
+  @Transform(normalizeAddressTransformer)
   takerAddress!: string;
 
   @ApiProperty({
     description: 'Address of the corresponding collection'
   })
   @IsEthereumAddress()
+  @Transform(normalizeAddressTransformer)
   collectionAddress!: string;
 
   @ApiProperty({

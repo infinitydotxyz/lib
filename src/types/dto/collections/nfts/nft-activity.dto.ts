@@ -1,5 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
 import { IsEnum, IsEthereumAddress, IsNumber, IsOptional, IsString } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../../transformers';
 import { ChainId } from '../../../core';
 import { ActivityType } from './nft-activity.types';
 
@@ -7,6 +9,7 @@ export class NftActivity {
   @ApiProperty({
     description: 'Collection address'
   })
+  @Transform(normalizeAddressTransformer)
   address!: string;
 
   @ApiProperty({
@@ -30,6 +33,7 @@ export class NftActivity {
     description: 'Seller, offerer or lister address'
   })
   @IsEthereumAddress()
+  @Transform(normalizeAddressTransformer)
   from!: string;
 
   @ApiPropertyOptional({
@@ -43,6 +47,7 @@ export class NftActivity {
   })
   @IsEthereumAddress()
   @IsOptional()
+  @Transform(normalizeAddressTransformer)
   to?: string;
 
   @ApiPropertyOptional({

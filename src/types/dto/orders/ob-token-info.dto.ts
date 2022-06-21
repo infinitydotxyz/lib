@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
 import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../transformers';
 import { Erc721Attribute } from '../../core';
 
 export class OBTokenInfoDto {
@@ -40,6 +42,7 @@ export class OBTokenInfoDto {
     description: 'Taker address'
   })
   @IsString()
+  @Transform(normalizeAddressTransformer)
   takerAddress!: string;
 
   @ApiProperty({
