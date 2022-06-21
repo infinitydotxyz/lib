@@ -42,7 +42,7 @@ export interface OBOrder {
   endPriceEth: number;
   startTimeMs: number;
   endTimeMs: number;
-  nonce: number;
+  nonce: string;
   nfts: OBOrderItem[];
   execParams: ExecParams;
   extraParams: ExtraParams;

@@ -78,8 +78,7 @@ export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce, nfts'> {
   @ApiProperty({
     description: 'Order nonce'
   })
-  @IsNumber()
-  nonce: number;
+  nonce: string;
 
   @ApiProperty({
     description: 'Execution params like txn currency and type of order'
