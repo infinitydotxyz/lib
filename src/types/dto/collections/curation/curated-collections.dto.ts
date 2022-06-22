@@ -1,7 +1,7 @@
-import { CuratedCollectionDto } from './curated-collection.dto';
+import { CollectionDto } from '../collection.dto';
 
 export class CuratedCollectionsDto {
-  data: CuratedCollectionDto[];
+  data: CollectionDto[];
   cursor?: string;
   hasNextPage: boolean;
 }
