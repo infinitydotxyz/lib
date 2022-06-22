@@ -15,6 +15,11 @@ export interface CuratedCollection {
   userAddress: string;
 
   /**
+   * User chain id.
+   */
+  userChainId: string;
+
+  /**
    * Amount of votes.
    */
   votes: number;
