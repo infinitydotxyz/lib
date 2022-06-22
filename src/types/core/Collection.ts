@@ -133,6 +133,19 @@ export interface BaseCollection {
    */
   numOwners?: number;
 
+  /**
+   * Total number of votes from curators.
+   *
+   * Please keep in mind that this value does NOT represent the amount of curators, but only the TOTAL SUM of all votes from curators.
+   * If you need to know the former, read the `numCurators` field instead.
+   */
+  numCuratorVotes?: number;
+
+  /**
+   * Total amount of curators.
+   */
+  numCurators?: number;
+
   numOwnersUpdatedAt: number;
 
   /**
