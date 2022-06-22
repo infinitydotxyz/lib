@@ -20,7 +20,17 @@ export interface CuratedCollection {
   userChainId: string;
 
   /**
-   * Amount of votes.
+   * Amount of user votes.
    */
   votes: number;
+
+  /**
+   * Fees accrued in USD.
+   */
+  fees: number;
+
+  /**
+   * Fees APR as a percentage.
+   */
+  feesAPR: number;
 }
