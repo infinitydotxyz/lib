@@ -1,4 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
+import { IsEthereumAddress } from 'class-validator';
+import { normalizeAddressTransformer } from '../../../transformers';
 import { ChainId, SocialsStats, Stats, StatsPeriod } from '../../core';
 
 export class CollectionStatsDto implements SocialsStats, Stats {
@@ -24,6 +27,8 @@ export class CollectionStatsDto implements SocialsStats, Stats {
   chainId!: ChainId;
 
   @ApiProperty({ description: 'Corresponding collection address' })
+  @IsEthereumAddress()
+  @Transform(normalizeAddressTransformer)
   collectionAddress!: string;
 
   @ApiProperty({

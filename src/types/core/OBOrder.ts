@@ -1,4 +1,5 @@
 import { BigNumberish } from '@ethersproject/bignumber';
+import { ChainId } from './ChainId';
 import { Erc721Attribute } from './Metadata';
 
 export interface OBTokenInfo {
@@ -12,6 +13,7 @@ export interface OBTokenInfo {
 }
 
 export interface OBOrderItem {
+  chainId: ChainId;
   collectionAddress: string;
   collectionName: string;
   collectionImage: string;

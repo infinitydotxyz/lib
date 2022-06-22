@@ -54,6 +54,8 @@ interface OrderMatchStateBase {
    * match
    */
   timestampValid: number;
+
+  chainId: ChainId;
 }
 
 export interface OrderMatchStatePending extends OrderMatchStateBase {
@@ -71,6 +73,7 @@ export interface MatchOrderFulfilledEvent {
   amount: string;
   txHash: string;
   blockNumber: number;
+  chainId: ChainId;
 }
 
 export interface OrderMatchStateSuccess extends OrderMatchStateBase {
@@ -96,6 +99,7 @@ export interface OrderMatchStateError extends OrderMatchStateBase {
 export type OrderMatchState = OrderMatchStatePending | OrderMatchStateSuccess | OrderMatchStateError;
 
 export type FirestoreOrderMatchCollection = {
+  chainId: ChainId;
   collectionAddress: string;
   collectionName: string;
   collectionImage: string;
