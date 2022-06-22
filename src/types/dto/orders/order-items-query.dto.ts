@@ -84,6 +84,13 @@ export class OrderItemsQueryDto implements Omit<GetOrderItemsQuery, 'chainId'> {
   collections?: string[];
 
   @ApiPropertyOptional({
+    description: 'Token Id filter'
+  })
+  @IsString()
+  @IsOptional()
+  tokenId?: string;
+
+  @ApiPropertyOptional({
     description: 'Cursor to start after'
   })
   @IsString()
