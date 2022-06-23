@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
-import { ValidateNested, IsString, IsNumber, IsNotEmpty, IsEthereumAddress } from 'class-validator';
+import { ValidateNested, IsString, IsNumber, IsNotEmpty, IsEthereumAddress, IsNumberString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
 import { SignedOBOrder } from '../../core';
 import { ChainOBOrderDto } from './chain-ob-order.dto';
@@ -78,6 +78,7 @@ export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce, nfts'> {
   @ApiProperty({
     description: 'Order nonce'
   })
+  @IsNumberString()
   nonce: string;
 
   @ApiProperty({
