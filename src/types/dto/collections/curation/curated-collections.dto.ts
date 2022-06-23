@@ -1,9 +1,9 @@
+import { Collection } from '../../../core/Collection';
 import { CuratedCollection } from '../../../core/CuratedCollection';
-import { CollectionDto } from '../collection.dto';
 
 export class CuratedCollectionsDto {
   data: {
-    collections: CollectionDto[];
+    collections: Collection[];
     curated: CuratedCollection[];
   };
   cursor?: string;
