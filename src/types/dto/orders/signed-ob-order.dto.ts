@@ -8,7 +8,7 @@ import { ExecParamsDto } from './exec-params.dto';
 import { ExtraParamsDto } from './extra-params.dto';
 import { OBOrderItemDto } from './ob-order-item.dto';
 
-export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce, nfts'> {
+export class SignedOBOrderDto implements SignedOBOrder {
   @ApiProperty({
     description: 'id of the order'
   })
@@ -34,7 +34,7 @@ export class SignedOBOrderDto implements Omit<SignedOBOrder, 'nonce, nfts'> {
   @ApiProperty({
     description: 'Order items in this order'
   })
-  @ValidateNested({ message: 'Invalid oborder item' })
+  @ValidateNested({ message: 'Invalid ob order item' })
   @Type(() => OBOrderItemDto)
   nfts: OBOrderItemDto[];
 
