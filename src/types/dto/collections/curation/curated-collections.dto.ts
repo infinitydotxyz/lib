@@ -4,7 +4,7 @@ import { CuratedCollection } from '../../../core/CuratedCollection';
 export class CuratedCollectionsDto {
   data: {
     collections: Collection[];
-    curated: CuratedCollection[];
+    curations: CuratedCollection[];
   };
   cursor?: string;
   hasNextPage: boolean;
