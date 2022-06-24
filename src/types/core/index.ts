@@ -1,6 +1,7 @@
 export * from './ChainId';
 export * from './Collection';
 export * from './CollectionStats';
+export * from './CuratedCollection';
 export * from './Etherscan';
 export * from './Follows';
 export * from './Historical';
