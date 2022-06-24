@@ -155,5 +155,5 @@ export class CollectionStatsDto implements SocialsStats, Stats {
 
   @ApiProperty({ description: 'Collection details (optional)' })
   @IsOptional()
-  collectionData!: BaseCollection;
+  collectionData?: BaseCollection;
 }
