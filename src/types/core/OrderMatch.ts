@@ -54,8 +54,6 @@ interface OrderMatchStateBase {
    * match
    */
   timestampValid: number;
-
-  chainId: ChainId;
 }
 
 export interface OrderMatchStatePending extends OrderMatchStateBase {
