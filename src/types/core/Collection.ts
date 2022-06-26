@@ -231,6 +231,7 @@ export interface CollectionMetadata {
   partnerships?: Partnership[];
   integrations?: CollectionIntegrations;
   displayType?: string;
+  updatedAt?: number;
 }
 
 /**
