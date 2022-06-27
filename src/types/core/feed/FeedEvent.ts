@@ -7,7 +7,8 @@ export enum FeedEventType {
   NftOffer = 'NFT_OFFER',
   TwitterTweet = 'TWITTER_TWEET',
   DiscordAnnouncement = 'DISCORD_ANNOUNCEMENT',
-  CoinMarketCapNews = 'CMC_NEWS'
+  CoinMarketCapNews = 'CMC_NEWS',
+  NftTransfer = 'NFT_TRANSFER'
 }
 
 export const FeedEventTypeNames: { [key: string]: string } = {
@@ -16,7 +17,8 @@ export const FeedEventTypeNames: { [key: string]: string } = {
   [FeedEventType.NftOffer]: 'Offer',
   [FeedEventType.TwitterTweet]: 'Tweet',
   [FeedEventType.DiscordAnnouncement]: 'Discord',
-  [FeedEventType.CoinMarketCapNews]: 'News'
+  [FeedEventType.CoinMarketCapNews]: 'News',
+  [FeedEventType.NftTransfer]: 'Transfer'
 };
 
 export interface BaseFeedEvent {
