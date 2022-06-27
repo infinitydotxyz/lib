@@ -69,6 +69,21 @@ export type ExchangeEvent = BaseExchangeEvent & BaseNftEvent & UserEvent;
 /**
  * -------- NFT Events --------
  */
+export interface NftTransferEvent extends BaseNftEvent {
+  type: FeedEventType.NftTransfer;
+  from: string;
+  to: string;
+  fromDisplayName?: string;
+  toDisplayName?: string;
+  tokenStandard: TokenStandard;
+  txHash: string;
+  quantity: number;
+  /**
+   * etherscan link
+   */
+  externalUrl: string;
+}
+
 export interface NftSaleEvent extends ExchangeEvent {
   type: FeedEventType.NftSale;
 }
