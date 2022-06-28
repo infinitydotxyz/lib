@@ -42,6 +42,7 @@ export interface OBOrder {
   endPriceEth: number;
   startTimeMs: number;
   endTimeMs: number;
+  maxGasPriceWei: string;
   nonce: string;
   nfts: OBOrderItem[];
   execParams: ExecParams;
