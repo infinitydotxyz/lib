@@ -182,7 +182,7 @@ export interface BaseToken {
     /**
      * cached OS url
      */
-    url: string;
+    url?: string; // making this optional due to change in the flow of collection indexing steps
 
     /**
      * original url
