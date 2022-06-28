@@ -89,7 +89,7 @@ export interface OrderItemSnippet {
 }
 
 export interface BaseToken {
-  chainId: string;
+  chainId?: string;
 
   collectionAddress?: string;
 
@@ -106,22 +106,22 @@ export interface BaseToken {
    * search friendly name for this token
    * not the same as the collection slug
    */
-  slug: string;
+  slug?: string;
 
-  tokenId: string;
+  tokenId?: string;
 
   /**
    * original minter of the token
    */
-  minter: string;
+  minter?: string;
   /**
    * unix timestamp (in ms)
    */
-  mintedAt: number;
+  mintedAt?: number;
 
-  mintTxHash: string;
+  mintTxHash?: string;
 
-  mintPrice: number;
+  mintPrice?: number;
 
   mintCurrencyAddress?: string;
 
@@ -139,19 +139,19 @@ export interface BaseToken {
   /**
    * cached raw metadata
    */
-  metadata: TokenMetadata;
+  metadata?: TokenMetadata;
 
   /**
    * number of trait_types that this token has
    */
-  numTraitTypes: number;
+  numTraitTypes?: number;
 
   /**
    * unix timestamp (in ms) that the token metadata was updated at
    */
-  updatedAt: number;
+  updatedAt?: number;
 
-  tokenUri: string;
+  tokenUri?: string;
 
   owner: string;
 
@@ -160,12 +160,12 @@ export interface BaseToken {
    *
    * should not be changed until all tokens are ready to be updated
    */
-  rarityScore: number;
+  rarityScore?: number;
 
   /**
    * rank relative to other items in the collection
    */
-  rarityRank: number;
+  rarityRank?: number;
 
   ordersSnippet?: OrdersSnippet;
 
@@ -178,7 +178,7 @@ export interface BaseToken {
   /**
    * cached token image
    */
-  image: {
+  image?: {
     /**
      * cached OS url
      */
@@ -192,7 +192,7 @@ export interface BaseToken {
     /**
      * unix timestamp (in ms) of when the image was updated
      */
-    updatedAt: number;
+    updatedAt?: number;
   };
 
   state?: {
