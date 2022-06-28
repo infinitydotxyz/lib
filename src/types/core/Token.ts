@@ -108,7 +108,7 @@ export interface BaseToken {
    */
   slug?: string;
 
-  tokenId?: string;
+  tokenId: string;
 
   /**
    * original minter of the token
