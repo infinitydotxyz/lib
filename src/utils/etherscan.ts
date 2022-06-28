@@ -1,8 +1,14 @@
+import { ChainId } from '../types/core';
 import { EtherscanLink, EtherscanLinkType } from '../types/core/Etherscan';
 import { joinUrl } from './links';
 
-export function getEtherscanLink(linkData: EtherscanLink): string {
-  const baseUrl = 'https://etherscan.io/';
+export function getEtherscanLink(linkData: EtherscanLink, chainId?: ChainId): string {
+  let baseUrl = 'https://etherscan.io/';
+  if (chainId === ChainId.Goerli) {
+    baseUrl = 'https://goerli.etherscan.io/';
+  } else if (chainId === ChainId.Polygon) {
+    baseUrl = 'https://polygonscan.io/';
+  }
 
   switch (linkData.type) {
     case EtherscanLinkType.Address:
