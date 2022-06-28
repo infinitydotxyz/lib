@@ -36,6 +36,11 @@ export enum CreationFlow {
   TokenMetadata = 'token-metadata',
 
   /**
+   * get metadata for every token from OS
+   */
+  TokenMetadataOS = 'token-metadata-os',
+
+  /**
    * get metadata for every token from opensea
    */
   // TokenMetadataOS = 'token-metadata-os',
