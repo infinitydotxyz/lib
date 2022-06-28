@@ -63,5 +63,5 @@ export interface ZoraMediaEncoding {
   poster: string;
   preview: string;
   original: string;
-  thumbnail: ZoraMediaEncoding;
+  thumbnail: string;
 }
