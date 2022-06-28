@@ -29,6 +29,7 @@ export type MintToken = Pick<
   | 'mintCurrencyDecimals'
   | 'mintCurrencyName'
   | 'image'
+  | 'tokenUri'
 >;
 
 export type UriData = Pick<Token, 'tokenUri'>;
