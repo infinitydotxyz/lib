@@ -69,7 +69,7 @@ export type ExchangeEvent = BaseExchangeEvent & BaseNftEvent & UserEvent;
 /**
  * -------- NFT Events --------
  */
-export interface NftTransferEvent extends BaseNftEvent {
+export interface NftTransferEvent extends Omit<BaseNftEvent, 'collectionProfileImage'> {
   type: FeedEventType.NftTransfer;
   from: string;
   to: string;
