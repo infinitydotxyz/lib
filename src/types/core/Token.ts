@@ -153,7 +153,7 @@ export interface BaseToken {
 
   tokenUri?: string;
 
-  owner: string;
+  owner?: string;
 
   /**
    * sum of the token's rarity scores
