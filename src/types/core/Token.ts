@@ -97,13 +97,12 @@ export interface BaseToken {
    */
   slug: string;
 
+  tokenId: string;
+
   /**
    * original minter of the token
    */
   minter: string;
-
-  tokenId: string;
-
   /**
    * unix timestamp (in ms)
    */
@@ -112,6 +111,12 @@ export interface BaseToken {
   mintTxHash: string;
 
   mintPrice: number;
+
+  mintCurrencyAddress?: string;
+
+  mintCurrencyDecimals?: number;
+
+  mintCurrencyName?: string;
 
   /**
    * unix timestamp (in ms) of when the token was burned
