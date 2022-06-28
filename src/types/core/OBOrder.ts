@@ -82,6 +82,7 @@ export interface FirestoreOrder {
   endPriceEth: number;
   startTimeMs: number;
   endTimeMs: number;
+  maxGasPriceWei: string;
   nonce: string;
   complicationAddress: string;
   currencyAddress: string;
