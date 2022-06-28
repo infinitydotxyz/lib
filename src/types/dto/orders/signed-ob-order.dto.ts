@@ -82,6 +82,12 @@ export class SignedOBOrderDto implements SignedOBOrder {
   nonce: string;
 
   @ApiProperty({
+    description: 'Max gas price in wei (note: buyer pays the gas fee)'
+  })
+  @IsNumberString()
+  maxGasPriceWei: string;
+
+  @ApiProperty({
     description: 'Execution params like txn currency and type of order'
   })
   @ValidateNested({ message: 'Invalid exec params' })

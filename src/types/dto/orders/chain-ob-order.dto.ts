@@ -1,6 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsEthereumAddress, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
+import {
+  ArrayMaxSize,
+  ArrayMinSize,
+  IsArray,
+  IsBoolean,
+  IsEthereumAddress,
+  IsNotEmpty,
+  IsString,
+  ValidateNested
+} from 'class-validator';
 import { BigNumberish } from 'ethers';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
 import { ChainOBOrder } from '../../core';
@@ -21,10 +30,13 @@ export class ChainOBOrderDto implements ChainOBOrder {
   signer: string;
 
   @ApiProperty({
-    description: 'Constraints like num items, prices, times',
+    description:
+      'Constraints. Num items, start price in wei, end price in wei, start time in seconds, end time in seconds, nonce of the order, max tx gas price in wei',
     type: [String]
   })
   @IsArray()
+  @ArrayMinSize(7)
+  @ArrayMaxSize(7)
   constraints: BigNumberish[];
 
   @ApiProperty({
