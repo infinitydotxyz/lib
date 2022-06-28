@@ -18,7 +18,16 @@ export type TokenMetadata = Erc721Metadata | Erc1155Metadata;
 
 export type MintToken = Pick<
   Token,
-  'chainId' | 'mintedAt' | 'minter' | 'tokenId' | 'state' | 'mintTxHash' | 'mintPrice'
+  | 'chainId'
+  | 'mintedAt'
+  | 'minter'
+  | 'tokenId'
+  | 'state'
+  | 'mintTxHash'
+  | 'mintPrice'
+  | 'mintCurrencyAddress'
+  | 'mintCurrencyDecimals'
+  | 'mintCurrencyName'
 >;
 
 export type UriData = Pick<Token, 'tokenUri'>;
