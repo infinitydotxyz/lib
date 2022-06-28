@@ -93,8 +93,8 @@ export const GOERLI_NETWORK_NAME = 'goerli';
 export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
 export const GOERLI_WETH_ADDRESS = '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6'.toLowerCase();
 
-export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0x954842c5314e203049cbCB3377F7076c2664e266'.toLowerCase();
-export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x88396C73d6B85436be8cef8E52d561A19CcD01D3'.toLowerCase();
+export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0xd14aBEBf9b6B0c02c9223fe450D8aba56983cf7b'.toLowerCase();
+export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x6deb5e1A056975e0F2024F3d89b6D2465Bde22aF'.toLowerCase();
 
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
