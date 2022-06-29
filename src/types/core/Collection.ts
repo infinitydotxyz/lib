@@ -194,6 +194,8 @@ export interface BaseCollection {
       updatedAt: number;
       error?: Record<string, any>;
       progress: number;
+      zoraCursor?: string;
+      reservoirCursor?: string;
     };
     export: {
       done: boolean;
