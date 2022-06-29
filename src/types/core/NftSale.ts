@@ -2,7 +2,8 @@ import { TokenStandard } from './Token';
 
 export enum SaleSource {
   OpenSea = 'OPENSEA',
-  Infinity = 'INFINITY'
+  Infinity = 'INFINITY',
+  Seaport = 'SEAPORT'
 }
 
 export interface NftSale {
