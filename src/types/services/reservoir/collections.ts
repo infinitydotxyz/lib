@@ -1,22 +1,3 @@
-export interface ReservoirDetailedTokensResponse {
-  tokens: ReservoirToken[];
-  continuation: string;
-}
-
-export interface ReservoirToken {
-  token: {
-    contract: string;
-    tokenId: string;
-    name: string;
-    description: string;
-    image: string;
-    kind: string;
-    collection: ReservoirCollection;
-    owner: string;
-    attributes: ReservoirAttribute[];
-  };
-}
-
 export interface ReservoirCollection {
   id: string;
   name: string;
@@ -26,12 +7,13 @@ export interface ReservoirCollection {
   sampleImages: string[];
   tokenCount: string | number;
   ownerCount: string | number;
+  attributes: ReservoirCollectionAttribute[];
 }
 
-export interface ReservoirAttribute {
+export interface ReservoirCollectionAttribute {
   key: string;
-  value: string;
-  tokenCount: number;
+  kind: string;
+  count: number;
 }
 
 export interface ReservoirCollectionMetadata {
