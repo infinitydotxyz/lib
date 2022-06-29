@@ -1,3 +1,5 @@
+import { ReservoirCollection } from './collections';
+
 export interface ReservoirDetailedTokensResponse {
   tokens: ReservoirToken[];
   continuation: string;
@@ -15,13 +17,6 @@ export interface ReservoirToken {
     owner: string;
     attributes: ReservoirAttribute[];
   };
-}
-
-export interface ReservoirCollection {
-  id: string;
-  name: string;
-  slug: string;
-  image: string;
 }
 
 export interface ReservoirAttribute {
