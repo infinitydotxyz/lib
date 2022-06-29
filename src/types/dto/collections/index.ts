@@ -11,6 +11,7 @@ export * from './collection-state-export.dto';
 export * from './collection-state.dto';
 export * from './collection-stats-by-period.dto';
 export * from './collection-stats-query.dto';
+export * from './collection-trending-stats-query.dto';
 export * from './collection.dto';
 export * from './rankings-query.dto';
 export * from './top-owner.dto';
