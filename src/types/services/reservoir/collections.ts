@@ -1,4 +1,4 @@
-export interface ReservoirCollection {
+export interface ReservoirSingleCollectionResponse {
   collection: ReservoirCollection;
 }
 
