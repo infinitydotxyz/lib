@@ -92,12 +92,15 @@ export type CollectionPeriodStatsContent = {
   salesVolume?: number;
   ownerCount?: number;
   tokenCount?: number;
+  numSales?: number;
+  updatedAt?: number;
 };
 
 export type CollectionPeriodStats = {
   daily?: CollectionPeriodStatsContent;
   weekly?: CollectionPeriodStatsContent;
   monthly?: CollectionPeriodStatsContent;
+  allTime?: CollectionPeriodStatsContent;
 };
 
 export interface BaseCollection {
