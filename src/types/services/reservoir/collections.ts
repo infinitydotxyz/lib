@@ -1,4 +1,8 @@
 export interface ReservoirCollection {
+  collection: ReservoirCollection;
+}
+
+export interface ReservoirCollection {
   id: string;
   name: string;
   slug: string;
