@@ -1,6 +1,7 @@
 import { TokenStandard } from './Token';
 
 export enum SaleSource {
+  Seaport = 'SEAPORT',
   OpenSea = 'OPENSEA',
   Infinity = 'INFINITY'
 }

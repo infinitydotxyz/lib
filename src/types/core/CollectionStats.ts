@@ -221,4 +221,8 @@ export interface CollectionStats extends Stats, SocialsStats {
    *Timestamp that the stats were updated at
    */
   updatedAt: number;
+
+  volumeUSDC?: number;
+
+  topOwnersByOwnedNftsCount?: Array<{ count: number; owner: string }>;
 }
