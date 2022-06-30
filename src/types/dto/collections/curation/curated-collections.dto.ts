@@ -1,11 +1,13 @@
-import { Collection } from '../../../core/Collection';
-import { CuratedCollection } from '../../../core/CuratedCollection';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { CuratedCollection } from '../../../core';
 
 export class CuratedCollectionsDto {
-  data: {
-    collections: Collection[];
-    curations: CuratedCollection[];
-  };
+  @ApiProperty()
+  data: CuratedCollection[];
+
+  @ApiPropertyOptional()
   cursor?: string;
+
+  @ApiProperty()
   hasNextPage: boolean;
 }
