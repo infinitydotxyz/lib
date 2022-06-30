@@ -1,5 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { CuratedCollection } from '../../../core';
+import { CollectionDto } from '../collection.dto';
 
 export class CuratedCollectionDto implements CuratedCollection {
   @ApiProperty()
@@ -24,9 +25,17 @@ export class CuratedCollectionDto implements CuratedCollection {
   feesAPR: number;
 }
 
-export class CuratedCollectionsDto {
+export class CuratedCollectionsDataDto {
+  @ApiProperty({ type: CollectionDto })
+  collections: CollectionDto[];
+
   @ApiProperty({ type: CuratedCollectionDto })
-  data: CuratedCollectionDto[];
+  curations: CuratedCollectionDto[];
+}
+
+export class CuratedCollectionsDto {
+  @ApiProperty({ type: CuratedCollectionsDataDto })
+  data: CuratedCollectionsDataDto;
 
   @ApiPropertyOptional()
   cursor?: string;
