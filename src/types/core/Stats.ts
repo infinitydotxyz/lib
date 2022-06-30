@@ -8,6 +8,8 @@ export interface Stats {
 
   tokenId?: string;
 
+  numOwners?: number;
+
   floorPrice: number;
   prevFloorPrice: number;
   floorPricePercentChange: number;
