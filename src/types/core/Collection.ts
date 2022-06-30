@@ -97,6 +97,7 @@ export type CollectionPeriodStatsContent = {
   tokenCount?: number;
   numSales?: number;
   updatedAt?: number;
+  period?: string;
 };
 
 export type CollectionPeriodStats = {
