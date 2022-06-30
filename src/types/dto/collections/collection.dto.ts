@@ -148,7 +148,12 @@ export class UpdateCollectionDto {
 }
 
 export class PaginatedCollectionsDto {
+  @ApiProperty()
   data: Collection[];
+
+  @ApiPropertyOptional()
   cursor?: string;
+
+  @ApiProperty()
   hasNextPage: boolean;
 }
