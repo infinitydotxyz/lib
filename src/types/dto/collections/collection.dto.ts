@@ -146,3 +146,9 @@ export class UpdateCollectionDto {
   @Type(() => CollectionMetaDataDto)
   metadata?: PartialCollectionMetadataDto;
 }
+
+export class PaginatedCollectionsDto {
+  data: Collection[];
+  cursor?: string;
+  hasNextPage: boolean;
+}
