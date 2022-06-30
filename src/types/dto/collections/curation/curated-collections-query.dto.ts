@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsEnum, IsNumber, IsOptional, IsString, Min } from 'class-validator';
+import { IsArray, IsEnum, IsNumber, IsOptional, IsString, Min } from 'class-validator';
 import { OrderDirection } from '../../../core/Queries';
 import { parseIntTransformer } from '../../../../transformers/parse-int.transformer';
 
@@ -34,6 +34,6 @@ export class CuratedCollectionsQuery {
     description: 'Optional list of collection ids to filter by'
   })
   @IsOptional()
-  @IsString()
+  @IsArray()
   collections?: string[];
 }
