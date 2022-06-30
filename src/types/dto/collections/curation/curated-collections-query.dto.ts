@@ -35,5 +35,5 @@ export class CuratedCollectionsQuery {
   })
   @IsOptional()
   @IsString()
-  collections: string[];
+  collections?: string[];
 }
