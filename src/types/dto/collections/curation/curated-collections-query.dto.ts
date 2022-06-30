@@ -29,4 +29,11 @@ export class CuratedCollectionsQuery {
   @IsOptional()
   @IsString()
   cursor?: string;
+
+  @ApiPropertyOptional({
+    description: 'Optional list of collection ids to filter by'
+  })
+  @IsOptional()
+  @IsString()
+  collections: string[];
 }
