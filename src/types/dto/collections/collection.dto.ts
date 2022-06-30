@@ -148,8 +148,8 @@ export class UpdateCollectionDto {
 }
 
 export class PaginatedCollectionsDto {
-  @ApiProperty()
-  data: Collection[];
+  @ApiProperty({ type: CollectionDto })
+  data: CollectionDto[];
 
   @ApiPropertyOptional()
   cursor?: string;
