@@ -9,7 +9,7 @@ const getEnvironmentVariable = (name: string, required = true) => {
 };
 
 export const PROTOCOL_FEE_BPS = 250;
-
+export const TRENDING_COLLS_TTS = 12 * 60 * 60 * 1000; // time to stale 12 hours
 export const LOGIN_NONCE_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
 
 // todo: remove unused constants
