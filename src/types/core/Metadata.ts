@@ -2,47 +2,47 @@ export interface Erc721Metadata {
   /**
    * name of the item
    */
-  name: string;
+  name?: string;
 
   /**
    * title of the item
    */
-  title: string;
+  title?: string;
 
   /**
    * URL to the image of the item
    */
-  image: string;
+  image?: string;
 
   /**
    * raw svg image data
    */
-  image_data: string;
+  image_data?: string;
 
-  external_url: string;
+  external_url?: string;
 
   /**
    * description of the item
    */
-  description: string;
+  description?: string;
 
   /**
    * background color of th item
    * 6 decimal hexadecimal without #
    */
-  background_color: string;
+  background_color?: string;
 
   /**
    * URL to a multi-media attachment for the item
    */
-  animation_url: string;
+  animation_url?: string;
 
   /**
    * URL to a youtube video
    */
-  youtube_url: string;
+  youtube_url?: string;
 
-  attributes: Erc721Attribute[];
+  attributes?: Erc721Attribute[];
 }
 
 /**
