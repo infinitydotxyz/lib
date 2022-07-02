@@ -124,4 +124,9 @@ export class NftDto {
     description: 'NFT Owner'
   })
   owner?: string;
+
+  @ApiPropertyOptional({
+    description: 'Alchemy cached image'
+  })
+  alchemyCachedImage?: string;
 }
