@@ -36,6 +36,7 @@ export const firestoreConstants = {
   COLLECTION_MENTIONS_COLL: 'mentions',
   COLLECTION_SOCIALS_STATS_COLL: 'socialsStats',
   COLLECTION_NFTS_COLL: 'nfts',
+  COLLECTION_INVALID_NFTS_COLL: 'invalidNfts',
   COLLECTION_CURATORS_COLL: 'curators',
   COLLECTION_ATTRIBUTES: 'attributes',
   COLLECTION_ATTRIBUTES_VALUES: 'values',
