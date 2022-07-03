@@ -89,7 +89,7 @@ export const ETHEREUM_NETWORK_NAME = 'main';
 export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase();
 
-export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0xbAda55a700e0241e0d1981B89a9FEE8e5f06cfc4'.toLowerCase();
+export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0xBadA55A891FF1191873b1C5C0d8647fABCd060aA'.toLowerCase();
 export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0xbaDa5555fe632ace2C90Fee8C060703369c25f1c'.toLowerCase();
 
 // goerli
