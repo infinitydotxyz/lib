@@ -43,7 +43,7 @@ export interface OBOrder {
   startTimeMs: number;
   endTimeMs: number;
   maxGasPriceWei: string;
-  nonce: string;
+  nonce: number;
   nfts: OBOrderItem[];
   execParams: ExecParams;
   extraParams: ExtraParams;
@@ -84,7 +84,7 @@ export interface FirestoreOrder {
   startTimeMs: number;
   endTimeMs: number;
   maxGasPriceWei: string;
-  nonce: string;
+  nonce: number;
   complicationAddress: string;
   currencyAddress: string;
   makerUsername: string;
