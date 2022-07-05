@@ -1,6 +1,6 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsEthereumAddress, IsNumber, IsOptional, IsString, MaxLength } from 'class-validator';
+import { IsEthereumAddress, IsNumber, IsString, MaxLength } from 'class-validator';
 import { IsUsername, MAX_BIO_CHARS, MAX_DISPLAY_NAME_CHARS, usernameConstraints } from '../../../decorators';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
 export class UserProfileDto {
