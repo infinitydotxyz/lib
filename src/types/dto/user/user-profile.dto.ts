@@ -1,6 +1,6 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsEthereumAddress, IsNumber, IsString, MaxLength } from 'class-validator';
+import { IsEthereumAddress, IsNumber, IsOptional, IsString, MaxLength } from 'class-validator';
 import { IsUsername, MAX_BIO_CHARS, MAX_DISPLAY_NAME_CHARS, usernameConstraints } from '../../../decorators';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
 export class UserProfileDto {
@@ -80,4 +80,18 @@ export class UserProfileDto {
   })
   @IsNumber()
   updatedAt: number;
+
+  @ApiPropertyOptional({
+    description: 'Total amount of curated collections'
+  })
+  @IsOptional()
+  @IsNumber()
+  totalCurated?: number;
+
+  @ApiPropertyOptional({
+    description: 'Total amount of curation votes on collections'
+  })
+  @IsOptional()
+  @IsNumber()
+  totalCuratedVotes?: number;
 }
