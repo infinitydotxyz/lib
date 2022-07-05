@@ -83,7 +83,6 @@ export const ERROR_LOG = getEnvironmentVariable('ERROR_LOG', false) === 'true';
 export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
 
 // ethereum
-// todo: adi update contract addresses
 export const ETHEREUM_NETWORK_NAME = 'main';
 export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase();
