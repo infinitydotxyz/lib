@@ -78,8 +78,8 @@ export class SignedOBOrderDto implements SignedOBOrder {
   @ApiProperty({
     description: 'Order nonce'
   })
-  @IsNumberString()
-  nonce: string;
+  @IsNumber()
+  nonce: number;
 
   @ApiProperty({
     description: 'Max gas price in wei (note: buyer pays the gas fee)'

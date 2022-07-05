@@ -9,7 +9,7 @@ const getEnvironmentVariable = (name: string, required = true) => {
 };
 
 export const PROTOCOL_FEE_BPS = 250;
-
+export const TRENDING_COLLS_TTS = 12 * 60 * 60 * 1000; // time to stale 12 hours
 export const LOGIN_NONCE_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
 
 // todo: remove unused constants
@@ -36,6 +36,7 @@ export const firestoreConstants = {
   COLLECTION_MENTIONS_COLL: 'mentions',
   COLLECTION_SOCIALS_STATS_COLL: 'socialsStats',
   COLLECTION_NFTS_COLL: 'nfts',
+  COLLECTION_INVALID_NFTS_COLL: 'invalidNfts',
   COLLECTION_CURATORS_COLL: 'curators',
   COLLECTION_ATTRIBUTES: 'attributes',
   COLLECTION_ATTRIBUTES_VALUES: 'values',
@@ -52,14 +53,16 @@ export const firestoreConstants = {
   FEED_COLL: 'feed',
   COLLECTION_FOLLOWS_COLL: 'collectionFollows',
   USER_FOLLOWS_COLL: 'userFollows',
-  USER_NFT_COLLECTION_COLL: 'nftCollections', // todo: remove
   USER_COLLECTIONS_COLL: 'userCollections',
   USER_NFTS_COLL: 'userNfts',
   SELL_ORDERS_COLL: 'sellOrders',
   BUY_ORDERS_COLL: 'buyOrders',
   ORDERS_COLL: 'orders',
   ORDER_ITEMS_SUB_COLL: 'orderItems',
-  ORDER_MATCHES_COLL: 'orderMatches'
+  ORDER_MATCHES_COLL: 'orderMatches',
+  TRENDING_COLLECTIONS_COLL: 'trendingCollections',
+  TRENDING_BY_VOLUME_DOC: 'bySalesVolume',
+  TRENDING_BY_AVG_PRICE_DOC: 'byAvgPrice'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
@@ -80,12 +83,11 @@ export const ERROR_LOG = getEnvironmentVariable('ERROR_LOG', false) === 'true';
 export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
 
 // ethereum
-// todo: adi update contract addresses
 export const ETHEREUM_NETWORK_NAME = 'main';
 export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase();
 
-export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0xbAda55a700e0241e0d1981B89a9FEE8e5f06cfc4'.toLowerCase();
+export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0xbADa5551B2f08d3959329B2fF8D0A7CC8BE26324'.toLowerCase();
 export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0xbaDa5555fe632ace2C90Fee8C060703369c25f1c'.toLowerCase();
 
 // goerli
@@ -93,7 +95,7 @@ export const GOERLI_NETWORK_NAME = 'goerli';
 export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
 export const GOERLI_WETH_ADDRESS = '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6'.toLowerCase();
 
-export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0x2B8439652f1Db893b206Ef0A40875543b1CFd0C9'.toLowerCase();
+export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0xf0B83Ed51Fa7C9617dD48Fe5864566BBD9519E4b'.toLowerCase();
 export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x6deb5e1A056975e0F2024F3d89b6D2465Bde22aF'.toLowerCase();
 
 // polygon

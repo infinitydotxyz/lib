@@ -80,4 +80,16 @@ export class UserProfileDto {
   })
   @IsNumber()
   updatedAt: number;
+
+  @ApiProperty({
+    description: 'Total amount of curated collections'
+  })
+  @IsNumber()
+  totalCurated: number;
+
+  @ApiProperty({
+    description: 'Total amount of curation votes on collections'
+  })
+  @IsNumber()
+  totalCuratedVotes: number;
 }

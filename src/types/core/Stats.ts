@@ -8,6 +8,9 @@ export interface Stats {
 
   tokenId?: string;
 
+  numNfts?: number;
+  numOwners?: number;
+
   floorPrice: number;
   prevFloorPrice: number;
   floorPricePercentChange: number;
@@ -16,6 +19,7 @@ export interface Stats {
   prevCeilPrice: number;
   ceilPricePercentChange: number;
 
+  volumeUSDC?: number;
   volume: number;
   prevVolume: number;
   volumePercentChange: number;
@@ -41,6 +45,13 @@ export interface Stats {
   timestamp: number;
 
   period: StatsPeriod;
+
+  topOwnersByOwnedNftsCount?: TopOwner[];
+}
+
+export interface TopOwner {
+  owner: string;
+  count: number;
 }
 
 type AllTimeStatsBase = Pick<
