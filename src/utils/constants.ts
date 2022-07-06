@@ -62,7 +62,8 @@ export const firestoreConstants = {
   ORDER_MATCHES_COLL: 'orderMatches',
   TRENDING_COLLECTIONS_COLL: 'trendingCollections',
   TRENDING_BY_VOLUME_DOC: 'bySalesVolume',
-  TRENDING_BY_AVG_PRICE_DOC: 'byAvgPrice'
+  TRENDING_BY_AVG_PRICE_DOC: 'byAvgPrice',
+  COUNTER_DOC: 'counter'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
