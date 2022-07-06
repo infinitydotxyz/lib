@@ -90,6 +90,8 @@ export interface FirestoreOrder {
   makerUsername: string;
   makerAddress: string;
   signedOrder: ChainOBOrder;
+  enqueued?: boolean;
+  lastScannedAt?: number;
 }
 
 export interface FirestoreOrderItem {
