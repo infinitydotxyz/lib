@@ -63,7 +63,11 @@ export const firestoreConstants = {
   TRENDING_COLLECTIONS_COLL: 'trendingCollections',
   TRENDING_BY_VOLUME_DOC: 'bySalesVolume',
   TRENDING_BY_AVG_PRICE_DOC: 'byAvgPrice',
-  COUNTER_DOC: 'counter'
+  COUNTER_DOC: 'counter',
+  NUM_BUY_ORDER_ITEMS_FIELD: 'numBuyOrderItems',
+  NUM_SELL_ORDER_ITEMS_FIELD: 'numSellOrderItems',
+  OPEN_BUY_INTEREST_FIELD: 'openBuyInterest',
+  OPEN_SELL_INTEREST_FIELD: 'openSellInterest'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
