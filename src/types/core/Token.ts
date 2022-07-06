@@ -49,6 +49,12 @@ export interface RefreshTokenErrorJson {
   discriminator: RefreshTokenFlow;
 }
 
+export type OwnerInfo = {
+  address: string;
+  config?: string;
+  profile_img_url?: string;
+};
+
 export enum RefreshTokenFlow {
   Mint = 'mint',
   /**
@@ -153,7 +159,7 @@ export interface BaseToken {
 
   tokenUri?: string;
 
-  owner?: string;
+  owner?: string | OwnerInfo;
 
   /**
    * sum of the token's rarity scores
