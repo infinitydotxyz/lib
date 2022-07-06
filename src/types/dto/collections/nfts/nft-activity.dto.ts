@@ -3,8 +3,7 @@ import { Transform } from 'class-transformer';
 import { IsEnum, IsEthereumAddress, IsNumber, IsOptional, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../../transformers';
 import { ChainId } from '../../../core';
-import { ActivityType } from './nft-activity.types';
-
+import { FeedEventType } from '../../../core/feed';
 export class NftActivity {
   @ApiProperty({
     description: 'Collection address'
@@ -24,10 +23,10 @@ export class NftActivity {
 
   @ApiProperty({
     description: 'Activity type',
-    enum: ActivityType
+    enum: FeedEventType
   })
-  @IsEnum(ActivityType)
-  type!: ActivityType;
+  @IsEnum(FeedEventType)
+  type!: FeedEventType;
 
   @ApiProperty({
     description: 'Seller, offerer or lister address'
