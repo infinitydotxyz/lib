@@ -1,4 +1,4 @@
-export enum FeedEventType {
+export enum EventType {
   /**
    * NFT EVENTS
    */
@@ -11,18 +11,18 @@ export enum FeedEventType {
   NftTransfer = 'NFT_TRANSFER'
 }
 
-export const FeedEventTypeNames: { [key: string]: string } = {
-  [FeedEventType.NftSale]: 'Sale',
-  [FeedEventType.NftListing]: 'Listing',
-  [FeedEventType.NftOffer]: 'Offer',
-  [FeedEventType.TwitterTweet]: 'Tweet',
-  [FeedEventType.DiscordAnnouncement]: 'Discord',
-  [FeedEventType.CoinMarketCapNews]: 'News',
-  [FeedEventType.NftTransfer]: 'Transfer'
+export const EventTypeNames: { [key: string]: string } = {
+  [EventType.NftSale]: 'Sale',
+  [EventType.NftListing]: 'Listing',
+  [EventType.NftOffer]: 'Offer',
+  [EventType.TwitterTweet]: 'Tweet',
+  [EventType.DiscordAnnouncement]: 'Discord',
+  [EventType.CoinMarketCapNews]: 'News',
+  [EventType.NftTransfer]: 'Transfer'
 };
 
 export interface BaseFeedEvent {
-  type: FeedEventType;
+  type: EventType;
 
   /**
    * number of likes of the event

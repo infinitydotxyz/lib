@@ -1,10 +1,10 @@
 import { BaseCollectionEvent } from './CollectionEvent';
-import { FeedEventType } from './FeedEvent';
+import { EventType } from './FeedEvent';
 
 export type TwitterMediaType = 'photo' | 'GIF' | 'video';
 
 export interface TwitterTweetEvent extends BaseCollectionEvent {
-  type: FeedEventType.TwitterTweet;
+  type: EventType.TwitterTweet;
 
   /**
    * link to the tweet

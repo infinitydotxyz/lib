@@ -3,18 +3,18 @@ import { Transform } from 'class-transformer';
 import { IsOptional, IsNumber, IsString } from 'class-validator';
 import { IsEnumArray } from '../../../decorators';
 import { arrayTransformer, parseIntTransformer } from '../../../transformers';
-import { FeedEventType } from '../../core/feed';
+import { EventType } from '../../core/feed';
 
 export class UserActivityQueryDto {
   @ApiPropertyOptional({
     description: 'Activity types to include in the response. By default all events will be included',
-    enum: FeedEventType,
-    type: [FeedEventType]
+    enum: EventType,
+    type: [EventType]
   })
-  @IsEnumArray(FeedEventType, { message: 'Invalid event type' })
+  @IsEnumArray(EventType, { message: 'Invalid event type' })
   @Transform(arrayTransformer)
   @IsOptional()
-  events?: FeedEventType[];
+  events?: EventType[];
 
   @ApiProperty({
     description: 'Max number of events to get. Max of 50'
