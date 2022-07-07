@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsOptional } from 'class-validator';
 import { ExternalNftDto } from './external-nft.dto';
 
 export class ExternalNftArrayDto {
@@ -10,4 +11,8 @@ export class ExternalNftArrayDto {
 
   @ApiProperty({ description: 'Whether there are more results available' })
   hasNextPage!: boolean;
+
+  @ApiProperty({ description: 'Total number of nfts owned by the user' })
+  @IsOptional()
+  totalOwned: number;
 }

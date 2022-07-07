@@ -1,7 +1,7 @@
 import { SaleSource } from '../NftSale';
 import { TokenStandard } from '../Token';
 import { BaseCollectionEvent, CollectionEvent } from './CollectionEvent';
-import { FeedEventType } from './FeedEvent';
+import { EventType } from './FeedEvent';
 import { OrderBookEvent } from './OrderBookEvent';
 import { UserEvent } from './UserEvent';
 
@@ -70,7 +70,7 @@ export type ExchangeEvent = BaseExchangeEvent & BaseNftEvent & UserEvent;
  * -------- NFT Events --------
  */
 export interface NftTransferEvent extends BaseNftEvent {
-  type: FeedEventType.NftTransfer;
+  type: EventType.NftTransfer;
   from: string;
   to: string;
   fromDisplayName?: string;
@@ -85,17 +85,17 @@ export interface NftTransferEvent extends BaseNftEvent {
 }
 
 export interface NftSaleEvent extends ExchangeEvent {
-  type: FeedEventType.NftSale;
+  type: EventType.NftSale;
 }
 
 export interface NftOfferEvent extends OrderBookEvent {
-  type: FeedEventType.NftOffer;
+  type: EventType.NftOffer;
 
   isSellOrder: false;
 }
 
 export interface NftListingEvent extends OrderBookEvent {
-  type: FeedEventType.NftListing;
+  type: EventType.NftListing;
 
   isSellOrder: true;
 }

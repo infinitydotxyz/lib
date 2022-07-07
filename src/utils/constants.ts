@@ -62,7 +62,12 @@ export const firestoreConstants = {
   ORDER_MATCHES_COLL: 'orderMatches',
   TRENDING_COLLECTIONS_COLL: 'trendingCollections',
   TRENDING_BY_VOLUME_DOC: 'bySalesVolume',
-  TRENDING_BY_AVG_PRICE_DOC: 'byAvgPrice'
+  TRENDING_BY_AVG_PRICE_DOC: 'byAvgPrice',
+  COUNTER_DOC: 'counter',
+  NUM_BUY_ORDER_ITEMS_FIELD: 'numBuyOrderItems',
+  NUM_SELL_ORDER_ITEMS_FIELD: 'numSellOrderItems',
+  OPEN_BUY_INTEREST_FIELD: 'openBuyInterest',
+  OPEN_SELL_INTEREST_FIELD: 'openSellInterest'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
@@ -94,6 +99,7 @@ export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0xbaDa5555fe632ace2C90
 export const GOERLI_NETWORK_NAME = 'goerli';
 export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
 export const GOERLI_WETH_ADDRESS = '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6'.toLowerCase();
+export const GOERLI_INFINITY_TOKEN_ADDRESS = '0xbADa5551B2f08d3959329B2fF8D0A7CC8BE26324'.toLowerCase();
 
 export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0xf0B83Ed51Fa7C9617dD48Fe5864566BBD9519E4b'.toLowerCase();
 export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x6deb5e1A056975e0F2024F3d89b6D2465Bde22aF'.toLowerCase();

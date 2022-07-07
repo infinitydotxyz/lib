@@ -3,16 +3,16 @@ import { IsNumber, IsOptional, IsString } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { IsEnumArray } from '../../../../decorators';
 import { parseIntTransformer } from '../../../../transformers';
-import { ActivityType } from './nft-activity.types';
+import { EventType } from '../../../core/feed';
 
 export class NftActivityFiltersDto {
   @ApiProperty({
     description: 'Activity types to include in the response',
-    enum: ActivityType,
-    type: [ActivityType]
+    enum: EventType,
+    type: [EventType]
   })
-  @IsEnumArray(ActivityType, { message: 'Invalid event type' })
-  eventType!: ActivityType[];
+  @IsEnumArray(EventType, { message: 'Invalid event type' })
+  eventType!: EventType[];
 
   @ApiProperty({
     description: 'Max number of events to get. Max of 50'
