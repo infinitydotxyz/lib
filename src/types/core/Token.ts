@@ -116,6 +116,8 @@ export interface BaseToken {
 
   tokenId: string;
 
+  tokenIdNumeric: number;
+
   /**
    * original minter of the token
    */
