@@ -1,5 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
+import { IsOptional } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../../transformers';
 import { ChainId, TokenStandard } from '../../../core';
 import { Erc721MetadataDto } from './erc721-metadata.dto';
@@ -43,6 +44,12 @@ export class NftDto {
     description: 'The token id'
   })
   tokenId!: string;
+
+  @ApiProperty({
+    description: 'The token id'
+  })
+  @IsOptional()
+  tokenIdNumeric?: number;
 
   @ApiProperty({
     description: 'The address of the wallet that minted the nft'
