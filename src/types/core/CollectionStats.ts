@@ -208,16 +208,6 @@ export interface CollectionStats extends Stats, SocialsStats {
   period: StatsPeriod;
 
   /**
-   *The number of votes for the collection
-   */
-  votesFor: number;
-
-  /**
-   *Number of votes against the collection
-   */
-  votesAgainst: number;
-
-  /**
    *Timestamp that the stats were updated at
    */
   updatedAt: number;
