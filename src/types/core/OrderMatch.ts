@@ -1,4 +1,5 @@
 import { ChainId } from './ChainId';
+import { ChainNFTs } from './OBOrder';
 
 export enum FirestoreOrderMatchStatus {
   Active = 'active',
@@ -72,6 +73,7 @@ export interface MatchOrderFulfilledEvent {
   txHash: string;
   blockNumber: number;
   chainId: ChainId;
+  nfts: ChainNFTs[];
 }
 
 export interface OrderMatchStateSuccess extends OrderMatchStateBase {
