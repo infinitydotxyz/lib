@@ -2,7 +2,8 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsEthereumAddress, IsOptional } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
-import { BaseCollection, ChainId, SocialsStats, Stats, StatsPeriod } from '../../core';
+import { ChainId, SocialsStats, Stats, StatsPeriod } from '../../core';
+import { CollectionDto } from '../collections';
 
 export class CollectionStatsDto implements SocialsStats, Stats {
   @ApiProperty({ description: 'Name of the collection' })
@@ -147,5 +148,5 @@ export class CollectionStatsDto implements SocialsStats, Stats {
 
   @ApiProperty({ description: 'Collection details (optional)' })
   @IsOptional()
-  collectionData: BaseCollection;
+  collectionData: Partial<CollectionDto>;
 }
