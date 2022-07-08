@@ -92,4 +92,16 @@ export class NftActivity {
   })
   @IsNumber()
   timestamp!: number;
+
+  @ApiProperty({
+    description: 'likes count'
+  })
+  @IsNumber()
+  likes!: number;
+
+  @ApiProperty({
+    description: 'comments count'
+  })
+  @IsNumber()
+  comments!: number;
 }
