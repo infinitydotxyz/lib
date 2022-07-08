@@ -1,15 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { ValidateNested, IsArray } from 'class-validator';
-import { SignedOBOrderDto } from './signed-ob-order.dto';
+import { SignedOBOrderWithoutMetadataDto } from './signed-ob-order.dto';
 
 export class OrdersDto {
   @ApiProperty({
     description: 'Orders to be saved',
-    type: [SignedOBOrderDto]
+    type: [SignedOBOrderWithoutMetadataDto]
   })
   @ValidateNested({ each: true, message: 'Invalid signed order' })
-  @Type(() => SignedOBOrderDto)
+  @Type(() => SignedOBOrderWithoutMetadataDto)
   @IsArray()
-  orders!: SignedOBOrderDto[];
+  orders!: SignedOBOrderWithoutMetadataDto[];
 }
