@@ -102,7 +102,7 @@ export class OrderItemsQueryDto implements Omit<GetOrderItemsQuery, 'chainId'> {
   })
   @IsNumber()
   @Transform(parseIntTransformer({ max: 50 }))
-  limit!: number;
+  limit: number;
 
   @ApiPropertyOptional({
     description: 'Parameter to order results by',

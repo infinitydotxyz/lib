@@ -8,7 +8,7 @@ export class CollectionTrendingStatsQueryDto {
     enum: StatsPeriod
   })
   @IsEnum(StatsPeriod)
-  period!: StatsPeriod;
+  period: StatsPeriod;
 
   @ApiPropertyOptional({
     description: 'Query by field (for mnemonic queries). Example: by_sales_volume or by_avg_price.'

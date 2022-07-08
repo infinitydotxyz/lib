@@ -11,7 +11,7 @@ export class ExecParamsDto {
   @IsNotEmpty()
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  complicationAddress!: string;
+  complicationAddress: string;
 
   @ApiProperty({
     description: 'Txn currency address, for e.g: WETH'
@@ -20,5 +20,5 @@ export class ExecParamsDto {
   @IsNotEmpty()
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  currencyAddress!: string;
+  currencyAddress: string;
 }

@@ -9,23 +9,23 @@ export class TopOwnerDto {
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  ownerAddress!: string;
+  ownerAddress: string;
 
   @ApiProperty({
     description: 'The number of nfts owned in the collection by this owner'
   })
   @IsNumber()
-  ownedCount!: number;
+  ownedCount: number;
 
   @ApiProperty({
     description: 'The percent of nfts owned by this owner in the collection'
   })
   @IsNumber()
-  percentOwned!: number;
+  percentOwned: number;
 
   @ApiProperty({
     description: 'The number of nfts in the collection'
   })
   @IsNumber()
-  numNfts!: number;
+  numNfts: number;
 }

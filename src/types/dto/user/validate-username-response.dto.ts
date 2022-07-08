@@ -4,12 +4,12 @@ export class ValidateUsernameResponseDto {
   @ApiProperty({
     description: 'The requested username'
   })
-  username!: string;
+  username: string;
 
   @ApiProperty({
     description: 'Whether the username is valid or not'
   })
-  valid!: boolean;
+  valid: boolean;
 
   @ApiPropertyOptional({
     description: 'Reason the username is invalid (only returned if invalid)'

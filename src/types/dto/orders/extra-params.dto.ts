@@ -7,5 +7,5 @@ export class ExtraParamsDto {
   })
   @IsString()
   @IsOptional()
-  buyer!: string;
+  buyer: string;
 }

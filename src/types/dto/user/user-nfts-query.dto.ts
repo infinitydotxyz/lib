@@ -67,7 +67,7 @@ export class UserNftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'max
   })
   @IsNumber()
   @Transform(parseIntTransformer({ max: 50 }))
-  limit!: number;
+  limit: number;
 
   @ApiPropertyOptional({
     description: 'Cursor to start after'

@@ -10,12 +10,12 @@ export class UserFollowingCollection {
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  collectionAddress!: string;
+  collectionAddress: string;
 
   @ApiProperty({
     description: 'Chain id of the following collection',
     enum: ChainId
   })
   @IsEnum(ChainId)
-  collectionChainId!: ChainId;
+  collectionChainId: ChainId;
 }

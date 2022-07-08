@@ -9,14 +9,14 @@ export class UserProfileImagesDto {
     type: 'file',
     format: 'binary'
   })
-  profileImage!: Express.Multer.File[];
+  profileImage: Express.Multer.File[];
 
   @ApiPropertyOptional({
     description: 'Banner image to upload',
     type: 'file',
     format: 'binary'
   })
-  bannerImage!: Express.Multer.File[];
+  bannerImage: Express.Multer.File[];
 }
 
 export class DeleteUserProfileImagesDto {

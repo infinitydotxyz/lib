@@ -9,5 +9,5 @@ export class UserFollowingUser {
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  userAddress!: string;
+  userAddress: string;
 }

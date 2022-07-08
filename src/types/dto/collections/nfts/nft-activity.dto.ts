@@ -8,37 +8,37 @@ export class NftActivity {
   @ApiProperty({
     description: 'Firestore id'
   })
-  id!: string;
+  id: string;
 
   @ApiProperty({
     description: 'Collection address'
   })
   @Transform(normalizeAddressTransformer)
-  address!: string;
+  address: string;
 
   @ApiProperty({
     description: 'Token id of the nft'
   })
-  tokenId!: string;
+  tokenId: string;
 
   @ApiProperty({
     description: 'Chain id for the collection'
   })
-  chainId!: ChainId;
+  chainId: ChainId;
 
   @ApiProperty({
     description: 'Activity type',
     enum: EventType
   })
   @IsEnum(EventType)
-  type!: EventType;
+  type: EventType;
 
   @ApiProperty({
     description: 'Seller, offerer or lister address'
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  from!: string;
+  from: string;
 
   @ApiPropertyOptional({
     description: 'Seller, offerer or lister display name'
@@ -71,7 +71,7 @@ export class NftActivity {
   @ApiProperty({
     description: 'Sale, offer or listing payment token'
   })
-  paymentToken!: string;
+  paymentToken: string;
 
   @ApiPropertyOptional({
     description: 'Link to the nft'
@@ -91,17 +91,17 @@ export class NftActivity {
     description: 'Epoch timestamp (ms) of the activity'
   })
   @IsNumber()
-  timestamp!: number;
+  timestamp: number;
 
   @ApiProperty({
     description: 'likes count'
   })
   @IsNumber()
-  likes!: number;
+  likes: number;
 
   @ApiProperty({
     description: 'comments count'
   })
   @IsNumber()
-  comments!: number;
+  comments: number;
 }

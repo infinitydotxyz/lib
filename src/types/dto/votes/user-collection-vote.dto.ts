@@ -10,38 +10,38 @@ export class UserCollectionVoteDto {
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  userAddress!: string;
+  userAddress: string;
 
   @ApiProperty({
     description: "Chain id of the user's wallet",
     enum: ChainId
   })
   @IsEnum(ChainId)
-  userChainId!: ChainId;
+  userChainId: ChainId;
 
   @ApiProperty({
     description: 'Address of the collection being voted on'
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  collectionAddress!: string;
+  collectionAddress: string;
 
   @ApiProperty({
     description: 'Chain id of the collection being voted on',
     enum: ChainId
   })
   @IsEnum(ChainId)
-  collectionChainId!: ChainId;
+  collectionChainId: ChainId;
 
   @ApiProperty({
     description: 'Whether the user voted for or against the prompt'
   })
   @IsBoolean()
-  votedFor!: boolean;
+  votedFor: boolean;
 
   @ApiProperty({
     description: 'Epoch timestamp (ms) that the vote was cast'
   })
   @IsNumber()
-  updatedAt!: number;
+  updatedAt: number;
 }

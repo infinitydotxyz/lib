@@ -13,7 +13,7 @@ export class NftActivityQueryDto {
     message: 'Invalid address'
   })
   @Transform(normalizeAddressTransformer)
-  address!: string;
+  address: string;
 
   @ApiProperty({
     description: 'Collection chain id',
@@ -22,7 +22,7 @@ export class NftActivityQueryDto {
   @IsSupportedChainId({
     message: 'Invalid chainId'
   })
-  chainId!: ChainId;
+  chainId: ChainId;
 
   @ApiPropertyOptional({
     description: 'Token id of the nft to get (optional)'

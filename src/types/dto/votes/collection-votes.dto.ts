@@ -10,24 +10,24 @@ export class CollectionVotesDto {
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  collectionAddress!: string;
+  collectionAddress: string;
 
   @ApiProperty({
     description: 'Chain id of the collection being voted on',
     enum: ChainId
   })
   @IsEnum(ChainId)
-  collectionChainId!: ChainId;
+  collectionChainId: ChainId;
 
   @ApiProperty({
     description: 'The number of votes for the collection'
   })
   @IsNumber()
-  votesFor!: number;
+  votesFor: number;
 
   @ApiProperty({
     description: 'The number of votes against the collection'
   })
   @IsNumber()
-  votesAgainst!: number;
+  votesAgainst: number;
 }

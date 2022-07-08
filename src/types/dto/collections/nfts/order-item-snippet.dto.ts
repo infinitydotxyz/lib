@@ -9,7 +9,7 @@ export class OrderItemSnippetDto implements OrderItemSnippet {
     description: 'Whether there is a corresponding order'
   })
   @IsBoolean()
-  hasOrder!: boolean;
+  hasOrder: boolean;
 
   @ApiPropertyOptional({
     description: 'Unique id of the order item'

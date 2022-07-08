@@ -12,14 +12,14 @@ export class NftActivityFiltersDto {
     type: [EventType]
   })
   @IsEnumArray(EventType, { message: 'Invalid event type' })
-  eventType!: EventType[];
+  eventType: EventType[];
 
   @ApiProperty({
     description: 'Max number of events to get. Max of 50'
   })
   @IsNumber()
   @Transform(parseIntTransformer({ max: 50 }))
-  limit!: number;
+  limit: number;
 
   @ApiPropertyOptional({
     description: 'Cursor to start after'

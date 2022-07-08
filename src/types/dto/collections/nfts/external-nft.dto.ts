@@ -5,5 +5,5 @@ export class ExternalNftDto extends NftDto {
   @ApiProperty({
     description: 'Whether the nft is supported'
   })
-  isSupported!: boolean;
+  isSupported: boolean;
 }

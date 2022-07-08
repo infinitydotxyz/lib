@@ -28,5 +28,5 @@ export class NftCollectionDto {
   @ApiProperty({
     description: 'Chain id that the collection is on'
   })
-  chainId!: ChainId;
+  chainId: ChainId;
 }

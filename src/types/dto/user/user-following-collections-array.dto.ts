@@ -3,11 +3,11 @@ import { UserFollowingCollection } from './user-following-collection.dto';
 
 export class UserFollowingCollectionsArrayDto {
   @ApiProperty({ description: 'Array of following collections', type: [UserFollowingCollection] })
-  data!: UserFollowingCollection[];
+  data: UserFollowingCollection[];
 
   @ApiProperty({ description: 'Cursor that can be used to get the next page' })
-  cursor!: string;
+  cursor: string;
 
   @ApiProperty({ description: 'Whether there are more items available' })
-  hasNextPage!: boolean;
+  hasNextPage: boolean;
 }

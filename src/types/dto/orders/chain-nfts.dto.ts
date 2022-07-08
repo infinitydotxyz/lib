@@ -10,7 +10,7 @@ export class ChainNFTsDto {
   })
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  collection!: string;
+  collection: string;
 
   @ApiProperty({
     description: 'Tokens in the order',
@@ -19,5 +19,5 @@ export class ChainNFTsDto {
   @IsArray()
   @ValidateNested({ message: 'Invalid chain tokens' })
   @Type(() => ChainTokensDto)
-  tokens!: ChainTokensDto[];
+  tokens: ChainTokensDto[];
 }

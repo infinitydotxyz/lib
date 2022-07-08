@@ -11,5 +11,5 @@ export class OrdersDto {
   @ValidateNested({ each: true, message: 'Invalid signed order' })
   @Type(() => SignedOBOrderWithoutMetadataDto)
   @IsArray()
-  orders!: SignedOBOrderWithoutMetadataDto[];
+  orders: SignedOBOrderWithoutMetadataDto[];
 }
