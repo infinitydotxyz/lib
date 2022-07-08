@@ -6,9 +6,9 @@ import { SignedOBOrder } from '../../core';
 import { ChainOBOrderDto } from './chain-ob-order.dto';
 import { ExecParamsDto } from './exec-params.dto';
 import { ExtraParamsDto } from './extra-params.dto';
-import { OBOrderItemDto } from './ob-order-item.dto';
+import { OBOrderItemDto, OBOrderItemWithoutMetadataDto } from './ob-order-item.dto';
 
-export class SignedOBOrderDto implements SignedOBOrder {
+export class SignedOBOrderWithoutMetadataDto implements Omit<SignedOBOrder, 'nfts' | 'makerUsername'> {
   @ApiProperty({
     description: 'id of the order'
   })
@@ -18,11 +18,6 @@ export class SignedOBOrderDto implements SignedOBOrder {
     description: 'Whether the order is a sell order or not'
   })
   isSellOrder: boolean;
-
-  @ApiProperty({
-    description: 'The username of the maker of the order'
-  })
-  makerUsername: string;
 
   @ApiProperty({
     description: 'The maker of the order'
@@ -35,8 +30,8 @@ export class SignedOBOrderDto implements SignedOBOrder {
     description: 'Order items in this order'
   })
   @ValidateNested({ message: 'Invalid ob order item' })
-  @Type(() => OBOrderItemDto)
-  nfts: OBOrderItemDto[];
+  @Type(() => OBOrderItemWithoutMetadataDto)
+  nfts: OBOrderItemWithoutMetadataDto[];
 
   @ApiProperty({
     description: 'Chain id'
@@ -107,4 +102,18 @@ export class SignedOBOrderDto implements SignedOBOrder {
   @ValidateNested({ message: 'Invalid signed order' })
   @Type(() => ChainOBOrderDto)
   signedOrder: ChainOBOrderDto;
+}
+
+export class SignedOBOrderDto extends SignedOBOrderWithoutMetadataDto {
+  @ApiProperty({
+    description: 'The username of the maker of the order'
+  })
+  makerUsername: string;
+
+  @ApiProperty({
+    description: 'Order items in this order'
+  })
+  @ValidateNested({ message: 'Invalid ob order item' })
+  @Type(() => OBOrderItemDto)
+  nfts: OBOrderItemDto[];
 }

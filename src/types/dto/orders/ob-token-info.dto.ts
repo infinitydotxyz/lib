@@ -1,53 +1,57 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, IntersectionType } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
 import { Erc721Attribute } from '../../core';
 
-export class OBTokenInfoDto {
+export class OBTokenInfoWithoutMetadataDto {
   @ApiProperty({
     description: 'Token Id'
   })
   @IsString()
   @IsNotEmpty()
-  tokenId!: string;
-
-  @ApiProperty({
-    description: 'Token name'
-  })
-  @IsString()
-  tokenName!: string;
-
-  @ApiProperty({
-    description: 'Image url'
-  })
-  @IsString()
-  @IsNotEmpty()
-  tokenImage!: string;
+  tokenId: string;
 
   @ApiProperty({
     description: 'No. of tokens. 1 for ERC721, >=1 for ERC1155'
   })
   @IsNumber()
   @IsNotEmpty()
-  numTokens!: number;
+  numTokens: number;
+}
+
+export class OBTokenInfoMetadata {
+  @ApiProperty({
+    description: 'Token name'
+  })
+  @IsString()
+  tokenName: string;
+
+  @ApiProperty({
+    description: 'Image url'
+  })
+  @IsString()
+  @IsNotEmpty()
+  tokenImage: string;
 
   @ApiProperty({
     description: 'Taker username'
   })
   @IsString()
-  takerUsername!: string;
+  takerUsername: string;
 
   @ApiProperty({
     description: 'Taker address'
   })
   @IsString()
   @Transform(normalizeAddressTransformer)
-  takerAddress!: string;
+  takerAddress: string;
 
   @ApiProperty({
     description: 'NFT attributes'
   })
   @IsArray()
-  attributes!: Erc721Attribute[];
+  attributes: Erc721Attribute[];
 }
+
+export class OBTokenInfoDto extends IntersectionType(OBTokenInfoWithoutMetadataDto, OBTokenInfoMetadata) {}

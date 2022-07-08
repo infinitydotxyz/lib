@@ -1,11 +1,11 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, IntersectionType } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsEthereumAddress, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
 import { ChainId } from '../../core';
-import { OBTokenInfoDto } from './ob-token-info.dto';
+import { OBTokenInfoDto, OBTokenInfoWithoutMetadataDto } from './ob-token-info.dto';
 
-export class OBOrderItemDto {
+export class OBOrderItemWithoutMetadataDto {
   @ApiProperty({
     description: 'Chain id'
   })
@@ -20,40 +20,52 @@ export class OBOrderItemDto {
   @IsNotEmpty()
   @IsEthereumAddress()
   @Transform(normalizeAddressTransformer)
-  collectionAddress!: string;
+  collectionAddress: string;
 
+  @ApiProperty({
+    description: 'Tokens in the order'
+  })
+  @ValidateNested({ each: true })
+  @Type(() => OBTokenInfoWithoutMetadataDto)
+  @IsArray()
+  tokens: OBTokenInfoWithoutMetadataDto[];
+}
+
+export class OBOrderItemMetadataDto {
   @ApiProperty({
     description: 'Collection name'
   })
   @IsString()
   @IsNotEmpty()
-  collectionName!: string;
+  collectionName: string;
 
   @ApiProperty({
     description: 'Collection image'
   })
   @IsString()
   @IsNotEmpty()
-  collectionImage!: string;
+  collectionImage: string;
 
   @ApiProperty({
     description: 'Collection slug'
   })
   @IsString()
   @IsNotEmpty()
-  collectionSlug!: string;
+  collectionSlug: string;
 
   @ApiProperty({
     description: 'Collection has blue check'
   })
   @IsBoolean()
-  hasBlueCheck!: boolean;
+  hasBlueCheck: boolean;
+}
 
+export class OBOrderItemDto extends IntersectionType(OBOrderItemWithoutMetadataDto, OBOrderItemMetadataDto) {
   @ApiProperty({
     description: 'Tokens in the order'
   })
   @ValidateNested({ each: true })
   @Type(() => OBTokenInfoDto)
   @IsArray()
-  tokens!: OBTokenInfoDto[];
+  tokens: OBTokenInfoDto[];
 }
