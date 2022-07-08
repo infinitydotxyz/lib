@@ -8,6 +8,7 @@ import { PriceFilterDto } from './price-filter.dto';
 export enum NftsOrderBy {
   RarityRank = 'rarityRank',
   TokenId = 'tokenId',
+  TokenIdNumeric = 'tokenIdNumeric',
   Price = 'price'
 }
 
