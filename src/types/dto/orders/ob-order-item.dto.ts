@@ -1,4 +1,4 @@
-import { ApiProperty, IntersectionType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsEthereumAddress, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
@@ -30,8 +30,15 @@ export class OBOrderItemWithoutMetadataDto {
   @IsArray()
   tokens: OBTokenInfoWithoutMetadataDto[];
 }
+export class OBOrderItemDto extends OBOrderItemWithoutMetadataDto {
+  @ApiProperty({
+    description: 'Tokens in the order'
+  })
+  @ValidateNested({ each: true })
+  @Type(() => OBTokenInfoDto)
+  @IsArray()
+  tokens: OBTokenInfoDto[];
 
-export class OBOrderItemMetadataDto {
   @ApiProperty({
     description: 'Collection name'
   })
@@ -58,14 +65,4 @@ export class OBOrderItemMetadataDto {
   })
   @IsBoolean()
   hasBlueCheck: boolean;
-}
-
-export class OBOrderItemDto extends IntersectionType(OBOrderItemWithoutMetadataDto, OBOrderItemMetadataDto) {
-  @ApiProperty({
-    description: 'Tokens in the order'
-  })
-  @ValidateNested({ each: true })
-  @Type(() => OBTokenInfoDto)
-  @IsArray()
-  tokens: OBTokenInfoDto[];
 }

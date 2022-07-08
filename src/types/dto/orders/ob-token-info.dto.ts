@@ -1,4 +1,4 @@
-import { ApiProperty, IntersectionType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
@@ -20,7 +20,7 @@ export class OBTokenInfoWithoutMetadataDto {
   numTokens: number;
 }
 
-export class OBTokenInfoMetadata {
+export class OBTokenInfoDto extends OBTokenInfoWithoutMetadataDto {
   @ApiProperty({
     description: 'Token name'
   })
@@ -53,5 +53,3 @@ export class OBTokenInfoMetadata {
   @IsArray()
   attributes: Erc721Attribute[];
 }
-
-export class OBTokenInfoDto extends IntersectionType(OBTokenInfoWithoutMetadataDto, OBTokenInfoMetadata) {}
