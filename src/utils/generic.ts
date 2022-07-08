@@ -34,7 +34,7 @@ export function getNextWeek(weekNumber: number, year: number) {
 
 export function hexToDecimalTokenId(tokenId: string): string {
   if (tokenId?.startsWith('0x')) {
-    return String(parseInt(tokenId, 16));
+    return BigNumber.from(tokenId).toBigInt().toString();
   }
 
   return tokenId;
