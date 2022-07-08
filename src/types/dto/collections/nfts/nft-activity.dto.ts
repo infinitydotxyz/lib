@@ -6,6 +6,11 @@ import { ChainId } from '../../../core';
 import { EventType } from '../../../core/feed';
 export class NftActivity {
   @ApiProperty({
+    description: 'Firestore id'
+  })
+  id!: string;
+
+  @ApiProperty({
     description: 'Collection address'
   })
   @Transform(normalizeAddressTransformer)
