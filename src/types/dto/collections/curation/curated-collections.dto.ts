@@ -1,18 +1,20 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { CollectionDto } from '../collection.dto';
+import { ChainId } from '../../../core';
 
 export class CuratedCollectionDto {
   /**
    * Collection address.
    */
   @ApiProperty()
-  collectionAddress: string;
+  address: string;
 
   /**
    * Collection chain id .
    */
-  @ApiProperty()
-  collectionChainId: string;
+  @ApiProperty({
+    enum: ChainId
+  })
+  chainId: ChainId;
 
   /**
    * Address of the user who curated this collection.
@@ -23,8 +25,10 @@ export class CuratedCollectionDto {
   /**
    * User chain id.
    */
-  @ApiProperty()
-  userChainId: string;
+  @ApiProperty({
+    enum: ChainId
+  })
+  userChainId: ChainId;
 
   /**
    * Amount of user votes.
@@ -49,19 +53,35 @@ export class CuratedCollectionDto {
    */
   @ApiProperty()
   timestamp: number;
-}
 
-export class CuratedCollectionsDataDto {
-  @ApiProperty({ type: CollectionDto })
-  collections: CollectionDto[];
+  /**
+   * Slug of the collection.
+   */
+  @ApiProperty()
+  slug: string;
 
-  @ApiProperty({ type: CuratedCollectionDto })
-  curations: CuratedCollectionDto[];
+  /**
+   * Total number of votes from curators.
+   *
+   * This value is a copy of `collection.numCuratorVotes`, see {@link CollectionDto}.
+   * It's only store here again to achieve performant reads.
+   */
+  numCuratorVotes: number;
+
+  /**
+   * Profile image URL of the collection.
+   */
+  profileImage: string;
+
+  /**
+   * Name of the collection.
+   */
+  name: string;
 }
 
 export class CuratedCollectionsDto {
-  @ApiProperty({ type: CuratedCollectionsDataDto })
-  data: CuratedCollectionsDataDto;
+  @ApiProperty({ type: CuratedCollectionsDto, isArray: true })
+  data: CuratedCollectionDto[];
 
   @ApiPropertyOptional()
   cursor?: string;

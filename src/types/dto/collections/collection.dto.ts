@@ -148,7 +148,7 @@ export class UpdateCollectionDto {
 }
 
 export class PaginatedCollectionsDto {
-  @ApiProperty({ type: CollectionDto })
+  @ApiProperty({ type: CollectionDto, isArray: true })
   data: CollectionDto[];
 
   @ApiPropertyOptional()
