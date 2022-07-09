@@ -5,4 +5,8 @@ export class CurationQuotaDto {
   @ApiProperty()
   @IsNumber()
   availableVotes: number;
+
+  @ApiProperty()
+  @IsNumber()
+  totalStaked: number;
 }
