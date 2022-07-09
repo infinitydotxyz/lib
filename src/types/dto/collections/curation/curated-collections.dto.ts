@@ -14,7 +14,7 @@ export class CuratedCollectionDto {
   @ApiProperty({
     enum: ChainId
   })
-  chainId: ChainId;
+  chainId: string;
 
   /**
    * Address of the user who curated this collection.
