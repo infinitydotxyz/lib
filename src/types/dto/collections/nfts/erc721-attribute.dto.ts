@@ -11,7 +11,7 @@ export class Erc721AttributeDto {
     description: 'The display type for the attribute',
     enum: DisplayType
   })
-  display_type: DisplayType;
+  display_type?: DisplayType;
 
   @ApiPropertyOptional({
     description: 'Trait type'
