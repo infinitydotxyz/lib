@@ -139,6 +139,6 @@ export interface GetOrderItemsQuery {
   collections?: string[];
   cursor?: string;
   limit?: number;
-  orderBy?: 'startPriceEth' | 'startTimeMs' | 'endTimeMs';
+  orderBy?: 'startPriceEth' | 'startTimeMs' | 'endTimeMs' | 'collectionSlug';
   orderByDirection?: 'asc' | 'desc';
 }
