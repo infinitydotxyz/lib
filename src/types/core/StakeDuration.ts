@@ -6,17 +6,17 @@ export enum StakeDuration {
   /**
    * 0 months (NONE).
    */
-  X0 = 0,
+  X0,
   /**
    * 3 months (THREE_MONTHS).
    */
-  X3 = 3,
+  X3,
   /**
    * 6 months (SIX_MONTHS).
    */
-  X6 = 6,
+  X6,
   /**
    * 12 months (TWELVE_MONTHS).
    */
-  X12 = 12
+  X12
 }
