@@ -67,7 +67,7 @@ export const isOBOrderExpired = (order: Pick<OBOrder, 'endTimeMs'>): boolean => 
   return order.endTimeMs < Date.now();
 };
 
-export function orderHash(order: ChainOBOrder): BytesLike {
+export function orderHash(order: ChainOBOrder): string {
   const fnSign =
     'Order(bool isSellOrder,address signer,uint256[] constraints,OrderItem[] nfts,address[] execParams,bytes extraParams)OrderItem(address collection,TokenInfo[] tokens)TokenInfo(uint256 tokenId,uint256 numTokens)';
   const orderTypeHash = solidityKeccak256(['string'], [fnSign]);
@@ -99,7 +99,7 @@ export function orderHash(order: ChainOBOrder): BytesLike {
   return keccak256(calcEncode);
 }
 
-export function nftsHash(nfts: ChainNFTs[]): BytesLike {
+export function nftsHash(nfts: ChainNFTs[]): string {
   const fnSign = 'OrderItem(address collection,TokenInfo[] tokens)TokenInfo(uint256 tokenId,uint256 numTokens)';
   const typeHash = solidityKeccak256(['string'], [fnSign]);
 
@@ -116,7 +116,7 @@ export function nftsHash(nfts: ChainNFTs[]): BytesLike {
   return nftsHash;
 }
 
-export function tokensHash(tokens: ChainNFTs['tokens']): BytesLike {
+export function tokensHash(tokens: ChainNFTs['tokens']): string {
   const fnSign = 'TokenInfo(uint256 tokenId,uint256 numTokens)';
   const typeHash = solidityKeccak256(['string'], [fnSign]);
 
@@ -136,12 +136,12 @@ export function getDigest(
   chainId: BigNumberish,
   verifyingContractAddress: BytesLike | string,
   orderHash: string | BytesLike
-): BytesLike {
+): string {
   const domainSeparator = getDomainSeparator(chainId, verifyingContractAddress);
   return solidityKeccak256(['string', 'bytes32', 'bytes32'], ['\x19\x01', domainSeparator, orderHash]);
 }
 
-export function getDomainSeparator(chainId: BigNumberish, verifyingContractAddress: BytesLike): BytesLike {
+export function getDomainSeparator(chainId: BigNumberish, verifyingContractAddress: BytesLike): string {
   const domainSeparator = keccak256(
     defaultAbiCoder.encode(
       ['bytes32', 'bytes32', 'bytes32', 'uint256', 'address'],
@@ -161,6 +161,12 @@ export function getDomainSeparator(chainId: BigNumberish, verifyingContractAddre
 }
 
 export function verifySig(digest: BytesLike, signer: string, sig: BytesLike): boolean {
-  const recoveredAddress = recoverAddress(digest, sig);
+  const decodedSig = defaultAbiCoder.decode(['bytes32', 'bytes32', 'uint8'], sig);
+  const sigObject = {
+    r: decodedSig[0],
+    s: decodedSig[1],
+    v: decodedSig[2]
+  };
+  const recoveredAddress = recoverAddress(digest, sigObject);
   return trimLowerCase(recoveredAddress) === trimLowerCase(signer);
 }
