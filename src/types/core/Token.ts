@@ -103,6 +103,12 @@ export interface BaseToken {
 
   collectionName?: string;
 
+  collectionProfileImage?: string;
+
+  collectionBannerImage?: string;
+
+  collectionDescription?: string;
+
   /**
    * whether the collection is verified
    */
