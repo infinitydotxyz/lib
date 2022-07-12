@@ -37,6 +37,8 @@ export interface MultiOrderEvent extends BaseFeedEventWithTitle {
   takerAddress?: string;
 
   orderItems: OrderItemData[];
+
+  sampleImages: string[];
 }
 
 export interface OrderBookEvent extends UserOrderBookEvent {
