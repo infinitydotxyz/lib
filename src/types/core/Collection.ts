@@ -89,6 +89,7 @@ export enum CreationFlow {
 export type CollectionPeriodStatsContent = {
   chainId?: string;
   contractAddress?: string;
+  contractSlug?: string;
   avgPrice?: number;
   minPrice?: number;
   maxPrice?: number;
