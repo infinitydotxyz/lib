@@ -65,3 +65,18 @@ export interface ReservoirCollectionMetadata {
   bannerImageUrl: string;
   twitterUsername: string;
 }
+
+export interface ReservoirTopOwner {
+  address: string;
+  ownership: {
+    tokenCount: string;
+    onSaleCount: string;
+    floorAskPrice: number;
+    topBidValue: number;
+    totalBidValue: number;
+  };
+}
+
+export interface ReservoirTopCollectionOwnersResponse {
+  owners: ReservoirTopOwner[];
+}
