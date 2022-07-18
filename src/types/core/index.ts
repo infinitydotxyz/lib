@@ -1,7 +1,6 @@
 export * from './ChainId';
 export * from './Collection';
 export * from './CollectionStats';
-export * from './CuratedCollection';
 export * from './Etherscan';
 export * from './Follows';
 export * from './Historical';
@@ -13,6 +12,7 @@ export * from './OBOrder';
 export * from './OrderMatch';
 export * from './Queries';
 export * from './SocialsStats';
+export * from './StakeDuration';
 export * from './Stats';
 export * from './StatsPeriod';
 export * from './StatusCode';

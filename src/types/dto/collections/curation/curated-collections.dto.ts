@@ -1,41 +1,87 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { CuratedCollection } from '../../../core';
-import { CollectionDto } from '../collection.dto';
+import { ChainId } from '../../../core';
 
-export class CuratedCollectionDto implements CuratedCollection {
+export class CuratedCollectionDto {
+  /**
+   * Collection address.
+   */
   @ApiProperty()
-  collectionAddress: string;
+  address: string;
 
-  @ApiProperty()
-  collectionChainId: string;
+  /**
+   * Collection chain id .
+   */
+  @ApiProperty({
+    enum: ChainId
+  })
+  chainId: string;
 
+  /**
+   * Address of the user who curated this collection.
+   */
   @ApiProperty()
   userAddress: string;
 
-  @ApiProperty()
-  userChainId: string;
+  /**
+   * User chain id.
+   */
+  @ApiProperty({
+    enum: ChainId
+  })
+  userChainId: ChainId;
 
+  /**
+   * Amount of user votes.
+   */
   @ApiProperty()
   votes: number;
 
+  /**
+   * Fees accrued in USD.
+   */
   @ApiProperty()
   fees: number;
 
+  /**
+   * Fees APR as a percentage.
+   */
   @ApiProperty()
   feesAPR: number;
-}
 
-export class CuratedCollectionsDataDto {
-  @ApiProperty({ type: CollectionDto })
-  collections: CollectionDto[];
+  /**
+   * Timestamp indicating when this collection was curated by the user.
+   */
+  @ApiProperty()
+  timestamp: number;
 
-  @ApiProperty({ type: CuratedCollectionDto })
-  curations: CuratedCollectionDto[];
+  /**
+   * Slug of the collection.
+   */
+  @ApiProperty()
+  slug: string;
+
+  /**
+   * Total number of votes from curators.
+   *
+   * This value is a copy of `collection.numCuratorVotes`, see {@link CollectionDto}.
+   * It's only store here again to achieve performant reads.
+   */
+  numCuratorVotes: number;
+
+  /**
+   * Profile image URL of the collection.
+   */
+  profileImage: string;
+
+  /**
+   * Name of the collection.
+   */
+  name: string;
 }
 
 export class CuratedCollectionsDto {
-  @ApiProperty({ type: CuratedCollectionsDataDto })
-  data: CuratedCollectionsDataDto;
+  @ApiProperty({ type: CuratedCollectionsDto, isArray: true })
+  data: CuratedCollectionDto[];
 
   @ApiPropertyOptional()
   cursor?: string;

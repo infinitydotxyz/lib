@@ -11,7 +11,8 @@ import { GetOrderItemsQuery, OBOrderStatus, OrderDirection } from '../../core';
 export enum OrderItemsOrderBy {
   Price = 'startPriceEth',
   StartTime = 'startTimeMs',
-  EndTime = 'endTimeMs'
+  EndTime = 'endTimeMs',
+  CollectionSlug = 'collectionSlug'
 }
 
 export class OrderItemsQueryDto implements Omit<GetOrderItemsQuery, 'chainId'> {

@@ -8,7 +8,7 @@ import { UserEvent } from './UserEvent';
 /**
  * data needed for each nft event
  */
-interface NftData extends CollectionEvent {
+export interface NftData extends CollectionEvent {
   tokenId: string;
 
   image: string;
@@ -90,12 +90,10 @@ export interface NftSaleEvent extends ExchangeEvent {
 
 export interface NftOfferEvent extends OrderBookEvent {
   type: EventType.NftOffer;
-
   isSellOrder: false;
 }
 
 export interface NftListingEvent extends OrderBookEvent {
   type: EventType.NftListing;
-
   isSellOrder: true;
 }

@@ -38,7 +38,7 @@ export class NftDto {
   @ApiProperty({
     description: 'The slug for this nft'
   })
-  slug: string;
+  slug?: string;
 
   @ApiProperty({
     description: 'The token id'
@@ -54,22 +54,22 @@ export class NftDto {
   @ApiProperty({
     description: 'The address of the wallet that minted the nft'
   })
-  minter: string;
+  minter?: string;
 
   @ApiProperty({
     description: 'Epoch timestamp (ms) that the nft was minted at'
   })
-  mintedAt: number;
+  mintedAt?: number;
 
   @ApiProperty({
     description: 'The transaction hash for the mint transaction'
   })
-  mintTxHash: string;
+  mintTxHash?: string;
 
   @ApiProperty({
     description: 'The price of the mint transaction'
   })
-  mintPrice: number;
+  mintPrice?: number;
 
   @ApiPropertyOptional({
     description: 'Epoch timestamp (ms) that the nft was burned at (if it has been burned)'
@@ -99,12 +99,12 @@ export class NftDto {
   @ApiProperty({
     description: 'The rank of the nft relative to other nfts in the collection'
   })
-  rarityRank: number;
+  rarityRank?: number;
 
   @ApiProperty({
     description: 'The rarity score for this nft within the collection'
   })
-  rarityScore: number;
+  rarityScore?: number;
 
   @ApiProperty({
     description: 'Object containing images for this token'
