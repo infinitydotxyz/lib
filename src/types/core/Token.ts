@@ -93,7 +93,7 @@ export interface OrderItemSnippet {
    */
   orderItemId?: string;
   orderItem?: FirestoreOrderItem | null;
-  chainOrder?: ChainOBOrderDto;
+  signedOrder?: ChainOBOrderDto;
 }
 
 export interface BaseToken {
