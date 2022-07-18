@@ -176,11 +176,6 @@ export interface BaseCollection {
   numNfts: number;
 
   /**
-   * attributes/trait types.
-   */
-  attributes?: CollectionAttributes;
-
-  /**
    * total number of trait_types in the collection
    */
   numTraitTypes: number;
