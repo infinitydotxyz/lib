@@ -32,12 +32,12 @@ export interface Constraints {
   maxGasPriceWei: BigNumber;
 }
 
-type UserMetadata = {
+export type UserMetadata = {
   username: string;
   address: string;
 };
 
-type TokenMetadata = {
+export type TokenMetadata = {
   tokenId: string;
   tokenName: string;
   tokenImage: string;
@@ -46,7 +46,7 @@ type TokenMetadata = {
   taker: string;
 };
 
-type CollectionMetadata = {
+export type CollectionMetadata = {
   collectionAddress: string;
   collectionName: string;
   collectionImage: string;
@@ -54,7 +54,7 @@ type CollectionMetadata = {
   hasBlueCheck: boolean;
   tokens: Record<string, TokenMetadata>;
 };
-interface OrderMetadata {
+export interface OrderMetadata {
   users: Record<string, UserMetadata>;
   collections: Record<string, CollectionMetadata>;
 }
