@@ -66,16 +66,14 @@ export class Order {
   public readonly constraints: Constraints;
   public readonly execParams: ExecParams;
   public readonly extraParams: ExtraParams;
+  public readonly signer: string;
+  public readonly signature: string;
+  private _metadata: OrderMetadata;
   private _nfts: ChainNFTs[];
 
   public get nfts(): OBOrderItem[] {
     return this.chainNftsToOBOrderItems(this._nfts, this.chainId);
   }
-
-  public readonly signer: string;
-  public readonly signature: string;
-
-  private metadata: OrderMetadata;
 
   public get isSigned() {
     return !!this.signer && !!this.signature;
@@ -112,7 +110,7 @@ export class Order {
       this.signature = props.order.signedOrder.sig;
       const { orderItems, metadata: metadataFromOrderItems } = Order.getMetadataFromFirestoreOrderItems(props.items);
       this._nfts = Order.obOrderItemsToChainNfts(orderItems);
-      this.metadata = metadata ?? metadataFromOrderItems;
+      this._metadata = metadata ?? metadataFromOrderItems;
     } else if (isSignedOBOrder) {
       this.isSellOrder = (props as SignedOBOrder).isSellOrder;
       this.constraints = Order.decodeConstraints((props as SignedOBOrder).signedOrder.constraints);
@@ -121,7 +119,7 @@ export class Order {
       this.signer = (props as SignedOBOrder).signedOrder.signer;
       this.signature = (props as SignedOBOrder).signedOrder.sig;
       this._nfts = Order.obOrderItemsToChainNfts((props as SignedOBOrder).nfts);
-      this.metadata = metadata ?? this.getMetadataFromOBOrderItems(this.nfts, props);
+      this._metadata = metadata ?? this.getMetadataFromOBOrderItems(this.nfts, props);
     } else if (isOBOrder) {
       this.isSellOrder = props.isSellOrder;
       const { numItems, startPriceEth, endPriceEth, startTimeMs, endTimeMs, maxGasPriceWei, nonce } = props;
@@ -141,7 +139,7 @@ export class Order {
       this.signer = '';
       this.signature = '';
       this._nfts = Order.obOrderItemsToChainNfts(props.nfts);
-      this.metadata = metadata ?? this.getMetadataFromOBOrderItems(this.nfts, props);
+      this._metadata = metadata ?? this.getMetadataFromOBOrderItems(this.nfts, props);
     } else if (isChainOBOrder) {
       this.isSellOrder = props.isSellOrder;
       this.constraints = Order.decodeConstraints(props.constraints);
@@ -150,14 +148,14 @@ export class Order {
       this.signer = props.signer;
       this.signature = props.sig;
       this._nfts = props.nfts;
-      this.metadata = metadata ?? {
+      this._metadata = metadata ?? {
         collections: {},
         users: {}
       };
     }
   }
 
-  public static obOrderItemsToChainNfts(obOrderItems: OBOrderItem[]): ChainNFTs[] {
+  static obOrderItemsToChainNfts(obOrderItems: OBOrderItem[]): ChainNFTs[] {
     const chainNftsByAddress: Record<string, ChainNFTs> = {};
     for (const obOrderItem of obOrderItems) {
       const collectionAddress = obOrderItem.collectionAddress;
@@ -175,161 +173,6 @@ export class Order {
       chainNftsByAddress[collectionAddress] = chainNfts;
     }
     return Object.values(chainNftsByAddress);
-  }
-
-  public chainNftsToOBOrderItems(chainNfts: ChainNFTs[], chainId: ChainId): OBOrderItem[] {
-    const obOrderItems: OBOrderItem[] = [];
-    for (const nfts of chainNfts) {
-      const collectionAddress = nfts.collection;
-      const collectionMetadata = this.metadata.collections[collectionAddress];
-      const orderItem: OBOrderItem = {
-        chainId,
-        collectionAddress,
-        collectionName: collectionMetadata?.collectionName ?? '',
-        collectionImage: collectionMetadata?.collectionImage ?? '',
-        collectionSlug: collectionMetadata?.collectionSlug ?? '',
-        hasBlueCheck: collectionMetadata?.hasBlueCheck ?? '',
-        tokens: []
-      };
-      for (const nft of nfts.tokens) {
-        const tokenMetadata: TokenMetadata = this.metadata.collections[collectionAddress]?.tokens?.[nft.tokenId] ?? {};
-        const tokenId = nft.tokenId;
-        const numTokens = nft.numTokens;
-        const takerMetadata: UserMetadata = this.metadata.users[tokenMetadata.taker] ?? {};
-        const tokenInfo: OBTokenInfo = {
-          tokenId,
-          tokenName: tokenMetadata.tokenName ?? '',
-          tokenImage: tokenMetadata.tokenImage ?? '',
-          takerUsername: takerMetadata.username ?? '',
-          takerAddress: takerMetadata.address ?? '',
-          numTokens,
-          attributes: tokenMetadata.attributes ?? []
-        };
-        orderItem.tokens.push(tokenInfo);
-      }
-    }
-    return obOrderItems;
-  }
-
-  public firestoreOrderItemsToOBOrderItems(firestoreOrderItems: FirestoreOrderItem[]): OBOrderItem[] {
-    return Order.getMetadataFromFirestoreOrderItems(firestoreOrderItems).orderItems;
-  }
-
-  private static getMetadataFromFirestoreOrderItems(firestoreOrderItems: FirestoreOrderItem[]): {
-    metadata: OrderMetadata;
-    orderItems: OBOrderItem[];
-  } {
-    const obOrderItemsByAddress: Record<string, OBOrderItem> = {};
-    const metadata: OrderMetadata = {
-      collections: {},
-      users: {}
-    };
-
-    for (const item of firestoreOrderItems) {
-      const maker: UserMetadata = {
-        address: item.makerAddress,
-        username: item.makerUsername ?? ''
-      };
-      metadata.users[maker.address] = maker;
-      const taker: UserMetadata = {
-        address: item.takerAddress,
-        username: item.takerUsername ?? ''
-      };
-      metadata.users[taker.address] = taker;
-
-      const collection: OBOrderItem = obOrderItemsByAddress[item.collectionAddress] ?? {
-        chainId: item.chainId,
-        collectionAddress: item.collectionAddress,
-        collectionName: item.collectionName,
-        collectionImage: item.collectionImage,
-        collectionSlug: item.collectionSlug,
-        hasBlueCheck: item.hasBlueCheck,
-        tokens: []
-      };
-      obOrderItemsByAddress[item.collectionAddress] = collection;
-
-      const tokenInfo: OBTokenInfo = {
-        tokenId: item.tokenId,
-        tokenName: item.tokenName,
-        tokenImage: item.tokenImage,
-        takerUsername: item.takerUsername,
-        takerAddress: item.takerAddress,
-        numTokens: item.numTokens,
-        attributes: item.attributes
-      };
-      collection.tokens.push(tokenInfo);
-
-      const collectionMetadata: CollectionMetadata = metadata.collections[item.collectionAddress] ?? {
-        collectionAddress: item.collectionAddress,
-        collectionName: item.collectionName,
-        collectionImage: item.collectionImage,
-        collectionSlug: item.collectionSlug,
-        hasBlueCheck: item.hasBlueCheck,
-        tokens: {}
-      };
-      metadata.collections[item.collectionAddress] = collectionMetadata;
-
-      const tokenMetadata: TokenMetadata = collectionMetadata.tokens[item.tokenId] ?? {
-        tokenId: item.tokenId,
-        tokenName: item.tokenName,
-        tokenImage: item.tokenImage,
-        tokenSlug: item.tokenSlug,
-        attributes: item.attributes,
-        taker: item.takerAddress
-      };
-      collectionMetadata.tokens[item.tokenId] = tokenMetadata;
-    }
-    return {
-      orderItems: Object.values(obOrderItemsByAddress),
-      metadata
-    };
-  }
-
-  private getMetadataFromOBOrderItems(
-    obOrderItems: OBOrderItem[],
-    maker: Pick<OBOrder, 'makerAddress' | 'makerUsername'>
-  ): OrderMetadata {
-    const metadata: OrderMetadata = {
-      collections: {},
-      users: {}
-    };
-    if (maker.makerAddress) {
-      metadata.users[maker.makerAddress] = {
-        address: maker.makerAddress,
-        username: maker.makerUsername ?? ''
-      };
-    }
-    for (const orderItem of obOrderItems) {
-      const collection = metadata.collections[orderItem.collectionAddress] ?? {
-        collectionAddress: orderItem.collectionAddress,
-        collectionName: orderItem.collectionName,
-        collectionImage: orderItem.collectionImage,
-        collectionSlug: orderItem.collectionSlug,
-        hasBlueCheck: orderItem.hasBlueCheck,
-        tokens: {}
-      };
-      metadata.collections[orderItem.collectionAddress] = collection;
-
-      for (const token of orderItem.tokens) {
-        if (token.takerAddress) {
-          const taker = {
-            address: token.takerAddress,
-            username: token.takerUsername || metadata.users[token.takerAddress].username
-          };
-          metadata.users[token.takerAddress] = taker;
-        }
-        const tokenMetadata = collection.tokens[token.tokenId] ?? {
-          tokenId: token.tokenId,
-          tokenName: token.tokenName,
-          tokenImage: token.tokenImage,
-          tokenSlug: '',
-          attributes: token.attributes,
-          taker: token.takerAddress || ''
-        };
-        collection.tokens[token.tokenId] = tokenMetadata;
-      }
-    }
-    return metadata;
   }
 
   static decodeConstraints(constraints: BigNumberish[]): Constraints {
@@ -453,6 +296,44 @@ export class Order {
     return encoded;
   }
 
+  public chainNftsToOBOrderItems(chainNfts: ChainNFTs[], chainId: ChainId): OBOrderItem[] {
+    const obOrderItems: OBOrderItem[] = [];
+    for (const nfts of chainNfts) {
+      const collectionAddress = nfts.collection;
+      const collectionMetadata = this._metadata.collections[collectionAddress];
+      const orderItem: OBOrderItem = {
+        chainId,
+        collectionAddress,
+        collectionName: collectionMetadata?.collectionName ?? '',
+        collectionImage: collectionMetadata?.collectionImage ?? '',
+        collectionSlug: collectionMetadata?.collectionSlug ?? '',
+        hasBlueCheck: collectionMetadata?.hasBlueCheck ?? '',
+        tokens: []
+      };
+      for (const nft of nfts.tokens) {
+        const tokenMetadata: TokenMetadata = this._metadata.collections[collectionAddress]?.tokens?.[nft.tokenId] ?? {};
+        const tokenId = nft.tokenId;
+        const numTokens = nft.numTokens;
+        const takerMetadata: UserMetadata = this._metadata.users[tokenMetadata.taker] ?? {};
+        const tokenInfo: OBTokenInfo = {
+          tokenId,
+          tokenName: tokenMetadata.tokenName ?? '',
+          tokenImage: tokenMetadata.tokenImage ?? '',
+          takerUsername: takerMetadata.username ?? '',
+          takerAddress: takerMetadata.address ?? '',
+          numTokens,
+          attributes: tokenMetadata.attributes ?? []
+        };
+        orderItem.tokens.push(tokenInfo);
+      }
+    }
+    return obOrderItems;
+  }
+
+  public firestoreOrderItemsToOBOrderItems(firestoreOrderItems: FirestoreOrderItem[]): OBOrderItem[] {
+    return Order.getMetadataFromFirestoreOrderItems(firestoreOrderItems).orderItems;
+  }
+
   public getChainOBOrder(): ChainOBOrder {
     const chainOBOrder: ChainOBOrder = {
       isSellOrder: this.isSellOrder,
@@ -498,5 +379,122 @@ export class Order {
       signedOrder: this.getChainOBOrder()
     };
     return signedOBOrder;
+  }
+
+  private static getMetadataFromFirestoreOrderItems(firestoreOrderItems: FirestoreOrderItem[]): {
+    metadata: OrderMetadata;
+    orderItems: OBOrderItem[];
+  } {
+    const obOrderItemsByAddress: Record<string, OBOrderItem> = {};
+    const metadata: OrderMetadata = {
+      collections: {},
+      users: {}
+    };
+
+    for (const item of firestoreOrderItems) {
+      const maker: UserMetadata = {
+        address: item.makerAddress,
+        username: item.makerUsername ?? ''
+      };
+      metadata.users[maker.address] = maker;
+      const taker: UserMetadata = {
+        address: item.takerAddress,
+        username: item.takerUsername ?? ''
+      };
+      metadata.users[taker.address] = taker;
+
+      const collection: OBOrderItem = obOrderItemsByAddress[item.collectionAddress] ?? {
+        chainId: item.chainId,
+        collectionAddress: item.collectionAddress,
+        collectionName: item.collectionName,
+        collectionImage: item.collectionImage,
+        collectionSlug: item.collectionSlug,
+        hasBlueCheck: item.hasBlueCheck,
+        tokens: []
+      };
+      obOrderItemsByAddress[item.collectionAddress] = collection;
+
+      const tokenInfo: OBTokenInfo = {
+        tokenId: item.tokenId,
+        tokenName: item.tokenName,
+        tokenImage: item.tokenImage,
+        takerUsername: item.takerUsername,
+        takerAddress: item.takerAddress,
+        numTokens: item.numTokens,
+        attributes: item.attributes
+      };
+      collection.tokens.push(tokenInfo);
+
+      const collectionMetadata: CollectionMetadata = metadata.collections[item.collectionAddress] ?? {
+        collectionAddress: item.collectionAddress,
+        collectionName: item.collectionName,
+        collectionImage: item.collectionImage,
+        collectionSlug: item.collectionSlug,
+        hasBlueCheck: item.hasBlueCheck,
+        tokens: {}
+      };
+      metadata.collections[item.collectionAddress] = collectionMetadata;
+
+      const tokenMetadata: TokenMetadata = collectionMetadata.tokens[item.tokenId] ?? {
+        tokenId: item.tokenId,
+        tokenName: item.tokenName,
+        tokenImage: item.tokenImage,
+        tokenSlug: item.tokenSlug,
+        attributes: item.attributes,
+        taker: item.takerAddress
+      };
+      collectionMetadata.tokens[item.tokenId] = tokenMetadata;
+    }
+    return {
+      orderItems: Object.values(obOrderItemsByAddress),
+      metadata
+    };
+  }
+
+  private getMetadataFromOBOrderItems(
+    obOrderItems: OBOrderItem[],
+    maker: Pick<OBOrder, 'makerAddress' | 'makerUsername'>
+  ): OrderMetadata {
+    const metadata: OrderMetadata = {
+      collections: {},
+      users: {}
+    };
+    if (maker.makerAddress) {
+      metadata.users[maker.makerAddress] = {
+        address: maker.makerAddress,
+        username: maker.makerUsername ?? ''
+      };
+    }
+    for (const orderItem of obOrderItems) {
+      const collection = metadata.collections[orderItem.collectionAddress] ?? {
+        collectionAddress: orderItem.collectionAddress,
+        collectionName: orderItem.collectionName,
+        collectionImage: orderItem.collectionImage,
+        collectionSlug: orderItem.collectionSlug,
+        hasBlueCheck: orderItem.hasBlueCheck,
+        tokens: {}
+      };
+      metadata.collections[orderItem.collectionAddress] = collection;
+
+      for (const token of orderItem.tokens) {
+        if (token.takerAddress) {
+          const taker = {
+            address: token.takerAddress,
+            username: token.takerUsername || metadata.users[token.takerAddress].username
+          };
+          metadata.users[token.takerAddress] = taker;
+        }
+        const tokenMetadata = collection.tokens[token.tokenId] ?? {
+          tokenId: token.tokenId,
+          tokenName: token.tokenName,
+          tokenImage: token.tokenImage,
+          tokenSlug: '',
+          attributes: token.attributes,
+          taker: token.takerAddress || ''
+        };
+        collection.tokens[token.tokenId] = tokenMetadata;
+      }
+    }
+    return metadata;
   }
 }
