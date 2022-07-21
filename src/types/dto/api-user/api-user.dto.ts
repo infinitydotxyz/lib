@@ -45,3 +45,5 @@ export class ApiUserDto {
 
 export class AdminUpdateApiUserDto extends PickType(ApiUserDto, ['name', 'config']) {}
 export class PartialAdminUpdateApiUserDto extends PartialType(AdminUpdateApiUserDto) {}
+
+export class ApiUserPublicDto extends PickType(ApiUserDto, ['id', 'name', 'config']) {}
