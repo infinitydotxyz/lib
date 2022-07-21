@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, PickType } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { ValidateNested, IsNotEmpty, IsEnum } from 'class-validator';
 import { ApiRole } from '../../core/api-user/api-role';
@@ -21,3 +21,5 @@ export class ApiUserConfigDto {
   @IsNotEmpty()
   role: ApiRole;
 }
+
+export class ApiUserConfigPublicDto extends PickType(ApiUserConfigDto, ['global']) {}

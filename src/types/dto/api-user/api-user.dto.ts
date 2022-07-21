@@ -1,7 +1,7 @@
 import { ApiProperty, PartialType, PickType } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsString, ValidateNested, IsNotEmpty, IsNumber } from 'class-validator';
-import { ApiUserConfigDto } from './api-user-config.dto';
+import { ApiUserConfigDto, ApiUserConfigPublicDto } from './api-user-config.dto';
 
 export class ApiUserDto {
   @ApiProperty({
@@ -46,4 +46,12 @@ export class ApiUserDto {
 export class AdminUpdateApiUserDto extends PickType(ApiUserDto, ['name', 'config']) {}
 export class PartialAdminUpdateApiUserDto extends PartialType(AdminUpdateApiUserDto) {}
 
-export class ApiUserPublicDto extends PickType(ApiUserDto, ['id', 'name', 'config']) {}
+export class ApiUserPublicDto extends PickType(ApiUserDto, ['id', 'name']) {
+  @ApiProperty({
+    description: 'The configuration of the user'
+  })
+  @ValidateNested()
+  @Type(() => ApiUserConfigPublicDto)
+  @IsNotEmpty()
+  config: ApiUserConfigPublicDto;
+}
