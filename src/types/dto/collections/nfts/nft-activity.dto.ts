@@ -22,6 +22,16 @@ export class NftActivity {
   tokenId: string;
 
   @ApiProperty({
+    description: 'Collection name'
+  })
+  collectionName: string;
+
+  @ApiProperty({
+    description: 'Collection slug'
+  })
+  collectionSlug: string;
+
+  @ApiProperty({
     description: 'Chain id for the collection'
   })
   chainId: ChainId;
