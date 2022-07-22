@@ -105,7 +105,7 @@ export class NftActivity {
   image?: string;
 
   @ApiPropertyOptional({
-    description: 'Image for the nft/collection'
+    description: 'Whether collection is verified'
   })
   @IsBoolean()
   @IsOptional()
