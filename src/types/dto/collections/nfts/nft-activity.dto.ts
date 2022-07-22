@@ -87,6 +87,13 @@ export class NftActivity {
   @IsOptional()
   externalUrl?: string;
 
+  @ApiPropertyOptional({
+    description: 'Image for the nft/collection'
+  })
+  @IsString()
+  @IsOptional()
+  image?: string;
+
   @ApiProperty({
     description: 'Epoch timestamp (ms) of the activity'
   })
