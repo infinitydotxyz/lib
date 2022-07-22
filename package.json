@@ -1,8 +1,11 @@
 {
   "name": "@infinityxyz/lib",
-  "version": "1.134.3",
+  "version": "1.138.1",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.3.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node index.js && rimraf dist && tsc && node build-frontend.js",
