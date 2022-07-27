@@ -35,3 +35,8 @@ export interface InfinityNftSale {
 }
 
 export type NftSale = OpenSeaNftSale | SeaportNftSale | InfinityNftSale;
+export class NftSalesResponse {
+  data: NftSale[];
+  cursor: string | undefined;
+  hasNextPage: boolean;
+}

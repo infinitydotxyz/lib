@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsEnum, IsEthereumAddress, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsBoolean, IsEnum, IsEthereumAddress, IsNumber, IsOptional, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../../transformers';
 import { ChainId } from '../../../core';
 import { EventType } from '../../../core/feed';
@@ -20,6 +20,16 @@ export class NftActivity {
     description: 'Token id of the nft'
   })
   tokenId: string;
+
+  @ApiProperty({
+    description: 'Collection name'
+  })
+  collectionName: string;
+
+  @ApiProperty({
+    description: 'Collection slug'
+  })
+  collectionSlug: string;
 
   @ApiProperty({
     description: 'Chain id for the collection'
@@ -86,6 +96,20 @@ export class NftActivity {
   @IsString()
   @IsOptional()
   externalUrl?: string;
+
+  @ApiPropertyOptional({
+    description: 'Image for the nft/collection'
+  })
+  @IsString()
+  @IsOptional()
+  image?: string;
+
+  @ApiPropertyOptional({
+    description: 'Whether collection is verified'
+  })
+  @IsBoolean()
+  @IsOptional()
+  hasBlueCheck?: boolean;
 
   @ApiProperty({
     description: 'Epoch timestamp (ms) of the activity'
