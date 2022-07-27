@@ -106,14 +106,14 @@ export class NftSalesResponseDto implements NftSalesResponse {
 }
 
 export class InfinitySalesQueryDto {
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'Cursor for pagination'
   })
   @IsOptional()
   @IsString()
   cursor?: string;
 
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'The number of sales to return. Max 100'
   })
   @IsOptional()
