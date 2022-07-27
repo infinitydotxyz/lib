@@ -94,7 +94,7 @@ export class NftSalesResponseDto implements NftSalesResponse {
   @ApiProperty({
     description: 'The cursor of the next page, undefined if no next page'
   })
-  cursor: string | undefined;
+  cursor: string;
 
   @ApiProperty({
     description: 'Whether there is a next page'
