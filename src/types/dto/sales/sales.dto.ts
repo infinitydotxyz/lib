@@ -1,10 +1,10 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsNumberString, IsOptional, IsString } from 'class-validator';
 import { parseIntTransformer } from '../../../transformers';
-import { NftSale, NftSalesResponse, SaleSource, TokenStandard } from '../../core';
+import { NftSalesResponse, NftSaleUnion, SaleSource, TokenStandard } from '../../core';
 
-export class NftSaleDto implements NftSale {
+export class NftSaleDto implements NftSaleUnion {
   @ApiProperty({
     description: 'The chain ID of the sale'
   })
@@ -82,6 +82,27 @@ export class NftSaleDto implements NftSale {
   })
   @IsEnum(TokenStandard)
   tokenStandard: TokenStandard;
+
+  @ApiPropertyOptional({
+    description: 'Fees paid'
+  })
+  @IsOptional()
+  @IsNumber()
+  protocolFee?: number;
+
+  @ApiPropertyOptional({
+    description: 'Fee BPS at the time of the sale'
+  })
+  @IsOptional()
+  @IsNumber()
+  protocolFeeBPS?: number;
+
+  @ApiPropertyOptional({
+    description: 'Fees paid in wei'
+  })
+  @IsOptional()
+  @IsNumberString()
+  protocolFeeWei?: string;
 }
 
 export class NftSalesResponseDto implements NftSalesResponse {

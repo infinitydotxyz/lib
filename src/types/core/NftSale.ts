@@ -1,4 +1,5 @@
 import { TokenStandard } from './Token';
+import { Optional } from './UtilityTypes';
 
 export enum SaleSource {
   Seaport = 'SEAPORT',
@@ -19,24 +20,28 @@ export interface BaseNftSale {
   seller: string;
   quantity: number;
   tokenStandard: TokenStandard;
+  source: SaleSource;
 }
 
-export interface OpenSeaNftSale extends BaseNftSale {
-  source: SaleSource.OpenSea;
+export interface ExternalNftSale extends BaseNftSale {
+  source: SaleSource.OpenSea | SaleSource.Seaport;
 }
 
-export interface SeaportNftSale extends BaseNftSale {
-  source: SaleSource.Seaport;
-}
 export interface InfinityNftSale {
   source: SaleSource.Infinity;
-  protocolFeeBPS: string;
-  protocolFee: string;
+  protocolFeeBPS: number;
+  protocolFee: number;
+  protocolFeeWei: string;
 }
 
-export type NftSale = OpenSeaNftSale | SeaportNftSale | InfinityNftSale;
+export type NftSale = ExternalNftSale | InfinityNftSale;
+export interface NftSaleUnion
+  extends Omit<ExternalNftSale, 'source'>,
+    Optional<Omit<InfinityNftSale, 'source'>, 'protocolFeeBPS' | 'protocolFee' | 'protocolFeeWei'>,
+    Pick<BaseNftSale, 'source'> {}
+
 export class NftSalesResponse {
-  data: NftSale[];
+  data: NftSaleUnion[];
   cursor: string | undefined;
   hasNextPage: boolean;
 }
