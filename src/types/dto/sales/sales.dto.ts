@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Transform, Type } from 'class-transformer';
-import { IsArray, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { parseIntTransformer } from '../../../transformers';
 import { NftSale, NftSalesResponse, SaleSource, TokenStandard } from '../../core';
 
@@ -86,17 +86,14 @@ export class NftSaleDto implements NftSale {
 
 export class NftSalesResponseDto implements NftSalesResponse {
   @ApiProperty({
-    description: 'The list of sales'
+    description: 'The list of sales',
+    type: [NftSaleDto]
   })
-  @Type(() => NftSaleDto)
-  @ValidateNested({ each: true })
-  @IsArray()
   data: NftSaleDto[];
 
-  @ApiPropertyOptional({
-    description: 'The cursor of the next page'
+  @ApiProperty({
+    description: 'The cursor of the next page, undefined if no next page'
   })
-  @IsOptional()
   cursor: string | undefined;
 
   @ApiProperty({
