@@ -21,3 +21,9 @@ export interface NftSale {
   source: SaleSource;
   tokenStandard: TokenStandard;
 }
+
+export class NftSalesResponse {
+  data: NftSale[];
+  cursor: string | undefined;
+  hasNextPage: boolean;
+}
