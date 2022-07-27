@@ -27,7 +27,7 @@ export interface ExternalNftSale extends BaseNftSale {
   source: SaleSource.OpenSea | SaleSource.Seaport;
 }
 
-export interface InfinityNftSale {
+export interface InfinityNftSale extends BaseNftSale {
   source: SaleSource.Infinity;
   protocolFeeBPS: number;
   protocolFee: number;
