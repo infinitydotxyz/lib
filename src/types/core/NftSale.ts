@@ -6,7 +6,7 @@ export enum SaleSource {
   Infinity = 'INFINITY'
 }
 
-export interface NftSale {
+export interface BaseNftSale {
   chainId: string;
   txHash: string;
   blockNumber: number;
@@ -18,6 +18,20 @@ export interface NftSale {
   buyer: string;
   seller: string;
   quantity: number;
-  source: SaleSource;
   tokenStandard: TokenStandard;
 }
+
+export interface OpenSeaNftSale extends BaseNftSale {
+  source: SaleSource.OpenSea;
+}
+
+export interface SeaportNftSale extends BaseNftSale {
+  source: SaleSource.Seaport;
+}
+export interface InfinityNftSale {
+  source: SaleSource.Infinity;
+  protocolFeeBPS: string;
+  protocolFee: string;
+}
+
+export type NftSale = OpenSeaNftSale | SeaportNftSale | InfinityNftSale;
