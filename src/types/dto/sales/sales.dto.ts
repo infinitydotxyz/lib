@@ -92,7 +92,7 @@ export class NftSalesResponseDto implements NftSalesResponse {
   data: NftSaleDto[];
 
   @ApiProperty({
-    description: 'The cursor of the next page, undefined if no next page'
+    description: 'The cursor of the next page, empty string if no next page'
   })
   cursor: string;
 
