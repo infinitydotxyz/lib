@@ -21,7 +21,8 @@ export interface BaseNftSale {
   quantity: number;
   tokenStandard: TokenStandard;
   source: SaleSource;
-  aggregated: boolean;
+  isAggregated: boolean;
+  isDeleted: boolean;
 }
 
 export interface ExternalNftSale extends BaseNftSale {
@@ -37,8 +38,11 @@ export interface InfinityNftSale extends BaseNftSale {
 
 export type NftSale = ExternalNftSale | InfinityNftSale;
 export interface NftSaleUnion
-  extends Omit<ExternalNftSale, 'source' | 'aggregated'>,
-    Optional<Omit<InfinityNftSale, 'source' | 'aggregated'>, 'protocolFeeBPS' | 'protocolFee' | 'protocolFeeWei'>,
+  extends Omit<ExternalNftSale, 'source' | 'isAggregated' | 'isDeleted'>,
+    Optional<
+      Omit<InfinityNftSale, 'source' | 'isAggregated' | 'isDeleted'>,
+      'protocolFeeBPS' | 'protocolFee' | 'protocolFeeWei'
+    >,
     Pick<BaseNftSale, 'source'> {}
 
 export class NftSalesResponse {
