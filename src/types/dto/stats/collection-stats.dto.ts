@@ -2,10 +2,10 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsEthereumAddress, IsOptional } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
-import { ChainId, SocialsStats, Stats, StatsPeriod } from '../../core';
+import { ChainId, CollectionSalesStats, SocialsStats, StatsPeriod, TopOwner } from '../../core';
 import { CollectionDto } from '../collections';
 
-export class CollectionStatsDto implements SocialsStats, Stats {
+export class CollectionStatsDto implements SocialsStats, CollectionSalesStats {
   @ApiProperty({ description: 'Name of the collection' })
   name: string;
 
@@ -35,57 +35,57 @@ export class CollectionStatsDto implements SocialsStats, Stats {
   @ApiProperty({
     description: 'Number of owners of nfts in the collection'
   })
-  numOwners: number;
+  numOwners: number | null;
 
   @ApiProperty({
     description: 'Number of nfts in the collection'
   })
-  numNfts: number;
+  numNfts: number | null;
 
   @ApiProperty({ description: 'Floor price' })
   floorPrice: number;
 
   @ApiProperty({ description: 'Floor price for the previous period' })
-  prevFloorPrice: number;
+  prevFloorPrice: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  floorPricePercentChange: number;
+  floorPricePercentChange: number | null;
 
   @ApiProperty({ description: 'Ceiling price' })
   ceilPrice: number;
 
   @ApiProperty({ description: 'Ceiling price in the previous period' })
-  prevCeilPrice: number;
+  prevCeilPrice: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  ceilPricePercentChange: number;
+  ceilPricePercentChange: number | null;
 
   @ApiProperty({ description: 'Volume' })
   volume: number;
 
   @ApiProperty({ description: 'Volume in the previous period' })
-  prevVolume: number;
+  prevVolume: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  volumePercentChange: number;
+  volumePercentChange: number | null;
 
   @ApiProperty({ description: 'Number of sales' })
   numSales: number;
 
   @ApiProperty({ description: 'Number of sales in the previous period' })
-  prevNumSales: number;
+  prevNumSales: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  numSalesPercentChange: number;
+  numSalesPercentChange: number | null;
 
   @ApiProperty({ description: 'Average price' })
   avgPrice: number;
 
   @ApiProperty({ description: 'Average price in the previous period' })
-  prevAvgPrice: number;
+  prevAvgPrice: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  avgPricePercentChange: number;
+  avgPricePercentChange: number | null;
 
   @ApiProperty({ description: 'Discord followers' })
   discordFollowers: number;
@@ -149,4 +149,14 @@ export class CollectionStatsDto implements SocialsStats, Stats {
   @ApiProperty({ description: 'Collection details (optional)' })
   @IsOptional()
   collectionData: Partial<CollectionDto>;
+
+  @ApiProperty({
+    description: 'Volume for the collection in USDC'
+  })
+  volumeUSDC: number | null;
+
+  @ApiProperty({
+    description: 'Top owners for the collection'
+  })
+  topOwnersByOwnedNftsCount: TopOwner[];
 }

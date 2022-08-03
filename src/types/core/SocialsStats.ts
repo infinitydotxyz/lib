@@ -1,3 +1,4 @@
+import { ChainId } from './ChainId';
 import { StatsPeriod } from './StatsPeriod';
 
 export enum StatType {
@@ -27,7 +28,7 @@ export enum StatType {
 }
 
 export interface PreAggregatedSocialsStats {
-  chainId: string;
+  chainId: ChainId;
   collectionAddress: string;
 
   discordFollowers: number;

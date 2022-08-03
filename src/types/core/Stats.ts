@@ -1,37 +1,33 @@
 import { StatsPeriod } from './StatsPeriod';
 import { AllTimeStatsTimestampType } from '../../utils/constants';
+import { ChainId } from './ChainId';
+import { SaleSource } from './NftSale';
 
-export interface Stats {
-  chainId: string;
-
-  collectionAddress: string;
-
-  tokenId?: string;
-
-  numNfts?: number;
-  numOwners?: number;
-
+export interface BaseSalesStats {
   floorPrice: number;
-  prevFloorPrice: number;
-  floorPricePercentChange: number;
-
   ceilPrice: number;
-  prevCeilPrice: number;
-  ceilPricePercentChange: number;
-
-  volumeUSDC?: number;
   volume: number;
-  prevVolume: number;
-  volumePercentChange: number;
-
   numSales: number;
-  prevNumSales: number;
-  numSalesPercentChange: number;
-
   avgPrice: number;
-  prevAvgPrice: number;
-  avgPricePercentChange: number;
+}
 
+export interface PrevBaseSalesStats {
+  prevFloorPrice: number | null;
+  prevCeilPrice: number | null;
+  prevVolume: number | null;
+  prevNumSales: number | null;
+  prevAvgPrice: number | null;
+}
+
+export interface ChangeInSalesStats {
+  floorPricePercentChange: number | null;
+  ceilPricePercentChange: number | null;
+  volumePercentChange: number | null;
+  numSalesPercentChange: number | null;
+  avgPricePercentChange: number | null;
+}
+
+export interface SalesStatsMetadata {
   /**
    * epoch timestamp (ms) that the stats
    * were last updated
@@ -45,9 +41,38 @@ export interface Stats {
   timestamp: number;
 
   period: StatsPeriod;
-
-  topOwnersByOwnedNftsCount?: TopOwner[];
 }
+
+export interface CollectionSalesStats
+  extends BaseSalesStats,
+    SalesStatsMetadata,
+    PrevBaseSalesStats,
+    ChangeInSalesStats {
+  chainId: ChainId;
+  collectionAddress: string;
+  numNfts: number | null;
+  numOwners: number | null;
+  volumeUSDC: number | null;
+  topOwnersByOwnedNftsCount: TopOwner[];
+}
+
+export interface NftSalesStats extends BaseSalesStats, SalesStatsMetadata, PrevBaseSalesStats, ChangeInSalesStats {
+  chainId: ChainId;
+  collectionAddress: string;
+  tokenId: string;
+}
+
+export interface MarketplaceSalesStats
+  extends BaseSalesStats,
+    SalesStatsMetadata,
+    PrevBaseSalesStats,
+    ChangeInSalesStats {
+  chainId: ChainId;
+  contractAddress: string;
+  source: SaleSource;
+}
+
+export type Stats = CollectionSalesStats & { tokenId?: string };
 
 export interface TopOwner {
   owner: string;

@@ -1,7 +1,5 @@
-import { ChainId } from './ChainId';
 import { SocialsStats } from './SocialsStats';
 import { Stats } from './Stats';
-import { StatsPeriod } from './StatsPeriod';
 export interface CollectionStats extends Stats, SocialsStats {
   /**
    * Name of the collection
@@ -17,101 +15,6 @@ export interface CollectionStats extends Stats, SocialsStats {
    *Whether the collection is verified
    */
   hasBlueCheck: boolean;
-
-  /**
-   *Chain id
-   */
-  chainId: ChainId;
-
-  /**
-   *Corresponding collection address
-   */
-  collectionAddress: string;
-
-  /**
-   *Number of owners of nfts in the collection
-   */
-  numOwners: number;
-
-  /**
-   *Number of nfts in the collection
-   */
-  numNfts: number;
-
-  /**
-   *Floor price
-   */
-  floorPrice: number;
-
-  /**
-   *Floor price for the previous period
-   */
-  prevFloorPrice: number;
-
-  /**
-   *Percent change between the previous period and this period
-   */
-  floorPricePercentChange: number;
-
-  /**
-   *Ceiling price
-   */
-  ceilPrice: number;
-
-  /**
-   *Ceiling price in the previous period
-   */
-  prevCeilPrice: number;
-
-  /**
-   *Percent change between the previous period and this period
-   */
-  ceilPricePercentChange: number;
-
-  /**
-   *Volume
-   */
-  volume: number;
-
-  /**
-   *Volume in the previous period
-   */
-  prevVolume: number;
-
-  /**
-   *Percent change between the previous period and this period
-   */
-  volumePercentChange: number;
-
-  /**
-   *Number of sales
-   */
-  numSales: number;
-
-  /**
-   *Number of sales in the previous period
-   */
-  prevNumSales: number;
-
-  /**
-   *Percent change between the previous period and this period
-   */
-  numSalesPercentChange: number;
-
-  /**
-   *Average price
-   */
-  avgPrice: number;
-
-  /**
-   *Average price in the previous period
-   */
-  prevAvgPrice: number;
-
-  /**
-   *Percent change between the previous period and this period
-   */
-  avgPricePercentChange: number;
 
   /**
    *Discord followers
@@ -196,23 +99,4 @@ export interface CollectionStats extends Stats, SocialsStats {
    *Link to the twitter account in the current period
    */
   twitterLink: string;
-
-  /**
-   *Timestamp of the current period
-   */
-  timestamp: number;
-
-  /**
-   *Period of the current stats
-   */
-  period: StatsPeriod;
-
-  /**
-   *Timestamp that the stats were updated at
-   */
-  updatedAt: number;
-
-  volumeUSDC?: number;
-
-  topOwnersByOwnedNftsCount?: Array<{ count: number; owner: string }>;
 }
