@@ -3,6 +3,14 @@ import { AllTimeStatsTimestampType } from '../../utils/constants';
 import { ChainId } from './ChainId';
 import { SaleSource } from './NftSale';
 
+export interface ProtocolFeeStats {
+  minProtocolFeeWei: string | null;
+  maxProtocolFeeWei: string | null;
+  avgProtocolFeeWei: string | null;
+  sumProtocolFeeWei: string;
+  numSalesWithProtocolFee: number;
+  sumProtocolFeeEth: number | null;
+}
 export interface BaseSalesStats {
   floorPrice: number;
   ceilPrice: number;
@@ -47,7 +55,8 @@ export interface CollectionSalesStats
   extends BaseSalesStats,
     SalesStatsMetadata,
     PrevBaseSalesStats,
-    ChangeInSalesStats {
+    ChangeInSalesStats,
+    ProtocolFeeStats {
   chainId: ChainId;
   collectionAddress: string;
   numNfts: number | null;
@@ -56,7 +65,12 @@ export interface CollectionSalesStats
   topOwnersByOwnedNftsCount: TopOwner[];
 }
 
-export interface NftSalesStats extends BaseSalesStats, SalesStatsMetadata, PrevBaseSalesStats, ChangeInSalesStats {
+export interface NftSalesStats
+  extends BaseSalesStats,
+    SalesStatsMetadata,
+    PrevBaseSalesStats,
+    ChangeInSalesStats,
+    ProtocolFeeStats {
   chainId: ChainId;
   collectionAddress: string;
   tokenId: string;
@@ -66,7 +80,8 @@ export interface MarketplaceSalesStats
   extends BaseSalesStats,
     SalesStatsMetadata,
     PrevBaseSalesStats,
-    ChangeInSalesStats {
+    ChangeInSalesStats,
+    ProtocolFeeStats {
   chainId: ChainId;
   contractAddress: string;
   source: SaleSource;
@@ -79,20 +94,10 @@ export interface TopOwner {
   count: number;
 }
 
-type AllTimeStatsBase = Pick<
-  Stats,
-  | 'chainId'
-  | 'collectionAddress'
-  | 'tokenId'
-  | 'floorPrice'
-  | 'ceilPrice'
-  | 'volume'
-  | 'numSales'
-  | 'avgPrice'
-  | 'updatedAt'
-  | 'timestamp'
-  | 'period'
->;
+type AllTimeStatsBase = SalesStatsMetadata &
+  BaseSalesStats &
+  ProtocolFeeStats &
+  Pick<Stats, 'chainId' | 'collectionAddress' | 'tokenId'>;
 
 export interface AllTimeStats extends AllTimeStatsBase {
   timestamp: AllTimeStatsTimestampType;

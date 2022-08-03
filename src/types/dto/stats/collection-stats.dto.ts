@@ -159,4 +159,34 @@ export class CollectionStatsDto implements SocialsStats, CollectionSalesStats {
     description: 'Top owners for the collection'
   })
   topOwnersByOwnedNftsCount: TopOwner[];
+
+  @ApiProperty({
+    description: "Min protocol fee paid for any sale in the collection's period"
+  })
+  minProtocolFeeWei: string | null;
+
+  @ApiProperty({
+    description: "Max protocol fee paid for any sale in the collection's period"
+  })
+  maxProtocolFeeWei: string | null;
+
+  @ApiProperty({
+    description: "Average protocol fee paid for all sales in the collection's period that include a protocol fee"
+  })
+  avgProtocolFeeWei: string | null;
+
+  @ApiProperty({
+    description: "Sum of all protocol fees paid for all sales in the collection's period"
+  })
+  sumProtocolFeeWei: string;
+
+  @ApiProperty({
+    description: 'The number of sales that include a protocol fee'
+  })
+  numSalesWithProtocolFee: number;
+
+  @ApiProperty({
+    description: "Sum of all protocol fees paid for all sales in the collection's period in ether"
+  })
+  sumProtocolFeeEth: number | null;
 }
