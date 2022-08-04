@@ -27,5 +27,4 @@ export interface NftStats extends NftSalesStats, CollectionLinkData, NftLinkData
   chainId: ChainId;
   collectionAddress: string;
   tokenId: string;
-  tokenIdNumber: number | null;
 }
