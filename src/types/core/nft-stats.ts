@@ -1,8 +1,8 @@
-import { ChainId } from '../../../frontend/dist/types/core';
-import { NftSalesStats } from '../../../frontend/dist/types/core/Stats';
 import { NftImageDto } from '../dto/collections/nfts/nft-image.dto';
 import { ZoraContent } from '../services/zora';
+import { ChainId } from './ChainId';
 import { CollectionLinkData } from './CollectionStats';
+import { NftSalesStats } from './Stats';
 
 export interface NftLinkData {
   nftName: string;
