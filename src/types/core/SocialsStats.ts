@@ -31,16 +31,16 @@ export interface PreAggregatedSocialsStats {
   chainId: ChainId;
   collectionAddress: string;
 
-  discordFollowers: number;
-  discordPresence: number;
-  guildId: string;
-  discordLink: string;
+  discordFollowers: number | null;
+  discordPresence: number | null;
+  guildId: string | null;
+  discordLink: string | null;
 
-  twitterFollowers: number;
-  twitterFollowing: number;
-  twitterId: string;
-  twitterHandle: string;
-  twitterLink: string;
+  twitterFollowers: number | null;
+  twitterFollowing: number | null;
+  twitterId: string | null;
+  twitterHandle: string | null;
+  twitterLink: string | null;
 
   updatedAt: number;
 }
