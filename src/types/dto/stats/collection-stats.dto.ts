@@ -1,11 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsEthereumAddress, IsOptional } from 'class-validator';
+import { IsEthereumAddress } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers';
-import { ChainId, CollectionSalesStats, SocialsStats, StatsPeriod, TopOwner } from '../../core';
-import { CollectionDto } from '../collections';
+import { ChainId, CollectionStats, StatsPeriod, TopOwner } from '../../core';
 
-export class CollectionStatsDto implements SocialsStats, CollectionSalesStats {
+export class CollectionStatsDto implements CollectionStats {
   @ApiProperty({ description: 'Name of the collection' })
   name: string;
 
@@ -13,6 +12,11 @@ export class CollectionStatsDto implements SocialsStats, CollectionSalesStats {
     description: 'Profile image of the collection'
   })
   profileImage: string;
+
+  @ApiProperty({
+    description: 'Banner image for the collection'
+  })
+  bannerImage: string;
 
   @ApiProperty({
     description: 'The slug for the collection'
@@ -146,20 +150,6 @@ export class CollectionStatsDto implements SocialsStats, CollectionSalesStats {
   @ApiProperty({ description: 'Timestamp that the stats were updated at' })
   updatedAt: number;
 
-  @ApiProperty({ description: 'Collection details (optional)' })
-  @IsOptional()
-  collectionData: Partial<CollectionDto>;
-
-  @ApiProperty({
-    description: 'Volume for the collection in USDC'
-  })
-  volumeUSDC: number | null;
-
-  @ApiProperty({
-    description: 'Top owners for the collection'
-  })
-  topOwnersByOwnedNftsCount: TopOwner[];
-
   @ApiProperty({
     description: "Min protocol fee paid for any sale in the collection's period"
   })
@@ -189,4 +179,18 @@ export class CollectionStatsDto implements SocialsStats, CollectionSalesStats {
     description: "Sum of all protocol fees paid for all sales in the collection's period in ether"
   })
   sumProtocolFeeEth: number | null;
+
+  @ApiProperty({
+    description: 'Volume for the collection in USDC'
+  })
+  volumeUSDC: number | null;
+
+  @ApiProperty({
+    description: 'Top owners for the collection'
+  })
+  topOwnersByOwnedNftsCount: TopOwner[];
+
+  // @ApiProperty({ description: 'Collection details (optional)' })
+  // @IsOptional()
+  // collectionData: Partial<CollectionDto>;
 }
