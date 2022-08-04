@@ -1,5 +1,7 @@
+import { ChainId } from '../../../frontend/dist/types/core';
+import { NftSalesStats } from '../../../frontend/dist/types/core/Stats';
 import { NftImageDto } from '../dto/collections/nfts/nft-image.dto';
-import { CollectionStats } from './CollectionStats';
+import { CollectionLinkData } from './CollectionStats';
 
 export interface NftLinkData {
   nftName: string;
@@ -15,7 +17,9 @@ export interface NftLinkData {
   nftImage: NftImageDto;
 }
 
-export interface NftStats extends CollectionStats, NftLinkData {
+export interface NftStats extends NftSalesStats, CollectionLinkData, NftLinkData {
+  chainId: ChainId;
+  collectionAddress: string;
   tokenId: string;
   tokenIdNumber?: number;
 }
