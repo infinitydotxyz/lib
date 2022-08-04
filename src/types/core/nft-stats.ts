@@ -16,7 +16,7 @@ export interface NftLinkData {
   rarityScore: number | null;
 
   images: {
-    image: NftImageDto;
+    image: NftImageDto | null;
     zoraImage: ZoraContent | null;
     zoraContent: ZoraContent | null;
     alchemyCachedImage: string;
