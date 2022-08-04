@@ -20,3 +20,4 @@ export * from './StatusCode';
 export * from './Token';
 export * from './UserOwned';
 export * from './UtilityTypes';
+export * from './nft-stats';
