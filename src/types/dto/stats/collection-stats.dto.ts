@@ -92,54 +92,54 @@ export class CollectionStatsDto implements CollectionStats {
   avgPricePercentChange: number | null;
 
   @ApiProperty({ description: 'Discord followers' })
-  discordFollowers: number;
+  discordFollowers: number | null;
 
   @ApiProperty({ description: 'Discord followers in the previous period' })
-  prevDiscordFollowers: number;
+  prevDiscordFollowers: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  discordFollowersPercentChange: number;
+  discordFollowersPercentChange: number | null;
 
   @ApiProperty({ description: 'Discord presence' })
-  discordPresence: number;
+  discordPresence: number | null;
 
   @ApiProperty({ description: 'Discord presence in the previous period' })
-  prevDiscordPresence: number;
+  prevDiscordPresence: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  discordPresencePercentChange: number;
+  discordPresencePercentChange: number | null;
 
   @ApiProperty({ description: 'Guild id of the discord in the current period' })
-  guildId: string;
+  guildId: string | null;
   @ApiProperty({ description: 'Discord invite in the current period' })
-  discordLink: string;
+  discordLink: string | null;
 
   @ApiProperty({ description: 'Twitter followers' })
-  twitterFollowers: number;
+  twitterFollowers: number | null;
 
   @ApiProperty({ description: 'Twitter followers in the previous period' })
-  prevTwitterFollowers: number;
+  prevTwitterFollowers: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  twitterFollowersPercentChange: number;
+  twitterFollowersPercentChange: number | null;
 
   @ApiProperty({ description: 'Number of accounts being followed' })
-  twitterFollowing: number;
+  twitterFollowing: number | null;
 
   @ApiProperty({ description: 'Number of accounts being followed in the previous period' })
-  prevTwitterFollowing: number;
+  prevTwitterFollowing: number | null;
 
   @ApiProperty({ description: 'Percent change between the previous period and this period' })
-  twitterFollowingPercentChange: number;
+  twitterFollowingPercentChange: number | null;
 
   @ApiProperty({ description: 'Twitter id of the account in the current period' })
-  twitterId: string;
+  twitterId: string | null;
 
   @ApiProperty({ description: 'Twitter handle of the account in the current period' })
-  twitterHandle: string;
+  twitterHandle: string | null;
 
   @ApiProperty({ description: 'Link to the twitter account in the current period' })
-  twitterLink: string;
+  twitterLink: string | null;
 
   @ApiProperty({ description: 'Timestamp of the current period' })
   timestamp: number;
