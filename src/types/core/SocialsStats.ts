@@ -46,17 +46,17 @@ export interface PreAggregatedSocialsStats {
 }
 
 export interface SocialsStats extends PreAggregatedSocialsStats {
-  prevDiscordFollowers: number;
-  discordFollowersPercentChange: number;
+  prevDiscordFollowers: number | null;
+  discordFollowersPercentChange: number | null;
 
-  prevDiscordPresence: number;
-  discordPresencePercentChange: number;
+  prevDiscordPresence: number | null;
+  discordPresencePercentChange: number | null;
 
-  prevTwitterFollowers: number;
-  twitterFollowersPercentChange: number;
+  prevTwitterFollowers: number | null;
+  twitterFollowersPercentChange: number | null;
 
-  prevTwitterFollowing: number;
-  twitterFollowingPercentChange: number;
+  prevTwitterFollowing: number | null;
+  twitterFollowingPercentChange: number | null;
 
   timestamp: number;
   period: StatsPeriod;
