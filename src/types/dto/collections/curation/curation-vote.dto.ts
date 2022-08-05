@@ -8,7 +8,7 @@ export class CurationVoteDto {
   votes: number;
 }
 
-export class CurationBulkVoteDto extends CurationVoteDto {
+export class CurationVoteBulkDto extends CurationVoteDto {
   @IsString()
   @ApiProperty({ description: 'The collection to vote on' })
   collection: string;
