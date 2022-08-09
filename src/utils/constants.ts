@@ -68,7 +68,8 @@ export const firestoreConstants = {
   NUM_SELL_ORDER_ITEMS_FIELD: 'numSellOrderItems',
   OPEN_BUY_INTEREST_FIELD: 'openBuyInterest',
   OPEN_SELL_INTEREST_FIELD: 'openSellInterest',
-  API_USERS_COLL: 'apiUsers'
+  API_USERS_COLL: 'apiUsers',
+  STAKING_LEDGER_COLL: 'stakingLedger'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
