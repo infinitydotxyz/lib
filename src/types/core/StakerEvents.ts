@@ -1,10 +1,18 @@
 import { ChainId } from './ChainId';
+import { StakeAmount } from './StakeAmount';
 import { StakeDuration } from './StakeDuration';
 
 export enum StakerEventType {
   RageQuit = 'RAGE_QUIT',
   Staked = 'STAKED',
   UnStaked = 'UN_STAKED'
+}
+
+export interface StakeInfo {
+  [StakeDuration.X0]: StakeAmount;
+  [StakeDuration.X3]: StakeAmount;
+  [StakeDuration.X6]: StakeAmount;
+  [StakeDuration.X12]: StakeAmount;
 }
 
 export interface StakerEvent {
@@ -16,6 +24,9 @@ export interface StakerEvent {
   discriminator: StakerEventType;
   stakerContractAddress: string;
   chainId: ChainId;
+  isAggregated: boolean;
+  stakeInfo: StakeInfo;
+  stakePower: number;
 }
 
 export interface TokensUnStakedEvent extends StakerEvent {

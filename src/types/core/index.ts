@@ -14,6 +14,7 @@ export * from './Queries';
 export * from './SocialsStats';
 export * from './StakeAmount';
 export * from './StakeDuration';
+export * from './StakerEvents';
 export * from './Stats';
 export * from './StatsPeriod';
 export * from './StatusCode';
