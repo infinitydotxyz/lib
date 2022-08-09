@@ -129,7 +129,9 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     wethAddress: ETHEREUM_WETH_ADDRESS,
     infinityContracts: {
       exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS
+      obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
+      stakerAddress: '',
+      tokenAddress: ''
     }
   },
   [ChainId.Goerli]: {
@@ -138,7 +140,9 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     wethAddress: GOERLI_WETH_ADDRESS,
     infinityContracts: {
       exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS
+      obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
+      stakerAddress: GOERLI_STAKER_CONTRACT_ADDRESS,
+      tokenAddress: GOERLI_TOKEN_CONTRACT_ADDRESS
     }
   },
   [ChainId.Polygon]: {
@@ -147,7 +151,9 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     wethAddress: POLYGON_WETH_ADDRESS,
     infinityContracts: {
       exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS
+      obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
+      stakerAddress: '',
+      tokenAddress: ''
     }
   }
 };
@@ -159,5 +165,7 @@ interface ChainIdConstants {
   infinityContracts: {
     exchangeAddress: string;
     obComplicationAddress: string;
+    stakerAddress: string;
+    tokenAddress: string;
   };
 }
