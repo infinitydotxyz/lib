@@ -1,4 +1,4 @@
 export interface StakeAmount {
-  amount: number;
+  amount: string;
   timestamp: number;
 }
