@@ -1,16 +1,4 @@
 import { ChainId } from '../ChainId';
-import { ProtocolFeeStats } from '../Stats';
-
-export interface CurationPeriod {
-  startTimestamp: number;
-  endTimestamp: number;
-  hasUnaggregatedEvents: boolean;
-  updatedAt: number;
-  isAggregated: boolean;
-  numCurators: number;
-  numCuratorVotes: number;
-  protocolFees: ProtocolFeeStats;
-}
 
 export interface CurationPeriodDoc {
   collectionAddress: string;
