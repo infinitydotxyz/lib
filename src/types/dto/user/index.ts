@@ -14,5 +14,6 @@ export * from './user-following-users-array.dto';
 export * from './user-nft-collections-query.dto';
 export * from './user-nfts-query.dto';
 export * from './user-profile.dto';
+export * from './user-stake.dto';
 export * from './user.dto';
 export * from './validate-username-response.dto';
