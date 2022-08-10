@@ -64,4 +64,19 @@ export interface DiscordAnnouncementEvent extends BaseFeedEvent {
    * Optional image.
    */
   attachments?: DiscordAttachment[];
+
+  /**
+   * collectionName
+   */
+  collectionName: string;
+
+  /**
+   * collectionSlug
+   */
+  collectionSlug: string;
+
+  /**
+   * collectionProfileImage
+   */
+  collectionProfileImage: string;
 }
