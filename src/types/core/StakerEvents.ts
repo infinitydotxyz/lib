@@ -27,6 +27,7 @@ export interface StakerEvent {
   processed: boolean;
   stakeInfo: StakeInfo;
   stakePower: number;
+  updatedAt: number;
 }
 
 export interface TokensUnStakedEvent extends StakerEvent {
