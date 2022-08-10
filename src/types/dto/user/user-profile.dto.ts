@@ -3,6 +3,7 @@ import { Transform } from 'class-transformer';
 import { IsEthereumAddress, IsNumber, IsString, MaxLength } from 'class-validator';
 import { IsUsername, MAX_BIO_CHARS, MAX_DISPLAY_NAME_CHARS, usernameConstraints } from '../../../decorators';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
+import { StakeInfo } from '../../core';
 export class UserProfileDto {
   @ApiProperty({
     description: "User's main wallet address"
@@ -92,4 +93,10 @@ export class UserProfileDto {
   })
   @IsNumber()
   totalCuratedVotes: number;
+}
+
+class UserCurationStakeDto {
+  stakeInfo: StakeInfo;
+  stakePower: number;
+  blockUpdatedAt: number;
 }

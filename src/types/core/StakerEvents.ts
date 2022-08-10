@@ -24,7 +24,7 @@ export interface StakerEvent {
   discriminator: StakerEventType;
   stakerContractAddress: string;
   chainId: ChainId;
-  isAggregated: boolean;
+  processed: boolean;
   stakeInfo: StakeInfo;
   stakePower: number;
 }
