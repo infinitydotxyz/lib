@@ -84,7 +84,26 @@ export const firestoreConstants = {
   CURATION_PERIOD_REWARDS_COLL: 'curationPeriodRewards',
   CURATION_PERIOD_USER_REWARDS_COLL: 'curationPeriodUserRewards',
   CURATION_SNIPPET_DOC: 'curationSnippet',
-  CURATION_SNIPPET_USERS_COLL: 'curationSnippetUsers'
+  CURATION_SNIPPET_USERS_COLL: 'curationSnippetUsers',
+  /**
+   * sales
+   */
+  MARKETPLACE_STATS_COLL: 'marketplaceStats',
+  SOURCE_STATS_COLL: 'sourceStats',
+
+  /**
+   * stat aggregation
+   */
+  AGGREGATED_COLLECTION_SALES_COLL: 'aggregatedCollectionSales',
+  AGGREGATED_NFT_SALES_COLL: 'aggregatedNftSales',
+  AGGREGATED_SOURCE_SALES_COLL: 'aggregatedSourceSales',
+  INTERVAL_SALES_COLL: 'intervalSales',
+
+  /**
+   * contract listeners
+   */
+  PROTOCOL_FEE_EVENTS_COLL: 'protocolFeeEvents',
+  CONTRACT_EVENTS: '_contractEvents'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
