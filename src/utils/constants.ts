@@ -37,7 +37,6 @@ export const firestoreConstants = {
   COLLECTION_SOCIALS_STATS_COLL: 'socialsStats',
   COLLECTION_NFTS_COLL: 'nfts',
   COLLECTION_INVALID_NFTS_COLL: 'invalidNfts',
-  COLLECTION_CURATORS_COLL: 'curators',
   COLLECTION_ATTRIBUTES: 'attributes',
   COLLECTION_ATTRIBUTES_VALUES: 'values',
   COLLECTION_LINKS_DOC: 'links',
@@ -69,7 +68,23 @@ export const firestoreConstants = {
   OPEN_BUY_INTEREST_FIELD: 'openBuyInterest',
   OPEN_SELL_INTEREST_FIELD: 'openSellInterest',
   API_USERS_COLL: 'apiUsers',
-  STAKING_LEDGER_COLL: 'stakingLedger'
+  /**
+   * staking
+   */
+  STAKING_LEDGER_COLL: 'stakingLedger',
+  /**
+   * curation
+   */
+  COLLECTION_CURATORS_COLL: 'curators',
+  COLLECTION_CURATION_COLL: 'curationCollection',
+  CURATION_METADATA_DOC: 'curationMetadata',
+  CURATION_LEDGER_COLL: 'curationLedger',
+  CURATION_BLOCK_REWARDS_COLL: 'curationBlockRewards',
+  CURATION_BLOCK_USER_REWARDS_COLL: 'curationBlockUserRewards',
+  CURATION_PERIOD_REWARDS_COLL: 'curationPeriodRewards',
+  CURATION_PERIOD_USER_REWARDS_COLL: 'curationPeriodUserRewards',
+  CURATION_SNIPPET_DOC: 'curationSnippet',
+  CURATION_SNIPPET_USERS_COLL: 'curationSnippetUsers'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
