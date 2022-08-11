@@ -1,19 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber } from 'class-validator';
-import { ChainId } from '../../../core';
+import { UserStakeDto } from '../../user';
 
 export class CurationQuotaDto {
   /**
-   * Staker contract address.
+   * The user stake
    */
   @ApiProperty()
-  stakerContractAddress: string;
-
-  /**
-   * Staker contract chain id.
-   */
-  @ApiProperty()
-  stakerContractChainId: ChainId;
+  stake: UserStakeDto;
 
   /**
    * The actual available votes, based on the available votes from the contract compared to votes stored in the database.
