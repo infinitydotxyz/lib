@@ -1,3 +1,5 @@
+import { formatEther } from '@ethersproject/units/lib';
+
 export function jsonString(obj?: object) {
   return JSON.stringify(obj, null, 2);
 }
@@ -26,4 +28,16 @@ export function getEndCode(searchTerm: string) {
 
 export function normalizeAddress(address: string) {
   return address.trim().toLowerCase();
+}
+
+export function formatEth(wei: string | bigint | number, decimals?: number): number {
+  const full = parseFloat(formatEther(BigInt(wei).toString()));
+  if (typeof decimals === 'number' && !Number.isNaN(decimals)) {
+    return round(full, decimals);
+  }
+  return full;
+}
+
+export function round(value: number, decimals = 4): number {
+  return Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
 }
