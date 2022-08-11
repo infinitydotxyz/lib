@@ -23,7 +23,7 @@ export interface StakerEvent {
   txHash: string;
   discriminator: StakerEventType;
   stakerContractAddress: string;
-  chainId: ChainId;
+  stakerContractChainId: ChainId;
   processed: boolean;
   stakeInfo: StakeInfo;
   stakePower: number;

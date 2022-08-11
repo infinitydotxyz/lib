@@ -16,6 +16,8 @@ export interface CurationPeriodDoc {
 
   totalProtocolFeesAccruedEth: number;
   periodProtocolFeesAccruedEth: number;
+  stakerContractAddress: string;
+  stakerContractChainId: ChainId;
 }
 
 export interface CurationPeriodUser {
@@ -27,6 +29,8 @@ export interface CurationPeriodUser {
   totalProtocolFeesAccruedEth: number;
   periodProtocolFeesAccruedEth: number;
   updatedAt: number;
+  stakerContractAddress: string;
+  stakerContractChainId: ChainId;
 }
 
 export type CurationPeriodUsers = { [userAddress: string]: CurationPeriodUser };

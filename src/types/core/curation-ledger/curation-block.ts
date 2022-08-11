@@ -12,6 +12,8 @@ export interface CurationBlockUser {
   firstVotedAt: number;
   lastVotedAt: number;
   updatedAt: number;
+  stakerContractAddress: string;
+  stakerContractChainId: ChainId;
 
   /**
    * The percentage of votes this user has over the total collection curators
@@ -32,6 +34,8 @@ export type CurationBlockUsers = { [userAddress: string]: CurationBlockUser };
 export interface CurationBlockRewardsDoc {
   collectionAddress: string;
   chainId: ChainId;
+  stakerContractAddress: string;
+  stakerContractChainId: ChainId;
 
   numCurators: number;
   numCuratorVotes: number;
