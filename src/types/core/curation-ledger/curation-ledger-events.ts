@@ -15,9 +15,10 @@ export type CurationLedgerEventType = {
   isAggregated: boolean;
   isDeleted: boolean;
   address: string;
-  chainId: ChainId;
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
+  chainId: ChainId;
+  collectionAddress: string;
 };
 
 export interface CurationLedgerSale extends InfinityNftSale, CurationLedgerEventType {
