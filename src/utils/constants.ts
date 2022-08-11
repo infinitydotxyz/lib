@@ -127,6 +127,8 @@ export const WARN_LOG = getEnvironmentVariable('WARN_LOG', false) === 'true';
 export const ETHEREUM_NETWORK_NAME = 'main';
 export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase();
+export const ETHEREUM_STAKER_CONTRACT_ADDRESS = '0xbFf1B5b3B9775b6A775FdC1e688d0f365B49648A'.toLowerCase(); 
+export const ETHEREUM_TOKEN_CONTRACT_ADDRESS = '0xcb14EBeF218aa871e791EB2AA6eF131540C3a6c4'.toLowerCase();
 
 export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0xbADa5551B2f08d3959329B2fF8D0A7CC8BE26324'.toLowerCase();
 export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0xbaDa5555fe632ace2C90Fee8C060703369c25f1c'.toLowerCase();
@@ -165,8 +167,8 @@ export const chainConstants: Record<ChainId, ChainIdConstants> = {
     infinityContracts: {
       exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
       obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
-      stakerAddress: '',
-      tokenAddress: ''
+      stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS,
+      tokenAddress: ETHEREUM_TOKEN_CONTRACT_ADDRESS
     }
   },
   [ChainId.Goerli]: {
