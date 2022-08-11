@@ -3,32 +3,32 @@ import { parseEther } from '@ethersproject/units';
 import { BytesLike } from 'ethers';
 import { defaultAbiCoder, keccak256, recoverAddress, solidityKeccak256 } from 'ethers/lib/utils';
 import { ChainId, ChainNFTs, ChainOBOrder, OBOrder } from '../types/core';
-import { chainConstants, NULL_ADDRESS } from './constants';
+import { chainConstants, CURRENT_VERSION, Env, NULL_ADDRESS } from './constants';
 import { trimLowerCase } from './formatters';
 
-export function getTxnCurrencyAddress(_chainId: string): string {
+export function getTxnCurrencyAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId]?.wethAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.wethAddress ?? NULL_ADDRESS;
 }
 
-export function getOBComplicationAddress(_chainId: string): string {
+export function getOBComplicationAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId]?.infinityContracts?.obComplicationAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.infinityContracts?.obComplicationAddress ?? NULL_ADDRESS;
 }
 
-export function getExchangeAddress(_chainId: string): string {
+export function getExchangeAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId]?.infinityContracts?.exchangeAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.infinityContracts?.exchangeAddress ?? NULL_ADDRESS;
 }
 
-export function getStakerAddress(_chainId: string): string {
+export function getStakerAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId]?.infinityContracts?.stakerAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.infinityContracts?.stakerAddress ?? NULL_ADDRESS;
 }
 
-export function getTokenAddress(_chainId: string): string {
+export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId]?.infinityContracts?.tokenAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.infinityContracts?.tokenAddress ?? NULL_ADDRESS;
 }
 
 export const getOBOrderPrice = (

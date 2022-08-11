@@ -159,38 +159,99 @@ export const POLYGON_INFINITY_OB_COMPLICATION_ADDRESS = '0x748C74994fFF570D7E3fd
 export type AllTimeStatsTimestampType = 1640995200000;
 export const ALL_TIME_STATS_TIMESTAMP: AllTimeStatsTimestampType = 1640995200000;
 
-export const chainConstants: Record<ChainId, ChainIdConstants> = {
+export enum Env {
+  Dev = 'dev',
+  Prod = 'prod'
+}
+
+export enum Version {
+  V1 = 'v1'
+}
+export const CURRENT_VERSION = Version.V1;
+
+export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainIdConstants>>> = {
   [ChainId.Mainnet]: {
-    networkName: ETHEREUM_NETWORK_NAME,
-    scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
-    wethAddress: ETHEREUM_WETH_ADDRESS,
-    infinityContracts: {
-      exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
-      stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS,
-      tokenAddress: ETHEREUM_TOKEN_CONTRACT_ADDRESS
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: ETHEREUM_NETWORK_NAME,
+        scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
+        wethAddress: ETHEREUM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
+          obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
+          stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS,
+          tokenAddress: ETHEREUM_TOKEN_CONTRACT_ADDRESS
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: ETHEREUM_NETWORK_NAME,
+        scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
+        wethAddress: ETHEREUM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
+          obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
+          stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS,
+          tokenAddress: ETHEREUM_TOKEN_CONTRACT_ADDRESS
+        }
+      }
     }
   },
   [ChainId.Goerli]: {
-    networkName: GOERLI_NETWORK_NAME,
-    scannerBase: GOERLI_CHAIN_SCANNER_BASE,
-    wethAddress: GOERLI_WETH_ADDRESS,
-    infinityContracts: {
-      exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
-      stakerAddress: GOERLI_STAKER_CONTRACT_ADDRESS,
-      tokenAddress: GOERLI_TOKEN_CONTRACT_ADDRESS
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: GOERLI_NETWORK_NAME,
+        scannerBase: GOERLI_CHAIN_SCANNER_BASE,
+        wethAddress: GOERLI_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
+          obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
+          stakerAddress: GOERLI_STAKER_CONTRACT_ADDRESS,
+          tokenAddress: GOERLI_TOKEN_CONTRACT_ADDRESS
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: GOERLI_NETWORK_NAME,
+        scannerBase: GOERLI_CHAIN_SCANNER_BASE,
+        wethAddress: GOERLI_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
+          obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
+          stakerAddress: GOERLI_STAKER_CONTRACT_ADDRESS,
+          tokenAddress: GOERLI_TOKEN_CONTRACT_ADDRESS
+        }
+      }
     }
   },
   [ChainId.Polygon]: {
-    networkName: POLYGON_NETWORK_NAME,
-    scannerBase: POLYGON_CHAIN_SCANNER_BASE,
-    wethAddress: POLYGON_WETH_ADDRESS,
-    infinityContracts: {
-      exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
-      obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
-      stakerAddress: '',
-      tokenAddress: ''
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: POLYGON_NETWORK_NAME,
+        scannerBase: POLYGON_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
+          obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
+          stakerAddress: '',
+          tokenAddress: ''
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: POLYGON_NETWORK_NAME,
+        scannerBase: POLYGON_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
+          obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
+          stakerAddress: '',
+          tokenAddress: ''
+        }
+      }
     }
   }
 };
