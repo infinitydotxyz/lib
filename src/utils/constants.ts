@@ -8,6 +8,16 @@ const getEnvironmentVariable = (name: string, required = true) => {
   return variable;
 };
 
+export enum Env {
+  Dev = 'dev',
+  Prod = 'prod'
+}
+
+export enum Version {
+  V1 = 'v1'
+}
+export const CURRENT_VERSION = Version.V1;
+
 export const PROTOCOL_FEE_BPS = 250;
 export const TRENDING_COLLS_TTS = 12 * 60 * 60 * 1000; // time to stale 12 hours
 export const LOGIN_NONCE_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
@@ -158,16 +168,6 @@ export const POLYGON_INFINITY_OB_COMPLICATION_ADDRESS = '0x748C74994fFF570D7E3fd
  */
 export type AllTimeStatsTimestampType = 1640995200000;
 export const ALL_TIME_STATS_TIMESTAMP: AllTimeStatsTimestampType = 1640995200000;
-
-export enum Env {
-  Dev = 'dev',
-  Prod = 'prod'
-}
-
-export enum Version {
-  V1 = 'v1'
-}
-export const CURRENT_VERSION = Version.V1;
 
 export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainIdConstants>>> = {
   [ChainId.Mainnet]: {
