@@ -17,6 +17,18 @@ export class CuratedCollectionDto {
   chainId: string;
 
   /**
+   * Address of the staker contract providing the user votes.
+   */
+  @ApiProperty()
+  stakerContractAddress: string;
+
+  /**
+   * ChainId of the staker contract providing the user votes.
+   */
+  @ApiProperty()
+  stakerContractChainId: ChainId;
+
+  /**
    * Address of the user who curated this collection.
    */
   @ApiProperty()

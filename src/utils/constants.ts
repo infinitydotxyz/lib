@@ -26,7 +26,11 @@ export const LOGIN_NONCE_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
 export const firestoreConstants = {
   COLLECTIONS_COLL: 'collections',
   DATA_SUB_COLL: 'data',
+  /**
+   * users
+   */
   USERS_COLL: 'users',
+  USER_CURATION_COLL: 'userCuration',
   LISTINGS_COLL: 'listings',
   OFFERS_COLL: 'offers',
   ASSETS_COLL: 'assets',
