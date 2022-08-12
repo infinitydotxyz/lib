@@ -1,16 +1,6 @@
 import { ChainId } from '../ChainId';
-import { CurationBlockRewards, CurationBlockRewardsDoc, CurationBlockUser } from './curation-block';
-import { CurationPeriod, CurationPeriodDoc } from './curation-period';
-
-export interface CurrentCurationSnippet {
-  currentPeriod: CurationPeriod;
-  currentBlock: CurationBlockRewards;
-
-  prevPeriod: CurationPeriod;
-  prevBlock: CurationPeriod;
-  stakerContractAddress: string;
-  stakerContractChainId: ChainId;
-}
+import { CurationBlockRewardsDoc, CurationBlockUser } from './curation-block';
+import { CurationPeriodDoc } from './curation-period';
 
 export interface CurrentCurationSnippetDoc {
   currentPeriod: CurationPeriodDoc | null;
