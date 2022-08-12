@@ -85,6 +85,7 @@ export const firestoreConstants = {
   /**
    * staking
    */
+  STAKING_CONTRACTS_COLL: 'stakingContracts',
   STAKING_LEDGER_COLL: 'stakingLedger',
   /**
    * curation
