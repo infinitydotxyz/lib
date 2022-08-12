@@ -14,10 +14,9 @@ export type CurationLedgerEventType = {
   updatedAt: number;
   isAggregated: boolean;
   isDeleted: boolean;
-  address: string;
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
-  chainId: ChainId;
+  collectionChainId: ChainId;
   collectionAddress: string;
 };
 
