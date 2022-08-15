@@ -11,7 +11,9 @@ export enum EventType {
   NftTransfer = 'NFT_TRANSFER',
   TokensStaked = 'TOKENS_STAKED',
   TokensUnStaked = 'TOKENS_UN_STAKED',
-  TokensRageQuit = 'TOKENS_RAGE_QUIT'
+  TokensRageQuit = 'TOKENS_RAGE_QUIT',
+  UserVote = 'USER_VOTE',
+  UserUnVote = 'USER_UN_VOTE'
 }
 
 export const EventTypeNames: { [key: string]: string } = {
