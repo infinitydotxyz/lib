@@ -6,3 +6,4 @@ export * from './NftEvent';
 export * from './OrderBookEvent';
 export * from './TwitterEvent';
 export * from './UserEvent';
+export * from './curation';

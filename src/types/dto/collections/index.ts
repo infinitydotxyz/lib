@@ -17,3 +17,5 @@ export * from './rankings-query.dto';
 export * from './top-owner.dto';
 export * from './top-owners-array.dto';
 export * from './top-owners-query.dto';
+export * from './curation';
+export * from './nfts';
