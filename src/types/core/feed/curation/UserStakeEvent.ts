@@ -33,7 +33,7 @@ export interface BaseUserStakeContractEvent extends BaseUserStakeFeedEvent {
   txHash: string;
 }
 
-export interface UserStakedEvent extends BaseUserStakeFeedEvent {
+export interface UserStakedEvent extends BaseUserStakeContractEvent {
   type: EventType.TokensStaked;
 
   /**
@@ -42,11 +42,11 @@ export interface UserStakedEvent extends BaseUserStakeFeedEvent {
   duration: StakeDuration;
 }
 
-export interface UserUnStakedEvent extends BaseUserStakeFeedEvent {
+export interface UserUnStakedEvent extends BaseUserStakeContractEvent {
   type: EventType.TokensUnStaked;
 }
 
-export interface UserRageQuitEvent extends BaseUserStakeFeedEvent {
+export interface UserRageQuitEvent extends BaseUserStakeContractEvent {
   type: EventType.TokensRageQuit;
 
   /**
