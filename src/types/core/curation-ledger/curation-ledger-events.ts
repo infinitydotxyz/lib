@@ -30,6 +30,7 @@ export interface CurationVotesAdded extends CurationLedgerEventType {
   votes: number;
   userAddress: string;
   discriminator: CurationLedgerEvent.VotesAdded;
+  isFeedUpdated: boolean;
 }
 
 export interface CurationVotesRemoved extends CurationLedgerEventType {
