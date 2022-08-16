@@ -6,8 +6,9 @@ import { BaseStakerContractEvent } from './StakerContractEvent';
 
 export interface BaseUserStakeFeedEvent extends BaseFeedEvent, UserEvent, BaseStakerContractEvent {
   userAddress: string;
-  userDisplayName?: string;
-  userProfileImage?: string;
+  userUsername: string;
+  userDisplayName: string;
+  userProfileImage: string;
 
   /**
    * Currant stake info for the user.
