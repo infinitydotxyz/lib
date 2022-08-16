@@ -18,6 +18,12 @@ export enum Version {
 }
 export const CURRENT_VERSION = Version.V1;
 
+export const ONE_MIN = 60 * 1000;
+export const ONE_HOUR = 60 * ONE_MIN;
+export const ONE_DAY = 24 * ONE_HOUR;
+export const ONE_WEEK = 7 * ONE_DAY;
+export const ONE_YEAR = 365.25 * ONE_DAY;
+
 export const PROTOCOL_FEE_BPS = 250;
 export const TRENDING_COLLS_TTS = 12 * 60 * 60 * 1000; // time to stale 12 hours
 export const LOGIN_NONCE_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
