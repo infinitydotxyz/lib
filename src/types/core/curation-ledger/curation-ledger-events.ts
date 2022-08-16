@@ -38,4 +38,5 @@ export interface CurationVotesRemoved extends CurationLedgerEventType {
   userAddress: string;
   txHash: string;
   discriminator: CurationLedgerEvent.VotesRemoved;
+  isFeedUpdated: boolean;
 }
