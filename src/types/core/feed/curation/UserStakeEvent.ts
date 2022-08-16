@@ -9,16 +9,6 @@ export interface BaseUserStakeFeedEvent extends BaseFeedEvent, UserEvent, BaseSt
   userUsername: string;
   userDisplayName: string;
   userProfileImage: string;
-
-  /**
-   * Currant stake info for the user.
-   */
-  stakeInfo: StakeInfo;
-
-  /**
-   * Current stake power for the user.
-   */
-  stakePower: number;
 }
 
 export interface BaseUserStakeContractEvent extends BaseUserStakeFeedEvent {
@@ -32,6 +22,16 @@ export interface BaseUserStakeContractEvent extends BaseUserStakeFeedEvent {
   blockNumber: number;
 
   txHash: string;
+
+  /**
+   * Currant stake info for the user.
+   */
+  stakeInfo: StakeInfo;
+
+  /**
+   * Current stake power for the user.
+   */
+  stakePower: number;
 }
 
 export interface UserStakedEvent extends BaseUserStakeContractEvent {

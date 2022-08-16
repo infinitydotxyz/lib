@@ -13,10 +13,10 @@ export enum EventType {
   TokensUnStaked = 'TOKENS_UN_STAKED',
   TokensRageQuit = 'TOKENS_RAGE_QUIT',
   UserVote = 'USER_VOTE',
-  UserUnVote = 'USER_UN_VOTE'
+  UserVoteRemoved = 'USER_VOTE_REMOVED'
 }
 
-export const EventTypeNames: { [key: string]: string } = {
+export const EventTypeNames: Record<EventType, string> = {
   [EventType.NftSale]: 'Sale',
   [EventType.NftListing]: 'Listing',
   [EventType.NftOffer]: 'Offer',
@@ -26,7 +26,9 @@ export const EventTypeNames: { [key: string]: string } = {
   [EventType.NftTransfer]: 'Transfer',
   [EventType.TokensStaked]: 'Staked',
   [EventType.TokensUnStaked]: 'UnStaked',
-  [EventType.TokensRageQuit]: 'Rage Quit'
+  [EventType.TokensRageQuit]: 'Rage Quit',
+  [EventType.UserVote]: 'User Vote',
+  [EventType.UserVoteRemoved]: 'User UnVote'
 };
 
 export interface BaseFeedEvent {

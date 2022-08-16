@@ -9,33 +9,13 @@ export interface UserVoteEvent extends BaseUserStakeFeedEvent, BaseCollectionEve
    * Votes added in this event.
    */
   votesAdded: number;
-
-  /**
-   * Current total votes the curator has in the collection.
-   */
-  votes: number;
-
-  /**
-   * Current total number of votes from curators for the collection
-   */
-  numCuratorVotes: number;
 }
 
-export interface UserUnVoteEvent extends BaseUserStakeFeedEvent, BaseCollectionEvent {
-  type: EventType.UserUnVote;
+export interface UserVoteRemovedEvent extends BaseUserStakeFeedEvent, BaseCollectionEvent {
+  type: EventType.UserVoteRemoved;
 
   /**
    * Votes removed in this event.
    */
   votesRemoved: number;
-
-  /**
-   * Current total votes the curator has in the collection.
-   */
-  votes: number;
-
-  /**
-   * Current total number of votes from curators for the collection
-   */
-  numCuratorVotes: number;
 }
