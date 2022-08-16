@@ -31,7 +31,7 @@ export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURR
   return chainConstants[chainId][env][version]?.infinityContracts?.tokenAddress ?? NULL_ADDRESS;
 }
 
-export function getTokenAddressByStakerAddress(chainId: ChainId, stakerContractAddress: string) {
+export function getTokenAddressesByStakerAddress(chainId: ChainId, stakerContractAddress: string) {
   const ids = new Set<string>();
   const addresses: { tokenContractChainId: ChainId; tokenContractAddress: string }[] = [];
   const envConstants = chainConstants[chainId];
