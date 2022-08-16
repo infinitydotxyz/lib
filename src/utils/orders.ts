@@ -31,6 +31,27 @@ export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURR
   return chainConstants[chainId][env][version]?.infinityContracts?.tokenAddress ?? NULL_ADDRESS;
 }
 
+export function getTokenAddressByStakerAddress(chainId: ChainId, stakerContractAddress: string) {
+  const ids = new Set<string>();
+  const addresses: { tokenContractChainId: ChainId; tokenContractAddress: string }[] = [];
+  const envConstants = chainConstants[chainId];
+  for (const [, versionConstants] of Object.entries(envConstants)) {
+    for (const [, constants] of Object.entries(versionConstants)) {
+      if (constants.infinityContracts.stakerAddress === stakerContractAddress) {
+        const id = `${chainId}:${constants.infinityContracts.tokenAddress}`;
+        if (!ids.has(id)) {
+          ids.add(id);
+          addresses.push({
+            tokenContractChainId: chainId as ChainId,
+            tokenContractAddress: constants.infinityContracts.tokenAddress
+          });
+        }
+      }
+    }
+  }
+  return addresses;
+}
+
 export const getOBOrderPrice = (
   order: Pick<OBOrder, 'startPriceEth' | 'startTimeMs' | 'endPriceEth' | 'endTimeMs'>,
   timestamp: number
