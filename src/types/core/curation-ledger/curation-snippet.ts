@@ -15,5 +15,7 @@ export interface CurrentCurationSnippetDoc {
 
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
+  tokenContractAddress: string;
+  tokenContractChainId: ChainId;
   updatedAt: number;
 }

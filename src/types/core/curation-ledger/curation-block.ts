@@ -45,9 +45,7 @@ export interface CurationBlockUser {
    * block token price relative to ETH
    */
   tokenPrice: number;
-  stakePowerPerToken: number;
   blockDuration: number;
-  blockApr: number;
 }
 
 export type CurationBlockUsers = { [userAddress: string]: CurationBlockUser };
@@ -102,13 +100,11 @@ export interface CurationBlockRewardsDoc {
 
   tokenContractAddress: string;
   tokenContractChainId: ChainId;
+
   /**
-   * current token price relative to ETH
+   * block token price relative to ETH
    */
   tokenPrice: number;
-
-  avgStakePowerPerToken: number;
-  blockApr: number;
   aprByMultiplier: BlockAprByMultiplier;
 }
 
