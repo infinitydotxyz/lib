@@ -27,6 +27,9 @@ export interface StakerEvent {
   processed: boolean;
   stakeInfo: StakeInfo;
   stakePower: number;
+  tokenContractAddress: string;
+  tokenContractChainId: ChainId;
+  stakePowerPerToken: number;
   updatedAt: number;
 }
 

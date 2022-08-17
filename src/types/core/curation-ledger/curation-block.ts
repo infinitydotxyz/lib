@@ -1,3 +1,4 @@
+import { StakeDuration } from '..';
 import { ChainId } from '../ChainId';
 
 export interface CurationBlockUser {
@@ -27,9 +28,31 @@ export interface CurationBlockUser {
    * The total number of votes in the collection
    */
   numCuratorVotes: number;
+
+  /**
+   * start timestamp of the block
+   */
+  timestamp: number;
+
+  /**
+   * first eth block number of the block
+   */
+  blockNumber: number;
+
+  tokenContractAddress: string;
+  tokenContractChainId: ChainId;
+  /**
+   * block token price relative to ETH
+   */
+  tokenPrice: number;
+  stakePowerPerToken: number;
+  blockDuration: number;
+  blockApr: number;
 }
 
 export type CurationBlockUsers = { [userAddress: string]: CurationBlockUser };
+
+export type BlockAprByMultiplier = Record<StakeDuration, number>;
 
 export interface CurationBlockRewardsDoc {
   collectionAddress: string;
@@ -70,7 +93,23 @@ export interface CurationBlockRewardsDoc {
    * start timestamp of the block
    */
   timestamp: number;
+  blockDuration: number;
+  /**
+   * first eth block number of the block
+   */
+  blockNumber: number;
   isAggregated: boolean;
+
+  tokenContractAddress: string;
+  tokenContractChainId: ChainId;
+  /**
+   * current token price relative to ETH
+   */
+  tokenPrice: number;
+
+  avgStakePowerPerToken: number;
+  blockApr: number;
+  aprByMultiplier: BlockAprByMultiplier;
 }
 
 export interface CurationBlockRewards extends CurationBlockRewardsDoc {
