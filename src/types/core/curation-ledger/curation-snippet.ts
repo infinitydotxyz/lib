@@ -1,4 +1,5 @@
 import { ChainId } from '../ChainId';
+import { CollectionDisplayData } from '../CollectionDisplayData';
 import { CurationBlockRewardsDoc, CurationBlockUser } from './curation-block';
 import { CurationPeriodDoc } from './curation-period';
 
@@ -18,4 +19,6 @@ export interface CurrentCurationSnippetDoc {
   tokenContractAddress: string;
   tokenContractChainId: ChainId;
   updatedAt: number;
+
+  collection: CollectionDisplayData;
 }
