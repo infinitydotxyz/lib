@@ -17,6 +17,8 @@ export type CurationLedgerEventType = {
   isDeleted: boolean;
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
+  tokenContractAddress: string;
+  tokenContractChainId: ChainId;
   collectionChainId: ChainId;
   collectionAddress: string;
   isStakeMerged: boolean;
