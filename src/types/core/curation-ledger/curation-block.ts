@@ -1,4 +1,4 @@
-import { StakeDuration } from '..';
+import { CurationLedgerEventStake, StakeDuration } from '..';
 import { ChainId } from '../ChainId';
 
 export interface CurationBlockUser {
@@ -47,9 +47,12 @@ export interface CurationBlockUser {
    * block token price relative to ETH
    */
   tokenPrice: number;
-  stakePowerPerToken: number;
-  stakePowerPerTokenUpdatedAtBlockNumber: number;
   blockApr: number;
+
+  /**
+   * stake used for calculating apr for this user
+   */
+  stake: CurationLedgerEventStake;
 }
 
 export type CurationBlockUsers = { [userAddress: string]: CurationBlockUser };
@@ -110,7 +113,6 @@ export interface CurationBlockRewardsDoc {
    */
   tokenPrice: number;
   blockAprByMultiplier: BlockAprByMultiplier;
-
   avgStakePowerPerToken: number;
   blockApr: number;
 }
