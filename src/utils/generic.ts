@@ -1,4 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber';
+import { StakeAmount } from '../../frontend/dist/types/core/StakeAmount';
+import { StakeInfo } from '../types/core';
+import { formatEth } from './formatters';
 
 export async function sleep(ms: number) {
   return await new Promise<void>((resolve) => {
@@ -43,3 +46,13 @@ export function hexToDecimalTokenId(tokenId: string): string {
 export const nowSeconds = (): BigNumber => {
   return BigNumber.from(Math.floor(Date.now() / 1000));
 };
+
+export function getStakePowerPerToken(stakeInfo: StakeInfo, stakePower: number) {
+  const totalStakedWad: bigint = Object.values(stakeInfo).reduce(
+    (acc: bigint, item: StakeAmount) => acc + BigInt(item.amount),
+    BigInt(0)
+  );
+  const totalStaked = formatEth(totalStakedWad.toString(), 18);
+  const stakePowerPerToken = stakePower / totalStaked;
+  return stakePowerPerToken;
+}
