@@ -46,12 +46,17 @@ export const nowSeconds = (): BigNumber => {
   return BigNumber.from(Math.floor(Date.now() / 1000));
 };
 
-export function getStakePowerPerToken(stakeInfo: StakeInfo, stakePower: number) {
+export function getTotalStaked(stakeInfo: StakeInfo, precision = 4): number {
   const totalStakedWad: bigint = Object.values(stakeInfo).reduce(
     (acc: bigint, item: StakeAmount) => acc + BigInt(item.amount),
     BigInt(0)
   );
-  const totalStaked = formatEth(totalStakedWad.toString(), 18);
+  const totalStaked = formatEth(totalStakedWad.toString(), precision);
+  return totalStaked;
+}
+
+export function getStakePowerPerToken(stakeInfo: StakeInfo, stakePower: number) {
+  const totalStaked = getTotalStaked(stakeInfo, 18);
   const stakePowerPerToken = stakePower / totalStaked;
   return stakePowerPerToken;
 }
