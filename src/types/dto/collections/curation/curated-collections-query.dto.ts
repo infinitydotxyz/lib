@@ -6,8 +6,7 @@ import { parseIntTransformer } from '../../../../transformers/parse-int.transfor
 
 export enum CuratedCollectionsOrderBy {
   Votes = 'votes',
-  AprHighToLow = 'apr_high_to_low',
-  AprLowToHigh = 'apr_low_to_high'
+  Apr = 'apr'
 }
 
 export class CuratedCollectionsQuery {
