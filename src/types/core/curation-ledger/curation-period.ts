@@ -1,7 +1,10 @@
 import { ChainId } from '../ChainId';
+import { CollectionDisplayData } from '../CollectionDisplayData';
+import { UserDisplayData } from '../UserDisplayData';
 import { AprByMultiplier } from './curation-block';
 
 export interface CurationPeriodDoc {
+  collection: CollectionDisplayData;
   collectionAddress: string;
   chainId: ChainId;
   timestamp: number;
@@ -28,6 +31,8 @@ export interface CurationPeriodDoc {
 }
 
 export interface CurationPeriodUser {
+  user: UserDisplayData;
+  collection: CollectionDisplayData;
   userAddress: string;
   chainId: ChainId;
   collectionAddress: string;

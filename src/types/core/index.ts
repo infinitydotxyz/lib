@@ -1,5 +1,6 @@
 export * from './ChainId';
 export * from './Collection';
+export * from './CollectionDisplayData';
 export * from './CollectionStats';
 export * from './Etherscan';
 export * from './Follows';
@@ -19,6 +20,7 @@ export * from './Stats';
 export * from './StatsPeriod';
 export * from './StatusCode';
 export * from './Token';
+export * from './UserDisplayData';
 export * from './UserOwned';
 export * from './UtilityTypes';
 export * from './nft-stats';

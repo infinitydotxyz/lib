@@ -1,7 +1,10 @@
-import { CurationLedgerEventStake, StakeDuration } from '..';
+import { CollectionDisplayData, CurationLedgerEventStake, StakeDuration } from '..';
 import { ChainId } from '../ChainId';
+import { UserDisplayData } from '../UserDisplayData';
 
 export interface CurationBlockUser {
+  collection: CollectionDisplayData;
+  user: UserDisplayData;
   userAddress: string;
   votes: number;
   chainId: ChainId;
@@ -60,11 +63,11 @@ export type CurationBlockUsers = { [userAddress: string]: CurationBlockUser };
 export type AprByMultiplier = Record<StakeDuration, number>;
 
 export interface CurationBlockRewardsDoc {
+  collection: CollectionDisplayData;
   collectionAddress: string;
   chainId: ChainId;
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
-
   numCurators: number;
   numCuratorVotes: number;
   numCuratorsAdded: number;
