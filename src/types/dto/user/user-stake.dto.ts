@@ -21,6 +21,21 @@ export class UserStakeDto {
   stakerContractChainId: ChainId;
 
   @ApiProperty({
+    description: 'Contract address of the relevant token contract'
+  })
+  @IsEthereumAddress({
+    message: 'Invalid address'
+  })
+  @Transform(normalizeAddressTransformer)
+  tokenContractAddress: string;
+
+  @ApiProperty({
+    description: 'Chain id of the relevant token contract'
+  })
+  @IsEnum(ChainId)
+  tokenContractChainId: ChainId;
+
+  @ApiProperty({
     description: "User's amount for each stake duration"
   })
   stakeInfo: StakeInfo;
