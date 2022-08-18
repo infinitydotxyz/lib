@@ -55,12 +55,12 @@ export interface CurationLedgerEventStake {
   stakerEventBlockNumber: number;
 }
 
-export interface CurationLedgerVotesAddedWithStake extends CurationLedgerSale {
+export interface CurationLedgerVotesAddedWithStake extends CurationVotesAdded {
   stake: CurationLedgerEventStake;
   isStakeMerged: true;
 }
 
-export interface CurationLedgerVotesRemovedWithStake extends CurationLedgerSale {
+export interface CurationLedgerVotesRemovedWithStake extends CurationVotesRemoved {
   stake: CurationLedgerEventStake;
   isStakeMerged: true;
 }
