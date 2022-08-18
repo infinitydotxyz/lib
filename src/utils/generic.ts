@@ -1,6 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { StakeAmount } from '../../frontend/dist/types/core/StakeAmount';
-import { StakeInfo } from '../types/core';
+import { StakeAmount, StakeInfo } from '../types/core';
 import { formatEth } from './formatters';
 
 export async function sleep(ms: number) {
