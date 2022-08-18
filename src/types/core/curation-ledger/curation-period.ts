@@ -3,11 +3,11 @@ import { CollectionDisplayData } from '../CollectionDisplayData';
 import { UserDisplayData } from '../UserDisplayData';
 import { AprByMultiplier } from './curation-block';
 
-export interface CurationPeriodDoc {
-  collection: CollectionDisplayData;
-  collectionAddress: string;
-  chainId: ChainId;
-  timestamp: number;
+export interface CurationPeriodStats {
+  tokenPrice: number;
+  periodAprByMultiplier: AprByMultiplier;
+  avgStakePowerPerToken: number;
+  periodApr: number;
   /**
    * total fees accrued over all previous periods
    */
@@ -20,33 +20,44 @@ export interface CurationPeriodDoc {
 
   totalProtocolFeesAccruedEth: number;
   periodProtocolFeesAccruedEth: number;
+}
+
+export interface CurationPeriodMetadata {
+  collectionAddress: string;
+  collectionChainId: ChainId;
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
   tokenContractAddress: string;
   tokenContractChainId: ChainId;
-  tokenPrice: number;
-  periodAprByMultiplier: AprByMultiplier;
-  avgStakePowerPerToken: number;
-  periodApr: number;
+  timestamp: number;
+  periodDuration: number;
 }
 
-export interface CurationPeriodUser {
-  user: UserDisplayData;
+export interface CurationPeriodDoc {
   collection: CollectionDisplayData;
-  userAddress: string;
-  chainId: ChainId;
-  collectionAddress: string;
+  metadata: CurationPeriodMetadata;
+  stats: CurationPeriodStats;
+}
+
+export interface CurationPeriodUserStats {
   totalProtocolFeesAccruedWei: string;
   periodProtocolFeesAccruedWei: string;
   totalProtocolFeesAccruedEth: number;
   periodProtocolFeesAccruedEth: number;
-  updatedAt: number;
-  stakerContractAddress: string;
-  stakerContractChainId: ChainId;
-  tokenContractAddress: string;
-  tokenContractChainId: ChainId;
   periodApr: number;
   tokenPrice: number;
+}
+
+export type CurationPeriodUserMetadata = CurationPeriodMetadata & {
+  userAddress: string;
+  updatedAt: number;
+};
+
+export interface CurationPeriodUser {
+  metadata: CurationPeriodUserMetadata;
+  user: UserDisplayData;
+  collection: CollectionDisplayData;
+  stats: CurationPeriodUserStats;
 }
 
 export type CurationPeriodUsers = { [userAddress: string]: CurationPeriodUser };
