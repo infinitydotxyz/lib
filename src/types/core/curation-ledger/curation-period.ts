@@ -1,4 +1,5 @@
 import { ChainId } from '../ChainId';
+import { AprByMultiplier } from './curation-block';
 
 export interface CurationPeriodDoc {
   collectionAddress: string;
@@ -18,6 +19,12 @@ export interface CurationPeriodDoc {
   periodProtocolFeesAccruedEth: number;
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
+  tokenContractAddress: string;
+  tokenContractChainId: ChainId;
+  tokenPrice: number;
+  periodAprByMultiplier: AprByMultiplier;
+  avgStakePowerPerToken: number;
+  periodApr: number;
 }
 
 export interface CurationPeriodUser {
@@ -31,6 +38,10 @@ export interface CurationPeriodUser {
   updatedAt: number;
   stakerContractAddress: string;
   stakerContractChainId: ChainId;
+  tokenContractAddress: string;
+  tokenContractChainId: ChainId;
+  periodApr: number;
+  tokenPrice: number;
 }
 
 export type CurationPeriodUsers = { [userAddress: string]: CurationPeriodUser };
