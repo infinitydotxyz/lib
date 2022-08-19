@@ -23,6 +23,7 @@ export interface BaseNftSale {
   source: SaleSource;
   isAggregated: boolean;
   isDeleted: boolean;
+  isFeedUpdated: boolean;
 }
 
 export interface ExternalNftSale extends BaseNftSale {
