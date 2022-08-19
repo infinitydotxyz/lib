@@ -4,10 +4,6 @@ import { UserDisplayData } from '../UserDisplayData';
 import { AprByMultiplier } from './curation-block';
 
 export interface CurationPeriodStats {
-  tokenPrice: number;
-  periodAprByMultiplier: AprByMultiplier;
-  avgStakePowerPerToken: number;
-  periodApr: number;
   /**
    * total fees accrued over all previous periods
    */
@@ -20,6 +16,17 @@ export interface CurationPeriodStats {
 
   totalProtocolFeesAccruedEth: number;
   periodProtocolFeesAccruedEth: number;
+
+  arbitrageClaimedWei: string;
+  arbitrageClaimedEth: number;
+
+  periodPayoutWei: string;
+  periodPayoutEth: number;
+
+  tokenPrice: number;
+  periodAprByMultiplier: AprByMultiplier;
+  avgStakePowerPerToken: number;
+  periodApr: number;
 }
 
 export interface CurationPeriodMetadata {

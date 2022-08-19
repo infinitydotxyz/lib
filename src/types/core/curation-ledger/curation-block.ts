@@ -48,6 +48,9 @@ export interface CurationBlockStats {
   blockProtocolFeesAccruedEth: number;
   arbitrageProtocolFeesAccruedEth: number;
 
+  blockPayoutWei: string;
+  blockPayoutEth: number;
+
   tokenPrice: number;
   blockAprByMultiplier: AprByMultiplier;
   avgStakePowerPerToken: number;
