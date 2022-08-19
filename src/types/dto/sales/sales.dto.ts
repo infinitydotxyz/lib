@@ -6,6 +6,11 @@ import { NftSalesResponse, NftSaleUnion, SaleSource, TokenStandard } from '../..
 
 export class NftSaleDto implements NftSaleUnion {
   @ApiProperty({
+    description: "Whether the feed has been updated for this event"
+  })
+  isFeedUpdated: boolean;
+
+  @ApiProperty({
     description: 'The chain ID of the sale'
   })
   @IsString()
