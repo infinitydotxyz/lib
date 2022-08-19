@@ -3,6 +3,7 @@ import { Transform } from 'class-transformer';
 import { IsEnum, IsNumber, IsOptional, IsString, Max, Min } from 'class-validator';
 import { OrderDirection } from '../../../core/Queries';
 import { parseIntTransformer } from '../../../../transformers/parse-int.transformer';
+import { ChainId } from '../../../core';
 
 export enum CuratedCollectionsOrderBy {
   Votes = 'votes',
@@ -10,6 +11,12 @@ export enum CuratedCollectionsOrderBy {
 }
 
 export class CuratedCollectionsQuery {
+  @ApiPropertyOptional({
+    description: 'Chain id of the collections (defaults to mainnet)',
+    enum: ChainId
+  })
+  chainId?: ChainId;
+
   @ApiProperty({ enum: CuratedCollectionsOrderBy })
   @IsEnum(CuratedCollectionsOrderBy)
   orderBy: CuratedCollectionsOrderBy;
