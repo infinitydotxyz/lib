@@ -2,7 +2,7 @@ import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { parseEther } from '@ethersproject/units';
 import { BytesLike } from 'ethers';
 import { defaultAbiCoder, keccak256, recoverAddress, solidityKeccak256 } from 'ethers/lib/utils';
-import { ChainId, ChainNFTs, ChainOBOrder, OBOrder } from '../types/core';
+import { ChainId, ChainNFTs, ChainOBOrder, Erc20TokenMetadata, OBOrder } from '../types/core';
 import { chainConstants, CURRENT_VERSION, Env, NULL_ADDRESS } from './constants';
 import { trimLowerCase } from './formatters';
 
@@ -28,7 +28,12 @@ export function getStakerAddress(_chainId: string, env = Env.Prod, version = CUR
 
 export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.infinityContracts?.tokenAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.infinityContracts?.token.address ?? NULL_ADDRESS;
+}
+
+export function getToken(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): Erc20TokenMetadata | null {
+  const chainId = _chainId as ChainId;
+  return chainConstants[chainId][env][version]?.infinityContracts?.token ?? null;
 }
 
 export function getTokenAddressByStakerAddress(chainId: ChainId, stakerContractAddress: string) {
@@ -38,7 +43,7 @@ export function getTokenAddressByStakerAddress(chainId: ChainId, stakerContractA
       if (constants.infinityContracts.stakerAddress === stakerContractAddress) {
         return {
           tokenContractChainId: chainId,
-          tokenContractAddress: constants.infinityContracts.tokenAddress
+          tokenContractAddress: constants.infinityContracts.token.address
         };
       }
     }

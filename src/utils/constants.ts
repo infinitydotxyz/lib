@@ -1,4 +1,5 @@
 import { ChainId } from '../types/core';
+import { Erc20TokenMetadata } from '../types/core/Erc20TokenMetadata';
 
 const getEnvironmentVariable = (name: string, required = true) => {
   const variable = process.env[name];
@@ -191,7 +192,13 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS,
-          tokenAddress: ETHEREUM_TOKEN_CONTRACT_ADDRESS
+          token: {
+            address: ETHEREUM_TOKEN_CONTRACT_ADDRESS,
+            name: 'Infinity',
+            symbol: 'NFT',
+            decimals: 18,
+            chainId: ChainId.Mainnet
+          }
         }
       }
     },
@@ -204,7 +211,13 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS,
-          tokenAddress: ETHEREUM_TOKEN_CONTRACT_ADDRESS
+          token: {
+            address: ETHEREUM_TOKEN_CONTRACT_ADDRESS,
+            name: 'Infinity',
+            symbol: 'NFT',
+            decimals: 18,
+            chainId: ChainId.Mainnet
+          }
         }
       }
     }
@@ -219,7 +232,13 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: GOERLI_STAKER_CONTRACT_ADDRESS,
-          tokenAddress: GOERLI_TOKEN_CONTRACT_ADDRESS
+          token: {
+            address: GOERLI_TOKEN_CONTRACT_ADDRESS,
+            name: 'Goerli Infinity',
+            symbol: 'NFT',
+            decimals: 18,
+            chainId: ChainId.Goerli
+          }
         }
       }
     },
@@ -232,7 +251,13 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: GOERLI_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: GOERLI_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: GOERLI_STAKER_CONTRACT_ADDRESS,
-          tokenAddress: GOERLI_TOKEN_CONTRACT_ADDRESS
+          token: {
+            address: GOERLI_TOKEN_CONTRACT_ADDRESS,
+            name: 'Goerli Infinity',
+            symbol: 'NFT',
+            decimals: 18,
+            chainId: ChainId.Goerli
+          }
         }
       }
     }
@@ -247,7 +272,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: '',
-          tokenAddress: ''
+          token: {} as any
         }
       }
     },
@@ -260,7 +285,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: '',
-          tokenAddress: ''
+          token: {} as any
         }
       }
     }
@@ -275,6 +300,6 @@ interface ChainIdConstants {
     exchangeAddress: string;
     obComplicationAddress: string;
     stakerAddress: string;
-    tokenAddress: string;
+    token: Erc20TokenMetadata;
   };
 }
