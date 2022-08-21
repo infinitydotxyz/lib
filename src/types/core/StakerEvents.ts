@@ -9,10 +9,10 @@ export enum StakerEventType {
 }
 
 export interface StakeInfo {
-  [StakeDuration.X0]: StakeAmount;
-  [StakeDuration.X3]: StakeAmount;
-  [StakeDuration.X6]: StakeAmount;
-  [StakeDuration.X12]: StakeAmount;
+  [StakeDuration.None]: StakeAmount;
+  [StakeDuration.ThreeMonths]: StakeAmount;
+  [StakeDuration.SixMonths]: StakeAmount;
+  [StakeDuration.TwelveMonths]: StakeAmount;
 }
 
 export interface StakerEvent {
