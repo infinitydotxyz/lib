@@ -36,19 +36,24 @@ export function getToken(_chainId: string, env = Env.Prod, version = CURRENT_VER
   return chainConstants[chainId][env][version]?.infinityContracts?.token ?? null;
 }
 
-export function getTokenAddressByStakerAddress(chainId: ChainId, stakerContractAddress: string) {
+export function getTokenByStaker(chainId: ChainId, stakerContractAddress: string) {
   const envConstants = chainConstants[chainId];
   for (const [, versionConstants] of Object.entries(envConstants)) {
     for (const [, constants] of Object.entries(versionConstants)) {
       if (constants.infinityContracts.stakerAddress === stakerContractAddress) {
-        return {
-          tokenContractChainId: chainId,
-          tokenContractAddress: constants.infinityContracts.token.address
-        };
+        return constants.infinityContracts.token;
       }
     }
   }
   throw new Error(`No token address found for staker address ${stakerContractAddress} on chain ${chainId}`);
+}
+
+export function getTokenAddressByStakerAddress(chainId: ChainId, stakerContractAddress: string) {
+  const token = getTokenByStaker(chainId, stakerContractAddress);
+  return {
+    tokenContractChainId: token.chainId,
+    tokenContractAddress: token.address
+  };
 }
 
 export const getOBOrderPrice = (
