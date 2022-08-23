@@ -58,8 +58,6 @@ export interface CurationPeriodUserStats {
   tokenPrice: number;
   periodProtocolFeesPaidWei: string;
   periodProtocolFeesPaidEth: number;
-  totalProtocolFeesPaidWei: string;
-  totalProtocolFeesPaidEth: number;
 }
 
 export type CurationPeriodUserMetadata = CurationPeriodMetadata & {

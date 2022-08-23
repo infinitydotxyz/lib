@@ -87,8 +87,6 @@ export interface CurationBlockUserStats {
 
   blockProtocolFeesPaidWei: string;
   blockProtocolFeesPaidEth: number;
-  totalProtocolFeesPaidWei: string;
-  totalProtocolFeesPaidEth: number;
 
   /**
    * The percentage of votes this user has over the total collection curators
