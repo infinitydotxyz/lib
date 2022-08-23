@@ -40,19 +40,23 @@ export interface CurationBlockStats {
   blockProtocolFeesAccruedWei: string;
 
   /**
-   * arbitrage fees that are left over from previous blocks
+   * arbitrage fees that are left over after distributing
+   * rewards to curators
    */
   arbitrageProtocolFeesAccruedWei: string;
+  arbitrageProtocolFeesAccruedEth: number;
+  /**
+   * total amount of arbitrage fees accrued over all
+   * previous blocks and this block
+   */
+  totalArbitrageProtocolFeesAccruedWei: string;
+  totalArbitrageProtocolFeesAccruedEth: number;
 
   totalProtocolFeesAccruedEth: number;
   blockProtocolFeesAccruedEth: number;
-  arbitrageProtocolFeesAccruedEth: number;
 
   blockPayoutWei: string;
   blockPayoutEth: number;
-
-  arbitrageClaimedWei: string;
-  arbitrageClaimedEth: number;
 
   tokenPrice: number;
   blockAprByMultiplier: AprByMultiplier;
@@ -80,6 +84,7 @@ export interface CurationBlockUserStats {
   blockProtocolFeesAccruedWei: string;
   totalProtocolFeesAccruedEth: number;
   blockProtocolFeesAccruedEth: number;
+
   /**
    * The percentage of votes this user has over the total collection curators
    */

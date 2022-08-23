@@ -17,8 +17,11 @@ export interface CurationPeriodStats {
   totalProtocolFeesAccruedEth: number;
   periodProtocolFeesAccruedEth: number;
 
-  arbitrageClaimedWei: string;
-  arbitrageClaimedEth: number;
+  arbitrageProtocolFeesAccruedWei: string;
+  arbitrageProtocolFeesAccruedEth: number;
+
+  totalArbitrageProtocolFeesAccruedWei: string;
+  totalArbitrageProtocolFeesAccruedEth: number;
 
   periodPayoutWei: string;
   periodPayoutEth: number;
@@ -53,6 +56,10 @@ export interface CurationPeriodUserStats {
   periodProtocolFeesAccruedEth: number;
   periodApr: number;
   tokenPrice: number;
+  periodProtocolFeesPaidWei: string;
+  periodProtocolFeesPaidEth: number;
+  totalProtocolFeesPaidWei: string;
+  totalProtocolFeesPaidEth: number;
 }
 
 export type CurationPeriodUserMetadata = CurationPeriodMetadata & {
