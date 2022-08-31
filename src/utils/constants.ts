@@ -107,6 +107,23 @@ export const firestoreConstants = {
   CURATION_PERIOD_USER_REWARDS_COLL: 'curationPeriodUserRewards',
   CURATION_SNIPPET_DOC: 'curationSnippet',
   CURATION_SNIPPET_USERS_COLL: 'curationSnippetUsers',
+
+  /**
+   * rewards
+   */
+  REWARDS_COLL: 'rewards',
+  USER_REWARDS_COLL: 'userRewards',
+  USER_TXN_FEE_REWARDS_LEDGER_COLL: 'userTransactionFeeRewardsLedger',
+  USER_ALL_TIME_REWARDS_COLL: 'userAllTimeRewards',
+  USER_ALL_TIME_TXN_FEE_REWARDS_DOC: 'userAllTimeTransactionFeeRewards',
+  USER_REWARD_PHASES_COLL: 'userRewardPhases',
+
+  /**
+   * token prices
+   */
+  TOKEN_POOLS_COLL: 'tokenPools',
+  POOL_PRICES_COLL: 'poolPrices',
+
   /**
    * sales
    */
