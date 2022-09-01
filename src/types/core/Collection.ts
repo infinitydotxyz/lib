@@ -243,6 +243,7 @@ export interface CollectionMetadata {
   integrations?: CollectionIntegrations;
   displayType?: string;
   updatedAt?: number;
+  tipAddress?: string;
 }
 
 /**
