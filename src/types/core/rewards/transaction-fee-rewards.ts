@@ -21,7 +21,7 @@ export interface AllTimeTransactionFeeRewardsDoc {
   updatedAt: number;
 }
 
-export interface TransactionFeeRewardDpc {
+export interface TransactionFeeRewardDoc {
   userAddress: string;
   chainId: ChainId;
   sale: InfinityNftSale;
