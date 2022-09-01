@@ -185,3 +185,9 @@ export class RewardsProgramDto {
   })
   epochs: RewardEpochDto[];
 }
+
+export class RewardsProgramByEpochDto {
+  [Epoch.One]: RewardEpochDto;
+  [Epoch.Two]: RewardEpochDto;
+  [Epoch.Three]: RewardEpochDto;
+}
