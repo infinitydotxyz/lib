@@ -1,13 +1,14 @@
+import { RewardPhaseDto, TradingRewardDto } from '../../dto/rewards';
 import { ChainId } from '../ChainId';
 import { InfinityNftSale } from '../NftSale';
-import { Epoch, Phase, RewardPhase, TradingReward } from './reward-program';
+import { Epoch, Phase } from './reward-program';
 
 export interface TransactionFeePhaseRewardsDoc {
   epoch: Epoch;
   chainId: ChainId;
   phase: Phase;
-  tradingFeeRewards: Omit<TradingReward, 'rewardSupplyUsed'> | null;
-  nftRewards: Omit<TradingReward, 'rewardSupplyUsed'> | null;
+  tradingFeeRewards: Omit<TradingRewardDto, 'rewardSupplyUsed'> | null;
+  nftRewards: Omit<TradingRewardDto, 'rewardSupplyUsed'> | null;
   rewards: number;
   volume: number;
   updatedAt: number;
@@ -20,14 +21,14 @@ export interface AllTimeTransactionFeeRewardsDoc {
   updatedAt: number;
 }
 
-export interface TransactionFeeReward {
+export interface TransactionFeeRewardDpc {
   userAddress: string;
   chainId: ChainId;
   sale: InfinityNftSale;
   volumeWei: string;
   volumeEth: number;
   isSplit: boolean;
-  phase: RewardPhase;
+  phase: RewardPhaseDto;
   isAggregated: boolean;
   reward: number;
 }
