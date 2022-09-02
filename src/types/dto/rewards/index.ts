@@ -94,6 +94,16 @@ export class UserPhaseRewardDto {
   userRewards: number;
 
   @ApiProperty({
+    description: 'Total amount of sales the user has made during the phase'
+  })
+  userSells: number;
+
+  @ApiProperty({
+    description: 'Total number of purchases the user has made during the phase'
+  })
+  userBuys: number;
+
+  @ApiProperty({
     description:
       'Trading fee rewards description for the phase. If null, trading fee rewards are not enabled for the phase'
   })
@@ -154,6 +164,16 @@ export class UserTotalRewardsDto {
     description: 'Total amount of veNFT rewards the user has gained'
   })
   userRewards: number;
+
+  @ApiProperty({
+    description: 'Total amount of sales the user has made'
+  })
+  userSells: number;
+
+  @ApiProperty({
+    description: 'Total number of purchases the user has made'
+  })
+  userBuys: number;
 }
 
 export class UserRewardsDto {
