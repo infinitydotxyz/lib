@@ -41,6 +41,7 @@ export interface CurationPeriodMetadata {
   tokenContractChainId: ChainId;
   timestamp: number;
   periodDuration: number;
+  isAggregated: boolean;
 }
 
 export interface CurationPeriodDoc {
