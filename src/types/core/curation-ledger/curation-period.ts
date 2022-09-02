@@ -59,7 +59,7 @@ export interface CurationPeriodUserStats {
   tokenPrice: number;
 }
 
-export type CurationPeriodUserMetadata = CurationPeriodMetadata & {
+export type CurationPeriodUserMetadata = Omit<CurationPeriodMetadata, 'isAggregated'> & {
   userAddress: string;
   updatedAt: number;
 };
