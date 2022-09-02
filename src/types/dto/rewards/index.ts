@@ -174,6 +174,16 @@ export class UserTotalRewardsDto {
     description: 'Total number of purchases the user has made'
   })
   userBuys: number;
+
+  @ApiProperty({
+    description: 'Total amount of rewards gained via curation in wei'
+  })
+  userCurationRewardsWei: string;
+
+  @ApiProperty({
+    description: 'Total amount of rewards gained via curation in eth'
+  })
+  userCurationRewardsEth: number;
 }
 
 export class UserRewardsDto {
