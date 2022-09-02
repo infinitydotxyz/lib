@@ -12,8 +12,8 @@ export interface TransactionFeePhaseRewardsDoc {
   rewards: number;
   volume: number;
   updatedAt: number;
-  sales: number;
-  buys: number;
+  userSells: number;
+  userBuys: number;
 }
 
 export interface AllTimeTransactionFeeRewardsDoc {
@@ -21,8 +21,8 @@ export interface AllTimeTransactionFeeRewardsDoc {
   rewards: number;
   volume: number;
   updatedAt: number;
-  sales: number;
-  buys: number;
+  userSells: number;
+  userBuys: number;
 }
 
 export interface TransactionFeeRewardDoc {
