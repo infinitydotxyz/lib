@@ -4,6 +4,7 @@ import { InfinityNftSale } from '../NftSale';
 import { Epoch, Phase } from './reward-program';
 
 export interface TransactionFeePhaseRewardsDoc {
+  userAddress: string;
   epoch: Epoch;
   chainId: ChainId;
   phase: Phase;
@@ -17,6 +18,7 @@ export interface TransactionFeePhaseRewardsDoc {
 }
 
 export interface AllTimeTransactionFeeRewardsDoc {
+  userAddress: string;
   chainId: ChainId;
   rewards: number;
   volume: number;
