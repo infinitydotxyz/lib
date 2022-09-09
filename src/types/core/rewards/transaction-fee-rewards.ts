@@ -11,26 +11,30 @@ export interface TransactionFeePhaseRewardsDoc {
   tradingFeeRewards: Omit<TradingRewardDto, 'rewardSupplyUsed'> | null;
   nftRewards: Omit<TradingRewardDto, 'rewardSupplyUsed'> | null;
   rewards: number;
-  volume: number;
+  volumeEth: number;
+  volumeWei: string;
+  volumeUSDC: number;
   updatedAt: number;
   userSells: number;
   userBuys: number;
-  transactionFeesWei: string;
-  transactionFeesEth: number;
-  transactionFeesUSDC: number;
+  protocolFeesWei: string;
+  protocolFeesEth: number;
+  protocolFeesUSDC: number;
 }
 
 export interface AllTimeTransactionFeeRewardsDoc {
   userAddress: string;
   chainId: ChainId;
   rewards: number;
-  volume: number;
+  volumeEth: number;
+  volumeWei: string;
+  volumeUSDC: number;
   updatedAt: number;
   userSells: number;
   userBuys: number;
-  transactionFeesWei: string;
-  transactionFeesEth: number;
-  transactionFeesUSDC: number;
+  protocolFeesWei: string;
+  protocolFeesEth: number;
+  protocolFeesUSDC: number;
 }
 
 export interface TransactionFeeRewardDoc {
@@ -39,11 +43,12 @@ export interface TransactionFeeRewardDoc {
   sale: InfinityNftSale;
   volumeWei: string;
   volumeEth: number;
+  volumeUSDC: number;
   isSplit: boolean;
   phase: RewardPhaseDto;
   isAggregated: boolean;
   reward: number;
-  transactionFeesWei: string;
-  transactionFeesEth: number;
-  transactionFeesUSDC: number;
+  protocolFeesWei: string;
+  protocolFeesEth: number;
+  protocolFeesUSDC: number;
 }
