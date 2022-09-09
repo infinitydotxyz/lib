@@ -15,6 +15,9 @@ export interface TransactionFeePhaseRewardsDoc {
   updatedAt: number;
   userSells: number;
   userBuys: number;
+  transactionFeesWei: string;
+  transactionFeesEth: number;
+  transactionFeesUSDC: number;
 }
 
 export interface AllTimeTransactionFeeRewardsDoc {
@@ -25,6 +28,9 @@ export interface AllTimeTransactionFeeRewardsDoc {
   updatedAt: number;
   userSells: number;
   userBuys: number;
+  transactionFeesWei: string;
+  transactionFeesEth: number;
+  transactionFeesUSDC: number;
 }
 
 export interface TransactionFeeRewardDoc {
@@ -37,4 +43,7 @@ export interface TransactionFeeRewardDoc {
   phase: RewardPhaseDto;
   isAggregated: boolean;
   reward: number;
+  transactionFeesWei: string;
+  transactionFeesEth: number;
+  transactionFeesUSDC: number;
 }
