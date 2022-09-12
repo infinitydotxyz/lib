@@ -61,6 +61,11 @@ export class RewardPhaseDto {
   isActive: boolean;
 
   @ApiProperty({
+    description: 'The last block included in the phase. Determined by the last event that gets included in the phase.'
+  })
+  maxBlockNumber: number;
+
+  @ApiProperty({
     description:
       'Trading fee rewards description for the phase. If null, trading fee rewards are not enabled for the phase'
   })
