@@ -94,7 +94,7 @@ export class UserPhaseRewardDto {
   userVolume: number;
 
   @ApiProperty({
-    description: 'Total amount of veNFT rewards the user has gained during the phase'
+    description: 'Total amount of $NFT rewards the user has gained during the phase'
   })
   userRewards: number;
 
