@@ -22,10 +22,8 @@ export interface NonFinalizedUserRaffleTickets extends UserRaffleTicketsBase {
 
 export interface FinalizedUserRaffleTickets extends UserRaffleTicketsBase {
   tickets: {
-    startNumber: number;
-    endNumber: number;
-    startString: string;
-    endString: string;
+    start: string;
+    end: string;
   };
   isFinalized: true;
 }
