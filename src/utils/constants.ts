@@ -119,6 +119,13 @@ export const firestoreConstants = {
   USER_REWARD_PHASES_COLL: 'userRewardPhases',
 
   /**
+   * raffles
+   */
+  RAFFLE_TICKETS_COLL: 'raffleTickets',
+  RAFFLE_TICKETS_PHASES_COLL: 'raffleTicketPhases',
+  RAFFLE_TICKETS_PHASE_USERS_COLL: 'raffleTicketPhaseUsers',
+
+  /**
    * token prices
    */
   TOKEN_POOLS_COLL: 'tokenPools',
