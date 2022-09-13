@@ -10,10 +10,10 @@ export enum EventType {
   CoinMarketCapNews = 'CMC_NEWS',
   NftTransfer = 'NFT_TRANSFER',
   TokensStaked = 'TOKENS_STAKED',
-  TokensUnStaked = 'TOKENS_UN_STAKED',
-  TokensRageQuit = 'TOKENS_RAGE_QUIT',
   UserVote = 'USER_VOTE',
-  UserVoteRemoved = 'USER_VOTE_REMOVED'
+  UserVoteRemoved = 'USER_VOTE_REMOVED',
+  TokensUnStaked = 'TOKENS_UN_STAKED',
+  TokensRageQuit = 'TOKENS_RAGE_QUIT'
 }
 
 export const EventTypeNames: Record<EventType, string> = {
@@ -23,12 +23,12 @@ export const EventTypeNames: Record<EventType, string> = {
   [EventType.TwitterTweet]: 'Tweet',
   [EventType.DiscordAnnouncement]: 'Discord',
   [EventType.CoinMarketCapNews]: 'News',
-  [EventType.NftTransfer]: 'Transfer',
   [EventType.TokensStaked]: 'Staked',
-  [EventType.TokensUnStaked]: 'UnStaked',
-  [EventType.TokensRageQuit]: 'Rage Quit',
+  [EventType.NftTransfer]: 'Transfer',
   [EventType.UserVote]: 'User Vote',
-  [EventType.UserVoteRemoved]: 'User UnVote'
+  [EventType.UserVoteRemoved]: 'User UnVote',
+  [EventType.TokensUnStaked]: 'UnStaked',
+  [EventType.TokensRageQuit]: 'Rage Quit'
 };
 
 export interface BaseFeedEvent {
