@@ -1,11 +1,18 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { ChainId, Epoch, Phase } from '../../core';
+import { UserDisplayDataDto } from '../user/user-display-data.dto';
 
 export class UserRaffleTicketsDto {
   @ApiProperty({
     description: "The user's address"
   })
   userAddress: string;
+
+  @ApiProperty({
+    description: 'The minimum amount of data required to display the user'
+  })
+  user: UserDisplayDataDto;
+
   @ApiProperty({
     description: "The user's total number of tickets"
   })
