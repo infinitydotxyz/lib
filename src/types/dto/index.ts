@@ -3,6 +3,7 @@ export * from './collections';
 export * from './common';
 export * from './firebase';
 export * from './orders';
+export * from './raffle';
 export * from './sales';
 export * from './stats';
 export * from './twitter';
