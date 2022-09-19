@@ -27,4 +27,4 @@ export interface ErroredRaffleTicketPhaseDoc extends BaseRaffleTicketPhaseDoc {
   didError: true;
 }
 
-export type raffleTicketPhaseDoc = BaseRaffleTicketPhaseDoc | ErroredRaffleTicketPhaseDoc;
+export type RaffleTicketPhaseDoc = BaseRaffleTicketPhaseDoc | ErroredRaffleTicketPhaseDoc;
