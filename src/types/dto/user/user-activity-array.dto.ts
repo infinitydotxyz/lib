@@ -3,7 +3,7 @@ import { UserFeedEvent } from '../../core/feed';
 
 export class UserActivityArrayDto {
   @ApiProperty({
-    description: 'Array of user activities. NftListingEvent | NftSaleEvent | NftOfferEvent'
+    description: 'Array of user activities'
   })
   data: UserFeedEvent[];
 
