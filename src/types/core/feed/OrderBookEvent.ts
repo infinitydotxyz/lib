@@ -2,7 +2,7 @@ import { BaseFeedEventWithTitle } from './FeedEvent';
 import { BaseNftEvent, NftData } from './NftEvent';
 import { UserEvent } from './UserEvent';
 
-type UserOrderBookEvent = BaseNftEvent & UserEvent;
+export type UserOrderBookEvent = BaseNftEvent & UserEvent;
 
 export interface OrderItemData extends NftData, UserEvent {
   orderItemId: string;
