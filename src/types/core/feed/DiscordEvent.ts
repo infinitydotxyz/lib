@@ -1,4 +1,4 @@
-import { BaseFeedEvent } from '.';
+import { BaseFeedEvent, EventType } from '.';
 
 export interface DiscordAttachment {
   /**
@@ -79,4 +79,6 @@ export interface DiscordAnnouncementEvent extends BaseFeedEvent {
    * collectionProfileImage
    */
   collectionProfileImage: string;
+
+  type: EventType.DiscordAnnouncement;
 }

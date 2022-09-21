@@ -1,4 +1,4 @@
-import { BaseFeedEvent } from '.';
+import { BaseFeedEvent, EventType } from '.';
 
 export interface CoinMarketCapNewsEvent extends BaseFeedEvent {
   /**
@@ -61,4 +61,6 @@ export interface CoinMarketCapNewsEvent extends BaseFeedEvent {
    * Date the article was publically released at the specific source.
    */
   releasedAt: string;
+
+  type: EventType.CoinMarketCapNews;
 }
