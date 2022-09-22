@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mavriklabs/lib#readme",
   "keywords": [],
   "dependencies": {
-    "@nestjs/swagger": "^5.2.1",
+    "@nestjs/swagger": "^6.1.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "ethers": "^5.6.4"
