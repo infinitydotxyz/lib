@@ -84,4 +84,12 @@ export class TokenomicsPhaseDto {
     description: 'Trading fee refund for the phase'
   })
   tradingFeeRefund: TradingFeeRefundDto | null;
+
+  @ApiProperty({
+    description: 'Raffle config for the phase'
+  })
+  raffleConfig: {
+    phasePrize: { percentage: number };
+    grandPrize: { percentage: number };
+  } | null;
 }
