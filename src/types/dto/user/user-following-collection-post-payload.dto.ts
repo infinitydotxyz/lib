@@ -1,4 +1,4 @@
-import { PickType } from '@nestjs/mapped-types';
+import { PickType } from '@nestjs/swagger';
 import { UserFollowingCollection } from './user-following-collection.dto';
 
 export class UserFollowingCollectionPostPayload extends PickType(UserFollowingCollection, [

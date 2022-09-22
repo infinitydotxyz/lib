@@ -1,5 +1,5 @@
 import { UserProfileDto } from './user-profile.dto';
-import { PartialType, PickType } from '@nestjs/mapped-types';
+import { PartialType, PickType } from '@nestjs/swagger';
 
 export class UpdateUserProfileDto extends PickType(UserProfileDto, [
   'displayName',

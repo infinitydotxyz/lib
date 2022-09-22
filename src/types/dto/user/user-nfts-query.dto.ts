@@ -1,6 +1,4 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { PickType } from '@nestjs/mapped-types';
-
+import { ApiProperty, ApiPropertyOptional, PickType } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsNumber, IsString, IsOptional, IsEthereumAddress, IsArray, ArrayMaxSize, IsEnum } from 'class-validator';
 import { IsSupportedChainId } from '../../../decorators/is-supported-chain-id.decorator';

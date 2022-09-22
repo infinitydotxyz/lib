@@ -1,6 +1,4 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
-import { PickType } from '@nestjs/mapped-types';
-
+import { ApiPropertyOptional, PickType } from '@nestjs/swagger';
 import { IsEnum, IsOptional } from 'class-validator';
 import { OrderDirection } from '../../core';
 import { PaginatedQuery } from '../common';
