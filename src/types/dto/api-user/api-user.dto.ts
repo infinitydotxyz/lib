@@ -1,4 +1,6 @@
-import { ApiProperty, PickType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
+import { PickTypeX } from '../../../utils';
+
 import { Type } from 'class-transformer';
 import { IsString, ValidateNested, IsNotEmpty, IsNumber } from 'class-validator';
 import { PartialTypeX } from '../../../utils/swagger-types';
@@ -44,10 +46,10 @@ export class ApiUserDto {
   updatedAt: number;
 }
 
-export class AdminUpdateApiUserDto extends PickType(ApiUserDto, ['name', 'config']) {}
+export class AdminUpdateApiUserDto extends PickTypeX(ApiUserDto, ['name', 'config']) {}
 export class PartialAdminUpdateApiUserDto extends PartialTypeX(AdminUpdateApiUserDto) {}
 
-export class ApiUserPublicDto extends PickType(ApiUserDto, ['id', 'name']) {
+export class ApiUserPublicDto extends PickTypeX(ApiUserDto, ['id', 'name']) {
   @ApiProperty({
     description: 'The configuration of the user'
   })

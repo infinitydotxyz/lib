@@ -1,7 +1,7 @@
-import { PickType } from '@nestjs/swagger';
+import { PickTypeX } from '../../../utils';
 import { UserFollowingCollection } from './user-following-collection.dto';
 
-export class UserFollowingCollectionPostPayload extends PickType(UserFollowingCollection, [
+export class UserFollowingCollectionPostPayload extends PickTypeX(UserFollowingCollection, [
   'collectionAddress',
   'collectionChainId'
 ] as const) {}
