@@ -2,6 +2,7 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsBoolean, IsOptional } from 'class-validator';
 import { parseBoolTransformer } from '../../../transformers/parse-bool.transformer';
+import { IntersectionTypeX } from '../../../utils/swagger-types';
 
 export class UserProfileImagesDto {
   @ApiPropertyOptional({
@@ -36,11 +37,5 @@ export class DeleteUserProfileImagesDto {
   @IsOptional()
   deleteBannerImage?: boolean;
 }
-
-// from swagger
-export interface TypeX<T = any> extends Function {
-  new (...args: any[]): T;
-}
-declare function IntersectionTypeX<A, B>(classARef: TypeX<A>, classBRef: TypeX<B>): TypeX<A & B>;
 
 export class UpdateUserProfileImagesDto extends IntersectionTypeX(UserProfileImagesDto, DeleteUserProfileImagesDto) {}
