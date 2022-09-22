@@ -7,5 +7,4 @@ export * from './generic';
 export * from './links';
 export * from './orders';
 export * from './stats';
-export * from './swagger-types';
 export * from './user';

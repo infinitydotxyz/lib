@@ -1,4 +1,4 @@
-import { PickTypeX } from '../../../utils';
+import { PickType } from '@nestjs/swagger';
 import { UserFollowingUser } from './user-following-user.dto';
 
-export class UserFollowingUserDeletePayload extends PickTypeX(UserFollowingUser, ['userAddress'] as const) {}
+export class UserFollowingUserDeletePayload extends PickType(UserFollowingUser, ['userAddress'] as const) {}

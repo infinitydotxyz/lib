@@ -1,7 +1,6 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsArray, IsOptional, IsString, ValidateNested } from 'class-validator';
-import { PartialTypeX } from '../../../utils/swagger-types';
 import { CollectionMetadata } from '../../core';
 import { CollectionIntegrationsDto } from './collection-integrations.dto';
 import { CollectionLinksDto } from './collection-links.dto';
@@ -72,4 +71,4 @@ export class CollectionMetaDataDto implements CollectionMetadata {
   displayType?: string;
 }
 
-export class PartialCollectionMetadataDto extends PartialTypeX(CollectionMetaDataDto) {}
+export class PartialCollectionMetadataDto extends PartialType(CollectionMetaDataDto) {}

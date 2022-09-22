@@ -1,8 +1,7 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional, PickType } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsArray, IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { arrayTransformer, parseIntTransformer } from '../../../../transformers';
-import { PickTypeX } from '../../../../utils';
 import { OrderDirection } from '../../../core';
 import { PriceFilterDto } from './price-filter.dto';
 
@@ -18,7 +17,7 @@ export enum OrderType {
   Offer = 'offer'
 }
 
-export class NftsQueryDto extends PickTypeX(PriceFilterDto, ['minPrice', 'maxPrice', 'currency'] as const) {
+export class NftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'maxPrice', 'currency'] as const) {
   @ApiProperty({
     description: 'Property to order nfts by',
     enum: NftsOrderBy
