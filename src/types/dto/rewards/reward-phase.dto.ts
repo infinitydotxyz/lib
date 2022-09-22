@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Phase, Epoch, RewardProgram } from '../../core';
-import { TradingRewardDto } from './trading-reward.dto';
+import { TradingFeeRefundDto } from './trading-reward.dto';
 
 export class RewardPhaseDto {
   @ApiProperty({
@@ -27,12 +27,12 @@ export class RewardPhaseDto {
     description:
       'Trading fee rewards description for the phase. If null, trading fee rewards are not enabled for the phase'
   })
-  [RewardProgram.TradingFee]: TradingRewardDto | null;
+  [RewardProgram.TradingFee]: TradingFeeRefundDto | null;
 
   @ApiProperty({
     description: 'NFT reward description for the phase. If null, NFT rewards are not enabled for the phase'
   })
-  [RewardProgram.NftReward]: TradingRewardDto | null;
+  [RewardProgram.NftReward]: TradingFeeRefundDto | null;
 
   @ApiProperty({
     description: 'Curation rewards description for the phase. If false, curation rewards are not enabled for the phase'

@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { RewardType } from '../../core';
 
-export class TradingRewardDto {
+export class TradingFeeRefundDto {
   @ApiProperty({
     description: 'Maximum reward that can be claimed'
   })
@@ -16,12 +15,6 @@ export class TradingRewardDto {
     description: 'Reward rate denominator'
   })
   rewardRateDenominator: number;
-
-  @ApiProperty({
-    description: 'Reward type',
-    enum: RewardType
-  })
-  rewardType: RewardType;
 
   @ApiProperty({
     description: 'Total reward supply'
