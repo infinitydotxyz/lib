@@ -1,6 +1,6 @@
 {
   "name": "@infinityxyz/lib-frontend",
-  "version": "1.204.15",
+  "version": "1.204.14",
   "description": "Stripped down version of @infinityxyz/lib suited for frontend development",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mavriklabs/lib#readme",
   "keywords": [],
   "dependencies": {
-    "@nestjs/swagger": "^5.2.1",
+    "@nestjs/swagger": "^6.1.2",
     "ethers": "^5.6.4"
   }
 }
