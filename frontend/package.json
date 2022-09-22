@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mavriklabs/lib#readme",
   "keywords": [],
   "dependencies": {
-    "@nestjs/common": "^9.1.1",
+    "@nestjs/common": "^9.1.2",
     "@nestjs/mapped-types": "^1.1.0",
     "cache-manager": "^4.1.0",
     "class-transformer": "^0.5.1",
