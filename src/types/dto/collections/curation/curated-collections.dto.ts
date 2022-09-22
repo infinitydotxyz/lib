@@ -101,6 +101,11 @@ export class CuratedCollectionDto {
    * Name of the collection.
    */
   name: string;
+
+  /**
+   * whether the collection is verified.
+   */
+  hasBlueCheck: boolean;
 }
 
 export class CuratedCollectionsDto {
