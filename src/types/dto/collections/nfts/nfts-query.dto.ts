@@ -1,4 +1,6 @@
-import { ApiProperty, ApiPropertyOptional, PickType } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { PickType } from '@nestjs/mapped-types';
+
 import { Transform } from 'class-transformer';
 import { IsArray, IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { arrayTransformer, parseIntTransformer } from '../../../../transformers';

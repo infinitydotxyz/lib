@@ -1,4 +1,6 @@
-import { ApiProperty, PickType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
+import { PickType } from '@nestjs/mapped-types';
+
 import { Type } from 'class-transformer';
 import { ValidateNested, IsNotEmpty, IsEnum } from 'class-validator';
 import { ApiRole } from '../../core/api-user/api-role';

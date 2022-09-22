@@ -1,4 +1,5 @@
-import { ApiProperty, PartialType, PickType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
+import { PartialType, PickType } from '@nestjs/mapped-types';
 import { Type } from 'class-transformer';
 import { IsString, ValidateNested, IsNotEmpty, IsNumber } from 'class-validator';
 import { ApiUserConfigDto, ApiUserConfigPublicDto } from './api-user-config.dto';

@@ -1,4 +1,6 @@
-import { ApiPropertyOptional, IntersectionType } from '@nestjs/swagger';
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { IntersectionType } from '@nestjs/mapped-types';
+
 import { Transform } from 'class-transformer';
 import { IsBoolean, IsOptional } from 'class-validator';
 import { parseBoolTransformer } from '../../../transformers/parse-bool.transformer';
