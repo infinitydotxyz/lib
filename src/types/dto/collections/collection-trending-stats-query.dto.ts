@@ -1,5 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
+import { parseIntTransformer } from '../../../transformers';
 import { StatsPeriod } from '../../core';
 
 export class CollectionTrendingStatsQueryDto {
@@ -16,4 +18,11 @@ export class CollectionTrendingStatsQueryDto {
   @IsString()
   @IsOptional()
   queryBy?: string;
+
+  @ApiPropertyOptional({
+    description: 'Number of results to get. Max of 50'
+  })
+  @IsNumber()
+  @Transform(parseIntTransformer({ max: 50 }))
+  limit?: number;
 }
