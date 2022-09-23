@@ -1,5 +1,4 @@
 import { TradingFeeRefundDto } from '../../dto';
-import { TokenomicsPhaseDto } from '../../dto/rewards/tokenomics-phase.dto';
 import { ChainId } from '../ChainId';
 import { InfinityNftSale } from '../NftSale';
 
@@ -45,7 +44,10 @@ export interface TransactionFeeRewardDoc {
   volumeEth: number;
   volumeUSDC: number;
   isSplit: boolean;
-  phase: TokenomicsPhaseDto;
+  phaseId: string;
+  phaseName: string;
+  phaseIndex: number;
+  config: Omit<TradingFeeRefundDto, 'rewardSupplyUsed'>;
   isAggregated: boolean;
   reward: number;
   protocolFeesWei: string;
