@@ -3,6 +3,7 @@ export * from './reward-epoch.dto';
 export * from './reward-phase.dto';
 export * from './rewards-program-by-epoch.dto';
 export * from './rewards-program.dto';
+export * from './tokenomics-config.dto';
 export * from './tokenomics-phase.dto';
 export * from './trading-reward.dto';
 export * from './user-epoch-reward.dto';

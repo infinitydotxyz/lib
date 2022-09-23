@@ -98,6 +98,11 @@ export class CuratedCollectionDto {
   profileImage: string;
 
   /**
+   * Banner image URL of the collection.
+   */
+  bannerImage: string;
+
+  /**
    * Name of the collection.
    */
   name: string;
