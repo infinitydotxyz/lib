@@ -23,6 +23,7 @@ export class CollectionTrendingStatsQueryDto {
     description: 'Number of results to get. Max of 50'
   })
   @IsNumber()
+  @IsOptional()
   @Transform(parseIntTransformer({ max: 50 }))
   limit?: number;
 }
