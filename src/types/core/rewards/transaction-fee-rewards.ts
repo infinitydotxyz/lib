@@ -19,6 +19,7 @@ export interface TransactionFeePhaseRewardsDoc {
   protocolFeesEth: number;
   protocolFeesUSDC: number;
   config: Omit<TradingFeeRefundDto, 'rewardSupplyUsed'>;
+  isCopiedToRaffles: boolean;
 }
 
 export interface AllTimeTransactionFeeRewardsDoc {
@@ -34,6 +35,7 @@ export interface AllTimeTransactionFeeRewardsDoc {
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
+  isCopiedToRaffles: boolean;
 }
 
 export interface TransactionFeeRewardDoc {
