@@ -35,7 +35,6 @@ export interface AllTimeTransactionFeeRewardsDoc {
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
-  isCopiedToRaffles: boolean;
 }
 
 export interface TransactionFeeRewardDoc {
