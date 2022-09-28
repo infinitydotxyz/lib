@@ -117,3 +117,17 @@ export interface AlchemyErc1155NftWithMetadata extends AlchemyNftWithMetadata {
 }
 
 export type AlchemyNft = AlchemyNftWithoutMetadata | AlchemyErc721NftWithMetadata | AlchemyErc1155NftWithMetadata;
+
+export enum AlchemyMarketplaceSource {
+  OpenSea = 'openSea',
+  LooksRare = 'looksRare'
+}
+
+export interface MarketplaceFloorPrice {
+  floorPrice: number;
+  priceCurrency: string;
+  retrievedAt: string;
+  collectionUrl: string;
+}
+
+export type AlchemyFloorPriceResponse = Record<AlchemyMarketplaceSource, MarketplaceFloorPrice>;
