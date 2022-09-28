@@ -37,7 +37,7 @@ export interface EntrantOrderItem {
   hasBlueCheck: boolean;
   collectionAddress: string;
   collectionSlug: string;
-  floorPriceEth: number;
+  floorPriceEth: number | null;
   startPriceEth: number;
   endPriceEth: number;
   tokenId: string;
