@@ -1,3 +1,4 @@
+import { FeesGeneratedDto } from '../../dto';
 import { ChainId } from '../ChainId';
 import { InfinityNftSale } from '../NftSale';
 import { StakeInfo } from '../StakerEvents';
@@ -32,6 +33,7 @@ export interface CurationLedgerSale extends InfinityNftSale, CurationLedgerEvent
    * no stake info to merge
    */
   isStakeMerged: true;
+  feesGenerated: FeesGeneratedDto;
 }
 
 export interface CurationVotesAdded extends CurationLedgerEventType {
