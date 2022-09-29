@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { FeesGeneratedDto } from './fees-generated.dto';
+import { RaffleConfigDto } from './raffle-config.dto';
 import { TradingFeeRefundDto } from './trading-reward.dto';
 
 export enum TradingFeeProgram {
@@ -89,7 +90,7 @@ export class TokenomicsPhaseDto {
     description: 'Raffle config for the phase'
   })
   raffleConfig: {
-    phasePrize: { percentage: number };
-    grandPrize: { percentage: number };
+    phasePrize: RaffleConfigDto;
+    grandPrize: RaffleConfigDto;
   } | null;
 }

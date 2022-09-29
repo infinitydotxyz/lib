@@ -1,4 +1,6 @@
 export * from './fees-generated.dto';
+export * from './raffle-config.dto';
+export * from './raffle-ticket-config.dto';
 export * from './reward-epoch.dto';
 export * from './reward-phase.dto';
 export * from './rewards-program-by-epoch.dto';
