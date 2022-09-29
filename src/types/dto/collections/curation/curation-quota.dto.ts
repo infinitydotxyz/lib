@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber } from 'class-validator';
+import { IsEnum, IsNumber } from 'class-validator';
+import { StakeLevel } from '../../../core/StakeLevel';
 import { UserStakeDto } from '../../user';
 
 export class CurationQuotaDto {
@@ -29,4 +30,11 @@ export class CurationQuotaDto {
   @ApiProperty()
   @IsNumber()
   tokenBalance: number;
+
+  /**
+   * User staking level.
+   */
+  @ApiProperty()
+  @IsEnum(StakeLevel)
+  stakeLevel: StakeLevel;
 }
