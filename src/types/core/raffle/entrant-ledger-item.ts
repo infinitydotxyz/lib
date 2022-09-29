@@ -75,7 +75,6 @@ export interface PreMergeEntrantOrderLedgerItem
     items: EntrantOrderItem[];
   };
   blockNumber: number;
-  isMerged: boolean;
 }
 
 export type EntrantLedgerItem = EntrantFeesLedgerItem | EntrantOrderLedgerItem;
