@@ -12,6 +12,11 @@ export interface EntrantLedgerItemBase {
   updatedAt: number;
   isAggregated: boolean;
   entrantAddress: string;
+  phaseId: string;
+  phaseName: string;
+  phaseIndex: number;
+  stakerContractAddress: string;
+  stakerContractChainId: ChainId;
 }
 
 export interface EntrantFeesLedgerItem extends EntrantLedgerItemBase {
@@ -57,7 +62,11 @@ export interface EntrantOrderLedgerItem extends EntrantLedgerItemBase {
   stakeLevel: number;
 }
 
-export interface PreMergeEntrantOrderLedgerItem extends Omit<EntrantOrderLedgerItem, 'stakeLevel'> {
+export interface PreMergeEntrantOrderLedgerItem
+  extends Omit<
+    EntrantOrderLedgerItem,
+    'stakeLevel' | 'phaseId' | 'phaseName' | 'phaseIndex' | 'stakerContractAddress' | 'stakerContractChainId'
+  > {
   discriminator: EntrantLedgerItemVariant.Offer | EntrantLedgerItemVariant.Listing;
   order: {
     id: string;
