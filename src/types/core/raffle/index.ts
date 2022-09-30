@@ -1,3 +1,6 @@
 export * from './entrant-ledger-item';
-export * from './raffle-ticket-phase';
+export * from './entrant';
+export * from './raffle-config';
+export * from './raffle-rewards';
+export * from './raffle-ticket-totals';
 export * from './user-raffle-tickets';
