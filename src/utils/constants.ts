@@ -105,8 +105,11 @@ export const firestoreConstants = {
   CURATION_BLOCK_USER_REWARDS_COLL: 'curationBlockUserRewards',
   CURATION_PERIOD_REWARDS_COLL: 'curationPeriodRewards',
   CURATION_PERIOD_USER_REWARDS_COLL: 'curationPeriodUserRewards',
+  CURATION_SNIPPETS_COLL: 'curationSnippets',
   CURATION_SNIPPET_DOC: 'curationSnippet',
   CURATION_SNIPPET_USERS_COLL: 'curationSnippetUsers',
+  STAKER_CONTRACT_CURATION_PERIODS_COLL: 'stakerContractCurationPeriods',
+  STAKER_CONTRACT_CURATION_PERIOD_USERS_COLL: 'stakerContractCurationPeriodsUsers',
 
   /**
    * rewards
@@ -124,6 +127,24 @@ export const firestoreConstants = {
   RAFFLE_TICKETS_COLL: 'raffleTickets',
   RAFFLE_TICKETS_PHASES_COLL: 'raffleTicketPhases',
   RAFFLE_TICKETS_PHASE_USERS_COLL: 'raffleTicketPhaseUsers',
+
+  RAFFLES_COLL: 'raffles',
+  STAKING_CONTRACT_RAFFLES_COLL: 'stakingContractRaffles',
+  RAFFLE_ENTRANTS_COLL: 'raffleEntrants',
+  RAFFLE_ENTRANTS_LEDGER_COLL: 'raffleEntrantLedger',
+  RAFFLE_TOTALS_COLL: 'raffleTotals',
+  RAFFLE_TOTALS_REWARDS_DOC: 'raffleRewards',
+  RAFFLE_REWARDS_LEDGER_COLL: 'raffleRewardsLedger',
+  RAFFLE_TRIGGERS_COLL: 'raffleTriggers',
+  RAFFLE_LEDGER_TRIGGER_DOC: 'rewardsLedgerTrigger',
+  RAFFLE_TICKET_TOTALS_DOC: 'raffleTicketTotals',
+  USER_RAFFLE_ORDERS_LEDGER_COLL: 'userRaffleOrdersLedger',
+
+  /**
+   * treasury
+   */
+  TREASURY_COLL: 'treasury',
+  TREASURY_LEDGER_COLL: 'treasuryLedger',
 
   /**
    * token prices
