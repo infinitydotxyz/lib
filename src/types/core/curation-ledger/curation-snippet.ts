@@ -13,12 +13,19 @@ export interface CurrentCurationSnippetMetadata {
   updatedAt: number;
 }
 
+export interface CurrentCurationSnippetStats {
+  numCurators: number;
+  numCuratorVotes: number;
+}
+
 export interface CurrentCurationSnippetDoc {
   currentPeriod: Pick<CurationPeriodDoc, 'metadata' | 'stats'> | null;
   mostRecentCompletedPeriod: Pick<CurationPeriodDoc, 'metadata' | 'stats'> | null;
 
   currentBlock: Pick<CurationBlockRewardsDoc, 'metadata' | 'stats'> | null;
   mostRecentCompletedBlock: Pick<CurationBlockRewardsDoc, 'metadata' | 'stats'> | null;
+
+  stats: CurrentCurationSnippetStats;
 
   collection: CollectionDisplayData;
   metadata: CurrentCurationSnippetMetadata;
