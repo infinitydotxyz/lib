@@ -3,4 +3,3 @@ export * from './entrant';
 export * from './raffle-config';
 export * from './raffle-rewards';
 export * from './raffle-ticket-totals';
-export * from './user-raffle-tickets';
