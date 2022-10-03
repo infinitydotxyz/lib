@@ -3,7 +3,7 @@ import { parseEther } from '@ethersproject/units';
 import { BytesLike } from 'ethers';
 import { defaultAbiCoder, keccak256, recoverAddress, solidityKeccak256 } from 'ethers/lib/utils';
 import { ChainId, ChainNFTs, ChainOBOrder, Erc20TokenMetadata, OBOrder } from '../types/core';
-import { chainConstants, CURRENT_VERSION, Env, NULL_ADDRESS } from './constants';
+import { chainConstants, CURRENT_VERSION, Env, NULL_ADDRESS, Version } from './constants';
 import { trimLowerCase } from './formatters';
 
 export function getTxnCurrencyAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
@@ -54,6 +54,19 @@ export function getTokenAddressByStakerAddress(chainId: ChainId, stakerContractA
     tokenContractChainId: token.chainId,
     tokenContractAddress: token.address
   };
+}
+
+/**
+ * returns an array of staker contracts that should currently be supported by services
+ */
+export function getRelevantStakerContracts(chainId: ChainId) {
+  if (chainId === ChainId.Mainnet) {
+    return [
+      getStakerAddress(ChainId.Mainnet, Env.Prod, Version.V2),
+      getStakerAddress(ChainId.Mainnet, Env.Prod, Version.V1)
+    ];
+  }
+  return [getStakerAddress(chainId)];
 }
 
 export const getOBOrderPrice = (
