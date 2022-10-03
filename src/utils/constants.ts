@@ -240,7 +240,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           token: {
             address: ETHEREUM_TOKEN_CONTRACT_ADDRESS,
             name: 'Infinity',
-            symbol: 'NFT',
+            symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
           }
@@ -259,7 +259,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           token: {
             address: ETHEREUM_TOKEN_CONTRACT_ADDRESS,
             name: 'Infinity',
-            symbol: 'NFT',
+            symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
           }
@@ -280,7 +280,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           token: {
             address: GOERLI_TOKEN_CONTRACT_ADDRESS,
             name: 'Goerli Infinity',
-            symbol: 'NFT',
+            symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Goerli
           }
@@ -299,7 +299,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           token: {
             address: GOERLI_TOKEN_CONTRACT_ADDRESS,
             name: 'Goerli Infinity',
-            symbol: 'NFT',
+            symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Goerli
           }
