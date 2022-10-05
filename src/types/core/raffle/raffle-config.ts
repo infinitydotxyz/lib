@@ -28,7 +28,7 @@ export enum RaffleState {
   /**
    * winner has been selected
    */
-  Completed = 'COMPLETED' // TODO handle transitioning to completed
+  Completed = 'COMPLETED'
 }
 
 export interface StakingContractRaffle {
@@ -57,6 +57,7 @@ export interface UserRaffleConfig {
     minTimeValid: number;
     ticketMultiplier: number;
   };
+  volume: { ticketRateDenominator: number; ticketRateNumerator: number };
 }
 
 export interface UserRaffle extends StakingContractRaffle {
