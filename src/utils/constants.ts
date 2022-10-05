@@ -171,7 +171,13 @@ export const firestoreConstants = {
    * contract listeners
    */
   PROTOCOL_FEE_EVENTS_COLL: 'protocolFeeEvents',
-  CONTRACT_EVENTS: '_contractEvents'
+  CONTRACT_EVENTS: '_contractEvents',
+
+  /**
+   * collection favorites (collection pot)
+   */
+  COLLECTION_PHASE_FAVORITES: 'collectionPhaseFavorites',
+  USER_PHASE_FAVORITES: 'userPhaseFavorites'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
