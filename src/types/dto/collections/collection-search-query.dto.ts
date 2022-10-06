@@ -1,7 +1,8 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { parseIntTransformer } from '../../../transformers/parse-int.transformer';
+import { ChainId } from '../../core';
 
 export class CollectionSearchQueryDto {
   @ApiProperty({
@@ -10,6 +11,14 @@ export class CollectionSearchQueryDto {
   @IsString()
   @IsOptional()
   query?: string;
+
+  @ApiPropertyOptional({
+    description: 'The chain id to filter by',
+    enum: ChainId
+  })
+  @IsEnum(ChainId)
+  @IsOptional()
+  chainId?: ChainId;
 
   @ApiProperty({
     description: 'Number of results to get. Max of 100'
