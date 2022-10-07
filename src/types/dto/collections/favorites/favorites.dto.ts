@@ -46,6 +46,9 @@ export class CollectionFavoriteDto {
 
   @ApiProperty()
   slug: string;
+
+  @ApiProperty()
+  phaseId: string;
 }
 
 /**
