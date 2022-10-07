@@ -1,11 +1,11 @@
-import { ApiProperty, PickType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsNumber, IsBoolean } from 'class-validator';
 import { ChainId } from '../../../core';
 
 /**
- * Encapsulates the current user-favorite collection.
+ * Encapsulates favorite collections data (for the leaderboard).
  */
-export class UserFavoriteDto {
+export class CollectionFavoriteDto {
   @ApiProperty()
   @IsString()
   collectionChainId: string;
@@ -14,26 +14,6 @@ export class UserFavoriteDto {
   @IsString()
   collectionAddress: string;
 
-  /**
-   * Timestamp indiciating when this entry got created.
-   */
-  @ApiProperty()
-  @IsNumber()
-  timestamp: number;
-
-  @ApiProperty()
-  userAddress: string;
-
-  @ApiProperty({
-    enum: ChainId
-  })
-  userChainId: ChainId;
-}
-
-/**
- * Encapsulates favorite collections data (for the leaderboard).
- */
-export class CollectionFavoriteDto extends PickType(UserFavoriteDto, ['collectionChainId', 'collectionAddress']) {
   /**
    * Timestamp indicating when this entry was modified.
    */
@@ -66,6 +46,19 @@ export class CollectionFavoriteDto extends PickType(UserFavoriteDto, ['collectio
 
   @ApiProperty()
   slug: string;
+}
+
+/**
+ * Encapsulates the current user-favorite collection.
+ */
+export class UserFavoriteDto extends CollectionFavoriteDto {
+  @ApiProperty()
+  userAddress: string;
+
+  @ApiProperty({
+    enum: ChainId
+  })
+  userChainId: ChainId;
 }
 
 export class CollectionFavoriteQueryResultDto {
