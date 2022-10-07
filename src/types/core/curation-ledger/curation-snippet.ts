@@ -16,6 +16,8 @@ export interface CurrentCurationSnippetMetadata {
 export interface CurrentCurationSnippetStats {
   numCurators: number;
   numCuratorVotes: number;
+  feesAPR: number;
+  feesAccruedEth: number;
 }
 
 export interface CurrentCurationSnippetDoc {
