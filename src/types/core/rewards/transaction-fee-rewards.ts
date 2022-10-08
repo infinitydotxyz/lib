@@ -35,6 +35,7 @@ export interface AllTimeTransactionFeeRewardsDoc {
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
+  v1Airdrop: number;
 }
 
 export interface TransactionFeeRewardDoc {
