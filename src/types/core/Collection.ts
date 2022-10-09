@@ -92,6 +92,7 @@ export type CollectionPeriodStatsContent = {
   contractSlug?: string;
   avgPrice?: number;
   minPrice?: number;
+  floorPrice?: number;
   maxPrice?: number;
   marketCap?: number;
   salesVolume?: number;
