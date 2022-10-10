@@ -18,7 +18,7 @@ export enum Version {
   V1 = 'v1',
   V2 = 'v2'
 }
-export const CURRENT_VERSION = Version.V1; // TODO update this to start using the new token/staker contracts
+export const CURRENT_VERSION = Version.V2;
 
 export const ONE_MIN = 60 * 1000;
 export const ONE_HOUR = 60 * ONE_MIN;
