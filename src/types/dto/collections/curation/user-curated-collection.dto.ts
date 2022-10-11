@@ -1,7 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { ChainId } from '../../../core';
 
-export class CuratedCollectionDto {
+export class UserCuratedCollectionDto {
   /**
    * Collection address.
    */
@@ -39,6 +39,16 @@ export class CuratedCollectionDto {
    */
   @ApiProperty()
   tokenContractChainId: ChainId;
+
+  /**
+   * The user who curated this collection.
+   */
+  curator: {
+    address: string;
+    votes: number;
+    fees: number;
+    feesAPR: number;
+  };
 
   /**
    * Fees accrued in USD.
@@ -90,9 +100,9 @@ export class CuratedCollectionDto {
   hasBlueCheck: boolean;
 }
 
-export class CuratedCollectionsDto {
-  @ApiProperty({ type: CuratedCollectionsDto, isArray: true })
-  data: CuratedCollectionDto[];
+export class UserCuratedCollectionsDto {
+  @ApiProperty({ type: UserCuratedCollectionsDto, isArray: true })
+  data: UserCuratedCollectionDto[];
 
   @ApiPropertyOptional()
   cursor?: string;
