@@ -1,4 +1,4 @@
-import { BaseFeedEvent, EventType } from '.';
+import { BaseCollectionEvent, EventType } from '.';
 
 export interface DiscordAttachment {
   /**
@@ -34,7 +34,7 @@ export interface DiscordAttachment {
   name?: string;
 }
 
-export interface DiscordAnnouncementEvent extends BaseFeedEvent {
+export interface DiscordAnnouncementEvent extends BaseCollectionEvent {
   /**
    * Message ID.
    */
@@ -56,7 +56,7 @@ export interface DiscordAnnouncementEvent extends BaseFeedEvent {
   author: string;
 
   /**
-   * Disocrd message body.
+   * Discord message body.
    */
   content: string;
 
@@ -64,21 +64,6 @@ export interface DiscordAnnouncementEvent extends BaseFeedEvent {
    * Optional image.
    */
   attachments?: DiscordAttachment[];
-
-  /**
-   * collectionName
-   */
-  collectionName: string;
-
-  /**
-   * collectionSlug
-   */
-  collectionSlug: string;
-
-  /**
-   * collectionProfileImage
-   */
-  collectionProfileImage: string;
 
   type: EventType.DiscordAnnouncement;
 }
