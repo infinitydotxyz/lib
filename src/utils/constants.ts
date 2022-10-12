@@ -266,15 +266,15 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
         infinityContracts: {
           exchangeAddress: ETHEREUM_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS,
-          stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS,
+          stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS_TEST,
           token: {
-            address: ETHEREUM_TOKEN_CONTRACT_ADDRESS,
-            name: 'Infinity Token',
+            address: ETHEREUM_TOKEN_CONTRACT_ADDRESS_TEST,
+            name: 'Infinity Test Token',
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
           },
-          cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS
+          cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS_TEST
         }
       }
     },
