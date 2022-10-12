@@ -203,12 +203,15 @@ export const ETHEREUM_CHAIN_SCANNER_BASE = 'https://etherscan.io';
 export const ETHEREUM_WETH_ADDRESS = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase();
 export const ETHEREUM_STAKER_CONTRACT_ADDRESS_TEST = '0xbFf1B5b3B9775b6A775FdC1e688d0f365B49648A'.toLowerCase();
 export const ETHEREUM_TOKEN_CONTRACT_ADDRESS_TEST = '0xcb14EBeF218aa871e791EB2AA6eF131540C3a6c4'.toLowerCase();
+export const ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS_TEST = '0xCbd4c47D4a37193486e0EC4B21addE8a9F979297'.toLowerCase();
+
 
 export const ETHEREUM_TOKEN_CONTRACT_ADDRESS = '0xbAdA557cdFA4f5a45bf7fed3cBb40Db567f9E9Ad'.toLowerCase();
 export const ETHEREUM_STAKER_CONTRACT_ADDRESS = '0xBAda55fA5FF3850fC979455F27F0cA3f1178Be55'.toLowerCase();
 
 export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0xbADa5551B2f08d3959329B2fF8D0A7CC8BE26324'.toLowerCase();
 export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0xbaDa5555fe632ace2C90Fee8C060703369c25f1c'.toLowerCase();
+export const ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS = '0xbada557cdfa4f5a45bf7fed3cbb40db567f9e9ad'.toLowerCase();
 
 // goerli
 export const GOERLI_NETWORK_NAME = 'goerli';
@@ -253,7 +256,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
-          }
+          },
+          cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS_TEST
         }
       },
       [Version.V2]: {
@@ -270,7 +274,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
-          }
+          },
+          cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS_TEST
         }
       }
     },
@@ -289,7 +294,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
-          }
+          },
+          cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS
         }
       },
       [Version.V2]: {
@@ -306,7 +312,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
-          }
+          },
+          cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS
         }
       }
     }
@@ -327,7 +334,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Goerli
-          }
+          },
+          cmDistributorAddress: ''
         }
       },
       [Version.V2]: {
@@ -344,7 +352,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Goerli
-          }
+          },
+          cmDistributorAddress: ''
         }
       }
     },
@@ -363,7 +372,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Goerli
-          }
+          },
+          cmDistributorAddress: ''
         }
       },
       [Version.V2]: {
@@ -380,7 +390,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Goerli
-          }
+          },
+          cmDistributorAddress: ''
         }
       }
     }
@@ -395,7 +406,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: '',
-          token: {} as any
+          token: {} as any,
+          cmDistributorAddress: ''
         }
       },
       [Version.V2]: {
@@ -406,7 +418,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: '',
-          token: {} as any
+          token: {} as any,
+          cmDistributorAddress: ''
         }
       }
     },
@@ -419,7 +432,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: '',
-          token: {} as any
+          token: {} as any,
+          cmDistributorAddress: ''
         }
       },
       [Version.V2]: {
@@ -430,7 +444,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_INFINITY_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_INFINITY_OB_COMPLICATION_ADDRESS,
           stakerAddress: '',
-          token: {} as any
+          token: {} as any,
+          cmDistributorAddress: ''
         }
       }
     }
@@ -446,5 +461,6 @@ interface ChainIdConstants {
     obComplicationAddress: string;
     stakerAddress: string;
     token: Erc20TokenMetadata;
+    cmDistributorAddress: string;
   };
 }
