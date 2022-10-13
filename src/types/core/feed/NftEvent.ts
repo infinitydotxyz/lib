@@ -1,4 +1,3 @@
-import { UserDisplayData } from '..';
 import { SaleSource } from '../NftSale';
 import { TokenStandard } from '../Token';
 import { BaseCollectionEvent, CollectionEvent } from './CollectionEvent';
@@ -38,11 +37,9 @@ export interface BaseNftEvent extends BaseCollectionEvent, NftData {}
 export interface BaseExchangeEvent {
   buyer: string;
 
-  buyerInfo: UserDisplayData;
   buyerDisplayName?: string;
 
   seller: string;
-  sellerInfo: UserDisplayData;
 
   sellerDisplayName?: string;
 
@@ -77,8 +74,6 @@ export interface NftTransferEvent extends BaseNftEvent {
   from: string;
   to: string;
   fromDisplayName?: string;
-  fromUser: UserDisplayData;
-  toUser: UserDisplayData;
   toDisplayName?: string;
   tokenStandard: TokenStandard;
   txHash: string;
