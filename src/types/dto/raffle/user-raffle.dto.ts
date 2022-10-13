@@ -32,5 +32,6 @@ export class UserRaffleDto {
     totalNumTickets: number;
     prizePoolEth: number;
     prizePoolWei: string;
+    expectedPrizePoolUSDC: number;
   };
 }
