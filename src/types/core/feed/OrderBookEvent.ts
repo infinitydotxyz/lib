@@ -1,3 +1,4 @@
+import { UserDisplayData } from '../UserDisplayData';
 import { BaseFeedEventWithTitle } from './FeedEvent';
 import { BaseNftEvent, NftData } from './NftEvent';
 import { UserEvent } from './UserEvent';
@@ -32,9 +33,13 @@ export interface MultiOrderEvent extends BaseFeedEventWithTitle {
 
   makerAddress: string;
 
+  maker: UserDisplayData;
+
   takerUsername?: string;
 
   takerAddress?: string;
+
+  taker: UserDisplayData;
 
   orderItems: OrderItemData[];
 
@@ -76,4 +81,8 @@ export interface OrderBookEvent extends UserOrderBookEvent {
   takerUsername: string;
 
   takerAddress: string;
+
+  maker: UserDisplayData;
+
+  taker: UserDisplayData;
 }
