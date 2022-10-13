@@ -269,7 +269,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           stakerAddress: ETHEREUM_STAKER_CONTRACT_ADDRESS_TEST,
           token: {
             address: ETHEREUM_TOKEN_CONTRACT_ADDRESS_TEST,
-            name: 'Infinity Token',
+            name: 'Infinity Test Token',
             symbol: 'INFT',
             decimals: 18,
             chainId: ChainId.Mainnet
