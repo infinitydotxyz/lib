@@ -7,4 +7,6 @@ export class FavoriteCollectionPhaseDto extends PickType(TokenomicsPhaseDto, [
   'isActive',
   'progress',
   'collectionPotFeesGenerated'
-]) {}
+]) {
+  expectedPrizePoolUSDC: number;
+}
