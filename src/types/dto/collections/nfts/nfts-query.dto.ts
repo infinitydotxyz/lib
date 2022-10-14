@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional, PickType } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsArray, IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsEnum, IsNumber, IsNumberString, IsOptional, IsString } from 'class-validator';
 import { arrayTransformer, parseIntTransformer } from '../../../../transformers';
 import { OrderDirection } from '../../../core';
 import { PriceFilterDto } from './price-filter.dto';
@@ -72,4 +72,11 @@ export class NftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'maxPric
   @IsOptional()
   @IsEnum(OrderType)
   orderType?: OrderType;
+
+  @ApiPropertyOptional({
+    description: 'The token id of the nft to get'
+  })
+  @IsOptional()
+  @IsNumberString()
+  tokenId?: string;
 }
