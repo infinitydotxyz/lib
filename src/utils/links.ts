@@ -10,7 +10,7 @@ export function getInfinityLink(link: InfinityLink) {
 
   switch (link.type) {
     case InfinityLinkType.Asset:
-      return joinUrl(baseUrl, 'assets', link.collectionAddress, link.tokenId);
+      return joinUrl(baseUrl, 'asset', link.chainId, link.collectionAddress, link.tokenId);
 
     case InfinityLinkType.Collection:
       return joinUrl(baseUrl, 'collection', link.addressOrSlug);
