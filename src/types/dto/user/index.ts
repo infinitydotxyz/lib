@@ -1,3 +1,4 @@
+export * from './asset-referral.dto';
 export * from './update-user-profile-images.dto';
 export * from './update-user-profile.dto';
 export * from './user-activity-array.dto';
