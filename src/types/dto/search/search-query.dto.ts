@@ -35,6 +35,7 @@ export class SearchQueryDto<T extends SearchType, U extends SearchBy<T>> impleme
   @ApiProperty({
     description: 'The main search query corresponding to the search type'
   })
+  @IsString()
   query: string;
 
   @ApiProperty({
