@@ -1,5 +1,5 @@
-import { AssetReferralDoc } from '../asset-referral';
 import { InfinityNftSale } from '../NftSale';
+import { AssetReferralDoc } from '../referrals';
 
 type Split<T> = T & { isSplit?: true };
 

@@ -1,4 +1,4 @@
-import { ChainId } from './ChainId';
+import { ChainId } from '../ChainId';
 
 export enum AssetReferralType {
   Nft = 'nft',
