@@ -26,6 +26,7 @@ export * from './Token';
 export * from './UserDisplayData';
 export * from './UserOwned';
 export * from './UtilityTypes';
+export * from './asset-referral';
 export * from './nft-stats';
 export * from './api-user';
 export * from './curation-ledger';
