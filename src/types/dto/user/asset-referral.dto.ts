@@ -28,11 +28,11 @@ export class AssetReferralDto {
     enum: ChainId
   })
   @IsEnum(ChainId)
-  chainId: ChainId;
+  assetChainId: ChainId;
 
   @ApiProperty({
     description: 'The token id of the asset that was referred'
   })
   @IsString()
-  tokenId: string;
+  assetTokenId: string;
 }
