@@ -82,6 +82,11 @@ export class TokenomicsPhaseDto {
   treasuryFeesGenerated: FeesGeneratedDto;
 
   @ApiProperty({
+    description: 'Referral fees generated for the phase'
+  })
+  referralFeesGenerated?: FeesGeneratedDto;
+
+  @ApiProperty({
     description: 'Trading fee refund for the phase'
   })
   tradingFeeRefund: TradingFeeRefundDto | null;
@@ -93,4 +98,12 @@ export class TokenomicsPhaseDto {
     phasePrize: RaffleConfigDto;
     grandPrize: RaffleConfigDto;
   } | null;
+
+  @ApiProperty({
+    description: 'Configuration for referral rewards (if applicable)'
+  })
+  referralConfig?: {
+    destinationPayer: TradingFeeDestination;
+    percentageOfDestinationFees: number;
+  };
 }
