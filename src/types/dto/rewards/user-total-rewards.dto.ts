@@ -24,4 +24,10 @@ export class UserTotalRewardsDto {
     totalRewardsEth: number;
     claim: UserCumulativeRewardsDto;
   };
+
+  referrals: {
+    totalRewardsWei: string;
+    totalRewardsEth: number;
+    numReferrals: number;
+  };
 }
