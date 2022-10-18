@@ -28,6 +28,7 @@ export interface BaseReferralSaleEvent {
   ethPrice: number;
   docId: string;
   referralFeesGenerated: FeesGeneratedDto;
+  referralRewardPercent: number;
   updatedAt: number;
   isAggregated: boolean;
   isDeleted: boolean;
