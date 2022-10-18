@@ -1,12 +1,12 @@
 import { ChainId } from '../ChainId';
 
-export enum AssetReferralType {
+export enum AssetReferralVariant {
   Nft = 'nft',
   Collection = 'collection'
 }
 
 export interface BaseAssetReferralDoc {
-  type: AssetReferralType;
+  discriminator: AssetReferralVariant;
   referrer: string;
   assetAddress: string;
   assetChainId: ChainId;
@@ -15,12 +15,12 @@ export interface BaseAssetReferralDoc {
 }
 
 export interface NftReferralDoc extends BaseAssetReferralDoc {
-  type: AssetReferralType.Nft;
+  discriminator: AssetReferralVariant.Nft;
   assetTokenId: string;
 }
 
 export interface CollectionReferralDoc extends BaseAssetReferralDoc {
-  type: AssetReferralType.Collection;
+  discriminator: AssetReferralVariant.Collection;
 }
 
 export type AssetReferralDoc = NftReferralDoc | CollectionReferralDoc;
