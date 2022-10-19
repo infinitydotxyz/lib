@@ -17,7 +17,6 @@ export interface ETHDistribution {
   tokenContractAddress: string;
   airdropContractAddress: string;
   maxTimestamp: number;
-  sources: Record<EthDistributionSources, number>;
 }
 
 export enum INFTDistributionSources {
@@ -35,7 +34,6 @@ export interface INFTDistribution {
   tokenContractAddress: string;
   airdropContractAddress: string;
   phaseIds: string[];
-  sources: Record<INFTDistributionSources, number>;
 }
 
 export type DistributionConfig = ETHDistribution | INFTDistribution;
