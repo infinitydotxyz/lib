@@ -20,7 +20,8 @@ export interface ETHDistribution {
 }
 
 export enum INFTDistributionSources {
-  TradingFeeRefund = 'TRADING_FEE_REFUND'
+  TradingFeeRefund = 'TRADING_FEE_REFUND',
+  V1Airdrop = 'V1_AIRDROP'
 }
 
 export const distributionSourcesByType = {
