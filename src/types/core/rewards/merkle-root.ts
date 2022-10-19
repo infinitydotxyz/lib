@@ -29,6 +29,11 @@ export const distributionSourcesByType = {
   [DistributionType.INFT]: INFTDistributionSources
 };
 
+export type DistributionSourcesByType = {
+  [DistributionType.ETH]: ETHDistributionSources;
+  [DistributionType.INFT]: INFTDistributionSources;
+};
+
 export interface INFTDistribution {
   type: DistributionType.INFT;
   chainId: ChainId;
