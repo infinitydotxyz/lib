@@ -62,5 +62,5 @@ export interface MerkleRootLeafDoc<T extends string> {
   proof: string[];
   leaf: string;
   updatedAt: number;
-  sourcesAmounts: Record<T, string>;
+  sourceAmounts: Record<T, string>;
 }
