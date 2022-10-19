@@ -24,6 +24,11 @@ export enum INFTDistributionSources {
   TradingFeeRefund = 'TRADING_FEE_REFUND'
 }
 
+export const distributionSourcesByType = {
+  [DistributionType.ETH]: EthDistributionSources,
+  [DistributionType.INFT]: INFTDistributionSources
+};
+
 export interface INFTDistribution {
   type: DistributionType.INFT;
   chainId: ChainId;
