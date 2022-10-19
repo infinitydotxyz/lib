@@ -5,7 +5,7 @@ export enum DistributionType {
   INFT = 'INFT'
 }
 
-export enum EthDistributionSources {
+export enum ETHDistributionSources {
   Curation = 'CURATION',
   Referrals = 'REFERRALS'
 }
@@ -24,7 +24,7 @@ export enum INFTDistributionSources {
 }
 
 export const distributionSourcesByType = {
-  [DistributionType.ETH]: EthDistributionSources,
+  [DistributionType.ETH]: ETHDistributionSources,
   [DistributionType.INFT]: INFTDistributionSources
 };
 
