@@ -44,17 +44,17 @@ export interface INFTDistribution {
 
 export type DistributionConfig = ETHDistribution | INFTDistribution;
 
-export interface MerkleRootDoc<T extends string> {
+export interface MerkleRootDoc<T extends DistributionType> {
   config: DistributionConfig;
   updatedAt: number;
   nonce: number;
   numEntries: number;
   root: string;
   totalCumulativeAmount: string;
-  sourceAmounts: Record<T, string>;
+  sourceAmounts: Record<DistributionSourcesByType[T], string>;
 }
 
-export interface MerkleRootLeafDoc<T extends string> {
+export interface MerkleRootLeafDoc<T extends DistributionType> {
   nonce: number;
   address: string;
   cumulativeAmount: string;
@@ -62,5 +62,5 @@ export interface MerkleRootLeafDoc<T extends string> {
   proof: string[];
   leaf: string;
   updatedAt: number;
-  sourceAmounts: Record<T, string>;
+  sourceAmounts: Record<DistributionSourcesByType[T], string>;
 }
