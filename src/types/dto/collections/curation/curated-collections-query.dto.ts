@@ -36,8 +36,10 @@ export class CuratedCollectionsQuery {
   @IsOptional()
   @IsString()
   cursor?: string;
+}
 
+export class CuratedCollectionsQueryWithUser extends CuratedCollectionsQuery {
   @ApiPropertyOptional()
   @IsOptional()
-  userId?: string;
+  user?: string;
 }
