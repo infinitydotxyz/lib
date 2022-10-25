@@ -1,9 +1,10 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsNumber, IsOptional, IsString, IsBoolean } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { IsEnumArray } from '../../../../decorators';
 import { parseIntTransformer } from '../../../../transformers';
 import { EventType } from '../../../core/feed';
+import { SaleSource } from '../../../core';
 
 export class NftActivityFiltersDto {
   @ApiProperty({
@@ -27,4 +28,11 @@ export class NftActivityFiltersDto {
   @IsString()
   @IsOptional()
   cursor?: string;
+
+  @ApiPropertyOptional({
+    description: 'SaleSource: INFINITY, etc'
+  })
+  @IsBoolean()
+  @IsOptional()
+  source?: SaleSource;
 }
