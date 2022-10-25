@@ -132,7 +132,7 @@ export class NftActivity {
   @ApiPropertyOptional({
     description: 'SaleSource: INFINITY, etc'
   })
-  @IsBoolean()
+  @IsEnum(SaleSource)
   @IsOptional()
   source?: SaleSource;
 }
