@@ -52,6 +52,8 @@ export interface PreMergedRewardListingEvent extends BaseRewardEvent {
     makerAddress: string;
     items: RewardOrderItem[];
   };
+  stakerContractAddress: string;
+  stakerContractChainId: ChainId;
   blockNumber: number;
   isMerged: false;
 }
