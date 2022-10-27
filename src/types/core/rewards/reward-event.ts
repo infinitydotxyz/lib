@@ -1,10 +1,57 @@
+import { ChainId } from '../ChainId';
 import { InfinityNftSale } from '../NftSale';
 import { AssetReferralDoc } from '../referrals';
 
-type Split<T> = T & { isSplit?: true };
+export enum RewardEventVariant {
+  Sale = 'SALE',
+  Listing = 'LISTING'
+}
 
-export type RewardSaleEvent = Split<
-  InfinityNftSale & { ethPrice: number; docId: string; updatedAt: number; referral?: AssetReferralDoc }
->;
+export interface BaseRewardEvent {
+  discriminator: RewardEventVariant;
+  isSplit?: boolean;
+  updatedAt: number;
+  isAggregated: boolean;
+}
 
-export type RewardEvent = RewardSaleEvent;
+export interface RewardSaleEvent extends InfinityNftSale, BaseRewardEvent {
+  discriminator: RewardEventVariant.Sale;
+  ethPrice: number;
+  docId: string;
+  referral?: AssetReferralDoc;
+}
+
+export interface RewardOrderItem {
+  hasBlueCheck: boolean;
+  collectionAddress: string;
+  collectionSlug: string;
+  floorPriceEth: number | null;
+  startPriceEth: number;
+  endPriceEth: number;
+  tokenId: string;
+  numTokens: number;
+  makerAddress: string;
+  rewardMultiplier: number;
+}
+
+export interface PreMergedRewardListingEvent extends BaseRewardEvent {
+  discriminator: RewardEventVariant.Listing;
+  order: {
+    id: string;
+    chainId: ChainId;
+    isSellOrder: boolean;
+    startTimeMs: number;
+    endTimeMs: number;
+    numItems: number;
+    items: RewardOrderItem[];
+  };
+  blockNumber: number;
+  isMerged: false;
+}
+
+export interface RewardListingEvent extends Omit<PreMergedRewardListingEvent, 'isMerged'> {
+  isMerged: true;
+  stakeLevel: number;
+}
+
+export type RewardEvent = RewardSaleEvent | RewardListingEvent;
