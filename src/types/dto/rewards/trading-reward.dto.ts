@@ -49,5 +49,19 @@ export class TradingFeeRefundDto {
      * reward supply given out to users due to listings
      */
     rewardSupplyUsed: number;
+    /**
+     * max percent above floor price that a listing can be
+     */
+    maxPercentAboveFloor: number;
+
+    /**
+     * min time that a listing must be active for
+     */
+    minTimeValid: number;
+
+    /**
+     * multiplier on the reward
+     */
+    ticketMultiplier: number;
   };
 }
