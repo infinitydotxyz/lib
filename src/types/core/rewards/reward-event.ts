@@ -26,11 +26,8 @@ export interface RewardOrderItem {
   collectionAddress: string;
   collectionSlug: string;
   floorPriceEth: number | null;
-  startPriceEth: number;
-  endPriceEth: number;
   tokenId: string;
   numTokens: number;
-  makerAddress: string;
   rewardMultiplier: number;
 }
 
@@ -42,7 +39,10 @@ export interface PreMergedRewardListingEvent extends BaseRewardEvent {
     isSellOrder: boolean;
     startTimeMs: number;
     endTimeMs: number;
+    startPriceEth: number;
+    endPriceEth: number;
     numItems: number;
+    makerAddress: string;
     items: RewardOrderItem[];
   };
   blockNumber: number;
