@@ -35,4 +35,19 @@ export class TradingFeeRefundDto {
     description: 'Portion of the reward that the seller of an NFT receives'
   })
   sellerPortion: number;
+
+  @ApiProperty({
+    description: 'Configuration for listing rewards (if applicable)'
+  })
+  listingRewardsConfig?: {
+    /**
+     * max percent of the trading fee refund supply
+     * that will be given out to listings
+     */
+    maxRewardSupplyPercent: number;
+    /**
+     * reward supply given out to users due to listings
+     */
+    rewardSupplyUsed: number;
+  };
 }

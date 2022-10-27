@@ -21,6 +21,11 @@ export interface RewardSaleEvent extends InfinityNftSale, BaseRewardEvent {
   ethPrice: number;
   docId: string;
   referral?: AssetReferralDoc;
+  isMerged: true;
+}
+
+export interface PreMergedRewardSaleEvent extends Omit<RewardSaleEvent, 'referral' | 'ethPrice' | 'isMerged'> {
+  isMerged: false;
 }
 
 export interface RewardOrderItem {
@@ -56,4 +61,5 @@ export interface RewardListingEvent extends Omit<PreMergedRewardListingEvent, 'i
   stakeLevel: number;
 }
 
+export type PreMergedRewardEvent = PreMergedRewardListingEvent | PreMergedRewardSaleEvent;
 export type RewardEvent = RewardSaleEvent | RewardListingEvent;
