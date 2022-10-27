@@ -12,10 +12,12 @@ export interface BaseRewardEvent {
   isSplit?: boolean;
   updatedAt: number;
   isAggregated: boolean;
+  chainId: ChainId;
 }
 
 export interface RewardSaleEvent extends InfinityNftSale, BaseRewardEvent {
   discriminator: RewardEventVariant.Sale;
+  chainId: ChainId;
   ethPrice: number;
   docId: string;
   referral?: AssetReferralDoc;
