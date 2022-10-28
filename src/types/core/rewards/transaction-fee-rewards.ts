@@ -1,6 +1,7 @@
 import { TradingFeeRefundDto } from '../../dto';
 import { ChainId } from '../ChainId';
 import { InfinityNftSale } from '../NftSale';
+import { RewardListingEvent } from './reward-event';
 
 export interface TransactionFeePhaseRewardsDoc {
   phaseName: string;
@@ -15,6 +16,7 @@ export interface TransactionFeePhaseRewardsDoc {
   updatedAt: number;
   userSells: number;
   userBuys: number;
+  userListings: number;
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
@@ -32,10 +34,12 @@ export interface AllTimeTransactionFeeRewardsDoc {
   updatedAt: number;
   userSells: number;
   userBuys: number;
+  userListings: number;
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
   v1Airdrop: number;
+  listingReward: number;
 }
 
 export interface TransactionFeeRewardDoc {
@@ -52,7 +56,23 @@ export interface TransactionFeeRewardDoc {
   config: Omit<TradingFeeRefundDto, 'rewardSupplyUsed'>;
   isAggregated: boolean;
   reward: number;
+  listingReward: number;
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
 }
+
+export interface ListingRewardsDoc {
+  userAddress: string;
+  chainId: ChainId;
+  listing: RewardListingEvent;
+  listingReward: number;
+  isSplit: boolean;
+  phaseId: string;
+  phaseName: string;
+  phaseIndex: number;
+  config: Omit<TradingFeeRefundDto, 'rewardSupplyUsed'>;
+  isAggregated: boolean;
+}
+
+export type UserRewardsEventDoc = TransactionFeeRewardDoc | ListingRewardsDoc;
