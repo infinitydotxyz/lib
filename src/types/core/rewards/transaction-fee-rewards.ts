@@ -2,7 +2,6 @@ import { TradingFeeRefundDto } from '../../dto';
 import { ChainId } from '../ChainId';
 import { InfinityNftSale } from '../NftSale';
 import { RewardListingEvent } from './reward-event';
-
 export interface TransactionFeePhaseRewardsDoc {
   phaseName: string;
   phaseId: string;
@@ -17,13 +16,13 @@ export interface TransactionFeePhaseRewardsDoc {
   userSells: number;
   userBuys: number;
   userListings: number;
+  listingRewards: number;
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
   config: Omit<TradingFeeRefundDto, 'rewardSupplyUsed'>;
   isCopiedToRaffles: boolean;
 }
-
 export interface AllTimeTransactionFeeRewardsDoc {
   userAddress: string;
   chainId: ChainId;
@@ -39,9 +38,8 @@ export interface AllTimeTransactionFeeRewardsDoc {
   protocolFeesEth: number;
   protocolFeesUSDC: number;
   v1Airdrop: number;
-  listingReward: number;
+  listingRewards: number;
 }
-
 export interface TransactionFeeRewardDoc {
   userAddress: string;
   chainId: ChainId;
@@ -56,12 +54,10 @@ export interface TransactionFeeRewardDoc {
   config: Omit<TradingFeeRefundDto, 'rewardSupplyUsed'>;
   isAggregated: boolean;
   reward: number;
-  listingReward: number;
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
 }
-
 export interface ListingRewardsDoc {
   userAddress: string;
   chainId: ChainId;
