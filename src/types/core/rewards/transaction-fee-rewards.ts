@@ -57,6 +57,7 @@ export interface TransactionFeeRewardDoc {
   protocolFeesWei: string;
   protocolFeesEth: number;
   protocolFeesUSDC: number;
+  updatedAt: number;
 }
 export interface ListingRewardsDoc {
   userAddress: string;
@@ -69,6 +70,7 @@ export interface ListingRewardsDoc {
   phaseIndex: number;
   config: Omit<TradingFeeRefundDto, 'rewardSupplyUsed'>;
   isAggregated: boolean;
+  updatedAt: number;
 }
 
 export type UserRewardsEventDoc = TransactionFeeRewardDoc | ListingRewardsDoc;
