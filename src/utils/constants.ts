@@ -142,6 +142,13 @@ export const firestoreConstants = {
   USER_RAFFLE_ORDERS_LEDGER_COLL: 'userRaffleOrdersLedger',
 
   /**
+   * referrals
+   */
+  REFERRALS_COLL: 'referrals',
+  ASSET_REFERRALS_COLL: 'assetReferrals',
+  REFERRALS_LEDGER: 'referralsLedger',
+
+  /**
    * treasury
    */
   TREASURY_COLL: 'treasury',

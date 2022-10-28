@@ -56,6 +56,7 @@ export type BaseCardData = {
   rarityScore?: number;
   orderSnippet?: OrdersSnippet;
   displayType?: string;
+  isVideo?: boolean;
 };
 
 export type CardData = BaseCardData & {

@@ -37,3 +37,9 @@ export class CuratedCollectionsQuery {
   @IsString()
   cursor?: string;
 }
+
+export class CuratedCollectionsQueryWithUser extends CuratedCollectionsQuery {
+  @ApiPropertyOptional()
+  @IsOptional()
+  user?: string;
+}

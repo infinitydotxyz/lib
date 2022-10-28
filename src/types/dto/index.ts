@@ -6,6 +6,7 @@ export * from './orders';
 export * from './raffle';
 export * from './rewards';
 export * from './sales';
+export * from './search';
 export * from './stats';
 export * from './twitter';
 export * from './user';
