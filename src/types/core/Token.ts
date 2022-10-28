@@ -111,6 +111,10 @@ export interface BaseToken {
 
   collectionDescription?: string;
 
+  collectionSymbol?: string;
+
+  displayType?: string;
+
   /**
    * whether the collection is verified
    */
