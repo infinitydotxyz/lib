@@ -7,7 +7,8 @@ import { ChainId } from '../../../core';
 
 export enum CuratedCollectionsOrderBy {
   Votes = 'votes',
-  Apr = 'apr'
+  Apr = 'apr',
+  Timestamp = 'timestamp'
 }
 
 export class CuratedCollectionsQuery {
