@@ -7,6 +7,7 @@ export * from './firestore-order-item.dto';
 export * from './ob-order-item.dto';
 export * from './ob-token-info.dto';
 export * from './order-items-query.dto';
+export * from './order-v2.dto';
 export * from './orders.dto';
 export * from './signed-ob-order-array.dto';
 export * from './signed-ob-order.dto';
