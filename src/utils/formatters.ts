@@ -1,3 +1,4 @@
+import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { formatEther } from '@ethersproject/units/lib';
 
 export function jsonString(obj?: object) {
@@ -40,4 +41,10 @@ export function formatEth(wei: string | bigint | number, decimals?: number): num
 
 export function round(value: number, decimals = 4): number {
   return Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+}
+
+export function toLexicographicalStr(value: BigNumberish, maxBits = 64) {
+  const str = BigNumber.from(value).toString();
+  const length = BigNumber.from(2).pow(maxBits).toString().length;
+  return str.padStart(length, '0');
 }
