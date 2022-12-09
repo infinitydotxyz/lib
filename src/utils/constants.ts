@@ -194,7 +194,9 @@ export const firestoreConstants = {
   ORDERS_BY_SOURCE: 'ordersV2BySource',
   TOKEN_ORDERS: 'tokenV2Orders',
   COLLECTION_WIDE_ORDERS: 'collectionWideV2Orders',
-  MAKER_ORDERS: 'makerV2Orders'
+  MAKER_ORDERS: 'makerV2Orders',
+  ORDER_EVENTS: 'orderEvents',
+  RESERVOIR_ORDER_EVENTS: 'reservoirOrderEvents'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
