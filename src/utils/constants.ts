@@ -194,6 +194,7 @@ export const firestoreConstants = {
   ORDERS_BY_SOURCE_COLL: 'ordersV2BySource',
   TOKEN_ORDERS_COLL: 'tokenV2Orders',
   COLLECTION_WIDE_ORDERS_COLL: 'collectionWideV2Orders',
+  COLLECTION_ORDERS_COLL: 'collectionV2Orders',
   MAKER_ORDERS_COLL: 'makerV2Orders',
   ORDER_EVENTS_COLL: 'orderEvents',
   RESERVOIR_ORDER_EVENTS_COLL: 'reservoirOrderEvents'
