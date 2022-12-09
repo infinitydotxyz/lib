@@ -7,6 +7,7 @@ export type BaseOrder = DisplayOrder & {
   id: string;
   chainId: ChainId;
   createdAt: number;
+  isSellOrder: boolean;
   startTimeMs: number;
   endTimeMs: number;
   maker: UserDisplayData;
