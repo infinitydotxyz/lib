@@ -26,6 +26,7 @@ export interface OrderItemToken {
   image: string;
   tokenStandard: TokenStandard;
   quantity: number;
+  owner: UserDisplayData;
 }
 export interface SingleTokenOrderItem extends BaseFirestoreOrderItem {
   kind: 'single-token';
@@ -61,8 +62,6 @@ export interface BaseDisplayOrder {
   maker: UserDisplayData;
 
   taker?: UserDisplayData;
-
-  owner: UserDisplayData;
 }
 
 export interface SingleCollectionDisplayOrder extends BaseDisplayOrder {

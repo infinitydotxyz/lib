@@ -14,7 +14,11 @@ export interface QueryableOrder {
 
   maker: string;
   taker: string;
-  owner: string;
+
+  /**
+   * owners is not available for collection-wide orders
+   */
+  owners: string[];
 
   numItems: number;
 
