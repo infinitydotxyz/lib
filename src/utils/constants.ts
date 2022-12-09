@@ -184,7 +184,17 @@ export const firestoreConstants = {
    * collection favorites (collection pot)
    */
   COLLECTION_PHASE_FAVORITES: 'collectionPhaseFavorites',
-  USER_PHASE_FAVORITES: 'userPhaseFavorites'
+  USER_PHASE_FAVORITES: 'userPhaseFavorites',
+
+  /**
+   * V2 orders
+   */
+  ORDERS_V2_COLL: 'ordersV2',
+  ORDERS_BY_CHAIN_COLL: 'ordersV2ByChain',
+  ORDERS_BY_SOURCE: 'ordersV2BySource',
+  TOKEN_ORDERS: 'tokenV2Orders',
+  COLLECTION_WIDE_ORDERS: 'collectionWideV2Orders',
+  MAKER_ORDERS: 'makerV2Orders'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
