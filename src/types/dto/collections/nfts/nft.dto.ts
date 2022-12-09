@@ -2,7 +2,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsOptional } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../../transformers';
-import { ChainId, TokenStandard } from '../../../core';
+import { ChainId, TokenStandard, UserDisplayData } from '../../../core';
 import { Erc721MetadataDto } from './erc721-metadata.dto';
 import { NftImageDto } from './nft-image.dto';
 import { NftStateDto } from './nft-state.dto';
@@ -131,6 +131,11 @@ export class NftDto {
     description: 'NFT Owner'
   })
   owner?: string;
+
+  @ApiPropertyOptional({
+    description: 'Nft owner'
+  })
+  ownerData?: UserDisplayData;
 
   @ApiPropertyOptional({
     description: 'Alchemy cached image'
