@@ -12,6 +12,7 @@ export type BaseOrder = DisplayOrder & {
   maker: UserDisplayData;
   numItems: number;
   currency: string;
+  currentPriceEth: number;
   startPriceEth: number;
   endPriceEth: number;
   startPricePerItemEth: number;
