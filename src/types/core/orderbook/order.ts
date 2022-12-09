@@ -1,4 +1,5 @@
 import { ChainId } from '../ChainId';
+import { UserDisplayData } from '../UserDisplayData';
 import { DisplayOrder } from './firestore-display-order';
 import { OrderStatus } from './order-status';
 
@@ -8,7 +9,7 @@ export type BaseOrder = DisplayOrder & {
   createdAt: number;
   startTimeMs: number;
   endTimeMs: number;
-  maker: string;
+  maker: UserDisplayData;
   numItems: number;
   currency: string;
   startPriceEth: number;
@@ -26,7 +27,7 @@ export type BaseOrder = DisplayOrder & {
 
 export type PrivateOrder = BaseOrder & {
   isPrivate: true;
-  taker: string;
+  taker: UserDisplayData;
 };
 
 export type PublicOrder = BaseOrder & {
