@@ -191,12 +191,12 @@ export const firestoreConstants = {
    */
   ORDERS_V2_COLL: 'ordersV2',
   ORDERS_BY_CHAIN_COLL: 'ordersV2ByChain',
-  ORDERS_BY_SOURCE: 'ordersV2BySource',
-  TOKEN_ORDERS: 'tokenV2Orders',
-  COLLECTION_WIDE_ORDERS: 'collectionWideV2Orders',
-  MAKER_ORDERS: 'makerV2Orders',
-  ORDER_EVENTS: 'orderEvents',
-  RESERVOIR_ORDER_EVENTS: 'reservoirOrderEvents'
+  ORDERS_BY_SOURCE_COLL: 'ordersV2BySource',
+  TOKEN_ORDERS_COLL: 'tokenV2Orders',
+  COLLECTION_WIDE_ORDERS_COLL: 'collectionWideV2Orders',
+  MAKER_ORDERS_COLL: 'makerV2Orders',
+  ORDER_EVENTS_COLL: 'orderEvents',
+  RESERVOIR_ORDER_EVENTS_COLL: 'reservoirOrderEvents'
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 50;
