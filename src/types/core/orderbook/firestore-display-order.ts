@@ -59,6 +59,10 @@ export interface BaseDisplayOrder {
   kind: CollectionKind;
 
   maker: UserDisplayData;
+
+  taker?: UserDisplayData;
+
+  owner: UserDisplayData;
 }
 
 export interface SingleCollectionDisplayOrder extends BaseDisplayOrder {

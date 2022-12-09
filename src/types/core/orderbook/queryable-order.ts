@@ -14,6 +14,7 @@ export interface QueryableOrder {
 
   maker: string;
   taker: string;
+  owner: string;
 
   numItems: number;
 
