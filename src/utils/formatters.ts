@@ -43,7 +43,7 @@ export function round(value: number, decimals = 4): number {
   return Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
 }
 
-export function toLexicographicalStr(value: BigNumberish, maxBits = 64) {
+export function toNumericallySortedLexicographicStr(value: BigNumberish, maxBits = 64) {
   const str = BigNumber.from(value).toString();
   const length = BigNumber.from(2).pow(maxBits).toString().length;
   return str.padStart(length, '0');
