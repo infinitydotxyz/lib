@@ -1,5 +1,6 @@
 import { ChainId } from '../ChainId';
 import { ChainOBOrder } from '../OBOrder';
+import { OrderSource } from './order-source';
 import { OrderStatus } from './order-status';
 
 export interface OrderStatusEvent {
@@ -10,4 +11,6 @@ export interface OrderStatusEvent {
   timestamp: number;
   order: ChainOBOrder;
   isMostRecent: boolean;
+  source: OrderSource;
+  sourceOrder: unknown;
 }
