@@ -10,6 +10,7 @@ export interface OrderStatusEvent {
   status: OrderStatus;
   timestamp: number;
   order: ChainOBOrder;
+  gasUsage: string;
   isMostRecent: boolean;
   source: OrderSource;
   sourceOrder: unknown;
