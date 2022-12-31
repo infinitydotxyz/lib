@@ -2,6 +2,7 @@ export * from './api-user';
 export * from './collections';
 export * from './common';
 export * from './firebase';
+export * from './orderbook';
 export * from './orders';
 export * from './raffle';
 export * from './rewards';
