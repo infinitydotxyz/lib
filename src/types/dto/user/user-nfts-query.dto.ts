@@ -29,7 +29,7 @@ export class UserNftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'max
   @IsArray()
   @IsEthereumAddress({ each: true })
   @ArrayMaxSize(MAX_COLLECTION_ADDRESSES, { message: `Can filter by a max of ${MAX_COLLECTION_ADDRESSES} addresses` })
-  collectionAddresses?: string[];
+  collections?: string[];
 
   @ApiPropertyOptional({
     description: 'Chain id',
