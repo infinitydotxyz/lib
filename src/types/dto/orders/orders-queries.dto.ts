@@ -1,7 +1,12 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsString, IsOptional, IsBoolean, IsNumber, IsEnum } from 'class-validator';
-import { parseBoolTransformer, parseIntTransformer, roundNumberTransformer } from '../../../transformers';
+import { IsString, IsOptional, IsBoolean, IsNumber, IsEnum, IsEthereumAddress } from 'class-validator';
+import {
+  normalizeAddressTransformer,
+  parseBoolTransformer,
+  parseIntTransformer,
+  roundNumberTransformer
+} from '../../../transformers';
 import { ChainId, OrderDirection } from '../../core';
 
 export enum OrderBy {
@@ -121,6 +126,16 @@ export class TakerOrdersQuery extends BaseOrderQuery {
   @IsOptional()
   @IsEnum(OrderStatus)
   status: OrderStatus;
+
+  @ApiPropertyOptional({
+    description: 'Collection to filter by'
+  })
+  @IsOptional()
+  @IsEthereumAddress({
+    message: 'Invalid address'
+  })
+  @Transform(normalizeAddressTransformer)
+  collection?: string;
 }
 
 export class MakerOrdersQuery extends BaseOrderQuery {
@@ -144,6 +159,16 @@ export class MakerOrdersQuery extends BaseOrderQuery {
   @IsOptional()
   @IsEnum(OrderStatus)
   status?: OrderStatus;
+
+  @ApiPropertyOptional({
+    description: 'Collection to filter by'
+  })
+  @IsOptional()
+  @IsEthereumAddress({
+    message: 'Invalid address'
+  })
+  @Transform(normalizeAddressTransformer)
+  collection?: string;
 }
 
 export type OrderQueries = CollectionOrdersQuery | TokenOrdersQuery | TakerOrdersQuery | MakerOrdersQuery;
