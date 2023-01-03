@@ -20,6 +20,14 @@ export interface QueryableOrder {
    */
   owners: string[];
 
+  /**
+   * collection that the order is part of
+   *
+   * note - this will have to be changed to an array if
+   * we want to support multi-collection orders
+   */
+  collection: string;
+
   numItems: number;
 
   currency: string;
