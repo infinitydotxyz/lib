@@ -84,6 +84,7 @@ export interface BaseFirestoreDisplayOrder {
     updatedAt: number;
     createdAt: number;
     hasError: boolean;
+    processed: boolean;
   };
   error?: OrderError;
 
@@ -100,6 +101,7 @@ export interface FirestoreDisplayOrderWithError extends BaseFirestoreDisplayOrde
     updatedAt: number;
     createdAt: number;
     hasError: true;
+    processed: boolean;
   };
   error: OrderError;
 }
@@ -112,6 +114,7 @@ export interface FirestoreDisplayOrderWithoutError extends BaseFirestoreDisplayO
     updatedAt: number;
     createdAt: number;
     hasError: false;
+    processed: boolean;
   };
   order: QueryableOrder;
   displayOrder: DisplayOrder;

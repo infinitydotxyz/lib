@@ -11,6 +11,7 @@ export interface BaseRawFirestoreOrder {
     updatedAt: number;
     createdAt: number;
     hasError: boolean;
+    processed: boolean;
   };
   error?: OrderError;
 
@@ -27,6 +28,7 @@ export interface RawFirestoreOrderWithError {
     updatedAt: number;
     createdAt: number;
     hasError: true;
+    processed: boolean;
   };
   error: OrderError;
 
@@ -43,6 +45,7 @@ export interface RawFirestoreOrderWithoutError {
     updatedAt: number;
     createdAt: number;
     hasError: false;
+    processed: boolean;
   };
 
   rawOrder: RawOrderWithoutError;
