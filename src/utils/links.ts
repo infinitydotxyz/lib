@@ -6,7 +6,7 @@ export function joinUrl(...parts: string[]): string {
 }
 
 export function getInfinityLink(link: InfinityLink) {
-  const baseUrl = 'https://infinity.xyz';
+  const baseUrl = 'https://flow.so';
 
   switch (link.type) {
     case InfinityLinkType.Asset:
