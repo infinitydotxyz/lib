@@ -75,6 +75,7 @@ export interface OrderTokenOwnerUpdate extends BaseOrderEvent {
   metadata: SpecificOrderEventKind<OrderEventKind.TokenOwnerUpdate>;
 
   data: {
+    status: OrderStatus;
     token: {
       address: string;
       tokenId: string;
