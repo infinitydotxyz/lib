@@ -1,4 +1,5 @@
 import { ChainId } from '../ChainId';
+import { UserDisplayData } from '../UserDisplayData';
 import { OrderStatus } from './order-status';
 import { RawOrder } from './raw-order';
 
@@ -11,7 +12,8 @@ export enum OrderEventKind {
   ApprovalChange = 'APPROVAL_CHANGE',
   Bootstrap = 'BOOTSTRAP',
   Revalidation = 'REVALIDATION',
-  PriceUpdate = 'PRICE_UPDATE'
+  PriceUpdate = 'PRICE_UPDATE',
+  TokenOwnerUpdate = 'TOKEN_OWNER_UPDATE'
 }
 
 export interface OrderEventMetadata {
@@ -66,6 +68,14 @@ export interface OrderExpiredEvent extends BaseOrderEvent {
 
   data: {
     status: OrderStatus;
+  };
+}
+
+export interface OrderTokenOwnerUpdate extends BaseOrderEvent {
+  metadata: SpecificOrderEventKind<OrderEventKind.TokenOwnerUpdate>;
+
+  data: {
+    owner: UserDisplayData;
   };
 }
 
@@ -133,6 +143,7 @@ export type OrderEventByKind = {
   [OrderEventKind.Bootstrap]: OrderBootstrapEvent;
   [OrderEventKind.Revalidation]: OrderRevalidationEvent;
   [OrderEventKind.PriceUpdate]: OrderPriceUpdateEvent;
+  [OrderEventKind.TokenOwnerUpdate]: OrderTokenOwnerUpdate;
 };
 
 export type OrderEvents = OrderEventByKind[keyof OrderEventByKind];
