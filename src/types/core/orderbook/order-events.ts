@@ -75,6 +75,10 @@ export interface OrderTokenOwnerUpdate extends BaseOrderEvent {
   metadata: SpecificOrderEventKind<OrderEventKind.TokenOwnerUpdate>;
 
   data: {
+    token: {
+      address: string;
+      tokenId: string;
+    };
     owner: UserDisplayData;
   };
 }
