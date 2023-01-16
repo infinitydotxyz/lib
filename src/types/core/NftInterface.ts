@@ -7,7 +7,7 @@ export enum ListingType {
   EnglishAuction = 'englishAuction'
 }
 /**
- * Integration with infinity.xyz discord bot.
+ * Integration with flow.so discord bot.
  */
 export interface DiscordIntegration {
   /**
