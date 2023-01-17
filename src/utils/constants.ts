@@ -248,6 +248,11 @@ export const GOERLI_TOKEN_CONTRACT_ADDRESS = '0x1aD0880C80c4589c992dc7Ce87ABD3eb
 export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0xf0B83Ed51Fa7C9617dD48Fe5864566BBD9519E4b'.toLowerCase();
 export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x6deb5e1A056975e0F2024F3d89b6D2465Bde22aF'.toLowerCase();
 
+export const GOERLI_FLOW_EXCHANGE_ADDRESS = '0xa79C18bCDd5C45d4f58317609fe1B6C6A5B623b2'.toLowerCase();
+export const GOERLI_FLOW_TOKEN_ADDRESS = '0x45F33d648cA677980172f43eB8751F676864a000'.toLowerCase();
+export const GOERLI_FLOW_OB_COMPLICATION_ADDRESS = '0xB9ef3e81f83201F8A8C0D59C4aB392526661899e'.toLowerCase();
+export const GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS = '0x78d4143A8AF84d3d25738e95A2d4bcC307B72EA7'.toLowerCase();
+
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
 export const POLYGON_CHAIN_SCANNER_BASE = 'https://polygonscan.com';
@@ -421,15 +426,15 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
         }
       },
       [Version.FLOW]: {
-        networkName: ETHEREUM_NETWORK_NAME,
-        scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
-        wethAddress: ETHEREUM_WETH_ADDRESS,
+        networkName: GOERLI_NETWORK_NAME,
+        scannerBase: GOERLI_CHAIN_SCANNER_BASE,
+        wethAddress: GOERLI_WETH_ADDRESS,
         flowContracts: {
-          exchangeAddress: ETHEREUM_FLOW_EXCHANGE_ADDRESS,
-          obComplicationAddress: ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS,
-          matchExecutorAddress: ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS,
+          exchangeAddress: GOERLI_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: GOERLI_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS,
           token: {
-            address: ETHEREUM_FLOW_TOKEN_ADDRESS,
+            address: GOERLI_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
             symbol: 'FLOW',
             decimals: 18,
@@ -476,15 +481,15 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
         }
       },
       [Version.FLOW]: {
-        networkName: ETHEREUM_NETWORK_NAME,
-        scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
-        wethAddress: ETHEREUM_WETH_ADDRESS,
+        networkName: GOERLI_NETWORK_NAME,
+        scannerBase: GOERLI_CHAIN_SCANNER_BASE,
+        wethAddress: GOERLI_WETH_ADDRESS,
         flowContracts: {
-          exchangeAddress: ETHEREUM_FLOW_EXCHANGE_ADDRESS,
-          obComplicationAddress: ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS,
-          matchExecutorAddress: ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS,
+          exchangeAddress: GOERLI_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: GOERLI_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS,
           token: {
-            address: ETHEREUM_FLOW_TOKEN_ADDRESS,
+            address: GOERLI_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
             symbol: 'FLOW',
             decimals: 18,
