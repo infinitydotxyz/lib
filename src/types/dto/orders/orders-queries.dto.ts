@@ -99,9 +99,10 @@ export class CollectionOrdersQuery extends BaseOrderQuery {
   @ApiProperty({
     description: 'Filter by only collection wide offers'
   })
+  @Transform(parseBoolTransformer({ optional: true }))
   @IsOptional()
   @IsBoolean()
-  onlyCollectionWide: boolean;
+  onlyCollectionWide?: boolean;
 }
 
 export class TokenOrdersQuery extends CollectionOrdersQuery {
