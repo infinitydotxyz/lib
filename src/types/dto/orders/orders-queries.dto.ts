@@ -95,6 +95,13 @@ export class CollectionOrdersQuery extends BaseOrderQuery {
   })
   @IsEnum(OrderStatus)
   status: OrderStatus;
+
+  @ApiProperty({
+    description: 'Filter by only collection wide offers'
+  })
+  @IsOptional()
+  @IsBoolean()
+  onlyCollectionWide: boolean;
 }
 
 export class TokenOrdersQuery extends CollectionOrdersQuery {
