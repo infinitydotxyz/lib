@@ -20,4 +20,5 @@ export type OrderSource =
   | 'nftx'
   | 'blur'
   | 'infinity'
-  | 'forward';
+  | 'forward'
+  | 'flow';
