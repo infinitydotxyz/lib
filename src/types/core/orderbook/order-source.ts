@@ -11,6 +11,7 @@ export type OrderSource =
   | 'element-erc721'
   | 'element-erc1155'
   | 'quixotic'
+  | 'manifold'
   | 'nouns'
   | 'zora-v3'
   | 'mint'
