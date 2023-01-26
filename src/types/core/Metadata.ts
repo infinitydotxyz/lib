@@ -43,6 +43,8 @@ export interface Erc721Metadata {
   youtube_url?: string;
 
   attributes?: Erc721Attribute[];
+
+  attributesMap?: { string: boolean };
 }
 
 /**
