@@ -141,4 +141,14 @@ export class NftDto {
     description: 'Alchemy cached image'
   })
   alchemyCachedImage?: string;
+
+  @ApiPropertyOptional({
+    description: 'Last sale price in ETH'
+  })
+  lastSalePriceEth?: number;
+
+  @ApiPropertyOptional({
+    description: 'Last sale timestamp in millis'
+  })
+  lastSaleTimestamp?: number;
 }
