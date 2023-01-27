@@ -195,6 +195,10 @@ export interface BaseToken {
 
   alchemyCachedImage?: string;
 
+  lastSalePriceEth?: number;
+
+  lastSaleTimestamp?: number;
+
   /**
    * cached token image
    */
