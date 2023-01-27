@@ -25,6 +25,7 @@ export type BaseOrder = DisplayOrder & {
   isDynamic: boolean;
   isPrivate: boolean;
   status: OrderStatus;
+  nonce: string;
 };
 
 export type PrivateOrder = BaseOrder & {
