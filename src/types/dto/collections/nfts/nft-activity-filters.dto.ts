@@ -2,7 +2,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsNumber, IsOptional, IsString, IsEnum, IsBoolean } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { IsEnumArray } from '../../../../decorators';
-import { parseIntTransformer } from '../../../../transformers';
+import { parseBoolTransformer, parseIntTransformer } from '../../../../transformers';
 import { EventType } from '../../../core/feed';
 import { SaleSource } from '../../../core';
 
@@ -39,7 +39,8 @@ export class NftActivityFiltersDto {
   @ApiPropertyOptional({
     description: 'Fetch socials only'
   })
-  @IsBoolean()
   @IsOptional()
+  @Transform(parseBoolTransformer({ optional: true }))
+  @IsBoolean()
   socialsOnly?: boolean;
 }
