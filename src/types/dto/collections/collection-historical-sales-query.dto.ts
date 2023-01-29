@@ -11,7 +11,7 @@ export enum HistoricalSalesTimeBucket {
   ONE_YEAR = '1y'
 }
 
-export class CollectionHistoricalStatsQueryDto {
+export class CollectionHistoricalSalesQueryDto {
   @ApiProperty({
     description: 'Period to get stats for',
     enum: HistoricalSalesTimeBucket
