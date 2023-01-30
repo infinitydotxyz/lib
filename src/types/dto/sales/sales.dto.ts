@@ -2,7 +2,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsEnum, IsNumber, IsNumberString, IsOptional, IsString } from 'class-validator';
 import { parseIntTransformer } from '../../../transformers';
-import { NftSalesResponse, NftSaleUnion, SaleSource, TokenStandard } from '../../core';
+import { NftSalesResponse, NftSaleUnion, OrderSource, SaleSource, TokenStandard } from '../../core';
 
 export class NftSaleDto implements NftSaleUnion {
   @ApiProperty({
@@ -79,8 +79,8 @@ export class NftSaleDto implements NftSaleUnion {
   @ApiProperty({
     description: 'The source of the sale'
   })
-  @IsEnum(SaleSource)
-  source: SaleSource;
+  @IsString()
+  source: SaleSource | OrderSource;
 
   @ApiProperty({
     description: 'The NFT token type'
