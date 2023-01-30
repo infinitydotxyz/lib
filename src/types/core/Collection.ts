@@ -157,6 +157,8 @@ export interface BaseCollection {
 
   slug: string;
 
+  searchTags?: string[];
+
   /**
    * number of available tokens in the collection
    * (i.e. not burned/destroyed)

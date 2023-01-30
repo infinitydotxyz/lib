@@ -135,4 +135,11 @@ export class NftActivity {
   @IsEnum(SaleSource)
   @IsOptional()
   source?: SaleSource;
+
+  @ApiPropertyOptional({
+    description: 'Misc string'
+  })
+  @IsString()
+  @IsOptional()
+  miscString?: string;
 }

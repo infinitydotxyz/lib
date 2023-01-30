@@ -1,3 +1,4 @@
+export * from './collection-historical-sales-query.dto';
 export * from './collection-historical-stats-query.dto';
 export * from './collection-integrations.dto';
 export * from './collection-links.dto';
