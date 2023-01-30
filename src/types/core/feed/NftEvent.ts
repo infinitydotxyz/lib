@@ -1,5 +1,6 @@
 import { SaleSource } from '../NftSale';
 import { TokenStandard } from '../Token';
+import { OrderSource } from '../orderbook';
 import { BaseCollectionEvent, CollectionEvent } from './CollectionEvent';
 import { EventType } from './FeedEvent';
 import { OrderBookEvent } from './OrderBookEvent';
@@ -50,7 +51,7 @@ export interface BaseExchangeEvent {
    */
   paymentToken: string;
 
-  source: SaleSource;
+  source: SaleSource | OrderSource;
 
   tokenStandard: TokenStandard;
 
