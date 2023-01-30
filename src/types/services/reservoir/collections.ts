@@ -1,4 +1,13 @@
-export interface ReservoirTopCollectionsV5 {
+export enum ReservorCollsSortBy {
+  ONE_DAY_VOLUME = '1DayVolume',
+  SEVEN_DAY_VOLUME = '7DayVolume',
+  THIRTY_DAY_VOLUME = '30DayVolume',
+  ALL_TIME_VOLUME = 'allTimeVolume',
+  CREATED_AT = 'createdAt',
+  FLOOR_ASK_PRICE = 'floorAskPrice'
+}
+
+export interface ReservoirCollectionsV5 {
   collections: ReservoirCollectionV5[];
 }
 
