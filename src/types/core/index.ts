@@ -1,6 +1,7 @@
 export * from './ChainId';
 export * from './Collection';
 export * from './CollectionDisplayData';
+export * from './CollectionHistoricalSales';
 export * from './CollectionStats';
 export * from './Erc20TokenMetadata';
 export * from './Etherscan';
