@@ -9,6 +9,7 @@ export enum ReservorCollsSortBy {
 
 export interface ReservoirCollectionsV5 {
   collections: ReservoirCollectionV5[];
+  continuation: string;
 }
 
 export interface ReservoirCollectionV5 {
