@@ -2,14 +2,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { parseIntTransformer } from '../../../transformers/parse-int.transformer';
-
-export enum HistoricalSalesTimeBucket {
-  ONE_HOUR = '1h',
-  ONE_DAY = '1d',
-  ONE_WEEK = '7d',
-  ONE_MONTH = '30d',
-  ONE_YEAR = '1y'
-}
+import { HistoricalSalesTimeBucket } from '../../core';
 
 export class CollectionHistoricalSalesQueryDto {
   @ApiProperty({

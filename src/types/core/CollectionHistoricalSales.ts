@@ -1,3 +1,11 @@
+export enum HistoricalSalesTimeBucket {
+  ONE_HOUR = '1h',
+  ONE_DAY = '1d',
+  ONE_WEEK = '7d',
+  ONE_MONTH = '30d',
+  ONE_YEAR = '1y'
+}
+
 export interface CollectionHistoricalSale {
   salePriceEth: number;
   timestamp: number;
