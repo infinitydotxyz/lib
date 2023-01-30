@@ -19,10 +19,11 @@ export class CollectionHistoricalSalesQueryDto {
   @IsEnum(HistoricalSalesTimeBucket)
   period: HistoricalSalesTimeBucket;
 
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'Number of data points to get'
   })
   @IsNumber()
+  @IsOptional()
   @Transform(parseIntTransformer())
   limit: number;
 
