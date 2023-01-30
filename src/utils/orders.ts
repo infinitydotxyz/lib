@@ -1,4 +1,4 @@
-import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
+import { BigNumber } from '@ethersproject/bignumber';
 import { parseEther } from '@ethersproject/units';
 import { BytesLike } from 'ethers';
 import { defaultAbiCoder, keccak256, recoverAddress, solidityKeccak256 } from 'ethers/lib/utils';
@@ -11,14 +11,34 @@ export function getTxnCurrencyAddress(_chainId: string, env = Env.Prod, version 
   return chainConstants[chainId][env][version]?.wethAddress ?? NULL_ADDRESS;
 }
 
+// export function getFlowOBComplicationAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
+//   const chainId = _chainId as ChainId;
+//   return chainConstants[chainId][env][version]?.flowContracts?.obComplicationAddress ?? NULL_ADDRESS;
+// }
+
+// export function getFlowExchangeAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
+//   const chainId = _chainId as ChainId;
+//   return chainConstants[chainId][env][version]?.flowContracts?.exchangeAddress ?? NULL_ADDRESS;
+// }
+
+// export function getFlowTokenAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
+//   const chainId = _chainId as ChainId;
+//   return chainConstants[chainId][env][version]?.flowContracts?.token.address ?? NULL_ADDRESS;
+// }
+
+// export function getFlowToken(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): Erc20TokenMetadata | null {
+//   const chainId = _chainId as ChainId;
+//   return chainConstants[chainId][env][version]?.flowContracts?.token ?? null;
+// }
+
 export function getOBComplicationAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.infinityContracts?.obComplicationAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.flowContracts?.obComplicationAddress ?? NULL_ADDRESS;
 }
 
 export function getExchangeAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.infinityContracts?.exchangeAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.flowContracts?.exchangeAddress ?? NULL_ADDRESS;
 }
 
 export function getStakerAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
@@ -28,7 +48,7 @@ export function getStakerAddress(_chainId: string, env = Env.Prod, version = CUR
 
 export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.infinityContracts?.token.address ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.flowContracts?.token.address ?? NULL_ADDRESS;
 }
 
 export function getCmDistributorAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
@@ -38,14 +58,14 @@ export function getCmDistributorAddress(_chainId: string, env = Env.Prod, versio
 
 export function getToken(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): Erc20TokenMetadata | null {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.infinityContracts?.token ?? null;
+  return chainConstants[chainId][env][version]?.flowContracts?.token ?? null;
 }
 
 export function getTokenByStaker(chainId: ChainId, stakerContractAddress: string) {
   const envConstants = chainConstants[chainId];
   for (const [, versionConstants] of Object.entries(envConstants)) {
     for (const [, constants] of Object.entries(versionConstants)) {
-      if (constants.infinityContracts.stakerAddress === stakerContractAddress) {
+      if (constants.infinityContracts?.stakerAddress === stakerContractAddress) {
         return constants.infinityContracts.token;
       }
     }
@@ -154,7 +174,7 @@ export function orderHash(order: ChainOBOrder): string {
   return keccak256(calcEncode);
 }
 
-export function nftsHash(nfts: ChainNFTs[]): string {
+function nftsHash(nfts: ChainNFTs[]): string {
   const fnSign = 'OrderItem(address collection,TokenInfo[] tokens)TokenInfo(uint256 tokenId,uint256 numTokens)';
   const typeHash = solidityKeccak256(['string'], [fnSign]);
 
@@ -171,7 +191,7 @@ export function nftsHash(nfts: ChainNFTs[]): string {
   return nftsHash;
 }
 
-export function tokensHash(tokens: ChainNFTs['tokens']): string {
+function tokensHash(tokens: ChainNFTs['tokens']): string {
   const fnSign = 'TokenInfo(uint256 tokenId,uint256 numTokens)';
   const typeHash = solidityKeccak256(['string'], [fnSign]);
 
@@ -185,34 +205,6 @@ export function tokensHash(tokens: ChainNFTs['tokens']): string {
   const encodeTypeArray = hashes.map(() => 'bytes32');
   const tokensHash = keccak256(defaultAbiCoder.encode(encodeTypeArray, hashes));
   return tokensHash;
-}
-
-export function getDigest(
-  chainId: BigNumberish,
-  verifyingContractAddress: BytesLike | string,
-  orderHash: string | BytesLike
-): string {
-  const domainSeparator = getDomainSeparator(chainId, verifyingContractAddress);
-  return solidityKeccak256(['string', 'bytes32', 'bytes32'], ['\x19\x01', domainSeparator, orderHash]);
-}
-
-export function getDomainSeparator(chainId: BigNumberish, verifyingContractAddress: BytesLike): string {
-  const domainSeparator = keccak256(
-    defaultAbiCoder.encode(
-      ['bytes32', 'bytes32', 'bytes32', 'uint256', 'address'],
-      [
-        solidityKeccak256(
-          ['string'],
-          ['EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)']
-        ),
-        solidityKeccak256(['string'], ['InfinityComplication']),
-        solidityKeccak256(['string'], ['1']), // for versionId = 1
-        chainId,
-        verifyingContractAddress
-      ]
-    )
-  );
-  return domainSeparator;
 }
 
 export function verifySig(digest: BytesLike, signer: string, sig: BytesLike): boolean {

@@ -16,9 +16,10 @@ export enum Env {
 
 export enum Version {
   V1 = 'v1',
-  V2 = 'v2'
+  V2 = 'v2',
+  FLOW = 'flow'
 }
-export const CURRENT_VERSION = Version.V2;
+export const CURRENT_VERSION = Version.FLOW;
 
 export const ONE_MIN = 60 * 1000;
 export const ONE_HOUR = 60 * ONE_MIN;
@@ -232,6 +233,11 @@ export const ETHEREUM_INFINITY_EXCHANGE_ADDRESS = '0xbADa5551B2f08d3959329B2fF8D
 export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0xbaDa5555fe632ace2C90Fee8C060703369c25f1c'.toLowerCase();
 export const ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS = '0xBaDa55c9C42e573047C76eB65e29D853f7B77b9C'.toLowerCase();
 
+export const ETHEREUM_FLOW_EXCHANGE_ADDRESS = '0xf1000142679a6a57abd2859d18f8002216b0ac2b'.toLowerCase();
+export const ETHEREUM_FLOW_TOKEN_ADDRESS = '0xf1000086b17dBd46E63B01b0ce2839C6FC074655'.toLowerCase();
+export const ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS = '0xf10003Fcf6e1215F5A579BcFe9B2614d1bADaef8'.toLowerCase();
+export const ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS = '0xf1000C585A2a2E8f0be53F7bfE68280ae99EBD7b'.toLowerCase();
+
 // goerli
 export const GOERLI_NETWORK_NAME = 'goerli';
 export const GOERLI_CHAIN_SCANNER_BASE = 'https://goerli.etherscan.io';
@@ -242,6 +248,11 @@ export const GOERLI_TOKEN_CONTRACT_ADDRESS = '0x1aD0880C80c4589c992dc7Ce87ABD3eb
 export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0xf0B83Ed51Fa7C9617dD48Fe5864566BBD9519E4b'.toLowerCase();
 export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x6deb5e1A056975e0F2024F3d89b6D2465Bde22aF'.toLowerCase();
 
+export const GOERLI_FLOW_EXCHANGE_ADDRESS = '0xa79C18bCDd5C45d4f58317609fe1B6C6A5B623b2'.toLowerCase();
+export const GOERLI_FLOW_TOKEN_ADDRESS = '0x45F33d648cA677980172f43eB8751F676864a000'.toLowerCase();
+export const GOERLI_FLOW_OB_COMPLICATION_ADDRESS = '0xB9ef3e81f83201F8A8C0D59C4aB392526661899e'.toLowerCase();
+export const GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS = '0x78d4143A8AF84d3d25738e95A2d4bcC307B72EA7'.toLowerCase();
+
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
 export const POLYGON_CHAIN_SCANNER_BASE = 'https://polygonscan.com';
@@ -250,6 +261,11 @@ export const POLYGON_WETH_ADDRESS = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'
 // todo these are not the most recent contracts
 export const POLYGON_INFINITY_EXCHANGE_ADDRESS = '0x5c600fff0AC90cdF026a16E4E315a2471F7BF7A6'.toLowerCase();
 export const POLYGON_INFINITY_OB_COMPLICATION_ADDRESS = '0x748C74994fFF570D7E3fd14f25c17C3D9702832c'.toLowerCase();
+
+export const POLYGON_FLOW_EXCHANGE_ADDRESS = '0xf1000142679a6a57abd2859d18f8002216b0ac2b'.toLowerCase();
+export const POLYGON_FLOW_TOKEN_ADDRESS = '0xf1000086b17dBd46E63B01b0ce2839C6FC074655'.toLowerCase();
+export const POLYGON_FLOW_OB_COMPLICATION_ADDRESS = '0xf10003Fcf6e1215F5A579BcFe9B2614d1bADaef8'.toLowerCase();
+export const POLYGON_FLOW_MATCH_EXECUTOR_ADDRESS = '0xf1000C585A2a2E8f0be53F7bfE68280ae99EBD7b'.toLowerCase();
 
 /**
  * arbitrary but consistent timestamp to allow us to get all stats using the same
@@ -296,6 +312,23 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           },
           cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS_TEST
         }
+      },
+      [Version.FLOW]: {
+        networkName: ETHEREUM_NETWORK_NAME,
+        scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
+        wethAddress: ETHEREUM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: ETHEREUM_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS,
+          token: {
+            address: ETHEREUM_FLOW_TOKEN_ADDRESS,
+            name: 'Flow',
+            symbol: 'FLOW',
+            decimals: 18,
+            chainId: ChainId.Mainnet
+          }
+        }
       }
     },
     [Env.Prod]: {
@@ -333,6 +366,23 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             chainId: ChainId.Mainnet
           },
           cmDistributorAddress: ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS
+        }
+      },
+      [Version.FLOW]: {
+        networkName: ETHEREUM_NETWORK_NAME,
+        scannerBase: ETHEREUM_CHAIN_SCANNER_BASE,
+        wethAddress: ETHEREUM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: ETHEREUM_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS,
+          token: {
+            address: ETHEREUM_FLOW_TOKEN_ADDRESS,
+            name: 'Flow',
+            symbol: 'FLOW',
+            decimals: 18,
+            chainId: ChainId.Mainnet
+          }
         }
       }
     }
@@ -374,6 +424,23 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           },
           cmDistributorAddress: ''
         }
+      },
+      [Version.FLOW]: {
+        networkName: GOERLI_NETWORK_NAME,
+        scannerBase: GOERLI_CHAIN_SCANNER_BASE,
+        wethAddress: GOERLI_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: GOERLI_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: GOERLI_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS,
+          token: {
+            address: GOERLI_FLOW_TOKEN_ADDRESS,
+            name: 'Flow',
+            symbol: 'FLOW',
+            decimals: 18,
+            chainId: ChainId.Mainnet
+          }
+        }
       }
     },
     [Env.Prod]: {
@@ -411,6 +478,23 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             chainId: ChainId.Goerli
           },
           cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: GOERLI_NETWORK_NAME,
+        scannerBase: GOERLI_CHAIN_SCANNER_BASE,
+        wethAddress: GOERLI_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: GOERLI_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: GOERLI_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS,
+          token: {
+            address: GOERLI_FLOW_TOKEN_ADDRESS,
+            name: 'Flow',
+            symbol: 'FLOW',
+            decimals: 18,
+            chainId: ChainId.Mainnet
+          }
         }
       }
     }
@@ -440,6 +524,23 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           token: {} as any,
           cmDistributorAddress: ''
         }
+      },
+      [Version.FLOW]: {
+        networkName: POLYGON_NETWORK_NAME,
+        scannerBase: POLYGON_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: POLYGON_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: POLYGON_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: POLYGON_FLOW_MATCH_EXECUTOR_ADDRESS,
+          token: {
+            address: POLYGON_FLOW_TOKEN_ADDRESS,
+            name: 'Flow',
+            symbol: 'FLOW',
+            decimals: 18,
+            chainId: ChainId.Polygon
+          }
+        }
       }
     },
     [Env.Prod]: {
@@ -466,6 +567,23 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           token: {} as any,
           cmDistributorAddress: ''
         }
+      },
+      [Version.FLOW]: {
+        networkName: POLYGON_NETWORK_NAME,
+        scannerBase: POLYGON_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: POLYGON_FLOW_EXCHANGE_ADDRESS,
+          obComplicationAddress: POLYGON_FLOW_OB_COMPLICATION_ADDRESS,
+          matchExecutorAddress: POLYGON_FLOW_MATCH_EXECUTOR_ADDRESS,
+          token: {
+            address: POLYGON_FLOW_TOKEN_ADDRESS,
+            name: 'Flow',
+            symbol: 'FLOW',
+            decimals: 18,
+            chainId: ChainId.Polygon
+          }
+        }
       }
     }
   }
@@ -475,11 +593,17 @@ interface ChainIdConstants {
   networkName: string;
   scannerBase: string;
   wethAddress: string;
-  infinityContracts: {
+  infinityContracts?: {
     exchangeAddress: string;
     obComplicationAddress: string;
     stakerAddress: string;
     token: Erc20TokenMetadata;
     cmDistributorAddress: string;
+  };
+  flowContracts?: {
+    exchangeAddress: string;
+    obComplicationAddress: string;
+    matchExecutorAddress: string;
+    token: Erc20TokenMetadata;
   };
 }
