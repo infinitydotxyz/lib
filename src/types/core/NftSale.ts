@@ -1,5 +1,6 @@
 import { TokenStandard } from './Token';
 import { Optional } from './UtilityTypes';
+import { OrderSource } from './orderbook/order-source';
 
 export enum SaleSource {
   Seaport = 'SEAPORT',
@@ -20,14 +21,14 @@ export interface BaseNftSale {
   seller: string;
   quantity: number;
   tokenStandard: TokenStandard;
-  source: SaleSource;
+  source: SaleSource | OrderSource;
   isAggregated: boolean;
   isDeleted: boolean;
   isFeedUpdated: boolean;
 }
 
 export interface ExternalNftSale extends BaseNftSale {
-  source: SaleSource.OpenSea | SaleSource.Seaport;
+  source: SaleSource.OpenSea | SaleSource.Seaport | OrderSource;
 }
 
 export interface InfinityNftSale extends BaseNftSale {
@@ -37,7 +38,14 @@ export interface InfinityNftSale extends BaseNftSale {
   protocolFeeWei: string;
 }
 
-export type NftSale = ExternalNftSale | InfinityNftSale;
+export interface FlowNftSale extends BaseNftSale {
+  source: 'flow';
+  protocolFeeBPS: number;
+  protocolFee: number;
+  protocolFeeWei: string;
+}
+
+export type NftSale = ExternalNftSale | InfinityNftSale | FlowNftSale;
 export interface NftSaleUnion
   extends Omit<ExternalNftSale, 'source' | 'isAggregated' | 'isDeleted'>,
     Optional<
