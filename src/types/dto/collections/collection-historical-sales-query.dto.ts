@@ -18,7 +18,7 @@ export class CollectionHistoricalSalesQueryDto {
   @IsNumber()
   @IsOptional()
   @Transform(parseIntTransformer())
-  limit: number;
+  limit?: number;
 
   @ApiPropertyOptional({
     description: 'Cursor to start after'
