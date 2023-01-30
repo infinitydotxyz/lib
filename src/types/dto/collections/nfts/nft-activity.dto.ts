@@ -2,7 +2,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsBoolean, IsEnum, IsEthereumAddress, IsNumber, IsOptional, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../../transformers';
-import { ChainId, SaleSource } from '../../../core';
+import { ChainId, OrderSource, SaleSource } from '../../../core';
 import { EventType } from '../../../core/feed';
 export class NftActivity {
   @ApiProperty({
@@ -132,9 +132,9 @@ export class NftActivity {
   @ApiPropertyOptional({
     description: 'SaleSource: INFINITY, etc'
   })
-  @IsEnum(SaleSource)
+  @IsString()
   @IsOptional()
-  source?: SaleSource;
+  source?: SaleSource | OrderSource;
 
   @ApiPropertyOptional({
     description: 'Misc string'
