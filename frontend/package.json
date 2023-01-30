@@ -1,6 +1,6 @@
 {
   "name": "@infinityxyz/lib-frontend",
-  "version": "1.297.2",
+  "version": "1.297.3",
   "description": "Stripped down version of @infinityxyz/lib suited for frontend development",
   "main": "index.js",
   "scripts": {
