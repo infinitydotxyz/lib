@@ -7,6 +7,9 @@ export interface ReservoirDetailedTokensResponse {
 
 export interface ReservoirToken {
   token: {
+    isFlagged?: boolean;
+    lastFlagUpdate?: string;
+    lastFlagChange?: string | null;
     contract: string;
     tokenId: string;
     name: string;
