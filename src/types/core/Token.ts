@@ -199,6 +199,12 @@ export interface BaseToken {
 
   lastSaleTimestamp?: number;
 
+  isFlagged?: boolean;
+
+  lastFlagUpdate?: number;
+
+  lastFlagChange?: string;
+
   /**
    * cached token image
    */
