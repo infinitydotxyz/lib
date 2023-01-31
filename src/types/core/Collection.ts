@@ -282,3 +282,11 @@ export interface CollectionAttribute {
    */
   values: { [traitValue: string | number]: TraitValueMetadata };
 }
+
+export interface SupportedCollection {
+  chainId: string;
+  address: string;
+  isSupported: boolean;
+  name: string;
+  slug: string;
+}
