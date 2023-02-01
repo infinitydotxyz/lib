@@ -1,7 +1,6 @@
-import { StatsPeriod } from './StatsPeriod';
-import { AllTimeStatsTimestampType } from '../../utils/constants';
 import { ChainId } from './ChainId';
 import { SaleSource } from './NftSale';
+import { StatsPeriod } from './StatsPeriod';
 
 export interface ProtocolFeeStats {
   minProtocolFeeWei: string | null;
@@ -92,13 +91,4 @@ export type Stats = CollectionSalesStats & { tokenId?: string };
 export interface TopOwner {
   owner: string;
   count: number;
-}
-
-type AllTimeStatsBase = SalesStatsMetadata &
-  BaseSalesStats &
-  ProtocolFeeStats &
-  Pick<Stats, 'chainId' | 'collectionAddress' | 'tokenId'>;
-
-export interface AllTimeStats extends AllTimeStatsBase {
-  timestamp: AllTimeStatsTimestampType;
 }

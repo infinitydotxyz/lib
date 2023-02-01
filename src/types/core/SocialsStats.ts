@@ -42,7 +42,7 @@ export interface PreAggregatedSocialsStats {
   twitterHandle: string | null;
   twitterLink: string | null;
 
-  updatedAt: number;
+  socialStatsUpdatedAt: number;
 }
 
 export interface SocialsStats extends PreAggregatedSocialsStats {
@@ -58,6 +58,5 @@ export interface SocialsStats extends PreAggregatedSocialsStats {
   prevTwitterFollowing: number | null;
   twitterFollowingPercentChange: number | null;
 
-  timestamp: number;
   period: StatsPeriod;
 }

@@ -147,6 +147,9 @@ export class CollectionStatsDto implements CollectionStats {
   @ApiProperty({ description: 'Period of the current stats' })
   period: StatsPeriod;
 
+  @ApiProperty({ description: 'Timestamp that the social stats were updated at' })
+  socialStatsUpdatedAt: number;
+
   @ApiProperty({ description: 'Timestamp that the stats were updated at' })
   updatedAt: number;
 
