@@ -97,7 +97,7 @@ export type CollectionPeriodStatsContent = {
   maxPrice?: number;
   marketCap?: number;
   salesVolume?: number;
-  salesVoumeChange?: number;
+  salesVolumeChange?: number;
   ownerCount?: number;
   tokenCount?: number;
   numSales?: number;
