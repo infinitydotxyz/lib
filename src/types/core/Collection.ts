@@ -109,7 +109,7 @@ export type CollectionPeriodStats = {
   daily?: CollectionPeriodStatsContent;
   weekly?: CollectionPeriodStatsContent;
   monthly?: CollectionPeriodStatsContent;
-  allTime?: CollectionPeriodStatsContent;
+  all?: CollectionPeriodStatsContent;
 };
 
 export interface BaseCollection {
