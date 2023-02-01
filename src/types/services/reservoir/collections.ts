@@ -1,4 +1,4 @@
-export enum ReservorCollsSortBy {
+export enum ReservoirCollsSortBy {
   ONE_DAY_VOLUME = '1DayVolume',
   SEVEN_DAY_VOLUME = '7DayVolume',
   THIRTY_DAY_VOLUME = '30DayVolume',
