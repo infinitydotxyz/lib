@@ -11,26 +11,6 @@ export function getTxnCurrencyAddress(_chainId: string, env = Env.Prod, version 
   return chainConstants[chainId][env][version]?.wethAddress ?? NULL_ADDRESS;
 }
 
-// export function getFlowOBComplicationAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
-//   const chainId = _chainId as ChainId;
-//   return chainConstants[chainId][env][version]?.flowContracts?.obComplicationAddress ?? NULL_ADDRESS;
-// }
-
-// export function getFlowExchangeAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
-//   const chainId = _chainId as ChainId;
-//   return chainConstants[chainId][env][version]?.flowContracts?.exchangeAddress ?? NULL_ADDRESS;
-// }
-
-// export function getFlowTokenAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
-//   const chainId = _chainId as ChainId;
-//   return chainConstants[chainId][env][version]?.flowContracts?.token.address ?? NULL_ADDRESS;
-// }
-
-// export function getFlowToken(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): Erc20TokenMetadata | null {
-//   const chainId = _chainId as ChainId;
-//   return chainConstants[chainId][env][version]?.flowContracts?.token ?? null;
-// }
-
 export function getOBComplicationAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
   return chainConstants[chainId][env][version]?.flowContracts?.obComplicationAddress ?? NULL_ADDRESS;
