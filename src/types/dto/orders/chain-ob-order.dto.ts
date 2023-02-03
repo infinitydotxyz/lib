@@ -31,12 +31,13 @@ export class ChainOBOrderDto implements ChainOBOrder {
 
   @ApiProperty({
     description:
-      'Constraints. Num items, start price in wei, end price in wei, start time in seconds, end time in seconds, nonce of the order, max tx gas price in wei',
+      'Constraints. Num items, start price in wei, end price in wei, start time in seconds, \
+        end time in seconds, nonce of the order, max tx gas price in wei and optionally isTrustedExec flag',
     type: [String]
   })
   @IsArray()
   @ArrayMinSize(7)
-  @ArrayMaxSize(7)
+  @ArrayMaxSize(8)
   constraints: BigNumberish[];
 
   @ApiProperty({
