@@ -151,4 +151,9 @@ export class NftDto {
     description: 'Last sale timestamp in millis'
   })
   lastSaleTimestamp?: number;
+
+  @ApiPropertyOptional({
+    description: 'Whether the token has been flagged'
+  })
+  isFlagged: boolean;
 }
