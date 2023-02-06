@@ -174,6 +174,8 @@ export interface BaseCollection {
 
   indexInitiator: string;
 
+  isSupported?: boolean;
+
   /**
    *
    */
