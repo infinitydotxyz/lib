@@ -13,6 +13,7 @@ export * from './NftInterface';
 export * from './NftSale';
 export * from './OBOrder';
 export * from './OrderMatch';
+export * from './Postgres';
 export * from './Queries';
 export * from './SocialsStats';
 export * from './StakeAmount';

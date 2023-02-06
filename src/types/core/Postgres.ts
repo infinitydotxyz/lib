@@ -1,4 +1,4 @@
-import { OrderStatus } from './orderbook';
+import { OrderSource, OrderStatus } from './orderbook';
 export interface FlattenedPostgresNFTSale {
   txhash: string;
   log_index: number;
@@ -25,6 +25,7 @@ export interface PostgresOrder {
   id: string;
   is_sell_order: boolean;
   price_eth: number;
+  gas_usage: string;
   collection_address: string;
   token_id: string;
   collection_name: string;
@@ -33,7 +34,7 @@ export interface PostgresOrder {
   start_time_millis: number;
   end_time_millis: number;
   maker: string;
-  marketplace: string;
+  marketplace: OrderSource;
   marketplace_address: string;
   is_private: boolean;
   is_complex: boolean;
