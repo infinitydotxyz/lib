@@ -291,4 +291,5 @@ export interface SupportedCollection {
   isSupported: boolean;
   name: string;
   slug: string;
+  metadata?: CollectionMetadata;
 }
