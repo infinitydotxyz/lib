@@ -4,4 +4,6 @@ export interface CollectionOrder {
   tokenId: string;
   tokenImage: string;
   priceEth: number;
+  maker: string;
+  isPrivate: boolean;
 }
