@@ -1,9 +1,10 @@
 export enum HistoricalSalesTimeBucket {
   ONE_HOUR = '1h',
+  SIX_HOURS = '6h',
   ONE_DAY = '1d',
+  TWO_DAYS = '2d',
   ONE_WEEK = '7d',
-  ONE_MONTH = '30d',
-  ONE_YEAR = '1y'
+  ONE_MONTH = '30d'
 }
 
 export interface CollectionHistoricalSale {
