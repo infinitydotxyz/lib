@@ -7,6 +7,10 @@ export const FlowMatchExecutorABI = [
     stateMutability: 'nonpayable',
     type: 'constructor'
   },
+  { inputs: [], name: 'BadContractSignature', type: 'error' },
+  { inputs: [{ internalType: 'uint8', name: 'v', type: 'uint8' }], name: 'BadSignatureV', type: 'error' },
+  { inputs: [], name: 'InvalidSignature', type: 'error' },
+  { inputs: [], name: 'InvalidSigner', type: 'error' },
   {
     anonymous: false,
     inputs: [
