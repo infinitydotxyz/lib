@@ -72,7 +72,6 @@ export interface FLOWDistribution {
 export interface FLURDistribution {
   type: DistributionType.FLUR;
   chainId: ChainId;
-  stakingContractAddress: string;
   tokenContractAddress: string;
   airdropContractAddress: string;
   maxTimestamp?: number;
