@@ -20,7 +20,7 @@ export enum INFTDistributionSources {
 
 export enum FLOWDistributionSources {
   TradingReward = 'TRADING_REWARD',
-  V1Airdrop = 'V1_AIRDROP',
+  Airdrop = 'AIRDROP',
   LPReward = 'LP_REWARD'
 }
 
