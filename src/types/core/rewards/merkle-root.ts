@@ -2,13 +2,48 @@ import { ChainId } from '../ChainId';
 
 export enum DistributionType {
   ETH = 'ETH',
-  INFT = 'INFT'
+  INFT = 'INFT',
+  FLOW = 'FLOW',
+  FLUR = 'FLUR'
 }
 
 export enum ETHDistributionSources {
   Curation = 'CURATION',
-  Referrals = 'REFERRALS'
+  Referrals = 'REFERRALS',
+  Staking = 'STAKING'
 }
+
+export enum INFTDistributionSources {
+  TradingFeeRefund = 'TRADING_FEE_REFUND',
+  V1Airdrop = 'V1_AIRDROP'
+}
+
+export enum FLOWDistributionSources {
+  TradingReward = 'TRADING_REWARD',
+  V1Airdrop = 'V1_AIRDROP',
+  LPReward = 'LP_REWARD'
+}
+
+export enum FLURDistributionSources {
+  TradingReward = 'TRADING_REWARD',
+  Staking = 'STAKING',
+  Airdrop = 'AIRDROP',
+  LPReward = 'LP_REWARD'
+}
+
+export const distributionSourcesByType = {
+  [DistributionType.ETH]: ETHDistributionSources,
+  [DistributionType.INFT]: INFTDistributionSources,
+  [DistributionType.FLOW]: FLOWDistributionSources,
+  [DistributionType.FLUR]: FLURDistributionSources
+};
+
+export type DistributionSourcesByType = {
+  [DistributionType.ETH]: ETHDistributionSources;
+  [DistributionType.INFT]: INFTDistributionSources;
+  [DistributionType.FLOW]: FLOWDistributionSources;
+  [DistributionType.FLUR]: FLURDistributionSources;
+};
 
 export interface ETHDistribution {
   type: DistributionType.ETH;
@@ -19,21 +54,6 @@ export interface ETHDistribution {
   maxTimestamp: number;
 }
 
-export enum INFTDistributionSources {
-  TradingFeeRefund = 'TRADING_FEE_REFUND',
-  V1Airdrop = 'V1_AIRDROP'
-}
-
-export const distributionSourcesByType = {
-  [DistributionType.ETH]: ETHDistributionSources,
-  [DistributionType.INFT]: INFTDistributionSources
-};
-
-export type DistributionSourcesByType = {
-  [DistributionType.ETH]: ETHDistributionSources;
-  [DistributionType.INFT]: INFTDistributionSources;
-};
-
 export interface INFTDistribution {
   type: DistributionType.INFT;
   chainId: ChainId;
@@ -42,7 +62,25 @@ export interface INFTDistribution {
   phaseIds: string[];
 }
 
-export type DistributionConfig = ETHDistribution | INFTDistribution;
+export interface FLOWDistribution {
+  type: DistributionType.FLOW;
+  chainId: ChainId;
+  stakingContractAddress: string;
+  tokenContractAddress: string;
+  airdropContractAddress: string;
+  maxTimestamp?: number;
+}
+
+export interface FLURDistribution {
+  type: DistributionType.FLUR;
+  chainId: ChainId;
+  stakingContractAddress: string;
+  tokenContractAddress: string;
+  airdropContractAddress: string;
+  maxTimestamp?: number;
+}
+
+export type DistributionConfig = ETHDistribution | INFTDistribution | FLOWDistribution | FLURDistribution;
 
 export interface MerkleRootDoc<T extends DistributionType> {
   config: DistributionConfig;
