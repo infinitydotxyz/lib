@@ -259,7 +259,6 @@ export const POLYGON_NETWORK_NAME = 'polygon';
 export const POLYGON_CHAIN_SCANNER_BASE = 'https://polygonscan.com';
 export const POLYGON_WETH_ADDRESS = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'.toLowerCase();
 
-// todo these are not the most recent contracts
 export const POLYGON_INFINITY_EXCHANGE_ADDRESS = '0x5c600fff0AC90cdF026a16E4E315a2471F7BF7A6'.toLowerCase();
 export const POLYGON_INFINITY_OB_COMPLICATION_ADDRESS = '0x748C74994fFF570D7E3fd14f25c17C3D9702832c'.toLowerCase();
 
