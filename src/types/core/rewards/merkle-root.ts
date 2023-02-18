@@ -25,8 +25,6 @@ export enum FLOWDistributionSources {
 }
 
 export enum FLURDistributionSources {
-  TradingReward = 'TRADING_REWARD',
-  Staking = 'STAKING',
   Airdrop = 'AIRDROP',
   LPReward = 'LP_REWARD'
 }
