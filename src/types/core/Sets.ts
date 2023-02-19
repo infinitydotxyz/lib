@@ -9,7 +9,8 @@ export interface SetsResponse {
     collectionName: string;
     tokenId: string;
     priceEth: number;
-    isSellOrder: boolean;
     tokenImage: string;
+    isSellOrder: boolean;
+    lastPriceEth?: number;
   }[];
 }
