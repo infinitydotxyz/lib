@@ -14,5 +14,6 @@ export interface SetsDataItem {
   priceEth: number;
   tokenImage: string;
   isSellOrder: boolean;
+  hasBlueCheck?: boolean;
   lastPriceEth?: number;
 }
