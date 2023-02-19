@@ -10,6 +10,7 @@ export interface SetsResponse {
 export interface SetsDataItem {
   collectionAddress: string;
   collectionName: string;
+  collectionSlug: string;
   tokenId: string;
   priceEth: number;
   tokenImage: string;
