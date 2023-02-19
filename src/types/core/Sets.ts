@@ -4,13 +4,15 @@ export interface SetsQuery {
 }
 
 export interface SetsResponse {
-  data: {
-    collectionAddress: string;
-    collectionName: string;
-    tokenId: string;
-    priceEth: number;
-    tokenImage: string;
-    isSellOrder: boolean;
-    lastPriceEth?: number;
-  }[];
+  data: SetsDataitem[];
+}
+
+export interface SetsDataitem {
+  collectionAddress: string;
+  collectionName: string;
+  tokenId: string;
+  priceEth: number;
+  tokenImage: string;
+  isSellOrder: boolean;
+  lastPriceEth?: number;
 }
