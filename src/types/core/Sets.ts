@@ -4,10 +4,10 @@ export interface SetsQuery {
 }
 
 export interface SetsResponse {
-  data: SetsDataitem[];
+  data: SetsDataItem[];
 }
 
-export interface SetsDataitem {
+export interface SetsDataItem {
   collectionAddress: string;
   collectionName: string;
   tokenId: string;
