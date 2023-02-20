@@ -17,4 +17,5 @@ export interface SetsDataItem {
   isSellOrder: boolean;
   hasBlueCheck?: boolean;
   lastPriceEth?: number;
+  mintPriceEth?: number;
 }
