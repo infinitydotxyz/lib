@@ -14,4 +14,5 @@ export interface OrderStatusEvent {
   isMostRecent: boolean;
   source: OrderSource;
   sourceOrder: unknown;
+  collection: string;
 }
