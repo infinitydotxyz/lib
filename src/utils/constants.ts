@@ -31,7 +31,7 @@ export const PROTOCOL_FEE_BPS = 250;
 export const TRENDING_COLLS_TTS = 12 * 60 * 60 * 1000; // time to stale 12 hours
 export const LOGIN_NONCE_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
 
-// todo: remove unused constants
+// future-todo: remove unused constants
 export const firestoreConstants = {
   SUPPORTED_COLLECTIONS_COLL: 'supportedCollections',
   COLLECTIONS_COLL: 'collections',
@@ -251,15 +251,14 @@ export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x6deb5e1A056975e0F2024F
 
 export const GOERLI_FLOW_EXCHANGE_ADDRESS = '0xa79C18bCDd5C45d4f58317609fe1B6C6A5B623b2'.toLowerCase();
 export const GOERLI_FLOW_TOKEN_ADDRESS = '0x45F33d648cA677980172f43eB8751F676864a000'.toLowerCase();
-export const GOERLI_FLOW_OB_COMPLICATION_ADDRESS = '0xC27A94800A3772082E28015c055CE2799C5Ef86F'.toLowerCase();
-export const GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS = '0xD78792a4C11e2aa770031579943f4B9B27A181a8'.toLowerCase();
+export const GOERLI_FLOW_OB_COMPLICATION_ADDRESS = '0x70B13420dB2D02B2FA2F4B7b9bE257062e10B7cA'.toLowerCase();
+export const GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS = '0xDe611060cd44ac4f7F0cD23aCd76d80C371B0F24'.toLowerCase();
 
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
 export const POLYGON_CHAIN_SCANNER_BASE = 'https://polygonscan.com';
 export const POLYGON_WETH_ADDRESS = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'.toLowerCase();
 
-// todo these are not the most recent contracts
 export const POLYGON_INFINITY_EXCHANGE_ADDRESS = '0x5c600fff0AC90cdF026a16E4E315a2471F7BF7A6'.toLowerCase();
 export const POLYGON_INFINITY_OB_COMPLICATION_ADDRESS = '0x748C74994fFF570D7E3fd14f25c17C3D9702832c'.toLowerCase();
 

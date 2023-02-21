@@ -38,6 +38,8 @@ export interface AllTimeTransactionFeeRewardsDoc {
   protocolFeesEth: number;
   protocolFeesUSDC: number;
   v1Airdrop: number;
+  flowAirdrop: number;
+  flurAirdrop: number;
   listingRewards: number;
 }
 export interface TransactionFeeRewardDoc {

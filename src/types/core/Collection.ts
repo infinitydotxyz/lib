@@ -9,7 +9,6 @@ export interface Erc721Collection extends BaseCollection {
 
 export interface Erc1155Collection extends BaseCollection {
   tokenStandard: TokenStandard.ERC1155;
-  // TODO this is not finished
 }
 
 export enum CreationFlow {
