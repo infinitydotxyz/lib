@@ -7,7 +7,7 @@ export type OrderSource =
   | 'foundation'
   | 'x2y2'
   | 'seaport'
-  | 'seaport-v1.2'
+  | 'seaport-v1.4'
   | 'rarible'
   | 'element-erc721'
   | 'element-erc1155'
