@@ -238,6 +238,7 @@ export const ETHEREUM_FLOW_EXCHANGE_ADDRESS = '0xf1000142679a6a57abd2859d18f8002
 export const ETHEREUM_FLOW_TOKEN_ADDRESS = '0xf1000086b17dBd46E63B01b0ce2839C6FC074655'.toLowerCase();
 export const ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS = '0xf10005a7E799CfD16BD71A3344E463DcDaaC1C97'.toLowerCase();
 export const ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS = '0xf1000f3c85d22bd1105E39940e7d95C8b7623B36'.toLowerCase();
+export const ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS = '0xf1000a7467e9D67F53e44AB30562800B6e38F616'.toLowerCase();
 
 // goerli
 export const GOERLI_NETWORK_NAME = 'goerli';
@@ -253,6 +254,7 @@ export const GOERLI_FLOW_EXCHANGE_ADDRESS = '0xa79C18bCDd5C45d4f58317609fe1B6C6A
 export const GOERLI_FLOW_TOKEN_ADDRESS = '0x45F33d648cA677980172f43eB8751F676864a000'.toLowerCase();
 export const GOERLI_FLOW_OB_COMPLICATION_ADDRESS = '0x70B13420dB2D02B2FA2F4B7b9bE257062e10B7cA'.toLowerCase();
 export const GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS = '0xDe611060cd44ac4f7F0cD23aCd76d80C371B0F24'.toLowerCase();
+export const GOERLI_FLOW_CUMULATIVE_AIRDROP_ADDRESS = '0x115033F49Ca27cB3A61Cf3e7bE8b4EA35eb11763'.toLowerCase();
 
 // polygon
 export const POLYGON_NETWORK_NAME = 'polygon';
@@ -266,6 +268,7 @@ export const POLYGON_FLOW_EXCHANGE_ADDRESS = '0xf1000142679a6a57abd2859d18f80022
 export const POLYGON_FLOW_TOKEN_ADDRESS = '0xf1000086b17dBd46E63B01b0ce2839C6FC074655'.toLowerCase();
 export const POLYGON_FLOW_OB_COMPLICATION_ADDRESS = '0xf10005a7E799CfD16BD71A3344E463DcDaaC1C97'.toLowerCase();
 export const POLYGON_FLOW_MATCH_EXECUTOR_ADDRESS = '0xf1000f3c85d22bd1105E39940e7d95C8b7623B36'.toLowerCase();
+export const POLYGON_FLOW_CUMULATIVE_AIRDROP_ADDRESS = '0xf1000a7467e9D67F53e44AB30562800B6e38F616'.toLowerCase();
 
 /**
  * arbitrary but consistent timestamp to allow us to get all stats using the same
@@ -321,6 +324,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: ETHEREUM_FLOW_EXCHANGE_ADDRESS,
           obComplicationAddress: ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS,
           matchExecutorAddress: ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS,
+          cmDistributorAddress: ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: ETHEREUM_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
@@ -376,6 +380,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: ETHEREUM_FLOW_EXCHANGE_ADDRESS,
           obComplicationAddress: ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS,
           matchExecutorAddress: ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS,
+          cmDistributorAddress: ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: ETHEREUM_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
@@ -433,6 +438,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: GOERLI_FLOW_EXCHANGE_ADDRESS,
           obComplicationAddress: GOERLI_FLOW_OB_COMPLICATION_ADDRESS,
           matchExecutorAddress: GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS,
+          cmDistributorAddress: GOERLI_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: GOERLI_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
@@ -488,6 +494,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: GOERLI_FLOW_EXCHANGE_ADDRESS,
           obComplicationAddress: GOERLI_FLOW_OB_COMPLICATION_ADDRESS,
           matchExecutorAddress: GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS,
+          cmDistributorAddress: GOERLI_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: GOERLI_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
@@ -533,6 +540,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_FLOW_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_FLOW_OB_COMPLICATION_ADDRESS,
           matchExecutorAddress: POLYGON_FLOW_MATCH_EXECUTOR_ADDRESS,
+          cmDistributorAddress: POLYGON_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: POLYGON_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
@@ -576,6 +584,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           exchangeAddress: POLYGON_FLOW_EXCHANGE_ADDRESS,
           obComplicationAddress: POLYGON_FLOW_OB_COMPLICATION_ADDRESS,
           matchExecutorAddress: POLYGON_FLOW_MATCH_EXECUTOR_ADDRESS,
+          cmDistributorAddress: POLYGON_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: POLYGON_FLOW_TOKEN_ADDRESS,
             name: 'Flow',
@@ -605,5 +614,6 @@ interface ChainIdConstants {
     obComplicationAddress: string;
     matchExecutorAddress: string;
     token: Erc20TokenMetadata;
+    cmDistributorAddress: string;
   };
 }

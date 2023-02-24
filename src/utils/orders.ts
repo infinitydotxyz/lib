@@ -31,9 +31,13 @@ export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURR
   return chainConstants[chainId][env][version]?.flowContracts?.token.address ?? NULL_ADDRESS;
 }
 
+export function getFlurTokenAddress(): string {
+  return '0xdae65e3c3933e1552c3d7fe1b585af33228a8840';
+}
+
 export function getCmDistributorAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.infinityContracts?.cmDistributorAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId][env][version]?.flowContracts?.cmDistributorAddress ?? NULL_ADDRESS;
 }
 
 export function getToken(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): Erc20TokenMetadata | null {
