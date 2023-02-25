@@ -19,6 +19,14 @@ export class UserTotalRewardsDto {
     claim: UserCumulativeRewardsDto;
   };
 
+  flurAirdrop: {
+    claim: UserCumulativeRewardsDto;
+  };
+
+  flowRewards: {
+    claim: UserCumulativeRewardsDto;
+  };
+
   curation: {
     totalRewardsWei: string;
     totalRewardsEth: number;
