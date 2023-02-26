@@ -8,11 +8,6 @@ export interface ExecutionStatusPendingMatching {
   status: 'pending-matching';
 }
 
-export interface ExecutionStatusMatched {
-  id: string;
-  status: 'matched-pending-execution' | 'matched-executing' | 'matched-executed';
-}
-
 export interface ExecutionStatusMatchedNoMatches {
   id: string;
   status: 'matched-no-matches';
@@ -123,7 +118,6 @@ export interface ExecutionStatusMatchedExecuted {
 export type ExecutionStatus =
   | ExecutionStatusNotFound
   | ExecutionStatusPendingMatching
-  | ExecutionStatusMatched
   | ExecutionStatusMatchedNoMatches
   | ExecutionStatusMatchedPendingExecution
   | ExecutionStatusMatchedInexecutable
