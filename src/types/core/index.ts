@@ -36,6 +36,7 @@ export * from './nft-stats';
 export * from './api-user';
 export * from './curation-ledger';
 export * from './feed';
+export * from './matching-engine';
 export * from './orderbook';
 export * from './raffle';
 export * from './referrals';
