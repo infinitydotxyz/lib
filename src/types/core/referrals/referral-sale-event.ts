@@ -1,6 +1,6 @@
 import { FeesGeneratedDto } from '../../dto';
 import { NftDisplayData } from '../nft-display-data';
-import { InfinityNftSale } from '../NftSale';
+import { InfinityNftSale, SaleSource } from '../NftSale';
 import { UserDisplayData } from '../UserDisplayData';
 import { AssetReferralDoc } from './asset-referral';
 
@@ -19,7 +19,6 @@ export interface BaseReferralSaleEvent {
     | 'seller'
     | 'quantity'
     | 'tokenStandard'
-    | 'source'
     | 'protocolFee'
     | 'protocolFeeBPS'
     | 'protocolFeeWei'
@@ -32,6 +31,7 @@ export interface BaseReferralSaleEvent {
   updatedAt: number;
   isAggregated: boolean;
   isDeleted: boolean;
+  source: SaleSource.Infinity | 'flow';
   isDisplayDataMerged: boolean;
 }
 

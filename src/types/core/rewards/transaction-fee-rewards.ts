@@ -1,6 +1,6 @@
 import { TradingFeeRefundDto } from '../../dto';
 import { ChainId } from '../ChainId';
-import { InfinityNftSale } from '../NftSale';
+import { FlowNftSale, InfinityNftSale } from '../NftSale';
 import { RewardListingEvent } from './reward-event';
 export interface TransactionFeePhaseRewardsDoc {
   phaseName: string;
@@ -45,7 +45,7 @@ export interface AllTimeTransactionFeeRewardsDoc {
 export interface TransactionFeeRewardDoc {
   userAddress: string;
   chainId: ChainId;
-  sale: InfinityNftSale;
+  sale: InfinityNftSale | FlowNftSale;
   volumeWei: string;
   volumeEth: number;
   volumeUSDC: number;
