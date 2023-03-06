@@ -22,7 +22,7 @@ export interface BaseReferralSaleEvent {
     | 'protocolFee'
     | 'protocolFeeBPS'
     | 'protocolFeeWei'
-  >;
+  > & { source: SaleSource.Infinity | 'flow' };
   referral: AssetReferralDoc;
   ethPrice: number;
   docId: string;
@@ -31,7 +31,6 @@ export interface BaseReferralSaleEvent {
   updatedAt: number;
   isAggregated: boolean;
   isDeleted: boolean;
-  source: SaleSource.Infinity | 'flow';
   isDisplayDataMerged: boolean;
 }
 
