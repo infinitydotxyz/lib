@@ -2,7 +2,8 @@ export const FlowMatchExecutorABI = [
   {
     inputs: [
       { internalType: 'contract IFlowExchange', name: '_exchange', type: 'address' },
-      { internalType: 'address', name: '_initiator', type: 'address' }
+      { internalType: 'address', name: '_initiator', type: 'address' },
+      { internalType: 'address', name: '_weth', type: 'address' }
     ],
     stateMutability: 'nonpayable',
     type: 'constructor'
@@ -28,18 +29,6 @@ export const FlowMatchExecutorABI = [
       { indexed: false, internalType: 'uint256', name: 'amount', type: 'uint256' }
     ],
     name: 'ETHWithdrawn',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [{ indexed: true, internalType: 'address', name: 'exchange', type: 'address' }],
-    name: 'EnabledExchangeAdded',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [{ indexed: true, internalType: 'address', name: 'exchange', type: 'address' }],
-    name: 'EnabledExchangeRemoved',
     type: 'event'
   },
   {
@@ -73,13 +62,6 @@ export const FlowMatchExecutorABI = [
     type: 'event'
   },
   {
-    inputs: [{ internalType: 'address', name: '_exchange', type: 'address' }],
-    name: 'addEnabledExchange',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function'
-  },
-  {
     inputs: [],
     name: 'exchange',
     outputs: [{ internalType: 'contract IFlowExchange', name: '', type: 'address' }],
@@ -96,8 +78,7 @@ export const FlowMatchExecutorABI = [
                 components: [
                   { internalType: 'bytes', name: 'data', type: 'bytes' },
                   { internalType: 'uint256', name: 'value', type: 'uint256' },
-                  { internalType: 'address payable', name: 'to', type: 'address' },
-                  { internalType: 'bool', name: 'isPayable', type: 'bool' }
+                  { internalType: 'address payable', name: 'to', type: 'address' }
                 ],
                 internalType: 'struct FlowMatchExecutorTypes.Call[]',
                 name: 'calls',
@@ -315,23 +296,9 @@ export const FlowMatchExecutorABI = [
     type: 'function'
   },
   {
-    inputs: [{ internalType: 'uint256', name: 'index', type: 'uint256' }],
-    name: 'getEnabledExchangeAt',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
     inputs: [],
     name: 'initiator',
     outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
-    inputs: [{ internalType: 'address', name: '_exchange', type: 'address' }],
-    name: 'isExchangeEnabled',
-    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
     stateMutability: 'view',
     type: 'function'
   },
@@ -342,13 +309,6 @@ export const FlowMatchExecutorABI = [
     ],
     name: 'isValidSignature',
     outputs: [{ internalType: 'bytes4', name: '', type: 'bytes4' }],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
-    inputs: [],
-    name: 'numEnabledExchanges',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
     type: 'function'
   },
@@ -379,13 +339,6 @@ export const FlowMatchExecutorABI = [
     stateMutability: 'view',
     type: 'function'
   },
-  {
-    inputs: [{ internalType: 'address', name: '_exchange', type: 'address' }],
-    name: 'removeEnabledExchange',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function'
-  },
   { inputs: [], name: 'renounceOwnership', outputs: [], stateMutability: 'nonpayable', type: 'function' },
   {
     inputs: [{ internalType: 'address', name: 'newOwner', type: 'address' }],
@@ -400,6 +353,13 @@ export const FlowMatchExecutorABI = [
     name: 'updateInitiator',
     outputs: [],
     stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [],
+    name: 'weth',
+    outputs: [{ internalType: 'contract IERC20', name: '', type: 'address' }],
+    stateMutability: 'view',
     type: 'function'
   },
   {
