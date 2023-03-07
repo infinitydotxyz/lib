@@ -2,9 +2,17 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { parseIntTransformer } from '../../../transformers';
-import { StatsPeriod } from '../../core';
+import { ChainId, StatsPeriod } from '../../core';
 
 export class CollectionTrendingStatsQueryDto {
+  @ApiProperty({
+    description: 'Chain id',
+    enum: ChainId
+  })
+  @IsEnum(ChainId)
+  @IsOptional()
+  chainId?: ChainId;
+
   @ApiProperty({
     description: 'Period to get stats for',
     enum: StatsPeriod
