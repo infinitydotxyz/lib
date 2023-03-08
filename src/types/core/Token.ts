@@ -12,7 +12,7 @@ export type Erc1155Metadata = {
   name: string;
   description: string;
   image: string;
-  // future-TODO add attributes/properties
+  // future-todo add attributes/properties
 };
 
 export type TokenMetadata = Erc721Metadata | Erc1155Metadata;
