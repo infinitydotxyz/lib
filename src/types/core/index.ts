@@ -33,6 +33,7 @@ export * from './UserOwned';
 export * from './UtilityTypes';
 export * from './nft-display-data';
 export * from './nft-stats';
+export * from './user-nonce';
 export * from './api-user';
 export * from './curation-ledger';
 export * from './feed';
