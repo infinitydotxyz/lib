@@ -1,6 +1,7 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ChainId } from './ChainId';
 import { Erc721Attribute } from './Metadata';
+import { OrderSource } from '../../../frontend/dist/types/core';
 
 export interface OBTokenInfo {
   tokenId: string;
@@ -99,6 +100,8 @@ export interface FirestoreOrderItem {
   currencyAddress: string;
   orderStatus: OBOrderStatus;
   chainId: string;
+  source: OrderSource;
+  gasUsage: string;
   isSellOrder: boolean;
   numItems: number;
   startPriceEth: number;
