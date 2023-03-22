@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger/dist';
 import { Transform, Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsEnum, IsEthereumAddress, IsNumber, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
-import { Erc721Attribute, FirestoreOrderItem, OBOrderStatus } from '../../core';
+import { Erc721Attribute, FirestoreOrderItem, OBOrderStatus, OrderSource } from '../../core';
 import { Erc721AttributeDto } from '../collections/nfts';
 
 export class FirestoreOrderItemDto implements FirestoreOrderItem {
@@ -24,6 +24,12 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
   })
   @IsString()
   gasUsage: string;
+
+  @ApiProperty({
+    description: 'Source marketplace'
+  })
+  @IsString()
+  source: OrderSource;
 
   @ApiProperty({
     description: 'Chain id for the order'
