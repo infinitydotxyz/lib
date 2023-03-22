@@ -20,6 +20,12 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
   orderStatus: OBOrderStatus;
 
   @ApiProperty({
+    description: 'Gas usage for the order'
+  })
+  @IsString()
+  gasUsage: string;
+
+  @ApiProperty({
     description: 'Chain id for the order'
   })
   @IsString()
