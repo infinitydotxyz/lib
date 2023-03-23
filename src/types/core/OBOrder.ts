@@ -1,7 +1,7 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ChainId } from './ChainId';
 import { Erc721Attribute } from './Metadata';
-import { OrderSource } from '../../../frontend/dist/types/core';
+import { OrderSource } from './orderbook';
 
 export interface OBTokenInfo {
   tokenId: string;
