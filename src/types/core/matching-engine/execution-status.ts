@@ -18,7 +18,7 @@ export interface ExecutionStatusMatchedNoMatches {
   };
 }
 
-export interface ExecutionStatusMatchedPendingExecution {
+export interface BaseExecutionStatusMatchedPendingExecution {
   id: string;
   status: 'matched-pending-execution';
   matchInfo: {
@@ -27,6 +27,20 @@ export interface ExecutionStatusMatchedPendingExecution {
     matchedAt: number;
   };
 }
+
+export interface ExecutionStatusMatchedPendingExecutionGasTooLow extends BaseExecutionStatusMatchedPendingExecution {
+  reason: 'gas-too-low';
+  bestMatchMaxFeePerGasGwei: string;
+  currentMaxFeePerGasGwei: string;
+}
+
+export interface ExecutionStatusMatchedPendingExecutionUnknown extends BaseExecutionStatusMatchedPendingExecution {
+  reason: 'unknown';
+}
+
+export type ExecutionStatusMatchedPendingExecution =
+  | ExecutionStatusMatchedPendingExecutionGasTooLow
+  | ExecutionStatusMatchedPendingExecutionUnknown;
 
 export interface ExecutionStatusMatchedInexecutable {
   id: string;
