@@ -62,6 +62,26 @@ export interface ExecutionStatusMatchedInexecutableOfferWETHBalanceTooLow {
   };
 }
 
+export interface ExecutionStatusMatchedInexecutableOfferWETHAllowanceTooLow {
+  id: string;
+  status: 'matched-inexecutable-offer-weth-allowance-too-low';
+  matchInfo: {
+    side: 'proposer' | 'recipient';
+    proposerInitiatedAt: number;
+    matchedAt: number;
+  };
+  executionInfo: {
+    reason: string;
+    initiatedAt: number;
+    matchId: string;
+    matchedOrderId: string;
+    blockNumber: number;
+    baseFeePerGas: string;
+    maxFeePerGas: string;
+    maxPriorityFeePerGas: string;
+  };
+}
+
 export interface ExecutionStatusMatchedInexecutable {
   id: string;
   status: 'matched-inexecutable';
@@ -156,6 +176,7 @@ export type ExecutionStatus =
   | ExecutionStatusMatchedPendingExecution
   | ExecutionStatusMatchedInexecutable
   | ExecutionStatusMatchedInexecutableOfferWETHBalanceTooLow
+  | ExecutionStatusMatchedInexecutableOfferWETHAllowanceTooLow
   | ExecutionStatusMatchedExecuting
   | ExecutionStatusMatchedNotIncluded
   | ExecutionStatusMatchedExecuted;
