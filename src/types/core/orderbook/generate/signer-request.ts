@@ -39,7 +39,7 @@ export type DepositCurrencyRequest = Omit<TransactionRequest, 'txData'> & {
   kind: RequestKind.DepositCurrency;
 };
 
-export interface EIP721Data {
+export interface EIP712Data {
   signatureKind: 'eip712';
   domain: {
     name: string;
@@ -54,7 +54,7 @@ export interface EIP721Data {
 export type IncompleteGenerateSignatureRequest = BaseRequest & {
   kind: RequestKind.Signature;
   status: 'incomplete';
-  signatureData: EIP721Data;
+  signatureData: EIP712Data;
 };
 
 export type CompleteGenerateSignatureRequest = BaseRequest & {
