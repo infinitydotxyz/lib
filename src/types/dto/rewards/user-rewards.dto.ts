@@ -4,13 +4,13 @@ import { UserTotalRewardsDto } from './user-total-rewards.dto';
 
 export class UserRewardsDto {
   @ApiProperty({
-    description: 'Chain Id oif the rewards',
+    description: 'Chain Id of the rewards',
     enum: ChainId
   })
   chainId: ChainId;
 
   @ApiProperty({
-    description: 'Total rewards for the user over all epochs'
+    description: 'Total rewards for the user'
   })
   totals: UserTotalRewardsDto;
 }

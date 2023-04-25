@@ -37,5 +37,8 @@ export class UserTotalRewardsDto {
     totalRewardsWei: string;
     totalRewardsEth: number;
     numReferrals: number;
+    referralRewardTokens: number;
+    referralRewardBoost: number;
+    referralLink: string;
   };
 }
