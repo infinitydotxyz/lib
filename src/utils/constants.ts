@@ -235,7 +235,7 @@ export const ETHEREUM_INFINITY_OB_COMPLICATION_ADDRESS = '0xbaDa5555fe632ace2C90
 export const ETHEREUM_CUMULATIVE_AIRDROP_ADDRESS = '0xBaDa55c9C42e573047C76eB65e29D853f7B77b9C'.toLowerCase();
 
 export const ETHEREUM_FLOW_EXCHANGE_ADDRESS = '0xf1000142679a6a57abd2859d18f8002216b0ac2b'.toLowerCase();
-export const ETHEREUM_FLOW_TOKEN_ADDRESS = '0xf1000086b17dBd46E63B01b0ce2839C6FC074655'.toLowerCase();
+export const ETHEREUM_FLOW_TOKEN_ADDRESS = '0x8Ae452D9F8F08F21FF81c94260Cb85302a31Ac30'.toLowerCase();
 export const ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS = '0xf10005a7E799CfD16BD71A3344E463DcDaaC1C97'.toLowerCase();
 export const ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS = '0xf1000D6FCD1D0F27be6c86D8FC06fE85D8263345'.toLowerCase();
 export const ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS = '0xf1000a7467e9D67F53e44AB30562800B6e38F616'.toLowerCase();
@@ -251,7 +251,7 @@ export const GOERLI_INFINITY_EXCHANGE_ADDRESS = '0xf0B83Ed51Fa7C9617dD48Fe586456
 export const GOERLI_INFINITY_OB_COMPLICATION_ADDRESS = '0x6deb5e1A056975e0F2024F3d89b6D2465Bde22aF'.toLowerCase();
 
 export const GOERLI_FLOW_EXCHANGE_ADDRESS = '0xa79C18bCDd5C45d4f58317609fe1B6C6A5B623b2'.toLowerCase();
-export const GOERLI_FLOW_TOKEN_ADDRESS = '0x45F33d648cA677980172f43eB8751F676864a000'.toLowerCase();
+export const GOERLI_FLOW_TOKEN_ADDRESS = '0x04607b23F1a1629C4Ba135f7BdA1f232A4748881'.toLowerCase();
 export const GOERLI_FLOW_OB_COMPLICATION_ADDRESS = '0x70B13420dB2D02B2FA2F4B7b9bE257062e10B7cA'.toLowerCase();
 export const GOERLI_FLOW_MATCH_EXECUTOR_ADDRESS = '0xbd9573b68297E6F0E01c4D64D6faED7c737024b5'.toLowerCase();
 export const GOERLI_FLOW_CUMULATIVE_AIRDROP_ADDRESS = '0x115033F49Ca27cB3A61Cf3e7bE8b4EA35eb11763'.toLowerCase();
@@ -327,8 +327,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           cmDistributorAddress: ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: ETHEREUM_FLOW_TOKEN_ADDRESS,
-            name: 'Flow',
-            symbol: 'FLOW',
+            name: 'XFL Token',
+            symbol: 'XFL',
             decimals: 18,
             chainId: ChainId.Mainnet
           }
@@ -383,8 +383,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           cmDistributorAddress: ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: ETHEREUM_FLOW_TOKEN_ADDRESS,
-            name: 'Flow',
-            symbol: 'FLOW',
+            name: 'XFL Token',
+            symbol: 'XFL',
             decimals: 18,
             chainId: ChainId.Mainnet
           }
@@ -441,8 +441,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           cmDistributorAddress: GOERLI_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: GOERLI_FLOW_TOKEN_ADDRESS,
-            name: 'Flow',
-            symbol: 'FLOW',
+            name: 'XFL Token',
+            symbol: 'XFL',
             decimals: 18,
             chainId: ChainId.Mainnet
           }
@@ -497,8 +497,8 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           cmDistributorAddress: GOERLI_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
           token: {
             address: GOERLI_FLOW_TOKEN_ADDRESS,
-            name: 'Flow',
-            symbol: 'FLOW',
+            name: 'XFL Token',
+            symbol: 'XFL',
             decimals: 18,
             chainId: ChainId.Mainnet
           }
