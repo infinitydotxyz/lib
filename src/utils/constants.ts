@@ -239,6 +239,7 @@ export const ETHEREUM_FLOW_TOKEN_ADDRESS = '0x8Ae452D9F8F08F21FF81c94260Cb85302a
 export const ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS = '0xf10005a7E799CfD16BD71A3344E463DcDaaC1C97'.toLowerCase();
 export const ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS = '0xf1000D6FCD1D0F27be6c86D8FC06fE85D8263345'.toLowerCase();
 export const ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS = '0xf1000a7467e9D67F53e44AB30562800B6e38F616'.toLowerCase();
+export const ETHEREUM_XFL_STAKER_CONTRACT_ADDRESS = '0x91bdea25fBF2aDCB01927CBcba3e581454A1B1ba'.toLowerCase();
 
 // goerli
 export const GOERLI_NETWORK_NAME = 'goerli';
@@ -381,6 +382,7 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
           obComplicationAddress: ETHEREUM_FLOW_OB_COMPLICATION_ADDRESS,
           matchExecutorAddress: ETHEREUM_FLOW_MATCH_EXECUTOR_ADDRESS,
           cmDistributorAddress: ETHEREUM_FLOW_CUMULATIVE_AIRDROP_ADDRESS,
+          xflStakerAddress: ETHEREUM_XFL_STAKER_CONTRACT_ADDRESS,
           token: {
             address: ETHEREUM_FLOW_TOKEN_ADDRESS,
             name: 'XFL Token',
@@ -615,5 +617,6 @@ interface ChainIdConstants {
     matchExecutorAddress: string;
     token: Erc20TokenMetadata;
     cmDistributorAddress: string;
+    xflStakerAddress?: string;
   };
 }

@@ -26,6 +26,11 @@ export function getStakerAddress(_chainId: string, env = Env.Prod, version = CUR
   return chainConstants[chainId][env][version]?.infinityContracts?.stakerAddress ?? NULL_ADDRESS;
 }
 
+export function getXFLStakerAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
+  const chainId = _chainId as ChainId;
+  return chainConstants[chainId][env][version]?.flowContracts?.xflStakerAddress ?? NULL_ADDRESS;
+}
+
 export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
   return chainConstants[chainId][env][version]?.flowContracts?.token.address ?? NULL_ADDRESS;
