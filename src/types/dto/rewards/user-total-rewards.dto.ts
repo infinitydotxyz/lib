@@ -11,33 +11,27 @@ export class UserCumulativeRewardsDto {
 }
 
 export class UserTotalRewardsDto {
-  tradingRefund: {
-    volume: number;
-    rewards: number;
-    sells: number;
-    buys: number;
+  totalRewards: {
     claim: UserCumulativeRewardsDto;
   };
 
-  flurAirdrop: {
-    claim: UserCumulativeRewardsDto;
+  airdrop: {
+    cumulative: number;
   };
 
-  flowRewards: {
-    claim: UserCumulativeRewardsDto;
+  buyRewards: {
+    last24Hrs: number;
+    cumulative: number;
   };
 
-  curation: {
-    totalRewardsWei: string;
-    totalRewardsEth: number;
-    claim: UserCumulativeRewardsDto;
+  listingRewards: {
+    last24Hrs: number;
+    cumulative: number;
   };
 
   referrals: {
-    totalRewardsWei: string;
-    totalRewardsEth: number;
     numReferrals: number;
-    referralRewardTokens: number;
+    numTokens: number;
     referralRewardBoost: number;
     referralLink: string;
   };
