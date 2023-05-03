@@ -16,6 +16,7 @@ export class UserTotalRewardsDto {
   };
 
   airdrop: {
+    isINFT: boolean;
     cumulative: number;
   };
 
