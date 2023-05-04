@@ -21,13 +21,17 @@ export class UserTotalRewardsDto {
   };
 
   buyRewards: {
-    last24Hrs: number;
-    cumulative: number;
+    volLast24Hrs: number;
+    volTotal: number;
+    numBuysLast24Hrs: number;
+    numBuysTotal: number;
+    earnedRewardsTotal: number;
   };
 
   listingRewards: {
-    last24Hrs: number;
-    cumulative: number;
+    numListings24Hrs: number;
+    numListingsTotal: number;
+    earnedRewardsTotal: number;
   };
 
   referrals: {
