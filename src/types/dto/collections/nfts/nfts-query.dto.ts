@@ -71,4 +71,11 @@ export class NftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'maxPric
   @IsOptional()
   @IsEnum(OrderType)
   orderType?: OrderType;
+
+  @ApiPropertyOptional({
+    description: 'Marketplace source to filter by'
+  })
+  @IsString()
+  @IsOptional()
+  source?: string;
 }
