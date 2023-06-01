@@ -62,18 +62,18 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
   endPriceEth: number;
 
   @ApiProperty({
-    description: 'Starting delta to account for snipe costs in ETH'
+    description: 'Gas for sniping in ETH'
   })
   @IsNumber()
   @IsOptional()
-  startPriceDeltaEth: number;
+  gasCostEth: number;
 
   @ApiProperty({
-    description: 'Ending price delta to account for snipe costs in ETH'
+    description: 'MP fee for sniping in ETH'
   })
   @IsNumber()
   @IsOptional()
-  endPriceDeltaEth: number;
+  feeCostEth: number;
 
   @ApiProperty({
     description: 'Time that the order becomes valid. Epoch timestamp (ms)'

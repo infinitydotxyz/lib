@@ -105,9 +105,9 @@ export interface FirestoreOrderItem {
   isSellOrder: boolean;
   numItems: number;
   startPriceEth: number;
-  startPriceDeltaEth?: number;
   endPriceEth: number;
-  endPriceDeltaEth?: number;
+  gasCostEth?: number;
+  feeCostEth?: number;
   startTimeMs: number;
   endTimeMs: number;
   makerUsername: string;
