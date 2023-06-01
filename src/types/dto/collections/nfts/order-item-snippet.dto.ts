@@ -25,4 +25,11 @@ export class OrderItemSnippetDto implements OrderItemSnippet {
   @ValidateNested({ message: 'Invalid order item' })
   @Type(() => FirestoreOrderItemDto)
   orderItem?: FirestoreOrderItemDto | null;
+
+  @ApiPropertyOptional({
+    description: 'The signed order, if any'
+  })
+  @IsOptional()
+  // any to support evolving marketplace order types; not ideal
+  signedOrder?: any;
 }

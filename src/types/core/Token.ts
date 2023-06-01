@@ -1,4 +1,3 @@
-import { ChainOBOrderDto } from '../dto/orders/chain-ob-order.dto';
 import { ZoraContent } from '../services/zora/tokens';
 import { Erc721Metadata } from './Metadata';
 import { FirestoreOrderItem } from './OBOrder';
@@ -93,7 +92,8 @@ export interface OrderItemSnippet {
    */
   orderItemId?: string;
   orderItem?: FirestoreOrderItem | null;
-  signedOrder?: ChainOBOrderDto;
+  // any to support evolving marketplace order types; not ideal
+  signedOrder?: any;
 }
 
 export interface BaseToken {
