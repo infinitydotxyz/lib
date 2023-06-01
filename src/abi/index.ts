@@ -9,3 +9,4 @@ export * from './infinityCmDistributor';
 export * from './infinityExchange';
 export * from './infinityOBComplication';
 export * from './infinityStaker';
+export * from './xflStaker';
