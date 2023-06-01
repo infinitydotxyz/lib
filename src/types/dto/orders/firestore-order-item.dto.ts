@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger/dist';
 import { Transform, Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsEnum, IsEthereumAddress, IsNumber, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsEnum, IsEthereumAddress, IsNumber, IsOptional, IsString } from 'class-validator';
 import { normalizeAddressTransformer } from '../../../transformers/normalize-address.transformer';
 import { Erc721Attribute, FirestoreOrderItem, OBOrderStatus, OrderSource } from '../../core';
 import { Erc721AttributeDto } from '../collections/nfts';
@@ -60,6 +60,20 @@ export class FirestoreOrderItemDto implements FirestoreOrderItem {
   })
   @IsNumber()
   endPriceEth: number;
+
+  @ApiProperty({
+    description: 'Starting delta to account for snipe costs in ETH'
+  })
+  @IsNumber()
+  @IsOptional()
+  startPriceDeltaEth: number;
+
+  @ApiProperty({
+    description: 'Ending price delta to account for snipe costs in ETH'
+  })
+  @IsNumber()
+  @IsOptional()
+  endPriceDeltaEth: number;
 
   @ApiProperty({
     description: 'Time that the order becomes valid. Epoch timestamp (ms)'
