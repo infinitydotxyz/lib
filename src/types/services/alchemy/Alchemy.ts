@@ -1,5 +1,24 @@
 import { Erc721Attribute, TokenStandard } from '../../core';
 
+export interface AlchemyUserCollectionsResponse {
+  contracts: AlchemyUserCollection[];
+  pageKey: string;
+}
+
+export interface AlchemyUserCollection {
+  address: string;
+  totalBalance: number;
+  numDistinctTokensOwned: number;
+  tokenType: string;
+  name: string;
+  symbol: string;
+  opensea: {
+    floorPrice: number;
+    collectionName: string;
+    imageUrl: string;
+  };
+}
+
 export interface AlchemyUserNftsResponse {
   ownedNfts: AlchemyNft[];
 

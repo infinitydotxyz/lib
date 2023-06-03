@@ -9,3 +9,29 @@ export class UserNftCollectionsQueryDto {
   @IsString()
   search?: string;
 }
+
+export interface UserCollectionsQuery {
+  chainId?: string;
+  hideSpam?: boolean;
+  limit?: number;
+  cursor?: string;
+  orderBy?: string;
+  orderDirection?: string;
+  hideAirdrops?: boolean;
+  spamConfidenceLevel?: string;
+}
+
+export interface UserCollectionsResponse {
+  data: UserCollection[];
+  cursor: string;
+  hasNextPage: boolean;
+}
+
+export interface UserCollection {
+  address: string;
+  numNFTs: number;
+  name: string;
+  symbol: string;
+  imageUrl: string;
+  floorPrice: number;
+}

@@ -1,6 +1,15 @@
 import { ApiProperty, ApiPropertyOptional, PickType } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsNumber, IsString, IsOptional, IsEthereumAddress, IsArray, ArrayMaxSize, IsEnum } from 'class-validator';
+import {
+  IsNumber,
+  IsString,
+  IsOptional,
+  IsEthereumAddress,
+  IsArray,
+  ArrayMaxSize,
+  IsEnum,
+  IsBoolean
+} from 'class-validator';
 import { IsSupportedChainId } from '../../../decorators/is-supported-chain-id.decorator';
 import { normalizeAddressArrayTransformer } from '../../../transformers/normalize-address.transformer';
 import { parseIntTransformer } from '../../../transformers/parse-int.transformer';
@@ -16,7 +25,8 @@ export enum UserNftsOrderType {
 }
 
 export enum UserNftsOrderBy {
-  Price = 'price'
+  Price = 'price',
+  TransferTime = 'transferTime'
 }
 
 export class UserNftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'maxPrice', 'currency']) {
@@ -75,4 +85,18 @@ export class UserNftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'max
   @IsString()
   @IsOptional()
   cursor?: string;
+
+  @ApiPropertyOptional({
+    description: 'Hide spam'
+  })
+  @IsBoolean()
+  @IsOptional()
+  hideSpam?: boolean;
+
+  @ApiPropertyOptional({
+    description: 'Hide airdrops'
+  })
+  @IsBoolean()
+  @IsOptional()
+  hideAirdrops?: boolean;
 }
