@@ -15,6 +15,7 @@ import { normalizeAddressArrayTransformer } from '../../../transformers/normaliz
 import { parseIntTransformer } from '../../../transformers/parse-int.transformer';
 import { ChainId, OrderDirection } from '../../core';
 import { PriceFilterDto } from '../collections/nfts';
+import { parseBoolTransformer } from '../../../transformers';
 
 const MAX_COLLECTION_ADDRESSES = 20;
 
@@ -90,6 +91,7 @@ export class UserNftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'max
     description: 'Hide spam'
   })
   @IsBoolean()
+  @Transform(parseBoolTransformer({ optional: true }))
   @IsOptional()
   hideSpam?: boolean;
 
@@ -97,6 +99,7 @@ export class UserNftsQueryDto extends PickType(PriceFilterDto, ['minPrice', 'max
     description: 'Hide airdrops'
   })
   @IsBoolean()
+  @Transform(parseBoolTransformer({ optional: true }))
   @IsOptional()
   hideAirdrops?: boolean;
 }
