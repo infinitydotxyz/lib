@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mavriklabs/lib.git"
+    "url": "git+https://github.com/infinitydotxyz/lib.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mavriklabs/lib/issues"
+    "url": "https://github.com/infinitydotxyz/lib/issues"
   },
-  "homepage": "https://github.com/mavriklabs/lib#readme",
+  "homepage": "https://github.com/infinitydotxyz/lib#readme",
   "keywords": [],
   "dependencies": {
     "@nestjs/swagger": "^6.1.2",
