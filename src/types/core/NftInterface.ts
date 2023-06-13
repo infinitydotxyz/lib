@@ -7,7 +7,7 @@ export enum ListingType {
   EnglishAuction = 'englishAuction'
 }
 /**
- * Integration with flow.so discord bot.
+ * Integration with pixelpack.io discord bot.
  */
 export interface DiscordIntegration {
   /**

@@ -6,7 +6,7 @@ export function joinUrl(...parts: string[]): string {
 }
 
 export function getInfinityLink(link: InfinityLink) {
-  const baseUrl = 'https://flow.so';
+  const baseUrl = 'https://pixelpack.io';
 
   switch (link.type) {
     case InfinityLinkType.Asset:
