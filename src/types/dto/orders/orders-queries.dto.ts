@@ -177,6 +177,14 @@ export class MakerOrdersQuery extends BaseOrderQuery {
   })
   @Transform(normalizeAddressTransformer)
   collection?: string;
+
+  @ApiPropertyOptional({
+    description: 'Fetch intents'
+  })
+  @IsOptional()
+  @Transform(parseBoolTransformer({ optional: true }))
+  @IsBoolean()
+  isIntent?: boolean;
 }
 
 export type OrderQueries = CollectionOrdersQuery | TokenOrdersQuery | TakerOrdersQuery | MakerOrdersQuery;
