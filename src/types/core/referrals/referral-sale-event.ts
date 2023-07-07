@@ -1,6 +1,6 @@
 import { FeesGeneratedDto } from '../../dto';
 import { NftDisplayData } from '../nft-display-data';
-import { InfinityNftSale, SaleSource } from '../NftSale';
+import { InfinityNftSale } from '../NftSale';
 import { UserDisplayData } from '../UserDisplayData';
 import { AssetReferralDoc } from './asset-referral';
 
@@ -22,7 +22,7 @@ export interface BaseReferralSaleEvent {
     | 'protocolFee'
     | 'protocolFeeBPS'
     | 'protocolFeeWei'
-  > & { source: SaleSource.Infinity | 'flow' };
+  > & { source: string };
   referral: AssetReferralDoc;
   ethPrice: number;
   docId: string;

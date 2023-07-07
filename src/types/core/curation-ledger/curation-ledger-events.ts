@@ -1,6 +1,6 @@
 import { FeesGeneratedDto } from '../../dto';
 import { ChainId } from '../ChainId';
-import { InfinityNftSale, SaleSource } from '../NftSale';
+import { InfinityNftSale } from '../NftSale';
 import { StakeInfo } from '../StakerEvents';
 
 export enum CurationLedgerEvent {
@@ -29,7 +29,7 @@ export interface CurationLedgerSale extends Omit<InfinityNftSale, 'source'>, Cur
   docId: string;
   chainId: ChainId;
   discriminator: CurationLedgerEvent.Sale;
-  source: SaleSource.Infinity | 'flow';
+  source: string;
   /**
    * no stake info to merge
    */
