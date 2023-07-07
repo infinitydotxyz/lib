@@ -31,21 +31,18 @@ export interface ExternalNftSale extends BaseNftSale {
 }
 
 export interface InfinityNftSale extends BaseNftSale {
-  source: 'infinity';
   protocolFeeBPS: number;
   protocolFee: number;
   protocolFeeWei: string;
 }
 
 export interface FlowNftSale extends BaseNftSale {
-  source: 'flow';
   protocolFeeBPS: number;
   protocolFee: number;
   protocolFeeWei: string;
 }
 
 export interface PixelpackNftSale extends BaseNftSale {
-  source: 'pixelpack';
   protocolFeeBPS: number;
   protocolFee: number;
   protocolFeeWei: string;
