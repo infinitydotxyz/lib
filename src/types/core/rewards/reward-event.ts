@@ -1,5 +1,5 @@
 import { ChainId } from '../ChainId';
-import { InfinityNftSale, SaleSource } from '../NftSale';
+import { InfinityNftSale } from '../NftSale';
 import { AssetReferralDoc } from '../referrals';
 
 export enum RewardEventVariant {
@@ -22,7 +22,7 @@ export interface RewardSaleEvent extends Omit<InfinityNftSale, 'source'>, BaseRe
   docId: string;
   referral?: AssetReferralDoc;
   isMerged: true;
-  source: SaleSource.Infinity | 'flow';
+  source: string;
 }
 
 export interface PreMergedRewardSaleEvent extends Omit<RewardSaleEvent, 'referral' | 'ethPrice' | 'isMerged'> {
