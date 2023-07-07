@@ -234,12 +234,12 @@ export interface BaseToken {
 }
 
 export interface Erc721Token extends BaseToken {
-  metadata: Erc721Metadata;
+  metadata?: Erc721Metadata;
   tokenStandard: TokenStandard.ERC721;
 }
 
 export interface Erc1155Token extends BaseToken {
-  metadata: Erc1155Metadata;
+  metadata?: Erc1155Metadata;
   tokenStandard: TokenStandard.ERC1155;
 }
 
