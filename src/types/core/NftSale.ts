@@ -44,7 +44,14 @@ export interface FlowNftSale extends BaseNftSale {
   protocolFeeWei: string;
 }
 
-export type NftSale = ExternalNftSale | InfinityNftSale | FlowNftSale;
+export interface PixelpackNftSale extends BaseNftSale {
+  source: 'pixelpack';
+  protocolFeeBPS: number;
+  protocolFee: number;
+  protocolFeeWei: string;
+}
+
+export type NftSale = ExternalNftSale | InfinityNftSale | FlowNftSale | PixelpackNftSale;
 export interface NftSaleUnion
   extends Omit<ExternalNftSale, 'source' | 'isAggregated' | 'isDeleted'>,
     Optional<
