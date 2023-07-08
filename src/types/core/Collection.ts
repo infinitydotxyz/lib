@@ -237,6 +237,7 @@ export interface CollectionMetadata {
   displayType?: string;
   updatedAt?: number;
   tipAddress?: string;
+  mintedTimestamp?: number;
 }
 
 /**
