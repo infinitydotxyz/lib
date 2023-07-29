@@ -4,7 +4,9 @@ export enum DistributionType {
   ETH = 'ETH',
   INFT = 'INFT',
   FLOW = 'FLOW',
-  FLUR = 'FLUR'
+  FLUR = 'FLUR',
+  XFL = 'XFL',
+  PIXL = 'PIXL'
 }
 
 export enum ETHDistributionSources {
@@ -29,11 +31,25 @@ export enum FLURDistributionSources {
   LPReward = 'LP_REWARD'
 }
 
+export enum XFLDistributionSources {
+  Airdrop = 'AIRDROP'
+}
+
+export enum PIXLDistributionSources {
+  Airdrop = 'AIRDROP',
+  Referrals = 'REFERRALS',
+  Listings = 'LISTINGS',
+  Buys = 'BUYS',
+  Bids = 'BIDS'
+}
+
 export const distributionSourcesByType = {
   [DistributionType.ETH]: ETHDistributionSources,
   [DistributionType.INFT]: INFTDistributionSources,
   [DistributionType.FLOW]: FLOWDistributionSources,
-  [DistributionType.FLUR]: FLURDistributionSources
+  [DistributionType.FLUR]: FLURDistributionSources,
+  [DistributionType.XFL]: XFLDistributionSources,
+  [DistributionType.PIXL]: PIXLDistributionSources
 };
 
 export type DistributionSourcesByType = {
@@ -41,6 +57,8 @@ export type DistributionSourcesByType = {
   [DistributionType.INFT]: INFTDistributionSources;
   [DistributionType.FLOW]: FLOWDistributionSources;
   [DistributionType.FLUR]: FLURDistributionSources;
+  [DistributionType.XFL]: XFLDistributionSources;
+  [DistributionType.PIXL]: PIXLDistributionSources;
 };
 
 export interface ETHDistribution {
@@ -77,7 +95,29 @@ export interface FLURDistribution {
   maxTimestamp?: number;
 }
 
-export type DistributionConfig = ETHDistribution | INFTDistribution | FLOWDistribution | FLURDistribution;
+export interface XFLDistribution {
+  type: DistributionType.XFL;
+  chainId: ChainId;
+  tokenContractAddress: string;
+  airdropContractAddress: string;
+  maxTimestamp?: number;
+}
+
+export interface PIXLDistribution {
+  type: DistributionType.PIXL;
+  chainId: ChainId;
+  tokenContractAddress: string;
+  airdropContractAddress: string;
+  maxTimestamp?: number;
+}
+
+export type DistributionConfig =
+  | ETHDistribution
+  | INFTDistribution
+  | FLOWDistribution
+  | FLURDistribution
+  | XFLDistribution
+  | PIXLDistribution;
 
 export interface MerkleRootDoc<T extends DistributionType> {
   config: DistributionConfig;
