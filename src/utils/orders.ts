@@ -8,32 +8,32 @@ import { trimLowerCase } from './formatters';
 
 export function getTxnCurrencyAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.wethAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId]?.[env]?.[version]?.wethAddress ?? NULL_ADDRESS;
 }
 
 export function getOBComplicationAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.flowContracts?.obComplicationAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId]?.[env]?.[version]?.flowContracts?.obComplicationAddress ?? NULL_ADDRESS;
 }
 
 export function getExchangeAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.flowContracts?.exchangeAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId]?.[env]?.[version]?.flowContracts?.exchangeAddress ?? NULL_ADDRESS;
 }
 
 export function getStakerAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.infinityContracts?.stakerAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId]?.[env]?.[version]?.infinityContracts?.stakerAddress ?? NULL_ADDRESS;
 }
 
 export function getXFLStakerAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.flowContracts?.xflStakerAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId]?.[env]?.[version]?.flowContracts?.xflStakerAddress ?? NULL_ADDRESS;
 }
 
 export function getTokenAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.flowContracts?.token.address ?? NULL_ADDRESS;
+  return chainConstants[chainId]?.[env]?.[version]?.flowContracts?.token.address ?? NULL_ADDRESS;
 }
 
 export function getFlurTokenAddress(): string {
@@ -42,12 +42,12 @@ export function getFlurTokenAddress(): string {
 
 export function getCmDistributorAddress(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): string {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.flowContracts?.cmDistributorAddress ?? NULL_ADDRESS;
+  return chainConstants[chainId]?.[env]?.[version]?.flowContracts?.cmDistributorAddress ?? NULL_ADDRESS;
 }
 
 export function getToken(_chainId: string, env = Env.Prod, version = CURRENT_VERSION): Erc20TokenMetadata | null {
   const chainId = _chainId as ChainId;
-  return chainConstants[chainId][env][version]?.flowContracts?.token ?? null;
+  return chainConstants[chainId]?.[env]?.[version]?.flowContracts?.token ?? null;
 }
 
 export function getTokenByStaker(chainId: ChainId, stakerContractAddress: string) {
