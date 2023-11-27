@@ -16,7 +16,6 @@ export * from './NftSale';
 export * from './NftSalesAndOrders';
 export * from './OBOrder';
 export * from './OrderMatch';
-export * from './Postgres';
 export * from './Queries';
 export * from './Sets';
 export * from './SocialsStats';

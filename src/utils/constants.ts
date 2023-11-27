@@ -271,6 +271,41 @@ export const POLYGON_FLOW_OB_COMPLICATION_ADDRESS = '0xf10005a7E799CfD16BD71A334
 export const POLYGON_FLOW_MATCH_EXECUTOR_ADDRESS = '0xf1000f3c85d22bd1105E39940e7d95C8b7623B36'.toLowerCase();
 export const POLYGON_FLOW_CUMULATIVE_AIRDROP_ADDRESS = '0xf1000a7467e9D67F53e44AB30562800B6e38F616'.toLowerCase();
 
+// polygon zkevm
+export const POLYGON_ZKEVM_NETWORK_NAME = 'polygon-zkevm';
+export const POLYGON_ZKEVM_CHAIN_SCANNER_BASE = 'https://zkevm.polygonscan.com/';
+export const POLYGON_ZKEVM_WETH_ADDRESS = '0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9'.toLowerCase();
+
+// arbitrum
+export const ARBITRUM_NETWORK_NAME = 'arbitrum';
+export const ARBITRUM_CHAIN_SCANNER_BASE = 'https://arbiscan.io';
+export const ARBITRUM_WETH_ADDRESS = '0x82af49447d8a07e3bd95bd0d56f35241523fbab1'.toLowerCase();
+
+// optimism
+export const OPTIMISM_NETWORK_NAME = 'optimism';
+export const OPTIMISM_CHAIN_SCANNER_BASE = 'https://optimistic.etherscan.io';
+export const OPTIMISM_WETH_ADDRESS = '0x4200000000000000000000000000000000000006'.toLowerCase();
+
+// arbitrum nova
+export const ARBITRUM_NOVA_NETWORK_NAME = 'arbitrum-nova';
+export const ARBITRUM_NOVA_CHAIN_SCANNER_BASE = 'https://nova.arbiscan.io';
+export const ARBITRUM_NOVA_WETH_ADDRESS = '0x765277eebeca2e31912c9946eae1021199b39c61'.toLowerCase();
+
+// base
+export const BASE_NETWORK_NAME = 'base';
+export const BASE_CHAIN_SCANNER_BASE = 'https://basescan.org/';
+export const BASE_WETH_ADDRESS = '0x4200000000000000000000000000000000000006'.toLowerCase();
+
+// zora
+export const ZORA_NETWORK_NAME = 'zora';
+export const ZORA_CHAIN_SCANNER_BASE = 'https://explorer.zora.energy/';
+export const ZORA_WETH_ADDRESS = '0x4200000000000000000000000000000000000006'.toLowerCase();
+
+// linea
+export const LINEA_NETWORK_NAME = 'linea';
+export const LINEA_CHAIN_SCANNER_BASE = 'https://lineascan.build/';
+export const LINEA_WETH_ADDRESS = '0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f'.toLowerCase();
+
 /**
  * arbitrary but consistent timestamp to allow us to get all stats using the same
  * firestore indices as stats where the timestamp changes based on the doc id
@@ -593,6 +628,636 @@ export const chainConstants: Record<ChainId, Record<Env, Record<Version, ChainId
             symbol: 'FLOW',
             decimals: 18,
             chainId: ChainId.Polygon
+          }
+        }
+      }
+    }
+  },
+  [ChainId.PolygonZKEVM]: {
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: POLYGON_ZKEVM_NETWORK_NAME,
+        scannerBase: POLYGON_ZKEVM_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_ZKEVM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: POLYGON_ZKEVM_NETWORK_NAME,
+        scannerBase: POLYGON_ZKEVM_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_ZKEVM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: POLYGON_ZKEVM_NETWORK_NAME,
+        scannerBase: POLYGON_ZKEVM_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_ZKEVM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: POLYGON_ZKEVM_NETWORK_NAME,
+        scannerBase: POLYGON_ZKEVM_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_ZKEVM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: POLYGON_ZKEVM_NETWORK_NAME,
+        scannerBase: POLYGON_ZKEVM_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_ZKEVM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: POLYGON_ZKEVM_NETWORK_NAME,
+        scannerBase: POLYGON_ZKEVM_CHAIN_SCANNER_BASE,
+        wethAddress: POLYGON_ZKEVM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    }
+  },
+  [ChainId.Arbitrum]: {
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: ARBITRUM_NETWORK_NAME,
+        scannerBase: ARBITRUM_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: ARBITRUM_NETWORK_NAME,
+        scannerBase: ARBITRUM_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: ARBITRUM_NETWORK_NAME,
+        scannerBase: ARBITRUM_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: ARBITRUM_NETWORK_NAME,
+        scannerBase: ARBITRUM_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: ARBITRUM_NETWORK_NAME,
+        scannerBase: ARBITRUM_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: ARBITRUM_NETWORK_NAME,
+        scannerBase: ARBITRUM_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    }
+  },
+  [ChainId.Optimism]: {
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: OPTIMISM_NETWORK_NAME,
+        scannerBase: OPTIMISM_CHAIN_SCANNER_BASE,
+        wethAddress: OPTIMISM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: OPTIMISM_NETWORK_NAME,
+        scannerBase: OPTIMISM_CHAIN_SCANNER_BASE,
+        wethAddress: OPTIMISM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: OPTIMISM_NETWORK_NAME,
+        scannerBase: OPTIMISM_CHAIN_SCANNER_BASE,
+        wethAddress: OPTIMISM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: OPTIMISM_NETWORK_NAME,
+        scannerBase: OPTIMISM_CHAIN_SCANNER_BASE,
+        wethAddress: OPTIMISM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: OPTIMISM_NETWORK_NAME,
+        scannerBase: OPTIMISM_CHAIN_SCANNER_BASE,
+        wethAddress: OPTIMISM_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: OPTIMISM_NETWORK_NAME,
+        scannerBase: OPTIMISM_CHAIN_SCANNER_BASE,
+        wethAddress: OPTIMISM_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    }
+  },
+  [ChainId.ArbitrumNova]: {
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: ARBITRUM_NOVA_NETWORK_NAME,
+        scannerBase: ARBITRUM_NOVA_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_NOVA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: ARBITRUM_NOVA_NETWORK_NAME,
+        scannerBase: ARBITRUM_NOVA_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_NOVA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: ARBITRUM_NOVA_NETWORK_NAME,
+        scannerBase: ARBITRUM_NOVA_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_NOVA_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: ARBITRUM_NOVA_NETWORK_NAME,
+        scannerBase: ARBITRUM_NOVA_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_NOVA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: ARBITRUM_NOVA_NETWORK_NAME,
+        scannerBase: ARBITRUM_NOVA_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_NOVA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: ARBITRUM_NOVA_NETWORK_NAME,
+        scannerBase: ARBITRUM_NOVA_CHAIN_SCANNER_BASE,
+        wethAddress: ARBITRUM_NOVA_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    }
+  },
+  [ChainId.Base]: {
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: BASE_NETWORK_NAME,
+        scannerBase: BASE_CHAIN_SCANNER_BASE,
+        wethAddress: BASE_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: BASE_NETWORK_NAME,
+        scannerBase: BASE_CHAIN_SCANNER_BASE,
+        wethAddress: BASE_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: BASE_NETWORK_NAME,
+        scannerBase: BASE_CHAIN_SCANNER_BASE,
+        wethAddress: BASE_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: BASE_NETWORK_NAME,
+        scannerBase: BASE_CHAIN_SCANNER_BASE,
+        wethAddress: BASE_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: BASE_NETWORK_NAME,
+        scannerBase: BASE_CHAIN_SCANNER_BASE,
+        wethAddress: BASE_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: BASE_NETWORK_NAME,
+        scannerBase: BASE_CHAIN_SCANNER_BASE,
+        wethAddress: BASE_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    }
+  },
+  [ChainId.Zora]: {
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: ZORA_NETWORK_NAME,
+        scannerBase: ZORA_CHAIN_SCANNER_BASE,
+        wethAddress: ZORA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: ZORA_NETWORK_NAME,
+        scannerBase: ZORA_CHAIN_SCANNER_BASE,
+        wethAddress: ZORA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: ZORA_NETWORK_NAME,
+        scannerBase: ZORA_CHAIN_SCANNER_BASE,
+        wethAddress: ZORA_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: ZORA_NETWORK_NAME,
+        scannerBase: ZORA_CHAIN_SCANNER_BASE,
+        wethAddress: ZORA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: ZORA_NETWORK_NAME,
+        scannerBase: ZORA_CHAIN_SCANNER_BASE,
+        wethAddress: ZORA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: ZORA_NETWORK_NAME,
+        scannerBase: ZORA_CHAIN_SCANNER_BASE,
+        wethAddress: ZORA_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    }
+  },
+  [ChainId.Linea]: {
+    [Env.Dev]: {
+      [Version.V1]: {
+        networkName: LINEA_NETWORK_NAME,
+        scannerBase: LINEA_CHAIN_SCANNER_BASE,
+        wethAddress: LINEA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: LINEA_NETWORK_NAME,
+        scannerBase: LINEA_CHAIN_SCANNER_BASE,
+        wethAddress: LINEA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: LINEA_NETWORK_NAME,
+        scannerBase: LINEA_CHAIN_SCANNER_BASE,
+        wethAddress: LINEA_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
+          }
+        }
+      }
+    },
+    [Env.Prod]: {
+      [Version.V1]: {
+        networkName: LINEA_NETWORK_NAME,
+        scannerBase: LINEA_CHAIN_SCANNER_BASE,
+        wethAddress: LINEA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.V2]: {
+        networkName: LINEA_NETWORK_NAME,
+        scannerBase: LINEA_CHAIN_SCANNER_BASE,
+        wethAddress: LINEA_WETH_ADDRESS,
+        infinityContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          stakerAddress: '',
+          token: {} as any,
+          cmDistributorAddress: ''
+        }
+      },
+      [Version.FLOW]: {
+        networkName: LINEA_NETWORK_NAME,
+        scannerBase: LINEA_CHAIN_SCANNER_BASE,
+        wethAddress: LINEA_WETH_ADDRESS,
+        flowContracts: {
+          exchangeAddress: '',
+          obComplicationAddress: '',
+          matchExecutorAddress: '',
+          cmDistributorAddress: '',
+          token: {
+            address: '',
+            name: '',
+            symbol: '',
+            decimals: 18,
+            chainId: ChainId.PolygonZKEVM
           }
         }
       }
